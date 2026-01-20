@@ -1,4 +1,4 @@
-export const API_URL = "http://localhost:4000"
+export const API_URL = "http://localhost:3000"
 
 export async function apiLogin(email: string, password: string) {
   const res = await fetch(`${API_URL}/auth/login`, {
@@ -15,7 +15,7 @@ export async function apiLogin(email: string, password: string) {
   return res.json()
 }
 export async function apiLogout() {
-  await fetch("http://localhost:4000/auth/logout", {
+  await fetch("http://localhost:3000/auth/logout", {
     method: "POST",
     credentials: "include",
   })
