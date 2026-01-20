@@ -11,8 +11,16 @@ async function bootstrap() {
     AppModule,
     new ExpressAdapter(expressApp),
   );
+
   app.enableCors();
-  await app.init();
+
+  app.setGlobalPrefix('api/v1');
+  if (!process.env.VERCEL) {
+    await app.listen(3001);
+    console.log('Nest API running at http://localhost:3001/api/v1');
+  } else {
+    await app.init();
+  }
 }
 
 bootstrap();
