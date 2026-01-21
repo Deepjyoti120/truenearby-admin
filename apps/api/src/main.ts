@@ -11,7 +11,6 @@ async function bootstrap() {
     new ExpressAdapter(expressApp),
   );
 
-<<<<<<< HEAD
   app.enableCors();
 
   app.setGlobalPrefix('api/v1');
@@ -21,15 +20,6 @@ async function bootstrap() {
   } else {
     await app.init();
   }
-=======
-  app.enableCors({
-    origin: ['http://localhost:3000', 'http://localhost:3001'],
-    credentials: true,
-  });
-
-  await app.listen(3001);
-  console.log('Nest API running at http://localhost:3001');
->>>>>>> 1316c88 (perfect)
 }
 
-bootstrap();
+void bootstrap();
