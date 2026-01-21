@@ -20,6 +20,7 @@ export default function LoginPage() {
     const password = formData.get("password") as string
     try {
       const data = await apiLogin(email, password) 
+      console.log("Login successful:", data)
       router.push("/dashboard")
     } catch (err) {
       setError("Invalid email or password")

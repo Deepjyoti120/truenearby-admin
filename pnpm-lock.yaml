@@ -6,6 +6,7 @@ settings:
 
 importers:
 
+<<<<<<< HEAD
   .:
     dependencies:
       serverless-http:
@@ -15,6 +16,9 @@ importers:
       '@vercel/node':
         specifier: ^5.5.23
         version: 5.5.23
+=======
+  .: {}
+>>>>>>> 1316c88 (perfect)
 
   apps/admin:
     dependencies:

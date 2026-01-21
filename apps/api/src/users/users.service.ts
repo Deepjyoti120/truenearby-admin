@@ -10,6 +10,7 @@ export class UsersService {
   ];
 
   findByEmail(email: string) {
+    console.log('Searching for user with email:', email);
     return this.users.find((u) => u.email === email);
   }
 }
