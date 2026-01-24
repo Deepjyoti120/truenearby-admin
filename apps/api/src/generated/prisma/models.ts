@@ -8,13 +8,13 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/User.js'
-export type * from './models/Profile.js'
-export type * from './models/Photo.js'
-export type * from './models/Like.js'
-export type * from './models/Match.js'
-export type * from './models/Chat.js'
-export type * from './models/Message.js'
-export type * from './models/Block.js'
-export type * from './models/Subscription.js'
-export type * from './commonInputTypes.js'
+export type * from './models/User'
+export type * from './models/Profile'
+export type * from './models/Photo'
+export type * from './models/Like'
+export type * from './models/Match'
+export type * from './models/Chat'
+export type * from './models/Message'
+export type * from './models/Block'
+export type * from './models/Subscription'
+export type * from './commonInputTypes'

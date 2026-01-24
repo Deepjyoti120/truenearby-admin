@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "target": "ES2022",
     "outDir": "./dist",
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "resolvePackageJsonExports": true,
     "isolatedModules": true,
     "declaration": true,
     "removeComments": true,
