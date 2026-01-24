@@ -10,11 +10,175 @@ datasource db {
 
 model User {
   @@map("users")
-  id        String      @id @default(uuid()) @db.Uuid
-  email     String      @unique
-  name      String?
-  isActive  Boolean     @default(true)
-  createdAt DateTime    @default(now())
-  updatedAt DateTime    @updatedAt
+
+  id            String      @id @default(uuid()) @db.Uuid
+  email         String      @unique
+  phone         String?     @unique
+  passwordHash  String
+  isActive      Boolean     @default(true)
+  isVerified    Boolean     @default(false)
+  lastActiveAt  DateTime?
+
+  profile       Profile?
+  photos        Photo[]
+  likesSent     Like[]      @relation("LikesSent")
+  likesReceived Like[]      @relation("LikesReceived")
+  matchesA      Match[]     @relation("MatchA")
+  matchesB      Match[]     @relation("MatchB")
+  messages      Message[]
+  subscriptions Subscription[]
+  blocksSent    Block[]     @relation("BlocksSent")
+  blocksReceived Block[]    @relation("BlocksReceived")
+
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
 }
+
+model Profile {
+  @@map("profiles")
+
+  id          String   @id @default(uuid()) @db.Uuid
+  userId      String   @unique @db.Uuid
+  user        User     @relation(fields: [userId], references: [id])
+
+  gender      Gender
+  bio         String?
+  birthDate   DateTime
+  heightCm    Int?
+  lookingFor  LookingFor
+
+  latitude    Float
+  longitude   Float
+  city        String?
+  country     String?
+
+  isHidden    Boolean  @default(false)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+
+model Photo {
+  @@map("photos")
+
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  user      User     @relation(fields: [userId], references: [id])
+
+  url       String
+  isPrimary Boolean  @default(false)
+
+  createdAt DateTime @default(now())
+}
+
+model Like {
+  @@map("likes")
+
+  id         String   @id @default(uuid()) @db.Uuid
+  fromUserId String   @db.Uuid
+  toUserId   String   @db.Uuid
+
+  fromUser   User     @relation("LikesSent", fields: [fromUserId], references: [id])
+  toUser     User     @relation("LikesReceived", fields: [toUserId], references: [id])
+
+  createdAt  DateTime @default(now())
+
+  @@unique([fromUserId, toUserId])
+}
+
+model Match {
+  @@map("matches")
+
+  id        String   @id @default(uuid()) @db.Uuid
+  userAId   String   @db.Uuid
+  userBId   String   @db.Uuid
+
+  userA     User     @relation("MatchA", fields: [userAId], references: [id])
+  userB     User     @relation("MatchB", fields: [userBId], references: [id])
+
+  chat      Chat?
+
+  createdAt DateTime @default(now())
+
+  @@unique([userAId, userBId])
+}
+
+
+model Chat {
+  @@map("chats")
+
+  id        String    @id @default(uuid()) @db.Uuid
+  matchId   String    @unique @db.Uuid
+  match     Match     @relation(fields: [matchId], references: [id])
+
+  messages  Message[]
+
+  createdAt DateTime  @default(now())
+}
+
+model Message {
+  @@map("messages")
+
+  id        String   @id @default(uuid()) @db.Uuid
+  chatId   String   @db.Uuid
+  senderId String   @db.Uuid
+
+  chat     Chat     @relation(fields: [chatId], references: [id])
+  sender   User     @relation(fields: [senderId], references: [id])
+
+  content  String
+  isRead   Boolean  @default(false)
+
+  createdAt DateTime @default(now())
+}
+
+model Block {
+  @@map("blocks")
+
+  id           String   @id @default(uuid()) @db.Uuid
+  blockerId    String   @db.Uuid
+  blockedId    String   @db.Uuid
+
+  blocker      User     @relation("BlocksSent", fields: [blockerId], references: [id])
+  blocked      User     @relation("BlocksReceived", fields: [blockedId], references: [id])
+
+  createdAt    DateTime @default(now())
+
+  @@unique([blockerId, blockedId])
+}
+
+model Subscription {
+  @@map("subscriptions")
+
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  user      User     @relation(fields: [userId], references: [id])
+
+  plan      Plan
+  startAt   DateTime
+  endAt     DateTime
+  isActive  Boolean  @default(true)
+
+  createdAt DateTime @default(now())
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum LookingFor {
+  MALE
+  FEMALE
+  BOTH
+}
+
+enum Plan {
+  FREE
+  PLUS
+  GOLD
+}
+
 

@@ -7,6 +7,6 @@ export class UsersController {
 
   @Get()
   async getUsers() {
-    return this.prisma.user.findMany();
+    return this.prisma.user.findMany({ where: { isActive: true } });
   }
 }
