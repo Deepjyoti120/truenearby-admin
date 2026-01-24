@@ -7,13 +7,6 @@ export class UsersController {
 
   @Get()
   async getUsers() {
-    // return this.prisma.user.create({
-    //   data: {
-    //     email: 'deep@gmail.com',
-    //     phone: '8811890839',
-    //     passwordHash: 'hashed_password_here',
-    //   },
-    // });
     return this.prisma.user.findMany({ where: { isActive: true } });
   }
 }
