@@ -12,9 +12,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.28.0",
-  "dependencies": {
-    "@nestjs/swagger": "^11.2.5",
-    "swagger-ui-express": "^5.0.1"
-  }
+  "packageManager": "pnpm@10.28.0"
 }
