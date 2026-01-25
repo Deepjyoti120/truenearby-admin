@@ -1,4 +1,11 @@
-import { Body, Controller, Post, Req, Res, UnauthorizedException } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Post,
+  Req,
+  Res,
+  UnauthorizedException,
+} from '@nestjs/common';
 import type { Request, Response } from 'express';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
@@ -7,7 +14,10 @@ import { ConfigService } from '@nestjs/config';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService, private config: ConfigService) { }
+  constructor(
+    private readonly authService: AuthService,
+    private config: ConfigService,
+  ) {}
 
   @Post('register')
   async register(@Body() dto: RegisterDto) {
@@ -38,9 +48,7 @@ export class AuthController {
   }
 
   @Post('refresh')
-  async refresh(
-    @Req() req: Request,
-  ) {
+  async refresh(@Req() req: Request) {
     const refreshToken = req.cookies?.refresh_token;
 
     if (!refreshToken) {

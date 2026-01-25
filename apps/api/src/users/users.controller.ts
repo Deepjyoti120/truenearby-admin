@@ -3,7 +3,7 @@ import { PrismaService } from '../prisma/prisma.service';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   @Get()
   async getUsers() {

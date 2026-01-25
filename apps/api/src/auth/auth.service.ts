@@ -1,14 +1,21 @@
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../prisma/prisma.service';
 import { RegisterDto } from './dto/register.dto';
-import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { AuthEntryDto } from './dto/entry.dto';
 import { JwtService } from '@nestjs/jwt';
 import { USER_SAFE_SELECT } from '../prisma/selects/user.safe.select';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly prisma: PrismaService, private readonly jwtService: JwtService,) { }
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly jwtService: JwtService,
+  ) {}
 
   // private signToken(user: { id: string; email: string }) {
   //   return this.jwtService.sign({
@@ -57,7 +64,7 @@ export class AuthService {
       throw new UnauthorizedException('Refresh token revoked');
     }
     const isValid = await Promise.any(
-      tokens.map(t => bcrypt.compare(refreshToken, t.tokenHash)),
+      tokens.map((t) => bcrypt.compare(refreshToken, t.tokenHash)),
     ).catch(() => false);
     if (!isValid) {
       throw new UnauthorizedException('Invalid refresh token');
@@ -123,13 +130,9 @@ export class AuthService {
         },
         include: { profile: true },
       });
-    }
-    else {
+    } else {
       if (dto.password) {
-        const isValid = await bcrypt.compare(
-          dto.password,
-          user.passwordHash,
-        );
+        const isValid = await bcrypt.compare(dto.password, user.passwordHash);
 
         if (!isValid) {
           throw new UnauthorizedException('Invalid credentials');
@@ -147,9 +150,7 @@ export class AuthService {
       data: {
         userId: user.id,
         tokenHash: await bcrypt.hash(refreshToken, 12),
-        expiresAt: new Date(
-          Date.now() + 30 * 24 * 60 * 60 * 1000,
-        ),
+        expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
       },
     });
     return {
@@ -164,5 +165,4 @@ export class AuthService {
       _refreshToken: refreshToken,
     };
   }
-
 }

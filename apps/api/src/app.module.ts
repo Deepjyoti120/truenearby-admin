@@ -7,7 +7,10 @@ import { ResponseInterceptor } from './common/response/response.interceptor';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [UsersModule, AuthModule, PrismaModule,
+  imports: [
+    UsersModule,
+    AuthModule,
+    PrismaModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
@@ -19,4 +22,4 @@ import { ConfigModule } from '@nestjs/config';
     },
   ],
 })
-export class AppModule { }
+export class AppModule {}
