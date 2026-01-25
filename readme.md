@@ -8,3 +8,10 @@ pnpm exec prisma migrate resolve --rolled-back "20260124021641_add_postgis"
 
 pnpm exec nest g module prisma
 pnpm exec nest g service prisma
+
+pnpm exec prisma studio
+
+<!-- Api controller, module, service -->
+nest g module auth
+nest g controller auth
+nest g service auth
