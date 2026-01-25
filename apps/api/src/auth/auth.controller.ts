@@ -49,12 +49,10 @@ export class AuthController {
 
   @Post('refresh')
   async refresh(@Req() req: Request) {
-    const refreshToken = req.cookies?.refresh_token;
-
+    const refreshToken = req.cookies?.refresh_token as string;
     if (!refreshToken) {
       throw new UnauthorizedException('Refresh token missing');
     }
-
     return this.authService.refresh(refreshToken);
   }
 }
