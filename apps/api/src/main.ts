@@ -5,6 +5,7 @@ import { ExpressAdapter } from '@nestjs/platform-express';
 import express from 'express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
+import cookieParser from 'cookie-parser';
 
 const expressApp = express();
 
@@ -13,6 +14,7 @@ async function bootstrap() {
     AppModule,
     new ExpressAdapter(expressApp),
   );
+  app.use(cookieParser());
   app.enableCors();
   app.setGlobalPrefix('api');
   app.useGlobalPipes(

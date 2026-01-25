@@ -14,7 +14,6 @@ export class PrismaService
     if (!databaseUrl) {
       throw new Error('DATABASE_URL is not defined');
     }
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
     const pool = new Pool({
       connectionString: databaseUrl,
     });

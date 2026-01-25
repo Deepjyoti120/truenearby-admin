@@ -1,11 +1,79 @@
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../prisma/prisma.service';
 import { RegisterDto } from './dto/register.dto';
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
+import { AuthEntryDto } from './dto/entry.dto';
+import { JwtService } from '@nestjs/jwt';
+import { USER_SAFE_SELECT } from '../prisma/selects/user.safe.select';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService, private readonly jwtService: JwtService,) { }
+
+  // private signToken(user: { id: string; email: string }) {
+  //   return this.jwtService.sign({
+  //     sub: user.id,
+  //     email: user.email,
+  //   });
+  // }
+
+  private signAccessToken(user: { id: string; email: string }) {
+    return this.jwtService.sign(
+      {
+        sub: user.id,
+        email: user.email,
+      },
+      {
+        expiresIn: '15m',
+      },
+    );
+  }
+
+  private signRefreshToken(userId: string) {
+    return this.jwtService.sign(
+      {
+        sub: userId,
+      },
+      {
+        expiresIn: '30d',
+      },
+    );
+  }
+  async refresh(refreshToken: string) {
+    let payload: { sub: string };
+    try {
+      payload = this.jwtService.verify(refreshToken);
+    } catch {
+      throw new UnauthorizedException('Invalid refresh token');
+    }
+    const tokens = await this.prisma.refreshToken.findMany({
+      where: {
+        userId: payload.sub,
+        isRevoked: false,
+        expiresAt: { gt: new Date() },
+      },
+    });
+    if (!tokens.length) {
+      throw new UnauthorizedException('Refresh token revoked');
+    }
+    const isValid = await Promise.any(
+      tokens.map(t => bcrypt.compare(refreshToken, t.tokenHash)),
+    ).catch(() => false);
+    if (!isValid) {
+      throw new UnauthorizedException('Invalid refresh token');
+    }
+    const user = await this.prisma.user.findUnique({
+      where: { id: payload.sub },
+    });
+    if (!user) {
+      throw new UnauthorizedException('User not found');
+    }
+    const accessToken = this.signAccessToken({
+      id: user.id,
+      email: user.email,
+    });
+    return { accessToken };
+  }
 
   async register(dto: RegisterDto) {
     const existingUser = await this.prisma.user.findUnique({
@@ -28,7 +96,73 @@ export class AuthService {
         createdAt: true,
       },
     });
-
     return user;
   }
+
+  async entry(dto: AuthEntryDto) {
+    let user = await this.prisma.user.findUnique({
+      where: { email: dto.email },
+      include: { profile: true },
+    });
+
+    // REGISTER
+    if (!user) {
+      if (!dto.password) {
+        throw new BadRequestException(
+          'Password required for first-time registration',
+        );
+      }
+
+      const passwordHash = await bcrypt.hash(dto.password, 12);
+
+      user = await this.prisma.user.create({
+        data: {
+          email: dto.email,
+          phone: dto.phone,
+          passwordHash,
+        },
+        include: { profile: true },
+      });
+    }
+    else {
+      if (dto.password) {
+        const isValid = await bcrypt.compare(
+          dto.password,
+          user.passwordHash,
+        );
+
+        if (!isValid) {
+          throw new UnauthorizedException('Invalid credentials');
+        }
+      }
+    }
+
+    const accessToken = this.signAccessToken({
+      id: user.id,
+      email: user.email,
+    });
+
+    const refreshToken = this.signRefreshToken(user.id);
+    await this.prisma.refreshToken.create({
+      data: {
+        userId: user.id,
+        tokenHash: await bcrypt.hash(refreshToken, 12),
+        expiresAt: new Date(
+          Date.now() + 30 * 24 * 60 * 60 * 1000,
+        ),
+      },
+    });
+    return {
+      accessToken,
+      user: {
+        id: user.id,
+        email: user.email,
+        phone: user.phone,
+        profile: user.profile,
+        createdAt: user.createdAt,
+      },
+      _refreshToken: refreshToken,
+    };
+  }
+
 }
