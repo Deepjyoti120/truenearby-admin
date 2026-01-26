@@ -8,7 +8,6 @@ import {
 } from '@nestjs/common';
 import { AuthEntryDto } from './dto/entry.dto';
 import { JwtService } from '@nestjs/jwt';
-import { USER_SAFE_SELECT } from '../prisma/selects/user.safe.select';
 
 @Injectable()
 export class AuthService {
@@ -164,5 +163,30 @@ export class AuthService {
       },
       _refreshToken: refreshToken,
     };
+  }
+
+  async logout(refreshToken: string) {
+    const tokens = await this.prisma.refreshToken.findMany({
+      where: {
+        isRevoked: false,
+        expiresAt: { gt: new Date() },
+      },
+    });
+
+    for (const token of tokens) {
+      if (await bcrypt.compare(refreshToken, token.tokenHash)) {
+        await this.prisma.refreshToken.update({
+          where: { id: token.id },
+          data: { isRevoked: true },
+        });
+        break;
+      }
+    }
+  }
+  async logoutAll(userId: string) {
+    await this.prisma.refreshToken.updateMany({
+      where: { userId },
+      data: { isRevoked: true },
+    });
   }
 }

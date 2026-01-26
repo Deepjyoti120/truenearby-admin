@@ -15,3 +15,8 @@ pnpm exec prisma studio
 nest g module auth
 nest g controller auth
 nest g service auth
+
+pnpm exec nest g module profile
+pnpm exec nest g controller profile
+pnpm exec nest g service profile
+
