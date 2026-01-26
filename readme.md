@@ -20,3 +20,8 @@ pnpm exec nest g module profile
 pnpm exec nest g controller profile
 pnpm exec nest g service profile
 
+pnpm exec nest g module photos
+pnpm exec nest g controller photos
+pnpm exec nest g service photos
+
+
