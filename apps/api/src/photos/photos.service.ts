@@ -1,13 +1,17 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import { ImageKitService } from './imagekit.service';
 
 @Injectable()
 export class PhotosService {
   private readonly MAX_PHOTOS = 6;
 
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly imageKitService: ImageKitService,
+  ) {}
 
-  async save(userId: string, url: string) {
+  async save(userId: string, url: string, fileId: string) {
     const count = await this.prisma.photo.count({
       where: { userId },
     });
@@ -15,17 +19,15 @@ export class PhotosService {
     if (count >= this.MAX_PHOTOS) {
       throw new BadRequestException('Maximum 6 photos allowed');
     }
-
     const isPrimary = count === 0;
-
     const photo = await this.prisma.photo.create({
       data: {
         userId,
         url,
         isPrimary,
+        fileId,
       },
     });
-
     return {
       success: true,
       photo,
@@ -71,6 +73,7 @@ export class PhotosService {
       throw new BadRequestException('Photo not found');
     }
 
+    // await this.imageKitService.delete(file);
     await this.prisma.photo.delete({
       where: { id: photoId },
     });
@@ -86,5 +89,25 @@ export class PhotosService {
     }
 
     return { success: true };
+  }
+  async uploadToImageKit(userId: string, file: Express.Multer.File) {
+    if (!file) throw new BadRequestException('No file uploaded');
+
+    const count = await this.prisma.photo.count({ where: { userId } });
+    if (count >= 6) throw new BadRequestException('Max 6 photos allowed');
+
+    const { url, fileId } = await this.imageKitService.uploadFile(file);
+    const isPrimary = count === 0;
+
+    const photo = await this.prisma.photo.create({
+      data: {
+        userId,
+        url,
+        fileId,
+        isPrimary,
+      },
+    });
+
+    return { success: true, photo };
   }
 }

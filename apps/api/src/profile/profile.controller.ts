@@ -4,6 +4,7 @@ import { ProfileService } from './profile.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { RegisterDeviceDto } from './dto/register-device.dto';
 
 @ApiTags('Profile')
 @ApiBearerAuth('access-token')
@@ -18,5 +19,13 @@ export class ProfileController {
     @Body() dto: CreateProfileDto,
   ) {
     return this.profileService.create(user.id, dto);
+  }
+  @UseGuards(JwtAuthGuard)
+  @Post('fcm')
+  registerDevice(
+    @CurrentUser() user: { id: string },
+    @Body() dto: RegisterDeviceDto,
+  ) {
+    return this.profileService.registerDevice(user.id, dto);
   }
 }

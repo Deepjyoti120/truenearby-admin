@@ -104,6 +104,7 @@ model Photo {
   user      User     @relation(fields: [userId], references: [id])
 
   url       String
+  fileId    String
   isPrimary Boolean  @default(false)
 
   createdAt DateTime @default(now())

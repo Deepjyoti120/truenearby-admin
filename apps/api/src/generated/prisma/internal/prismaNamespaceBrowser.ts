@@ -143,6 +143,7 @@ export const PhotoScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   url: 'url',
+  fileId: 'fileId',
   isPrimary: 'isPrimary',
   createdAt: 'createdAt'
 } as const
