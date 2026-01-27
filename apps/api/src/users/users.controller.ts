@@ -1,12 +1,48 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query, UseGuards } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import { UsersService } from './users.service';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth/jwt-auth.guard';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { NearbyDto } from './dto/nearby.dto';
+import {
+  CurrentUser,
+  CurrentUserPayload,
+} from '../auth/decorators/current-user.decorator';
 
+@ApiTags('users')
+@ApiBearerAuth('access-token')
 @Controller('users')
 export class UsersController {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly usersService: UsersService,
+  ) {}
 
   @Get()
   async getUsers() {
     return await this.prisma.user.findMany({ where: { isActive: true } });
+  }
+  @UseGuards(JwtAuthGuard)
+  @Get('nearby')
+  async getNearbyUsers(
+    @CurrentUser() user: CurrentUserPayload,
+    @Query() query: NearbyDto,
+  ) {
+    const users = await this.usersService.getNearbyUsersHybrid(
+      user.id,
+      query.latitude,
+      query.longitude,
+      query.radiusKm,
+      query.limit,
+      query.page,
+    );
+    return {
+      meta: {
+        page: query.page ?? 1,
+        limit: query.limit ?? 20,
+        radiusKm: query.radiusKm ?? 20,
+      },
+      data: users,
+    };
   }
 }

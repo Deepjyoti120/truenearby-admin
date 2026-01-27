@@ -7,6 +7,7 @@ import { ResponseInterceptor } from './common/response/response.interceptor';
 import { ConfigModule } from '@nestjs/config';
 import { ProfileModule } from './profile/profile.module';
 import { PhotosModule } from './photos/photos.module';
+import { GeoModule } from './common/geo/geo.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { PhotosModule } from './photos/photos.module';
     }),
     ProfileModule,
     PhotosModule,
+    GeoModule,
   ],
   providers: [
     {
