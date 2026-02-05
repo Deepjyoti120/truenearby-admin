@@ -6,7 +6,7 @@ import { Prisma } from '../generated/prisma/client';
 
 @Injectable()
 export class UsersService {
-  constructor(private readonly prisma: PrismaService) { }
+  constructor(private readonly prisma: PrismaService) {}
   private users = [
     {
       id: 1,
@@ -54,7 +54,7 @@ export class UsersService {
           ) AS distance
         FROM users u
         JOIN profiles p ON p."userId" = u.id
-        WHERE 
+        WHERE
           u.id != ${userId}
           AND p."isHidden" = false
           AND p.latitude BETWEEN ${minLat} AND ${maxLat}
