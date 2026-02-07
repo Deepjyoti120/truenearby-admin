@@ -7,10 +7,13 @@ import {
 
 import { Socket } from 'socket.io';
 import { ChatService } from './chat.service';
+import { UseGuards } from '@nestjs/common';
+import { WsJwtGuard } from '../auth/guards/ws-jwt/ws-jwt.guard';
 
 @WebSocketGateway({
   cors: true,
 })
+@UseGuards(WsJwtGuard)
 export class ChatGateway {
   constructor(private chatService: ChatService) {}
   @SubscribeMessage('joinChat')
