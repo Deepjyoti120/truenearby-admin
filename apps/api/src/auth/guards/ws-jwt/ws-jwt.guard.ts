@@ -7,6 +7,7 @@ import {
 
 import { JwtService } from '@nestjs/jwt';
 import { Socket } from 'socket.io';
+import { CurrentUserPayload } from '../../decorators/current-user.decorator';
 
 @Injectable()
 export class WsJwtGuard implements CanActivate {
@@ -20,9 +21,8 @@ export class WsJwtGuard implements CanActivate {
     if (!token) {
       throw new UnauthorizedException('No token provided');
     }
-
     try {
-      const payload = this.jwtService.verify(token);
+      const payload = this.jwtService.verify<CurrentUserPayload>(token);
       (client as Socket & { user: any }).user = payload;
       return true;
     } catch {
