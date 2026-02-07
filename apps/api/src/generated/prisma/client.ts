@@ -92,3 +92,8 @@ export type Block = Prisma.BlockModel
  * 
  */
 export type Subscription = Prisma.SubscriptionModel
+/**
+ * Model Swipe
+ * 
+ */
+export type Swipe = Prisma.SwipeModel

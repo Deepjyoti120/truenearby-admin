@@ -3,6 +3,7 @@ import { getBoundingBox } from '../common/geo/geo.utils';
 import { PrismaService } from '../prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
 import { Prisma } from '../generated/prisma/client';
+import { SwipeDto } from './dto/swipe.dto';
 
 @Injectable()
 export class UsersService {
@@ -57,6 +58,16 @@ export class UsersService {
         WHERE
           u.id != ${userId}
           AND p."isHidden" = false
+          AND NOT EXISTS (
+            SELECT 1 FROM swipes s
+            WHERE s."fromUserId" = ${userId}
+            AND s."toUserId" = u.id
+          )
+          AND NOT EXISTS (
+            SELECT 1 FROM blocks b
+            WHERE b."blockerId" = ${userId}
+            AND b."blockedId" = u.id
+          )
           AND p.latitude BETWEEN ${minLat} AND ${maxLat}
           AND p.longitude BETWEEN ${minLng} AND ${maxLng}
       ) AS sub
@@ -67,5 +78,34 @@ export class UsersService {
     `,
     );
     return users;
+  }
+  async swipe(fromUserId: string, dto: SwipeDto) {
+    const swipe = await this.prisma.swipe.upsert({
+      where: {
+        fromUserId_toUserId: {
+          fromUserId,
+          toUserId: dto.toUserId,
+        },
+      },
+      update: { type: dto.type },
+      create: {
+        fromUserId,
+        toUserId: dto.toUserId,
+        type: dto.type,
+      },
+    });
+    if (dto.type === 'LIKE') {
+      const reverseLike = await this.prisma.swipe.findFirst({
+        where: {
+          fromUserId: dto.toUserId,
+          toUserId: fromUserId,
+          type: 'LIKE',
+        },
+      });
+      // if (reverseLike) {
+      //   await this.createMatch(fromUserId, dto.toUserId);
+      // }
+    }
+    return swipe;
   }
 }

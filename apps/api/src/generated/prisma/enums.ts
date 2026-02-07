@@ -9,6 +9,14 @@
 * 🟢 You can import this file directly.
 */
 
+export const SwipeType = {
+  LIKE: 'LIKE',
+  PASS: 'PASS'
+} as const
+
+export type SwipeType = (typeof SwipeType)[keyof typeof SwipeType]
+
+
 export const Gender = {
   MALE: 'MALE',
   FEMALE: 'FEMALE',

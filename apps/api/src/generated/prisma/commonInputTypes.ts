@@ -280,6 +280,23 @@ export type EnumPlanWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumPlanFilter<$PrismaModel>
 }
 
+export type EnumSwipeTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SwipeType | Prisma.EnumSwipeTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SwipeType[] | Prisma.ListEnumSwipeTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SwipeType[] | Prisma.ListEnumSwipeTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSwipeTypeFilter<$PrismaModel> | $Enums.SwipeType
+}
+
+export type EnumSwipeTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SwipeType | Prisma.EnumSwipeTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SwipeType[] | Prisma.ListEnumSwipeTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SwipeType[] | Prisma.ListEnumSwipeTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSwipeTypeWithAggregatesFilter<$PrismaModel> | $Enums.SwipeType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSwipeTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSwipeTypeFilter<$PrismaModel>
+}
+
 export type NestedUuidFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -555,6 +572,23 @@ export type NestedEnumPlanWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumPlanFilter<$PrismaModel>
   _max?: Prisma.NestedEnumPlanFilter<$PrismaModel>
+}
+
+export type NestedEnumSwipeTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SwipeType | Prisma.EnumSwipeTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SwipeType[] | Prisma.ListEnumSwipeTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SwipeType[] | Prisma.ListEnumSwipeTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSwipeTypeFilter<$PrismaModel> | $Enums.SwipeType
+}
+
+export type NestedEnumSwipeTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SwipeType | Prisma.EnumSwipeTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SwipeType[] | Prisma.ListEnumSwipeTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SwipeType[] | Prisma.ListEnumSwipeTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSwipeTypeWithAggregatesFilter<$PrismaModel> | $Enums.SwipeType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSwipeTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSwipeTypeFilter<$PrismaModel>
 }
 
 

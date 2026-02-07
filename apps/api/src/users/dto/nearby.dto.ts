@@ -32,7 +32,7 @@ export class NearbyDto {
   @IsNotEmpty()
   @Min(-90)
   @Max(90)
-  latitude: number;
+  latitude!: number;
 
   @ApiProperty({
     example: 91.7362,
@@ -43,5 +43,5 @@ export class NearbyDto {
   @IsNotEmpty()
   @Min(-180)
   @Max(180)
-  longitude: number;
+  longitude!: number;
 }

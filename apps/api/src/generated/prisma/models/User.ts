@@ -224,6 +224,8 @@ export type UserWhereInput = {
   subscriptions?: Prisma.SubscriptionListRelationFilter
   blocksSent?: Prisma.BlockListRelationFilter
   blocksReceived?: Prisma.BlockListRelationFilter
+  swipesSent?: Prisma.SwipeListRelationFilter
+  swipesReceived?: Prisma.SwipeListRelationFilter
   devices?: Prisma.UserDeviceListRelationFilter
   refreshTokens?: Prisma.RefreshTokenListRelationFilter
 }
@@ -248,6 +250,8 @@ export type UserOrderByWithRelationInput = {
   subscriptions?: Prisma.SubscriptionOrderByRelationAggregateInput
   blocksSent?: Prisma.BlockOrderByRelationAggregateInput
   blocksReceived?: Prisma.BlockOrderByRelationAggregateInput
+  swipesSent?: Prisma.SwipeOrderByRelationAggregateInput
+  swipesReceived?: Prisma.SwipeOrderByRelationAggregateInput
   devices?: Prisma.UserDeviceOrderByRelationAggregateInput
   refreshTokens?: Prisma.RefreshTokenOrderByRelationAggregateInput
 }
@@ -275,6 +279,8 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   subscriptions?: Prisma.SubscriptionListRelationFilter
   blocksSent?: Prisma.BlockListRelationFilter
   blocksReceived?: Prisma.BlockListRelationFilter
+  swipesSent?: Prisma.SwipeListRelationFilter
+  swipesReceived?: Prisma.SwipeListRelationFilter
   devices?: Prisma.UserDeviceListRelationFilter
   refreshTokens?: Prisma.RefreshTokenListRelationFilter
 }, "id" | "email" | "phone">
@@ -329,6 +335,8 @@ export type UserCreateInput = {
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
 }
@@ -353,6 +361,8 @@ export type UserUncheckedCreateInput = {
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
 }
@@ -377,6 +387,8 @@ export type UserUpdateInput = {
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
 }
@@ -401,6 +413,8 @@ export type UserUncheckedUpdateInput = {
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -670,6 +684,34 @@ export type UserUpdateOneRequiredWithoutSubscriptionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutSubscriptionsInput, Prisma.UserUpdateWithoutSubscriptionsInput>, Prisma.UserUncheckedUpdateWithoutSubscriptionsInput>
 }
 
+export type UserCreateNestedOneWithoutSwipesSentInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutSwipesSentInput, Prisma.UserUncheckedCreateWithoutSwipesSentInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutSwipesSentInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserCreateNestedOneWithoutSwipesReceivedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutSwipesReceivedInput, Prisma.UserUncheckedCreateWithoutSwipesReceivedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutSwipesReceivedInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutSwipesSentNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutSwipesSentInput, Prisma.UserUncheckedCreateWithoutSwipesSentInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutSwipesSentInput
+  upsert?: Prisma.UserUpsertWithoutSwipesSentInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutSwipesSentInput, Prisma.UserUpdateWithoutSwipesSentInput>, Prisma.UserUncheckedUpdateWithoutSwipesSentInput>
+}
+
+export type UserUpdateOneRequiredWithoutSwipesReceivedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutSwipesReceivedInput, Prisma.UserUncheckedCreateWithoutSwipesReceivedInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutSwipesReceivedInput
+  upsert?: Prisma.UserUpsertWithoutSwipesReceivedInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutSwipesReceivedInput, Prisma.UserUpdateWithoutSwipesReceivedInput>, Prisma.UserUncheckedUpdateWithoutSwipesReceivedInput>
+}
+
 export type UserCreateWithoutProfileInput = {
   id?: string
   email: string
@@ -689,6 +731,8 @@ export type UserCreateWithoutProfileInput = {
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
 }
@@ -712,6 +756,8 @@ export type UserUncheckedCreateWithoutProfileInput = {
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
 }
@@ -751,6 +797,8 @@ export type UserUpdateWithoutProfileInput = {
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
 }
@@ -774,6 +822,8 @@ export type UserUncheckedUpdateWithoutProfileInput = {
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -798,6 +848,8 @@ export type UserCreateWithoutDevicesInput = {
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
   refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
 }
 
@@ -821,6 +873,8 @@ export type UserUncheckedCreateWithoutDevicesInput = {
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
   refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -860,6 +914,8 @@ export type UserUpdateWithoutDevicesInput = {
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
 }
 
@@ -883,6 +939,8 @@ export type UserUncheckedUpdateWithoutDevicesInput = {
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -906,6 +964,8 @@ export type UserCreateWithoutRefreshTokensInput = {
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
 }
 
@@ -929,6 +989,8 @@ export type UserUncheckedCreateWithoutRefreshTokensInput = {
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -968,6 +1030,8 @@ export type UserUpdateWithoutRefreshTokensInput = {
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
 }
 
@@ -991,6 +1055,8 @@ export type UserUncheckedUpdateWithoutRefreshTokensInput = {
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -1013,6 +1079,8 @@ export type UserCreateWithoutPhotosInput = {
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
 }
@@ -1036,6 +1104,8 @@ export type UserUncheckedCreateWithoutPhotosInput = {
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
 }
@@ -1075,6 +1145,8 @@ export type UserUpdateWithoutPhotosInput = {
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
 }
@@ -1098,6 +1170,8 @@ export type UserUncheckedUpdateWithoutPhotosInput = {
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -1121,6 +1195,8 @@ export type UserCreateWithoutLikesSentInput = {
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
 }
@@ -1144,6 +1220,8 @@ export type UserUncheckedCreateWithoutLikesSentInput = {
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
 }
@@ -1172,6 +1250,8 @@ export type UserCreateWithoutLikesReceivedInput = {
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
 }
@@ -1195,6 +1275,8 @@ export type UserUncheckedCreateWithoutLikesReceivedInput = {
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
 }
@@ -1234,6 +1316,8 @@ export type UserUpdateWithoutLikesSentInput = {
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
 }
@@ -1257,6 +1341,8 @@ export type UserUncheckedUpdateWithoutLikesSentInput = {
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -1291,6 +1377,8 @@ export type UserUpdateWithoutLikesReceivedInput = {
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
 }
@@ -1314,6 +1402,8 @@ export type UserUncheckedUpdateWithoutLikesReceivedInput = {
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -1337,6 +1427,8 @@ export type UserCreateWithoutMatchesAInput = {
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
 }
@@ -1360,6 +1452,8 @@ export type UserUncheckedCreateWithoutMatchesAInput = {
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
 }
@@ -1388,6 +1482,8 @@ export type UserCreateWithoutMatchesBInput = {
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
 }
@@ -1411,6 +1507,8 @@ export type UserUncheckedCreateWithoutMatchesBInput = {
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
 }
@@ -1450,6 +1548,8 @@ export type UserUpdateWithoutMatchesAInput = {
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
 }
@@ -1473,6 +1573,8 @@ export type UserUncheckedUpdateWithoutMatchesAInput = {
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -1507,6 +1609,8 @@ export type UserUpdateWithoutMatchesBInput = {
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
 }
@@ -1530,6 +1634,8 @@ export type UserUncheckedUpdateWithoutMatchesBInput = {
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -1553,6 +1659,8 @@ export type UserCreateWithoutMessagesInput = {
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
 }
@@ -1576,6 +1684,8 @@ export type UserUncheckedCreateWithoutMessagesInput = {
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
 }
@@ -1615,6 +1725,8 @@ export type UserUpdateWithoutMessagesInput = {
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
 }
@@ -1638,6 +1750,8 @@ export type UserUncheckedUpdateWithoutMessagesInput = {
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -1661,6 +1775,8 @@ export type UserCreateWithoutBlocksSentInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutSenderInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
 }
@@ -1684,6 +1800,8 @@ export type UserUncheckedCreateWithoutBlocksSentInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
 }
@@ -1712,6 +1830,8 @@ export type UserCreateWithoutBlocksReceivedInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutSenderInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
 }
@@ -1735,6 +1855,8 @@ export type UserUncheckedCreateWithoutBlocksReceivedInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
 }
@@ -1774,6 +1896,8 @@ export type UserUpdateWithoutBlocksSentInput = {
   messages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
 }
@@ -1797,6 +1921,8 @@ export type UserUncheckedUpdateWithoutBlocksSentInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -1831,6 +1957,8 @@ export type UserUpdateWithoutBlocksReceivedInput = {
   messages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
 }
@@ -1854,6 +1982,8 @@ export type UserUncheckedUpdateWithoutBlocksReceivedInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -1877,6 +2007,8 @@ export type UserCreateWithoutSubscriptionsInput = {
   messages?: Prisma.MessageCreateNestedManyWithoutSenderInput
   blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
 }
@@ -1900,6 +2032,8 @@ export type UserUncheckedCreateWithoutSubscriptionsInput = {
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
   blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
   blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
   devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
   refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
 }
@@ -1939,6 +2073,8 @@ export type UserUpdateWithoutSubscriptionsInput = {
   messages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
   blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
   devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
 }
@@ -1962,6 +2098,240 @@ export type UserUncheckedUpdateWithoutSubscriptionsInput = {
   messages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
   blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
   blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
+  devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutSwipesSentInput = {
+  id?: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  isActive?: boolean
+  isVerified?: boolean
+  lastActiveAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
+  photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
+  likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
+  matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
+  matchesB?: Prisma.MatchCreateNestedManyWithoutUserBInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
+  blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
+  blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
+  devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutSwipesSentInput = {
+  id?: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  isActive?: boolean
+  isVerified?: boolean
+  lastActiveAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
+  photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
+  likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
+  matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
+  matchesB?: Prisma.MatchUncheckedCreateNestedManyWithoutUserBInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
+  blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
+  blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
+  devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutSwipesSentInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutSwipesSentInput, Prisma.UserUncheckedCreateWithoutSwipesSentInput>
+}
+
+export type UserCreateWithoutSwipesReceivedInput = {
+  id?: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  isActive?: boolean
+  isVerified?: boolean
+  lastActiveAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
+  photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
+  likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
+  matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
+  matchesB?: Prisma.MatchCreateNestedManyWithoutUserBInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
+  blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
+  blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutSwipesReceivedInput = {
+  id?: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  isActive?: boolean
+  isVerified?: boolean
+  lastActiveAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
+  photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
+  likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
+  matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
+  matchesB?: Prisma.MatchUncheckedCreateNestedManyWithoutUserBInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
+  blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
+  blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutSwipesReceivedInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutSwipesReceivedInput, Prisma.UserUncheckedCreateWithoutSwipesReceivedInput>
+}
+
+export type UserUpsertWithoutSwipesSentInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutSwipesSentInput, Prisma.UserUncheckedUpdateWithoutSwipesSentInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutSwipesSentInput, Prisma.UserUncheckedCreateWithoutSwipesSentInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutSwipesSentInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutSwipesSentInput, Prisma.UserUncheckedUpdateWithoutSwipesSentInput>
+}
+
+export type UserUpdateWithoutSwipesSentInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
+  photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
+  likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
+  matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
+  matchesB?: Prisma.MatchUpdateManyWithoutUserBNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
+  blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
+  blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
+  devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutSwipesSentInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
+  photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
+  likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
+  matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
+  matchesB?: Prisma.MatchUncheckedUpdateManyWithoutUserBNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
+  blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
+  devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserUpsertWithoutSwipesReceivedInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutSwipesReceivedInput, Prisma.UserUncheckedUpdateWithoutSwipesReceivedInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutSwipesReceivedInput, Prisma.UserUncheckedCreateWithoutSwipesReceivedInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutSwipesReceivedInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutSwipesReceivedInput, Prisma.UserUncheckedUpdateWithoutSwipesReceivedInput>
+}
+
+export type UserUpdateWithoutSwipesReceivedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
+  photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
+  likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
+  matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
+  matchesB?: Prisma.MatchUpdateManyWithoutUserBNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
+  blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
+  blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutSwipesReceivedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
+  photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
+  likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
+  matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
+  matchesB?: Prisma.MatchUncheckedUpdateManyWithoutUserBNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
+  blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
   devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
   refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -1981,6 +2351,8 @@ export type UserCountOutputType = {
   subscriptions: number
   blocksSent: number
   blocksReceived: number
+  swipesSent: number
+  swipesReceived: number
   devices: number
   refreshTokens: number
 }
@@ -1995,6 +2367,8 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   subscriptions?: boolean | UserCountOutputTypeCountSubscriptionsArgs
   blocksSent?: boolean | UserCountOutputTypeCountBlocksSentArgs
   blocksReceived?: boolean | UserCountOutputTypeCountBlocksReceivedArgs
+  swipesSent?: boolean | UserCountOutputTypeCountSwipesSentArgs
+  swipesReceived?: boolean | UserCountOutputTypeCountSwipesReceivedArgs
   devices?: boolean | UserCountOutputTypeCountDevicesArgs
   refreshTokens?: boolean | UserCountOutputTypeCountRefreshTokensArgs
 }
@@ -2075,6 +2449,20 @@ export type UserCountOutputTypeCountBlocksReceivedArgs<ExtArgs extends runtime.T
 /**
  * UserCountOutputType without action
  */
+export type UserCountOutputTypeCountSwipesSentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SwipeWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountSwipesReceivedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SwipeWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
 export type UserCountOutputTypeCountDevicesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.UserDeviceWhereInput
 }
@@ -2107,6 +2495,8 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   subscriptions?: boolean | Prisma.User$subscriptionsArgs<ExtArgs>
   blocksSent?: boolean | Prisma.User$blocksSentArgs<ExtArgs>
   blocksReceived?: boolean | Prisma.User$blocksReceivedArgs<ExtArgs>
+  swipesSent?: boolean | Prisma.User$swipesSentArgs<ExtArgs>
+  swipesReceived?: boolean | Prisma.User$swipesReceivedArgs<ExtArgs>
   devices?: boolean | Prisma.User$devicesArgs<ExtArgs>
   refreshTokens?: boolean | Prisma.User$refreshTokensArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -2160,6 +2550,8 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   subscriptions?: boolean | Prisma.User$subscriptionsArgs<ExtArgs>
   blocksSent?: boolean | Prisma.User$blocksSentArgs<ExtArgs>
   blocksReceived?: boolean | Prisma.User$blocksReceivedArgs<ExtArgs>
+  swipesSent?: boolean | Prisma.User$swipesSentArgs<ExtArgs>
+  swipesReceived?: boolean | Prisma.User$swipesReceivedArgs<ExtArgs>
   devices?: boolean | Prisma.User$devicesArgs<ExtArgs>
   refreshTokens?: boolean | Prisma.User$refreshTokensArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -2180,6 +2572,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     subscriptions: Prisma.$SubscriptionPayload<ExtArgs>[]
     blocksSent: Prisma.$BlockPayload<ExtArgs>[]
     blocksReceived: Prisma.$BlockPayload<ExtArgs>[]
+    swipesSent: Prisma.$SwipePayload<ExtArgs>[]
+    swipesReceived: Prisma.$SwipePayload<ExtArgs>[]
     devices: Prisma.$UserDevicePayload<ExtArgs>[]
     refreshTokens: Prisma.$RefreshTokenPayload<ExtArgs>[]
   }
@@ -2597,6 +2991,8 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   subscriptions<T extends Prisma.User$subscriptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$subscriptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SubscriptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   blocksSent<T extends Prisma.User$blocksSentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$blocksSentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   blocksReceived<T extends Prisma.User$blocksReceivedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$blocksReceivedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  swipesSent<T extends Prisma.User$swipesSentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$swipesSentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SwipePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  swipesReceived<T extends Prisma.User$swipesReceivedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$swipesReceivedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SwipePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   devices<T extends Prisma.User$devicesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$devicesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserDevicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   refreshTokens<T extends Prisma.User$refreshTokensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$refreshTokensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RefreshTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -3257,6 +3653,54 @@ export type User$blocksReceivedArgs<ExtArgs extends runtime.Types.Extensions.Int
   take?: number
   skip?: number
   distinct?: Prisma.BlockScalarFieldEnum | Prisma.BlockScalarFieldEnum[]
+}
+
+/**
+ * User.swipesSent
+ */
+export type User$swipesSentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Swipe
+   */
+  select?: Prisma.SwipeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Swipe
+   */
+  omit?: Prisma.SwipeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SwipeInclude<ExtArgs> | null
+  where?: Prisma.SwipeWhereInput
+  orderBy?: Prisma.SwipeOrderByWithRelationInput | Prisma.SwipeOrderByWithRelationInput[]
+  cursor?: Prisma.SwipeWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SwipeScalarFieldEnum | Prisma.SwipeScalarFieldEnum[]
+}
+
+/**
+ * User.swipesReceived
+ */
+export type User$swipesReceivedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Swipe
+   */
+  select?: Prisma.SwipeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Swipe
+   */
+  omit?: Prisma.SwipeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SwipeInclude<ExtArgs> | null
+  where?: Prisma.SwipeWhereInput
+  orderBy?: Prisma.SwipeOrderByWithRelationInput | Prisma.SwipeOrderByWithRelationInput[]
+  cursor?: Prisma.SwipeWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SwipeScalarFieldEnum | Prisma.SwipeScalarFieldEnum[]
 }
 
 /**

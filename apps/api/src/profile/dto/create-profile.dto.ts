@@ -15,15 +15,15 @@ import { Gender, LookingFor } from '../../generated/prisma/enums';
 export class CreateProfileDto {
   @ApiProperty({ enum: Gender })
   @IsEnum(Gender)
-  gender: Gender;
+  gender!: Gender;
 
   @ApiProperty({ enum: LookingFor })
   @IsEnum(LookingFor)
-  lookingFor: LookingFor;
+  lookingFor!: LookingFor;
 
   @ApiProperty({ example: '1998-05-20' })
   @IsDateString()
-  birthDate: string;
+  birthDate!: string;
 
   @ApiPropertyOptional({ example: 175 })
   @IsOptional()
@@ -39,11 +39,11 @@ export class CreateProfileDto {
 
   @ApiProperty({ example: 28.6139 })
   @IsLatitude()
-  latitude: number;
+  latitude!: number;
 
   @ApiProperty({ example: 77.209 })
   @IsLongitude()
-  longitude: number;
+  longitude!: number;
 
   @ApiPropertyOptional({ example: 'Delhi' })
   @IsOptional()

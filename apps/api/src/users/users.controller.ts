@@ -1,4 +1,4 @@
-import { Controller, Get, Query, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { UsersService } from './users.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth/jwt-auth.guard';
@@ -8,6 +8,7 @@ import {
   CurrentUser,
   CurrentUserPayload,
 } from '../auth/decorators/current-user.decorator';
+import { SwipeDto } from './dto/swipe.dto';
 
 @ApiTags('users')
 @ApiBearerAuth('access-token')
@@ -44,5 +45,10 @@ export class UsersController {
       },
       data: users,
     };
+  }
+  @Post('swipe')
+  @UseGuards(JwtAuthGuard)
+  async swipe(@CurrentUser() user: CurrentUserPayload, @Body() dto: SwipeDto) {
+    return this.usersService.swipe(user.id, dto);
   }
 }

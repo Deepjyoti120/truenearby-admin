@@ -61,7 +61,8 @@ export const ModelName = {
   Chat: 'Chat',
   Message: 'Message',
   Block: 'Block',
-  Subscription: 'Subscription'
+  Subscription: 'Subscription',
+  Swipe: 'Swipe'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -213,6 +214,17 @@ export const SubscriptionScalarFieldEnum = {
 } as const
 
 export type SubscriptionScalarFieldEnum = (typeof SubscriptionScalarFieldEnum)[keyof typeof SubscriptionScalarFieldEnum]
+
+
+export const SwipeScalarFieldEnum = {
+  id: 'id',
+  fromUserId: 'fromUserId',
+  toUserId: 'toUserId',
+  type: 'type',
+  createdAt: 'createdAt'
+} as const
+
+export type SwipeScalarFieldEnum = (typeof SwipeScalarFieldEnum)[keyof typeof SwipeScalarFieldEnum]
 
 
 export const SortOrder = {

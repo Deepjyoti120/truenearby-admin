@@ -28,6 +28,8 @@ model User {
   subscriptions Subscription[]
   blocksSent    Block[]     @relation("BlocksSent")
   blocksReceived Block[]    @relation("BlocksReceived")
+  swipesSent     Swipe[] @relation("SwipesSent")
+  swipesReceived Swipe[] @relation("SwipesReceived")
 
   devices       UserDevice[] 
   refreshTokens       RefreshToken[] 
@@ -198,6 +200,28 @@ model Subscription {
   isActive  Boolean  @default(true)
 
   createdAt DateTime @default(now())
+}
+
+model Swipe {
+  @@map("swipes")
+
+  id          String   @id @default(uuid()) @db.Uuid
+  fromUserId  String   @db.Uuid
+  toUserId    String   @db.Uuid
+
+  type        SwipeType
+
+  fromUser    User     @relation("SwipesSent", fields: [fromUserId], references: [id])
+  toUser      User     @relation("SwipesReceived", fields: [toUserId], references: [id])
+
+  createdAt   DateTime @default(now())
+
+  @@unique([fromUserId, toUserId])
+}
+
+enum SwipeType {
+  LIKE
+  PASS
 }
 
 enum Gender {

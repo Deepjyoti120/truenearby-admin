@@ -11,11 +11,9 @@ export class ProfileService {
     const existing = await this.prisma.profile.findUnique({
       where: { userId },
     });
-
     if (existing) {
       throw new BadRequestException('Profile already exists');
     }
-
     const profile = await this.prisma.profile.create({
       data: {
         userId,
@@ -30,7 +28,6 @@ export class ProfileService {
         country: dto.country,
       },
     });
-
     return {
       success: true,
       profile,

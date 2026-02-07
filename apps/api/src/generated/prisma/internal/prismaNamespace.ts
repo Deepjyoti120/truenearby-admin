@@ -394,7 +394,8 @@ export const ModelName = {
   Chat: 'Chat',
   Message: 'Message',
   Block: 'Block',
-  Subscription: 'Subscription'
+  Subscription: 'Subscription',
+  Swipe: 'Swipe'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -410,7 +411,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "profile" | "userDevice" | "refreshToken" | "photo" | "like" | "match" | "chat" | "message" | "block" | "subscription"
+    modelProps: "user" | "profile" | "userDevice" | "refreshToken" | "photo" | "like" | "match" | "chat" | "message" | "block" | "subscription" | "swipe"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1228,6 +1229,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Swipe: {
+      payload: Prisma.$SwipePayload<ExtArgs>
+      fields: Prisma.SwipeFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SwipeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SwipePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SwipeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SwipePayload>
+        }
+        findFirst: {
+          args: Prisma.SwipeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SwipePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SwipeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SwipePayload>
+        }
+        findMany: {
+          args: Prisma.SwipeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SwipePayload>[]
+        }
+        create: {
+          args: Prisma.SwipeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SwipePayload>
+        }
+        createMany: {
+          args: Prisma.SwipeCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SwipeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SwipePayload>[]
+        }
+        delete: {
+          args: Prisma.SwipeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SwipePayload>
+        }
+        update: {
+          args: Prisma.SwipeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SwipePayload>
+        }
+        deleteMany: {
+          args: Prisma.SwipeDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SwipeUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SwipeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SwipePayload>[]
+        }
+        upsert: {
+          args: Prisma.SwipeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SwipePayload>
+        }
+        aggregate: {
+          args: Prisma.SwipeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSwipe>
+        }
+        groupBy: {
+          args: Prisma.SwipeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SwipeGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SwipeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SwipeCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1402,6 +1477,17 @@ export const SubscriptionScalarFieldEnum = {
 export type SubscriptionScalarFieldEnum = (typeof SubscriptionScalarFieldEnum)[keyof typeof SubscriptionScalarFieldEnum]
 
 
+export const SwipeScalarFieldEnum = {
+  id: 'id',
+  fromUserId: 'fromUserId',
+  toUserId: 'toUserId',
+  type: 'type',
+  createdAt: 'createdAt'
+} as const
+
+export type SwipeScalarFieldEnum = (typeof SwipeScalarFieldEnum)[keyof typeof SwipeScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1536,6 +1622,20 @@ export type EnumPlanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
 export type ListEnumPlanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Plan[]'>
     
 
+
+/**
+ * Reference to a field of type 'SwipeType'
+ */
+export type EnumSwipeTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SwipeType'>
+    
+
+
+/**
+ * Reference to a field of type 'SwipeType[]'
+ */
+export type ListEnumSwipeTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SwipeType[]'>
+    
+
 /**
  * Batch Payload for updateMany & deleteMany & createMany
  */
@@ -1642,6 +1742,7 @@ export type GlobalOmitConfig = {
   message?: Prisma.MessageOmit
   block?: Prisma.BlockOmit
   subscription?: Prisma.SubscriptionOmit
+  swipe?: Prisma.SwipeOmit
 }
 
 /* Types for Logging */
