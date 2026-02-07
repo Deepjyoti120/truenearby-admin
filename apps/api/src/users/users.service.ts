@@ -1,7 +1,7 @@
 import * as bcrypt from 'bcrypt';
 import { getBoundingBox } from '../common/geo/geo.utils';
 import { PrismaService } from '../prisma/prisma.service';
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { Prisma } from '../generated/prisma/client';
 import { SwipeDto } from './dto/swipe.dto';
 
@@ -79,33 +79,121 @@ export class UsersService {
     );
     return users;
   }
+  // async swipe(fromUserId: string, dto: SwipeDto) {
+  //   const swipe = await this.prisma.swipe.upsert({
+  //     where: {
+  //       fromUserId_toUserId: {
+  //         fromUserId,
+  //         toUserId: dto.toUserId,
+  //       },
+  //     },
+  //     update: { type: dto.type },
+  //     create: {
+  //       fromUserId,
+  //       toUserId: dto.toUserId,
+  //       type: dto.type,
+  //     },
+  //   });
+  //   if (dto.type === 'LIKE') {
+  //     const reverseLike = await this.prisma.swipe.findFirst({
+  //       where: {
+  //         fromUserId: dto.toUserId,
+  //         toUserId: fromUserId,
+  //         type: 'LIKE',
+  //       },
+  //     });
+  //     if (reverseLike) {
+  //       await this.createMatch(fromUserId, dto.toUserId);
+  //     }
+  //   }
+  //   return swipe;
+  // }
+  // private async createMatch(user1Id: string, user2Id: string) {
+  //   const [userAId, userBId] =
+  //     user1Id < user2Id ? [user1Id, user2Id] : [user2Id, user1Id];
+  //   return this.prisma.$transaction(async (tx) => {
+  //     const existing = await tx.match.findUnique({
+  //       where: {
+  //         userAId_userBId: {
+  //           userAId,
+  //           userBId,
+  //         },
+  //       },
+  //     });
+  //     if (existing) {
+  //       return existing;
+  //     }
+  //     const match = await tx.match.create({
+  //       data: {
+  //         userAId,
+  //         userBId,
+  //       },
+  //     });
+  //     await tx.chat.create({
+  //       data: {
+  //         matchId: match.id,
+  //       },
+  //     });
+  //     return match;
+  //   });
+  // }
   async swipe(fromUserId: string, dto: SwipeDto) {
-    const swipe = await this.prisma.swipe.upsert({
-      where: {
-        fromUserId_toUserId: {
+    if (fromUserId === dto.toUserId) {
+      throw new BadRequestException('Cannot swipe yourself');
+    }
+    return this.prisma.$transaction(async (tx) => {
+      const swipe = await tx.swipe.upsert({
+        where: {
+          fromUserId_toUserId: {
+            fromUserId,
+            toUserId: dto.toUserId,
+          },
+        },
+        update: { type: dto.type },
+        create: {
           fromUserId,
           toUserId: dto.toUserId,
+          type: dto.type,
         },
-      },
-      update: { type: dto.type },
-      create: {
-        fromUserId,
-        toUserId: dto.toUserId,
-        type: dto.type,
-      },
-    });
-    if (dto.type === 'LIKE') {
-      const reverseLike = await this.prisma.swipe.findFirst({
+      });
+      if (dto.type !== 'LIKE') {
+        return { swipe, match: null };
+      }
+      const reverseLike = await tx.swipe.findFirst({
         where: {
           fromUserId: dto.toUserId,
           toUserId: fromUserId,
           type: 'LIKE',
         },
+        select: { id: true },
       });
-      // if (reverseLike) {
-      //   await this.createMatch(fromUserId, dto.toUserId);
-      // }
-    }
-    return swipe;
+      if (!reverseLike) {
+        return { swipe, match: null };
+      }
+      const [userAId, userBId] =
+        fromUserId < dto.toUserId
+          ? [fromUserId, dto.toUserId]
+          : [dto.toUserId, fromUserId];
+      const match = await tx.match.upsert({
+        where: {
+          userAId_userBId: {
+            userAId,
+            userBId,
+          },
+        },
+        update: {},
+        create: {
+          userAId,
+          userBId,
+          chat: {
+            create: {},
+          },
+        },
+        include: {
+          chat: true,
+        },
+      });
+      return { swipe, match };
+    });
   }
 }
