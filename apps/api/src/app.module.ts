@@ -8,6 +8,8 @@ import { ConfigModule } from '@nestjs/config';
 import { ProfileModule } from './profile/profile.module';
 import { PhotosModule } from './photos/photos.module';
 import { GeoModule } from './common/geo/geo.module';
+import { ChatModule } from './chat/chat.module';
+import { MatchesModule } from './matches/matches.module';
 
 @Module({
   imports: [
@@ -20,6 +22,8 @@ import { GeoModule } from './common/geo/geo.module';
     ProfileModule,
     PhotosModule,
     GeoModule,
+    ChatModule,
+    MatchesModule,
   ],
   providers: [
     {
