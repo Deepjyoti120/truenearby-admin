@@ -10,8 +10,12 @@ const lastUpdated = "March 4, 2026";
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="min-h-dvh w-full overflow-x-hidden bg-[#070305] text-[#F4E6EC]">
-      <div className="mx-auto w-full max-w-4xl px-6 py-8 md:px-10 md:py-12">
+    <main className="relative min-h-dvh w-full overflow-x-hidden bg-[#070305] text-[#F4E6EC]">
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 bg-[linear-gradient(160deg,#11070A_0%,#100508_55%,#070305_100%)]"
+      />
+      <div className="relative z-10 mx-auto w-full max-w-4xl px-6 py-8 md:px-10 md:py-12">
         <Link
           href="/"
           className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-medium text-[#E9D3DC] transition hover:bg-white/15"
