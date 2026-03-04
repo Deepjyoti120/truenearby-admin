@@ -105,12 +105,12 @@ function StoreButtons({ className }: { className: string }) {
         title="Google Play"
         icon={<GooglePlayIcon />}
       />
-      <StoreButton
+      {/* <StoreButton
         href={storeLinks.appStore}
         overline="Download On The"
         title="App Store"
         icon={<AppStoreIcon />}
-      />
+      /> */}
     </div>
   );
 }
