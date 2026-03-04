@@ -123,3 +123,40 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes store-ring-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes store-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.58;
+  }
+  50% {
+    opacity: 0.92;
+  }
+}
+
+.store-ring-spin {
+  animation: store-ring-spin 10s linear infinite;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.store-glow-pulse {
+  animation: store-glow-pulse 3.8s ease-in-out infinite;
+  will-change: opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .store-ring-spin,
+  .store-glow-pulse {
+    animation: none;
+  }
+}

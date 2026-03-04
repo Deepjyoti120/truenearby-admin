@@ -1,3 +1,6 @@
+import type { ReactNode } from "react";
+import Image from "next/image";
+
 const trustPills = [
   "Verified members",
   "Private by design",
@@ -51,6 +54,67 @@ function AppStoreIcon() {
   );
 }
 
+type StoreButtonProps = {
+  href: string;
+  overline: string;
+  title: string;
+  icon: ReactNode;
+};
+
+function StoreButton({ href, overline, title, icon }: StoreButtonProps) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative inline-flex w-full min-w-[250px] overflow-hidden rounded-2xl p-[1.5px] transition-transform duration-300 hover:-translate-y-0.5"
+    >
+      <span
+        aria-hidden
+        className="store-ring-spin absolute inset-0 rounded-2xl bg-[conic-gradient(from_160deg,#FF6CAB,#FF3E7F,#6A00F4,#FF6CAB)]"
+      />
+      <span
+        aria-hidden
+        className="store-glow-pulse absolute -inset-2 rounded-[1.2rem] bg-[#FF3E7F]/30 blur-xl opacity-70 transition-opacity duration-300 group-hover:opacity-100"
+      />
+      <span
+        aria-hidden
+        className="absolute inset-[1.5px] rounded-[15px] bg-[#150C14]"
+      />
+      <span className="relative z-10 inline-flex w-full items-center gap-3 rounded-[15px] px-4 py-3.5">
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-[#FFE8EF]">
+          {icon}
+        </span>
+        <span className="flex flex-col leading-tight">
+          <span className="text-[10px] tracking-[0.16em] text-[#D8C7CB] uppercase">
+            {overline}
+          </span>
+          <span className="text-base font-bold text-white">{title}</span>
+        </span>
+      </span>
+    </a>
+  );
+}
+
+function StoreButtons({ className }: { className: string }) {
+  return (
+    <div className={className}>
+      <StoreButton
+        href={storeLinks.playStore}
+        overline="Get It On"
+        title="Google Play"
+        icon={<GooglePlayIcon />}
+      />
+      <StoreButton
+        href={storeLinks.appStore}
+        overline="Download On The"
+        title="App Store"
+        icon={<AppStoreIcon />}
+      />
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <div className="relative w-full bg-[#070305] text-white">
@@ -61,9 +125,21 @@ export default function Home() {
 
       <main className="relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-between gap-6 px-6 py-6 md:min-h-[100dvh] md:flex-row md:items-center md:gap-10 md:px-12 md:py-10">
         <section className="max-w-xl space-y-3 md:space-y-6">
-          <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] tracking-[0.18em] text-[#E7D5D9] uppercase">
-            Members Only
-          </p>
+          <div className="inline-flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-white/10">
+              <Image
+                src="/brand/app-logo.png"
+                alt="TrueNearby app logo"
+                width={28}
+                height={28}
+                className="h-7 w-7 rounded-md object-cover"
+                priority
+              />
+            </div>
+            <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] tracking-[0.18em] text-[#E7D5D9] uppercase">
+              Members Only
+            </p>
+          </div>
           <h1 className="text-[clamp(2rem,5vw,4.5rem)] leading-[0.95] font-semibold">
             Find love that feels calm, not chaotic.
           </h1>
@@ -83,21 +159,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* <div className="flex flex-wrap gap-3 pt-1 md:pt-2">
-            <button
-              type="button"
-              className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#1C1C1C] transition hover:bg-[#F9EEF2]"
-            >
-              Continue with Google
-            </button>
-            <button
-              type="button"
-              className="rounded-full border border-white/35 bg-white/10 px-5 py-2 text-sm font-semibold text-white transition hover:bg-white/20"
-            >
-              Explore Matches
-            </button>
-          </div> */}
-
           <div className="grid max-w-md grid-cols-3 gap-2 pt-1 md:pt-3">
             {quickStats.map((stat) => (
               <div
@@ -115,26 +176,7 @@ export default function Home() {
           </div>
 
 
-          <div className="hidden flex-wrap items-center gap-2 pt-1 md:flex">
-            <a
-              href={storeLinks.playStore}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-black/35 px-3 py-2 text-xs font-semibold text-white transition hover:bg-black/50"
-            >
-              <GooglePlayIcon />
-              Get it on Google Play
-            </a>
-            <a
-              href={storeLinks.appStore}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-black/35 px-3 py-2 text-xs font-semibold text-white transition hover:bg-black/50"
-            >
-              <AppStoreIcon />
-              Download on the App Store
-            </a>
-          </div>
+          <StoreButtons className="hidden w-full max-w-2xl grid-cols-1 gap-3 pt-1 md:grid md:grid-cols-2" />
         </section>
 
         <section className="mx-auto flex w-full flex-1 items-end justify-center md:justify-end">
@@ -143,13 +185,28 @@ export default function Home() {
               <div className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-white/35" />
 
               <div className="mb-3 rounded-2xl border border-white/10 bg-white/10 p-3 backdrop-blur">
-                <p className="text-[10px] tracking-[0.18em] text-[#E7D5D9] uppercase">
-                  Today
-                </p>
-                <p className="mt-1 text-sm font-semibold">Welcome back, Aanya</p>
-                <p className="text-[11px] text-[#D8C7CB]">
-                  3 curated introductions waiting
-                </p>
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <p className="text-[10px] tracking-[0.18em] text-[#E7D5D9] uppercase">
+                      Today
+                    </p>
+                    <p className="mt-1 text-sm font-semibold">
+                      Welcome back, Aanya
+                    </p>
+                    <p className="text-[11px] text-[#D8C7CB]">
+                      3 curated introductions waiting
+                    </p>
+                  </div>
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/15 bg-white/10">
+                    <Image
+                      src="/brand/app-logo.png"
+                      alt=""
+                      width={18}
+                      height={18}
+                      className="h-[18px] w-[18px] rounded-[4px] object-cover"
+                    />
+                  </div>
+                </div>
               </div>
 
               <div className="relative overflow-hidden rounded-[1.35rem] border border-white/10 bg-[#21101B] p-3">
@@ -203,26 +260,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="flex flex-wrap items-center justify-center gap-2 md:hidden">
-          <a
-            href={storeLinks.playStore}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-black/35 px-3 py-2 text-xs font-semibold text-white transition hover:bg-black/50"
-          >
-            <GooglePlayIcon />
-            Get it on Google Play
-          </a>
-          <a
-            href={storeLinks.appStore}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-black/35 px-3 py-2 text-xs font-semibold text-white transition hover:bg-black/50"
-          >
-            <AppStoreIcon />
-            Download on the App Store
-          </a>
-        </div>
+        <StoreButtons className="grid w-full max-w-md grid-cols-1 gap-3 md:hidden" />
       </main>
     </div>
   );
