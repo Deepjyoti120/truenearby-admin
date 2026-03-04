@@ -122,7 +122,6 @@ export default function Home() {
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(160deg,#11070A_0%,#100508_55%,#070305_100%)]"
       />
-
       <main className="relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-between gap-6 px-6 py-6 md:min-h-[100dvh] md:flex-row md:items-center md:gap-10 md:px-12 md:py-10">
         <section className="max-w-xl space-y-3 md:space-y-6">
           <div className="inline-flex items-center gap-3">
@@ -175,8 +174,7 @@ export default function Home() {
             ))}
           </div>
 
-
-          <StoreButtons className="hidden w-full max-w-2xl grid-cols-1 gap-3 pt-1 md:grid md:grid-cols-2" />
+          <StoreButtons className="w-full max-w-2xl grid-cols-1 gap-3 pt-1 md:grid md:grid-cols-2" />
         </section>
 
         <section className="mx-auto flex w-full flex-1 items-end justify-center md:justify-end">
@@ -260,7 +258,7 @@ export default function Home() {
           </div>
         </section>
 
-        <StoreButtons className="grid w-full max-w-md grid-cols-1 gap-3 md:hidden" />
+        {/* <StoreButtons className="grid w-full max-w-md grid-cols-1 gap-3 md:hidden" /> */}
       </main>
     </div>
   );
