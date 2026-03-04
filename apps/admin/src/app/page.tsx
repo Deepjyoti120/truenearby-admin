@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const trustPills = [
   "Verified members",
@@ -178,6 +179,16 @@ export default function Home() {
           </div>
 
           <StoreButtons className="w-full max-w-2xl grid-cols-1 gap-3 pt-1 md:grid md:grid-cols-2" />
+          <p className="max-w-lg text-xs leading-relaxed text-[#C6AEB8]">
+            By using TrueNearby, you agree to our{" "}
+            <Link
+              href="/privacy-policy"
+              className="font-semibold text-[#F7DDE8] underline underline-offset-4 transition hover:text-white"
+            >
+              Privacy Policy
+            </Link>
+            .
+          </p>
         </section>
 
         <section className="mx-auto flex w-full flex-1 items-end justify-center md:justify-end">
