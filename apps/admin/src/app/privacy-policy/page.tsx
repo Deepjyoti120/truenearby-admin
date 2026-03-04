@@ -10,7 +10,7 @@ const lastUpdated = "March 4, 2026";
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="min-h-[100dvh] bg-[#070305] text-[#F4E6EC]">
+    <main className="min-h-dvh w-full overflow-x-hidden bg-[#070305] text-[#F4E6EC]">
       <div className="mx-auto w-full max-w-4xl px-6 py-8 md:px-10 md:py-12">
         <Link
           href="/"
