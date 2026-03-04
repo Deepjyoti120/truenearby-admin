@@ -117,12 +117,12 @@ function StoreButtons({ className }: { className: string }) {
 
 export default function Home() {
   return (
-    <div className="relative w-full bg-[#070305] text-white">
+    <div className="relative min-h-[100dvh] w-full overflow-x-hidden bg-[#070305] text-white">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(160deg,#11070A_0%,#100508_55%,#070305_100%)]"
+        className="pointer-events-none fixed inset-0 bg-[linear-gradient(160deg,#11070A_0%,#100508_55%,#070305_100%)]"
       />
-      <main className="relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-between gap-6 px-6 py-6 md:min-h-[100dvh] md:flex-row md:items-center md:gap-10 md:px-12 md:py-10">
+      <main className="relative z-10 mx-auto flex min-h-[100dvh] w-full max-w-7xl flex-col justify-between gap-6 px-6 py-6 md:flex-row md:items-center md:gap-10 md:px-12 md:py-10">
         <section className="max-w-xl space-y-3 md:space-y-6">
           <div className="inline-flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-white/10">
@@ -135,9 +135,12 @@ export default function Home() {
                 priority
               />
             </div>
-            <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] tracking-[0.18em] text-[#E7D5D9] uppercase">
-              Members Only
-            </p>
+            <div className="flex flex-col gap-1">
+              {/* <p className="text-sm font-semibold text-white">TrueNearby</p> */}
+              <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] tracking-[0.18em] text-[#E7D5D9]">
+                TrueNearby
+              </p>
+            </div>
           </div>
           <h1 className="text-[clamp(2rem,5vw,4.5rem)] leading-[0.95] font-semibold">
             Find love that feels calm, not chaotic.
@@ -178,7 +181,7 @@ export default function Home() {
         </section>
 
         <section className="mx-auto flex w-full flex-1 items-end justify-center md:justify-end">
-          <div className="relative aspect-[9/19.5] h-[44vh] min-h-[280px] max-h-[640px] rounded-[2.3rem] border border-white/20 bg-[#1A1118] p-2 shadow-[0_24px_80px_rgba(0,0,0,0.55)] md:h-[72vh]">
+          <div className="relative aspect-[9/19.5] h-[640px] rounded-[2.3rem] border border-white/20 bg-[#1A1118] p-2 shadow-[0_24px_80px_rgba(0,0,0,0.55)]">
             <div className="h-full overflow-hidden rounded-[1.9rem] border border-white/10 bg-[linear-gradient(180deg,#271221_0%,#140C17_58%,#0D080E_100%)] px-3 pt-3">
               <div className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-white/35" />
 
@@ -257,8 +260,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* <StoreButtons className="grid w-full max-w-md grid-cols-1 gap-3 md:hidden" /> */}
       </main>
     </div>
   );
