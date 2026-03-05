@@ -16,7 +16,7 @@ model User {
   passwordHash  String
   isActive      Boolean     @default(true)
   isVerified    Boolean     @default(false)
-  isRegistered    Boolean     @default(false)
+  isRegistered  Boolean     @default(false)
   lastActiveAt  DateTime?
 
   profile       Profile?
@@ -46,6 +46,8 @@ model Profile {
   userId      String   @unique @db.Uuid
   user        User     @relation(fields: [userId], references: [id])
 
+  name        String?
+  userName    String?  @unique
   gender      Gender
   bio         String?
   birthDate   DateTime
