@@ -51,6 +51,7 @@ export type ProfileMinAggregateOutputType = {
   city: string | null
   country: string | null
   isHidden: boolean | null
+  isRegistered: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -68,6 +69,7 @@ export type ProfileMaxAggregateOutputType = {
   city: string | null
   country: string | null
   isHidden: boolean | null
+  isRegistered: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -85,6 +87,7 @@ export type ProfileCountAggregateOutputType = {
   city: number
   country: number
   isHidden: number
+  isRegistered: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -116,6 +119,7 @@ export type ProfileMinAggregateInputType = {
   city?: true
   country?: true
   isHidden?: true
+  isRegistered?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -133,6 +137,7 @@ export type ProfileMaxAggregateInputType = {
   city?: true
   country?: true
   isHidden?: true
+  isRegistered?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -150,6 +155,7 @@ export type ProfileCountAggregateInputType = {
   city?: true
   country?: true
   isHidden?: true
+  isRegistered?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -254,6 +260,7 @@ export type ProfileGroupByOutputType = {
   city: string | null
   country: string | null
   isHidden: boolean
+  isRegistered: boolean
   createdAt: Date
   updatedAt: Date
   _count: ProfileCountAggregateOutputType | null
@@ -294,6 +301,7 @@ export type ProfileWhereInput = {
   city?: Prisma.StringNullableFilter<"Profile"> | string | null
   country?: Prisma.StringNullableFilter<"Profile"> | string | null
   isHidden?: Prisma.BoolFilter<"Profile"> | boolean
+  isRegistered?: Prisma.BoolFilter<"Profile"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -312,6 +320,7 @@ export type ProfileOrderByWithRelationInput = {
   city?: Prisma.SortOrderInput | Prisma.SortOrder
   country?: Prisma.SortOrderInput | Prisma.SortOrder
   isHidden?: Prisma.SortOrder
+  isRegistered?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
@@ -333,6 +342,7 @@ export type ProfileWhereUniqueInput = Prisma.AtLeast<{
   city?: Prisma.StringNullableFilter<"Profile"> | string | null
   country?: Prisma.StringNullableFilter<"Profile"> | string | null
   isHidden?: Prisma.BoolFilter<"Profile"> | boolean
+  isRegistered?: Prisma.BoolFilter<"Profile"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -351,6 +361,7 @@ export type ProfileOrderByWithAggregationInput = {
   city?: Prisma.SortOrderInput | Prisma.SortOrder
   country?: Prisma.SortOrderInput | Prisma.SortOrder
   isHidden?: Prisma.SortOrder
+  isRegistered?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ProfileCountOrderByAggregateInput
@@ -376,6 +387,7 @@ export type ProfileScalarWhereWithAggregatesInput = {
   city?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
   country?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
   isHidden?: Prisma.BoolWithAggregatesFilter<"Profile"> | boolean
+  isRegistered?: Prisma.BoolWithAggregatesFilter<"Profile"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Profile"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Profile"> | Date | string
 }
@@ -392,6 +404,7 @@ export type ProfileCreateInput = {
   city?: string | null
   country?: string | null
   isHidden?: boolean
+  isRegistered?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutProfileInput
@@ -410,6 +423,7 @@ export type ProfileUncheckedCreateInput = {
   city?: string | null
   country?: string | null
   isHidden?: boolean
+  isRegistered?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -426,6 +440,7 @@ export type ProfileUpdateInput = {
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isHidden?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutProfileNestedInput
@@ -444,6 +459,7 @@ export type ProfileUncheckedUpdateInput = {
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isHidden?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -461,6 +477,7 @@ export type ProfileCreateManyInput = {
   city?: string | null
   country?: string | null
   isHidden?: boolean
+  isRegistered?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -477,6 +494,7 @@ export type ProfileUpdateManyMutationInput = {
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isHidden?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -494,6 +512,7 @@ export type ProfileUncheckedUpdateManyInput = {
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isHidden?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -516,6 +535,7 @@ export type ProfileCountOrderByAggregateInput = {
   city?: Prisma.SortOrder
   country?: Prisma.SortOrder
   isHidden?: Prisma.SortOrder
+  isRegistered?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -539,6 +559,7 @@ export type ProfileMaxOrderByAggregateInput = {
   city?: Prisma.SortOrder
   country?: Prisma.SortOrder
   isHidden?: Prisma.SortOrder
+  isRegistered?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -556,6 +577,7 @@ export type ProfileMinOrderByAggregateInput = {
   city?: Prisma.SortOrder
   country?: Prisma.SortOrder
   isHidden?: Prisma.SortOrder
+  isRegistered?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -634,6 +656,7 @@ export type ProfileCreateWithoutUserInput = {
   city?: string | null
   country?: string | null
   isHidden?: boolean
+  isRegistered?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -650,6 +673,7 @@ export type ProfileUncheckedCreateWithoutUserInput = {
   city?: string | null
   country?: string | null
   isHidden?: boolean
+  isRegistered?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -682,6 +706,7 @@ export type ProfileUpdateWithoutUserInput = {
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isHidden?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -698,6 +723,7 @@ export type ProfileUncheckedUpdateWithoutUserInput = {
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isHidden?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -717,6 +743,7 @@ export type ProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   city?: boolean
   country?: boolean
   isHidden?: boolean
+  isRegistered?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -735,6 +762,7 @@ export type ProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   city?: boolean
   country?: boolean
   isHidden?: boolean
+  isRegistered?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -753,6 +781,7 @@ export type ProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   city?: boolean
   country?: boolean
   isHidden?: boolean
+  isRegistered?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -771,11 +800,12 @@ export type ProfileSelectScalar = {
   city?: boolean
   country?: boolean
   isHidden?: boolean
+  isRegistered?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "gender" | "bio" | "birthDate" | "heightCm" | "lookingFor" | "latitude" | "longitude" | "city" | "country" | "isHidden" | "createdAt" | "updatedAt", ExtArgs["result"]["profile"]>
+export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "gender" | "bio" | "birthDate" | "heightCm" | "lookingFor" | "latitude" | "longitude" | "city" | "country" | "isHidden" | "isRegistered" | "createdAt" | "updatedAt", ExtArgs["result"]["profile"]>
 export type ProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -804,6 +834,7 @@ export type $ProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     city: string | null
     country: string | null
     isHidden: boolean
+    isRegistered: boolean
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["profile"]>
@@ -1242,6 +1273,7 @@ export interface ProfileFieldRefs {
   readonly city: Prisma.FieldRef<"Profile", 'String'>
   readonly country: Prisma.FieldRef<"Profile", 'String'>
   readonly isHidden: Prisma.FieldRef<"Profile", 'Boolean'>
+  readonly isRegistered: Prisma.FieldRef<"Profile", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"Profile", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Profile", 'DateTime'>
 }

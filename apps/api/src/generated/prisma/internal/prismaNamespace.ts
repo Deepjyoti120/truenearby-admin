@@ -1371,6 +1371,7 @@ export const ProfileScalarFieldEnum = {
   city: 'city',
   country: 'country',
   isHidden: 'isHidden',
+  isRegistered: 'isRegistered',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
