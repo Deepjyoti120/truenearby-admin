@@ -7,7 +7,7 @@ export class AuthEntryDto {
     description: 'User email address',
   })
   @IsEmail()
-  email: string;
+  email!: string;
 
   @ApiPropertyOptional({
     example: '9876543210',
