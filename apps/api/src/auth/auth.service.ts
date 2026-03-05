@@ -110,7 +110,6 @@ export class AuthService {
       where: { email: dto.email },
       include: { profile: true },
     });
-
     // REGISTER
     if (!user) {
       if (!dto.password) {
@@ -118,9 +117,7 @@ export class AuthService {
           'Password required for first-time registration',
         );
       }
-
       const passwordHash = await bcrypt.hash(dto.password, 12);
-
       user = await this.prisma.user.create({
         data: {
           email: dto.email,
@@ -132,18 +129,15 @@ export class AuthService {
     } else {
       if (dto.password) {
         const isValid = await bcrypt.compare(dto.password, user.passwordHash);
-
         if (!isValid) {
           throw new UnauthorizedException('Invalid credentials');
         }
       }
     }
-
     const accessToken = this.signAccessToken({
       id: user.id,
       email: user.email,
     });
-
     const refreshToken = this.signRefreshToken(user.id);
     await this.prisma.refreshToken.create({
       data: {

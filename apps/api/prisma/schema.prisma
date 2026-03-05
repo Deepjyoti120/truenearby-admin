@@ -16,6 +16,7 @@ model User {
   passwordHash  String
   isActive      Boolean     @default(true)
   isVerified    Boolean     @default(false)
+  isRegistered    Boolean     @default(false)
   lastActiveAt  DateTime?
 
   profile       Profile?
@@ -31,8 +32,8 @@ model User {
   swipesSent     Swipe[] @relation("SwipesSent")
   swipesReceived Swipe[] @relation("SwipesReceived")
 
-  devices       UserDevice[] 
-  refreshTokens       RefreshToken[] 
+  devices       UserDevice[]
+  refreshTokens       RefreshToken[]
 
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
@@ -57,6 +58,7 @@ model Profile {
   country     String?
 
   isHidden    Boolean  @default(false)
+  isRegistered    Boolean     @default(false)
 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
