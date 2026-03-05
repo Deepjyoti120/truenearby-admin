@@ -138,7 +138,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-1">
               {/* <p className="text-sm font-semibold text-white">TrueNearby</p> */}
-              <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] tracking-[0.18em] text-[#E7D5D9]">
+              <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] tracking-[0.18em] text-[#E7D5D9] font-bold">
                 TrueNearby
               </p>
             </div>
