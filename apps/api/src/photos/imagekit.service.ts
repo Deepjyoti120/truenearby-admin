@@ -51,6 +51,10 @@ export class ImageKitService {
     return res;
   }
 
+  async deleteFileById(fileId: string): Promise<void> {
+    await this.imagekit.files.delete(fileId);
+  }
+
   private getOptimizedUrl(url: string) {
     const parsed = new URL(url);
     const transformation = parsed.searchParams.get('tr');

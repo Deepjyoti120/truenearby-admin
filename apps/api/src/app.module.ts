@@ -10,6 +10,7 @@ import { PhotosModule } from './photos/photos.module';
 import { GeoModule } from './common/geo/geo.module';
 import { ChatModule } from './chat/chat.module';
 import { MatchesModule } from './matches/matches.module';
+import { PostsModule } from './posts/posts.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { MatchesModule } from './matches/matches.module';
     GeoModule,
     ChatModule,
     MatchesModule,
+    PostsModule,
   ],
   providers: [
     {

@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "posts" ALTER COLUMN "imageUrls" DROP DEFAULT,
+ALTER COLUMN "imageFileIds" DROP DEFAULT;

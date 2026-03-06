@@ -21,6 +21,7 @@ model User {
 
   profile       Profile?
   photos        Photo[]
+  posts         Post[]
   likesSent     Like[]      @relation("LikesSent")
   likesReceived Like[]      @relation("LikesReceived")
   matchesA      Match[]     @relation("MatchA")
@@ -117,6 +118,26 @@ model Photo {
   createdAt DateTime @default(now())
 
   @@index([userId, isDeleted])
+}
+
+model Post {
+  @@map("posts")
+
+  id           String    @id @default(uuid()) @db.Uuid
+  userId       String    @db.Uuid
+  user         User      @relation(fields: [userId], references: [id])
+
+  caption      String?
+  imageUrls    String[]
+  imageFileIds String[]
+
+  isDeleted    Boolean   @default(false)
+  deletedAt    DateTime?
+
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([userId, isDeleted, createdAt])
 }
 
 model Like {
@@ -249,4 +270,3 @@ enum Plan {
   PLUS
   GOLD
 }
-

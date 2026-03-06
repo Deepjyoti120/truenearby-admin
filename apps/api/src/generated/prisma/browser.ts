@@ -43,6 +43,11 @@ export type RefreshToken = Prisma.RefreshTokenModel
  */
 export type Photo = Prisma.PhotoModel
 /**
+ * Model Post
+ * 
+ */
+export type Post = Prisma.PostModel
+/**
  * Model Like
  * 
  */
