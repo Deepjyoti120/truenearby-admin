@@ -100,9 +100,8 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 export const ProfileScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  firstName: 'firstName',
-  middleName: 'middleName',
-  lastName: 'lastName',
+  name: 'name',
+  userName: 'userName',
   gender: 'gender',
   bio: 'bio',
   birthDate: 'birthDate',
@@ -151,6 +150,8 @@ export const PhotoScalarFieldEnum = {
   url: 'url',
   fileId: 'fileId',
   isPrimary: 'isPrimary',
+  isDeleted: 'isDeleted',
+  deletedAt: 'deletedAt',
   createdAt: 'createdAt'
 } as const
 

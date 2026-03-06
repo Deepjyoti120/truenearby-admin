@@ -111,8 +111,12 @@ model Photo {
   url       String
   fileId    String
   isPrimary Boolean  @default(false)
+  isDeleted Boolean  @default(false)
+  deletedAt DateTime?
 
   createdAt DateTime @default(now())
+
+  @@index([userId, isDeleted])
 }
 
 model Like {
@@ -245,5 +249,4 @@ enum Plan {
   PLUS
   GOLD
 }
-
 

@@ -13,7 +13,7 @@ export class PhotosService {
 
   async save(userId: string, url: string, fileId: string) {
     const count = await this.prisma.photo.count({
-      where: { userId },
+      where: { userId, isDeleted: false },
     });
 
     if (count >= this.MAX_PHOTOS) {
@@ -38,6 +38,7 @@ export class PhotosService {
       where: {
         id: photoId,
         userId,
+        isDeleted: false,
       },
     });
 
@@ -47,7 +48,7 @@ export class PhotosService {
 
     await this.prisma.$transaction([
       this.prisma.photo.updateMany({
-        where: { userId },
+        where: { userId, isDeleted: false },
         data: { isPrimary: false },
       }),
       this.prisma.photo.update({
@@ -60,7 +61,7 @@ export class PhotosService {
   }
   async delete(userId: string, photoId: string) {
     const photos = await this.prisma.photo.findMany({
-      where: { userId },
+      where: { userId, isDeleted: false },
       orderBy: { createdAt: 'asc' },
     });
 
@@ -73,9 +74,13 @@ export class PhotosService {
       throw new BadRequestException('Photo not found');
     }
 
-    // await this.imageKitService.delete(file);
-    await this.prisma.photo.delete({
+    await this.prisma.photo.update({
       where: { id: photoId },
+      data: {
+        isDeleted: true,
+        deletedAt: new Date(),
+        isPrimary: false,
+      },
     });
 
     if (target.isPrimary) {
@@ -93,7 +98,9 @@ export class PhotosService {
   async uploadToImageKit(userId: string, file: Express.Multer.File) {
     if (!file) throw new BadRequestException('No file uploaded');
 
-    const count = await this.prisma.photo.count({ where: { userId } });
+    const count = await this.prisma.photo.count({
+      where: { userId, isDeleted: false },
+    });
     if (count >= 6) throw new BadRequestException('Max 6 photos allowed');
 
     const { url, fileId } = await this.imageKitService.uploadFile(file);

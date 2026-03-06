@@ -37,7 +37,7 @@ export class ImageKitService {
       throw new Error('Invalid ImageKit response');
     }
     return {
-      url: res.url,
+      url: this.getOptimizedUrl(res.url),
       fileId: res.fileId,
     };
   }
@@ -49,6 +49,15 @@ export class ImageKitService {
       folder: '/dating-app/photos',
     });
     return res;
+  }
+
+  private getOptimizedUrl(url: string) {
+    const parsed = new URL(url);
+    const transformation = parsed.searchParams.get('tr');
+    if (!transformation) {
+      parsed.searchParams.set('tr', 'w-1080,q-80,f-auto');
+    }
+    return parsed.toString();
   }
 }
 

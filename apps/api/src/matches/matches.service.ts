@@ -13,13 +13,19 @@ export class MatchesService {
         userA: {
           include: {
             profile: true,
-            photos: true,
+            photos: {
+              where: { isDeleted: false },
+              orderBy: { createdAt: 'asc' },
+            },
           },
         },
         userB: {
           include: {
             profile: true,
-            photos: true,
+            photos: {
+              where: { isDeleted: false },
+              orderBy: { createdAt: 'asc' },
+            },
           },
         },
         chat: true,
