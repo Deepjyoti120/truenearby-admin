@@ -26,6 +26,7 @@ export class ProfileService {
         longitude: dto.longitude,
         city: dto.city,
         country: dto.country,
+        isRegistered: true,
       },
     });
     return {

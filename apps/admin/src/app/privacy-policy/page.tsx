@@ -27,10 +27,13 @@ export default function PrivacyPolicyPage() {
           <h1 className="text-3xl font-semibold md:text-4xl">Privacy Policy</h1>
           <p className="text-sm text-[#C6AEB8]">Last updated: {lastUpdated}</p>
           <p className="text-sm leading-relaxed text-[#D9C3CD] md:text-base">
-            This Privacy Policy explains how TrueNearby (a BaraxunTech service)
-            collects, uses, stores, shares, and protects personal data. This
-            policy is intended for users in India and is designed to align with
-            applicable Indian data protection and information technology laws.
+            This Privacy Policy explains how TrueNearby, an independently
+            operated product managed by an individual developer, collects,
+            uses, stores, shares, and protects personal data. This policy is
+            intended for users in India and is designed to align with
+            applicable Indian data protection and information technology laws,
+            Google Play policy requirements, and platform safety expectations
+            for dating services.
           </p>
         </header>
 
@@ -143,7 +146,21 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              6. Data Retention
+              6. Payments and Billing Compliance
+            </h2>
+            <p className="mt-3 text-[#D9C3CD]">
+              Where paid features are offered in the Android app, payments for
+              eligible digital services are processed through Google Play
+              Billing in line with applicable Google Play policies. We do not
+              store your full card or UPI credentials on TrueNearby servers.
+              Billing records may be retained as required for tax, accounting,
+              fraud prevention, and legal compliance.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold text-white md:text-xl">
+              7. Data Retention
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               We retain personal data only for as long as necessary for service
@@ -155,7 +172,7 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              7. Your Rights
+              8. Your Rights
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               Subject to applicable law, you may request:
@@ -171,7 +188,7 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              8. Children and Age Restriction
+              9. Children and Age Restriction
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               TrueNearby is an adults-only dating platform. You must be at
@@ -182,7 +199,7 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              9. Security Practices
+              10. Security Practices
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               We implement reasonable security practices and technical controls
@@ -194,7 +211,7 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              10. Cross-Border Transfers
+              11. Cross-Border Transfers
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               Where data is processed outside India, we apply contractual and
@@ -205,7 +222,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="rounded-2xl border border-white/15 bg-white/5 p-5">
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              11. Grievance Officer and Contact
+              12. Grievance Officer and Contact
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               For privacy complaints, account safety concerns, or legal data
@@ -214,13 +231,13 @@ export default function PrivacyPolicyPage() {
             <div className="mt-3 space-y-1 text-[#E8D2DB]">
               <p>
                 <span className="font-semibold text-white">Entity:</span>{" "}
-                BaraxunTech
+                Individual Developer (TrueNearby)
               </p>
               <p>
                 <span className="font-semibold text-white">
                   Grievance Officer:
                 </span>{" "}
-                Grievance Officer, TrueNearby
+                Product Owner and Grievance Contact, TrueNearby
               </p>
               <p>
                 <span className="font-semibold text-white">Email:</span>{" "}
@@ -228,14 +245,8 @@ export default function PrivacyPolicyPage() {
               </p>
               <p>
                 <span className="font-semibold text-white">Website:</span>{" "}
-                <a
-                  href="https://baraxuntech.com/"
-                  className="underline underline-offset-4"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  https://baraxuntech.com/
-                </a>
+                Official TrueNearby support channel (shared via app and support
+                email)
               </p>
               <p>
                 <span className="font-semibold text-white">
@@ -249,7 +260,7 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              12. Updates to This Policy
+              13. Updates to This Policy
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               We may update this Privacy Policy from time to time to reflect
