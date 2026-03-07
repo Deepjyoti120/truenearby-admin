@@ -1,4 +1,5 @@
-import { IsOptional, IsString, MaxLength } from 'class-validator';
+import { Transform } from 'class-transformer';
+import { IsNumber, IsOptional, IsString, MaxLength } from 'class-validator';
 
 export class CreatePostDto {
   @IsOptional()
@@ -10,4 +11,24 @@ export class CreatePostDto {
   @IsString()
   @MaxLength(2200)
   caption?: string;
+
+  @IsOptional()
+  @Transform(({ value }) => {
+    if (value === '' || value === null || value === undefined) {
+      return undefined;
+    }
+    return Number(value);
+  })
+  @IsNumber()
+  latitude?: number;
+
+  @IsOptional()
+  @Transform(({ value }) => {
+    if (value === '' || value === null || value === undefined) {
+      return undefined;
+    }
+    return Number(value);
+  })
+  @IsNumber()
+  lng?: number;
 }

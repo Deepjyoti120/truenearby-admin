@@ -10,9 +10,13 @@ export class PostsService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly imageKitService: ImageKitService,
-  ) { }
+  ) {}
 
-  async create(userId: string, dto: CreatePostDto, files: Express.Multer.File[]) {
+  async create(
+    userId: string,
+    dto: CreatePostDto,
+    files: Express.Multer.File[],
+  ) {
     if (!files || files.length === 0) {
       throw new BadRequestException('At least one image is required');
     }
@@ -34,6 +38,8 @@ export class PostsService {
     }
 
     const prompt = dto.prompt?.trim() || dto.caption?.trim() || null;
+    const latitude = dto.latitude ?? profile.latitude;
+    const longitude = dto.lng ?? profile.longitude;
 
     const post = await this.prisma.post.create({
       data: {
@@ -41,8 +47,8 @@ export class PostsService {
         prompt,
         imageUrls: uploads.map((upload) => upload.url),
         imageFileIds: uploads.map((upload) => upload.fileId),
-        latitude: profile.latitude,
-        longitude: profile.longitude,
+        latitude,
+        longitude,
       },
     });
 
@@ -54,7 +60,7 @@ export class PostsService {
 
   async delete(userId: string, postId: string) {
     const post = await this.prisma.post.findFirst({
-      where: {id: postId, userId },
+      where: { id: postId, userId },
     });
 
     if (!post) {
@@ -69,11 +75,9 @@ export class PostsService {
       );
     }
 
-    // await this.prisma.post.update({
-    //   where: { id: postId },
-    //   data: {
-    //   },
-    // });
+    await this.prisma.post.delete({
+      where: { id: postId },
+    });
 
     return { success: true };
   }
