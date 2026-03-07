@@ -30,5 +30,5 @@ export class CreatePostDto {
     return Number(value);
   })
   @IsNumber()
-  lng?: number;
+  longitude?: number;
 }

@@ -39,7 +39,7 @@ export class PostsService {
 
     const prompt = dto.prompt?.trim() || dto.caption?.trim() || null;
     const latitude = dto.latitude ?? profile.latitude;
-    const longitude = dto.lng ?? profile.longitude;
+    const longitude = dto.longitude ?? profile.longitude;
 
     const post = await this.prisma.post.create({
       data: {
