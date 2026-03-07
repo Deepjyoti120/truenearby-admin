@@ -1495,7 +1495,7 @@ export type PhotoScalarFieldEnum = (typeof PhotoScalarFieldEnum)[keyof typeof Ph
 export const PostScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  caption: 'caption',
+  prompt: 'prompt',
   imageUrls: 'imageUrls',
   imageFileIds: 'imageFileIds',
   latitude: 'latitude',

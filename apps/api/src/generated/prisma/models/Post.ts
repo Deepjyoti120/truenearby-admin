@@ -39,7 +39,7 @@ export type PostSumAggregateOutputType = {
 export type PostMinAggregateOutputType = {
   id: string | null
   userId: string | null
-  caption: string | null
+  prompt: string | null
   latitude: number | null
   longitude: number | null
   createdAt: Date | null
@@ -49,7 +49,7 @@ export type PostMinAggregateOutputType = {
 export type PostMaxAggregateOutputType = {
   id: string | null
   userId: string | null
-  caption: string | null
+  prompt: string | null
   latitude: number | null
   longitude: number | null
   createdAt: Date | null
@@ -59,7 +59,7 @@ export type PostMaxAggregateOutputType = {
 export type PostCountAggregateOutputType = {
   id: number
   userId: number
-  caption: number
+  prompt: number
   imageUrls: number
   imageFileIds: number
   latitude: number
@@ -83,7 +83,7 @@ export type PostSumAggregateInputType = {
 export type PostMinAggregateInputType = {
   id?: true
   userId?: true
-  caption?: true
+  prompt?: true
   latitude?: true
   longitude?: true
   createdAt?: true
@@ -93,7 +93,7 @@ export type PostMinAggregateInputType = {
 export type PostMaxAggregateInputType = {
   id?: true
   userId?: true
-  caption?: true
+  prompt?: true
   latitude?: true
   longitude?: true
   createdAt?: true
@@ -103,7 +103,7 @@ export type PostMaxAggregateInputType = {
 export type PostCountAggregateInputType = {
   id?: true
   userId?: true
-  caption?: true
+  prompt?: true
   imageUrls?: true
   imageFileIds?: true
   latitude?: true
@@ -202,7 +202,7 @@ export type PostGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type PostGroupByOutputType = {
   id: string
   userId: string
-  caption: string | null
+  prompt: string | null
   imageUrls: string[]
   imageFileIds: string[]
   latitude: number
@@ -237,7 +237,7 @@ export type PostWhereInput = {
   NOT?: Prisma.PostWhereInput | Prisma.PostWhereInput[]
   id?: Prisma.UuidFilter<"Post"> | string
   userId?: Prisma.UuidFilter<"Post"> | string
-  caption?: Prisma.StringNullableFilter<"Post"> | string | null
+  prompt?: Prisma.StringNullableFilter<"Post"> | string | null
   imageUrls?: Prisma.StringNullableListFilter<"Post">
   imageFileIds?: Prisma.StringNullableListFilter<"Post">
   latitude?: Prisma.FloatFilter<"Post"> | number
@@ -250,7 +250,7 @@ export type PostWhereInput = {
 export type PostOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  caption?: Prisma.SortOrderInput | Prisma.SortOrder
+  prompt?: Prisma.SortOrderInput | Prisma.SortOrder
   imageUrls?: Prisma.SortOrder
   imageFileIds?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
@@ -266,7 +266,7 @@ export type PostWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.PostWhereInput[]
   NOT?: Prisma.PostWhereInput | Prisma.PostWhereInput[]
   userId?: Prisma.UuidFilter<"Post"> | string
-  caption?: Prisma.StringNullableFilter<"Post"> | string | null
+  prompt?: Prisma.StringNullableFilter<"Post"> | string | null
   imageUrls?: Prisma.StringNullableListFilter<"Post">
   imageFileIds?: Prisma.StringNullableListFilter<"Post">
   latitude?: Prisma.FloatFilter<"Post"> | number
@@ -279,7 +279,7 @@ export type PostWhereUniqueInput = Prisma.AtLeast<{
 export type PostOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  caption?: Prisma.SortOrderInput | Prisma.SortOrder
+  prompt?: Prisma.SortOrderInput | Prisma.SortOrder
   imageUrls?: Prisma.SortOrder
   imageFileIds?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
@@ -299,7 +299,7 @@ export type PostScalarWhereWithAggregatesInput = {
   NOT?: Prisma.PostScalarWhereWithAggregatesInput | Prisma.PostScalarWhereWithAggregatesInput[]
   id?: Prisma.UuidWithAggregatesFilter<"Post"> | string
   userId?: Prisma.UuidWithAggregatesFilter<"Post"> | string
-  caption?: Prisma.StringNullableWithAggregatesFilter<"Post"> | string | null
+  prompt?: Prisma.StringNullableWithAggregatesFilter<"Post"> | string | null
   imageUrls?: Prisma.StringNullableListFilter<"Post">
   imageFileIds?: Prisma.StringNullableListFilter<"Post">
   latitude?: Prisma.FloatWithAggregatesFilter<"Post"> | number
@@ -310,7 +310,7 @@ export type PostScalarWhereWithAggregatesInput = {
 
 export type PostCreateInput = {
   id?: string
-  caption?: string | null
+  prompt?: string | null
   imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
   latitude: number
@@ -323,7 +323,7 @@ export type PostCreateInput = {
 export type PostUncheckedCreateInput = {
   id?: string
   userId: string
-  caption?: string | null
+  prompt?: string | null
   imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
   latitude: number
@@ -334,7 +334,7 @@ export type PostUncheckedCreateInput = {
 
 export type PostUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
   latitude?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -347,7 +347,7 @@ export type PostUpdateInput = {
 export type PostUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
   latitude?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -359,7 +359,7 @@ export type PostUncheckedUpdateInput = {
 export type PostCreateManyInput = {
   id?: string
   userId: string
-  caption?: string | null
+  prompt?: string | null
   imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
   latitude: number
@@ -370,7 +370,7 @@ export type PostCreateManyInput = {
 
 export type PostUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
   latitude?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -382,7 +382,7 @@ export type PostUpdateManyMutationInput = {
 export type PostUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
   latitude?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -412,7 +412,7 @@ export type StringNullableListFilter<$PrismaModel = never> = {
 export type PostCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  caption?: Prisma.SortOrder
+  prompt?: Prisma.SortOrder
   imageUrls?: Prisma.SortOrder
   imageFileIds?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
@@ -429,7 +429,7 @@ export type PostAvgOrderByAggregateInput = {
 export type PostMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  caption?: Prisma.SortOrder
+  prompt?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
   longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -439,7 +439,7 @@ export type PostMaxOrderByAggregateInput = {
 export type PostMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  caption?: Prisma.SortOrder
+  prompt?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
   longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -513,7 +513,7 @@ export type PostUpdateimageFileIdsInput = {
 
 export type PostCreateWithoutUserInput = {
   id?: string
-  caption?: string | null
+  prompt?: string | null
   imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
   latitude: number
@@ -524,7 +524,7 @@ export type PostCreateWithoutUserInput = {
 
 export type PostUncheckedCreateWithoutUserInput = {
   id?: string
-  caption?: string | null
+  prompt?: string | null
   imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
   latitude: number
@@ -565,7 +565,7 @@ export type PostScalarWhereInput = {
   NOT?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[]
   id?: Prisma.UuidFilter<"Post"> | string
   userId?: Prisma.UuidFilter<"Post"> | string
-  caption?: Prisma.StringNullableFilter<"Post"> | string | null
+  prompt?: Prisma.StringNullableFilter<"Post"> | string | null
   imageUrls?: Prisma.StringNullableListFilter<"Post">
   imageFileIds?: Prisma.StringNullableListFilter<"Post">
   latitude?: Prisma.FloatFilter<"Post"> | number
@@ -576,7 +576,7 @@ export type PostScalarWhereInput = {
 
 export type PostCreateManyUserInput = {
   id?: string
-  caption?: string | null
+  prompt?: string | null
   imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
   latitude: number
@@ -587,7 +587,7 @@ export type PostCreateManyUserInput = {
 
 export type PostUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
   latitude?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -598,7 +598,7 @@ export type PostUpdateWithoutUserInput = {
 
 export type PostUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
   latitude?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -609,7 +609,7 @@ export type PostUncheckedUpdateWithoutUserInput = {
 
 export type PostUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
   latitude?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -623,7 +623,7 @@ export type PostUncheckedUpdateManyWithoutUserInput = {
 export type PostSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
-  caption?: boolean
+  prompt?: boolean
   imageUrls?: boolean
   imageFileIds?: boolean
   latitude?: boolean
@@ -636,7 +636,7 @@ export type PostSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
 export type PostSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
-  caption?: boolean
+  prompt?: boolean
   imageUrls?: boolean
   imageFileIds?: boolean
   latitude?: boolean
@@ -649,7 +649,7 @@ export type PostSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
 export type PostSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
-  caption?: boolean
+  prompt?: boolean
   imageUrls?: boolean
   imageFileIds?: boolean
   latitude?: boolean
@@ -662,7 +662,7 @@ export type PostSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
 export type PostSelectScalar = {
   id?: boolean
   userId?: boolean
-  caption?: boolean
+  prompt?: boolean
   imageUrls?: boolean
   imageFileIds?: boolean
   latitude?: boolean
@@ -671,7 +671,7 @@ export type PostSelectScalar = {
   updatedAt?: boolean
 }
 
-export type PostOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "caption" | "imageUrls" | "imageFileIds" | "latitude" | "longitude" | "createdAt" | "updatedAt", ExtArgs["result"]["post"]>
+export type PostOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "prompt" | "imageUrls" | "imageFileIds" | "latitude" | "longitude" | "createdAt" | "updatedAt", ExtArgs["result"]["post"]>
 export type PostInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -690,7 +690,7 @@ export type $PostPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     userId: string
-    caption: string | null
+    prompt: string | null
     imageUrls: string[]
     imageFileIds: string[]
     latitude: number
@@ -1123,7 +1123,7 @@ export interface Prisma__PostClient<T, Null = never, ExtArgs extends runtime.Typ
 export interface PostFieldRefs {
   readonly id: Prisma.FieldRef<"Post", 'String'>
   readonly userId: Prisma.FieldRef<"Post", 'String'>
-  readonly caption: Prisma.FieldRef<"Post", 'String'>
+  readonly prompt: Prisma.FieldRef<"Post", 'String'>
   readonly imageUrls: Prisma.FieldRef<"Post", 'String[]'>
   readonly imageFileIds: Prisma.FieldRef<"Post", 'String[]'>
   readonly latitude: Prisma.FieldRef<"Post", 'Float'>
