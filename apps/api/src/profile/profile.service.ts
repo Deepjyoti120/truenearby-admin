@@ -101,7 +101,6 @@ export class ProfileService {
     const activePhotos = await this.prisma.photo.findMany({
       where: {
         userId,
-        // isDeleted: false,
       },
       orderBy: { createdAt: 'asc' },
     });
