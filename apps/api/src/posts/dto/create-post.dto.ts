@@ -35,7 +35,7 @@ export class CreatePostDto {
   @ApiProperty({
     type: 'array',
     items: { type: 'string', format: 'binary' },
-    required: false,
+    required: true,
   })
   images?: any[];
 }
