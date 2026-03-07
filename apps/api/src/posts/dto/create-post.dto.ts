@@ -30,4 +30,12 @@ export class CreatePostDto {
   @IsNumber()
   @ApiProperty({ example: 28.6139, type: 'number', nullable: true })
   longitude?: number;
+
+  @IsOptional()
+  @ApiProperty({
+    type: 'array',
+    items: { type: 'string', format: 'binary' },
+    required: false,
+  })
+  images?: any[];
 }

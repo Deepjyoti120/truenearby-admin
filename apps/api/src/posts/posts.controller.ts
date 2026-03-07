@@ -35,6 +35,21 @@ export class PostsController {
     }),
   )
   @ApiConsumes('multipart/form-data')
+  // @ApiBody({
+  //   schema: {
+  //     type: 'object',
+  //     properties: {
+  //       // prompt: { type: 'string', example: 'Weekend vibes' },
+  //       // latitude: { type: 'number', example: 28.6139, nullable: true },
+  //       // longitude: { type: 'number', example: 77.209, nullable: true },
+  //       images: {
+  //         type: 'array',
+  //         items: { type: 'string', format: 'binary' },
+  //       },
+  //     },
+  //     required: ['images'],
+  //   },
+  // })
   create(
     @CurrentUser() user: CurrentUserPayload,
     @Body() dto: CreatePostDto,
