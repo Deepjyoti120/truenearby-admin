@@ -37,7 +37,7 @@ export class PostsService {
       throw new BadRequestException('Profile not found');
     }
 
-    const prompt = dto.prompt?.trim() || dto.caption?.trim() || null;
+    const prompt = dto.prompt?.trim() || null;
     const latitude = dto.latitude ?? profile.latitude;
     const longitude = dto.longitude ?? profile.longitude;
 

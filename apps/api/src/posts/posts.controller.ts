@@ -9,7 +9,7 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiConsumes, ApiTags } from '@nestjs/swagger';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth/jwt-auth.guard';
 import {
@@ -35,21 +35,6 @@ export class PostsController {
     }),
   )
   @ApiConsumes('multipart/form-data')
-  @ApiBody({
-    schema: {
-      type: 'object',
-      properties: {
-        prompt: { type: 'string', example: 'Weekend vibes' },
-        latitude: { type: 'number', example: 28.6139, nullable: true },
-        lng: { type: 'number', example: 77.209, nullable: true },
-        images: {
-          type: 'array',
-          items: { type: 'string', format: 'binary' },
-        },
-      },
-      required: ['images'],
-    },
-  })
   create(
     @CurrentUser() user: CurrentUserPayload,
     @Body() dto: CreatePostDto,

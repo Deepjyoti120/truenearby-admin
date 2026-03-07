@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsNumber, IsOptional, IsString, MaxLength } from 'class-validator';
 
@@ -5,12 +6,8 @@ export class CreatePostDto {
   @IsOptional()
   @IsString()
   @MaxLength(2200)
+  @ApiProperty({ type: 'string', example: 'Weekend vibes' })
   prompt?: string;
-
-  @IsOptional()
-  @IsString()
-  @MaxLength(2200)
-  caption?: string;
 
   @IsOptional()
   @Transform(({ value }) => {
@@ -20,6 +17,7 @@ export class CreatePostDto {
     return Number(value);
   })
   @IsNumber()
+  @ApiProperty({ example: 77.209, type: 'number', nullable: true })
   latitude?: number;
 
   @IsOptional()
@@ -30,5 +28,6 @@ export class CreatePostDto {
     return Number(value);
   })
   @IsNumber()
+  @ApiProperty({ example: 28.6139, type: 'number', nullable: true })
   longitude?: number;
 }
