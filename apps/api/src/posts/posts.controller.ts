@@ -39,7 +39,7 @@ export class PostsController {
     schema: {
       type: 'object',
       properties: {
-        caption: { type: 'string', example: 'Weekend vibes' },
+        prompt: { type: 'string', example: 'Weekend vibes' },
         images: {
           type: 'array',
           items: { type: 'string', format: 'binary' },

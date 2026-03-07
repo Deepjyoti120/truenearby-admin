@@ -14,7 +14,7 @@ export class MatchesService {
           include: {
             profile: true,
             photos: {
-              where: { isDeleted: false },
+              // where: { isDeleted: false },
               orderBy: { createdAt: 'asc' },
             },
           },
@@ -23,7 +23,7 @@ export class MatchesService {
           include: {
             profile: true,
             photos: {
-              where: { isDeleted: false },
+              // where: { isDeleted: false },
               orderBy: { createdAt: 'asc' },
             },
           },

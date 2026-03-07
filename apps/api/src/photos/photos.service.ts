@@ -13,7 +13,7 @@ export class PhotosService {
 
   async save(userId: string, url: string, fileId: string) {
     const count = await this.prisma.photo.count({
-      where: { userId, isDeleted: false },
+      where: { userId },
     });
 
     if (count >= this.MAX_PHOTOS) {
@@ -38,7 +38,7 @@ export class PhotosService {
       where: {
         id: photoId,
         userId,
-        isDeleted: false,
+        // isDeleted: false,
       },
     });
 
@@ -48,7 +48,7 @@ export class PhotosService {
 
     await this.prisma.$transaction([
       this.prisma.photo.updateMany({
-        where: { userId, isDeleted: false },
+        where: { userId },
         data: { isPrimary: false },
       }),
       this.prisma.photo.update({
@@ -61,7 +61,7 @@ export class PhotosService {
   }
   async delete(userId: string, photoId: string) {
     const photos = await this.prisma.photo.findMany({
-      where: { userId, isDeleted: false },
+      where: { userId },
       orderBy: { createdAt: 'asc' },
     });
 
@@ -77,8 +77,6 @@ export class PhotosService {
     await this.prisma.photo.update({
       where: { id: photoId },
       data: {
-        isDeleted: true,
-        deletedAt: new Date(),
         isPrimary: false,
       },
     });
@@ -99,7 +97,7 @@ export class PhotosService {
     if (!file) throw new BadRequestException('No file uploaded');
 
     const count = await this.prisma.photo.count({
-      where: { userId, isDeleted: false },
+      where: { userId },
     });
     if (count >= 6) throw new BadRequestException('Max 6 photos allowed');
 

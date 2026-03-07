@@ -71,7 +71,7 @@ export class ProfileService {
     }
 
     const activeCount = await this.prisma.photo.count({
-      where: { userId, isDeleted: false },
+      where: { userId },
     });
     if (activeCount + files.length > 2) {
       throw new BadRequestException('Maximum 6 photos allowed');
@@ -88,7 +88,7 @@ export class ProfileService {
     }));
     await this.prisma.photo.createMany({ data: photosToCreate });
     const photos = await this.prisma.photo.findMany({
-      where: { userId, isDeleted: false },
+      where: { userId },
       orderBy: { createdAt: 'asc' },
     });
     return {
@@ -101,7 +101,7 @@ export class ProfileService {
     const activePhotos = await this.prisma.photo.findMany({
       where: {
         userId,
-        isDeleted: false,
+        // isDeleted: false,
       },
       orderBy: { createdAt: 'asc' },
     });
@@ -117,8 +117,6 @@ export class ProfileService {
       await tx.photo.update({
         where: { id: photoId },
         data: {
-          isDeleted: true,
-          deletedAt: new Date(),
           isPrimary: false,
         },
       });
@@ -130,7 +128,7 @@ export class ProfileService {
       }
     });
     const photos = await this.prisma.photo.findMany({
-      where: { userId, isDeleted: false },
+      where: { userId },
       orderBy: { createdAt: 'asc' },
     });
     return {

@@ -10,7 +10,7 @@ export class PostsService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly imageKitService: ImageKitService,
-  ) {}
+  ) { }
 
   async create(userId: string, dto: CreatePostDto, files: Express.Multer.File[]) {
     if (!files || files.length === 0) {
@@ -27,7 +27,7 @@ export class PostsService {
     const post = await this.prisma.post.create({
       data: {
         userId,
-        caption: dto.caption?.trim() ? dto.caption.trim() : null,
+        pr: dto.caption?.trim() ? dto.caption.trim() : null,
         imageUrls: uploads.map((upload) => upload.url),
         imageFileIds: uploads.map((upload) => upload.fileId),
       },
@@ -41,11 +41,7 @@ export class PostsService {
 
   async delete(userId: string, postId: string) {
     const post = await this.prisma.post.findFirst({
-      where: {
-        id: postId,
-        userId,
-        isDeleted: false,
-      },
+      where: {id: postId, userId },
     });
 
     if (!post) {
@@ -60,13 +56,11 @@ export class PostsService {
       );
     }
 
-    await this.prisma.post.update({
-      where: { id: postId },
-      data: {
-        isDeleted: true,
-        deletedAt: new Date(),
-      },
-    });
+    // await this.prisma.post.update({
+    //   where: { id: postId },
+    //   data: {
+    //   },
+    // });
 
     return { success: true };
   }
