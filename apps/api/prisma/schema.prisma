@@ -112,12 +112,10 @@ model Photo {
   url       String
   fileId    String
   isPrimary Boolean  @default(false)
-  isDeleted Boolean  @default(false)
-  deletedAt DateTime?
 
   createdAt DateTime @default(now())
 
-  @@index([userId, isDeleted])
+  @@index([userId])
 }
 
 model Post {
@@ -131,13 +129,13 @@ model Post {
   imageUrls    String[]
   imageFileIds String[]
 
-  isDeleted    Boolean   @default(false)
-  deletedAt    DateTime?
+  latitude    Float
+  longitude   Float
 
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
 
-  @@index([userId, isDeleted, createdAt])
+  @@index([userId, createdAt])
 }
 
 model Like {

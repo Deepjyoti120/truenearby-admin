@@ -20,16 +20,28 @@ export type PostModel = runtime.Types.Result.DefaultSelection<Prisma.$PostPayloa
 
 export type AggregatePost = {
   _count: PostCountAggregateOutputType | null
+  _avg: PostAvgAggregateOutputType | null
+  _sum: PostSumAggregateOutputType | null
   _min: PostMinAggregateOutputType | null
   _max: PostMaxAggregateOutputType | null
+}
+
+export type PostAvgAggregateOutputType = {
+  latitude: number | null
+  longitude: number | null
+}
+
+export type PostSumAggregateOutputType = {
+  latitude: number | null
+  longitude: number | null
 }
 
 export type PostMinAggregateOutputType = {
   id: string | null
   userId: string | null
   caption: string | null
-  isDeleted: boolean | null
-  deletedAt: Date | null
+  latitude: number | null
+  longitude: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -38,8 +50,8 @@ export type PostMaxAggregateOutputType = {
   id: string | null
   userId: string | null
   caption: string | null
-  isDeleted: boolean | null
-  deletedAt: Date | null
+  latitude: number | null
+  longitude: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -50,20 +62,30 @@ export type PostCountAggregateOutputType = {
   caption: number
   imageUrls: number
   imageFileIds: number
-  isDeleted: number
-  deletedAt: number
+  latitude: number
+  longitude: number
   createdAt: number
   updatedAt: number
   _all: number
 }
 
 
+export type PostAvgAggregateInputType = {
+  latitude?: true
+  longitude?: true
+}
+
+export type PostSumAggregateInputType = {
+  latitude?: true
+  longitude?: true
+}
+
 export type PostMinAggregateInputType = {
   id?: true
   userId?: true
   caption?: true
-  isDeleted?: true
-  deletedAt?: true
+  latitude?: true
+  longitude?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -72,8 +94,8 @@ export type PostMaxAggregateInputType = {
   id?: true
   userId?: true
   caption?: true
-  isDeleted?: true
-  deletedAt?: true
+  latitude?: true
+  longitude?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -84,8 +106,8 @@ export type PostCountAggregateInputType = {
   caption?: true
   imageUrls?: true
   imageFileIds?: true
-  isDeleted?: true
-  deletedAt?: true
+  latitude?: true
+  longitude?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -129,6 +151,18 @@ export type PostAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: PostAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: PostSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: PostMinAggregateInputType
@@ -159,6 +193,8 @@ export type PostGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
   take?: number
   skip?: number
   _count?: PostCountAggregateInputType | true
+  _avg?: PostAvgAggregateInputType
+  _sum?: PostSumAggregateInputType
   _min?: PostMinAggregateInputType
   _max?: PostMaxAggregateInputType
 }
@@ -169,11 +205,13 @@ export type PostGroupByOutputType = {
   caption: string | null
   imageUrls: string[]
   imageFileIds: string[]
-  isDeleted: boolean
-  deletedAt: Date | null
+  latitude: number
+  longitude: number
   createdAt: Date
   updatedAt: Date
   _count: PostCountAggregateOutputType | null
+  _avg: PostAvgAggregateOutputType | null
+  _sum: PostSumAggregateOutputType | null
   _min: PostMinAggregateOutputType | null
   _max: PostMaxAggregateOutputType | null
 }
@@ -202,8 +240,8 @@ export type PostWhereInput = {
   caption?: Prisma.StringNullableFilter<"Post"> | string | null
   imageUrls?: Prisma.StringNullableListFilter<"Post">
   imageFileIds?: Prisma.StringNullableListFilter<"Post">
-  isDeleted?: Prisma.BoolFilter<"Post"> | boolean
-  deletedAt?: Prisma.DateTimeNullableFilter<"Post"> | Date | string | null
+  latitude?: Prisma.FloatFilter<"Post"> | number
+  longitude?: Prisma.FloatFilter<"Post"> | number
   createdAt?: Prisma.DateTimeFilter<"Post"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Post"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -215,8 +253,8 @@ export type PostOrderByWithRelationInput = {
   caption?: Prisma.SortOrderInput | Prisma.SortOrder
   imageUrls?: Prisma.SortOrder
   imageFileIds?: Prisma.SortOrder
-  isDeleted?: Prisma.SortOrder
-  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  latitude?: Prisma.SortOrder
+  longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
@@ -231,8 +269,8 @@ export type PostWhereUniqueInput = Prisma.AtLeast<{
   caption?: Prisma.StringNullableFilter<"Post"> | string | null
   imageUrls?: Prisma.StringNullableListFilter<"Post">
   imageFileIds?: Prisma.StringNullableListFilter<"Post">
-  isDeleted?: Prisma.BoolFilter<"Post"> | boolean
-  deletedAt?: Prisma.DateTimeNullableFilter<"Post"> | Date | string | null
+  latitude?: Prisma.FloatFilter<"Post"> | number
+  longitude?: Prisma.FloatFilter<"Post"> | number
   createdAt?: Prisma.DateTimeFilter<"Post"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Post"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -244,13 +282,15 @@ export type PostOrderByWithAggregationInput = {
   caption?: Prisma.SortOrderInput | Prisma.SortOrder
   imageUrls?: Prisma.SortOrder
   imageFileIds?: Prisma.SortOrder
-  isDeleted?: Prisma.SortOrder
-  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  latitude?: Prisma.SortOrder
+  longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.PostCountOrderByAggregateInput
+  _avg?: Prisma.PostAvgOrderByAggregateInput
   _max?: Prisma.PostMaxOrderByAggregateInput
   _min?: Prisma.PostMinOrderByAggregateInput
+  _sum?: Prisma.PostSumOrderByAggregateInput
 }
 
 export type PostScalarWhereWithAggregatesInput = {
@@ -262,8 +302,8 @@ export type PostScalarWhereWithAggregatesInput = {
   caption?: Prisma.StringNullableWithAggregatesFilter<"Post"> | string | null
   imageUrls?: Prisma.StringNullableListFilter<"Post">
   imageFileIds?: Prisma.StringNullableListFilter<"Post">
-  isDeleted?: Prisma.BoolWithAggregatesFilter<"Post"> | boolean
-  deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Post"> | Date | string | null
+  latitude?: Prisma.FloatWithAggregatesFilter<"Post"> | number
+  longitude?: Prisma.FloatWithAggregatesFilter<"Post"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Post"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Post"> | Date | string
 }
@@ -273,8 +313,8 @@ export type PostCreateInput = {
   caption?: string | null
   imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
+  latitude: number
+  longitude: number
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutPostsInput
@@ -286,8 +326,8 @@ export type PostUncheckedCreateInput = {
   caption?: string | null
   imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
+  latitude: number
+  longitude: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -297,8 +337,8 @@ export type PostUpdateInput = {
   caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput
@@ -310,8 +350,8 @@ export type PostUncheckedUpdateInput = {
   caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -322,8 +362,8 @@ export type PostCreateManyInput = {
   caption?: string | null
   imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
+  latitude: number
+  longitude: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -333,8 +373,8 @@ export type PostUpdateManyMutationInput = {
   caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -345,8 +385,8 @@ export type PostUncheckedUpdateManyInput = {
   caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -375,18 +415,23 @@ export type PostCountOrderByAggregateInput = {
   caption?: Prisma.SortOrder
   imageUrls?: Prisma.SortOrder
   imageFileIds?: Prisma.SortOrder
-  isDeleted?: Prisma.SortOrder
-  deletedAt?: Prisma.SortOrder
+  latitude?: Prisma.SortOrder
+  longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type PostAvgOrderByAggregateInput = {
+  latitude?: Prisma.SortOrder
+  longitude?: Prisma.SortOrder
 }
 
 export type PostMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   caption?: Prisma.SortOrder
-  isDeleted?: Prisma.SortOrder
-  deletedAt?: Prisma.SortOrder
+  latitude?: Prisma.SortOrder
+  longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -395,10 +440,15 @@ export type PostMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   caption?: Prisma.SortOrder
-  isDeleted?: Prisma.SortOrder
-  deletedAt?: Prisma.SortOrder
+  latitude?: Prisma.SortOrder
+  longitude?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type PostSumOrderByAggregateInput = {
+  latitude?: Prisma.SortOrder
+  longitude?: Prisma.SortOrder
 }
 
 export type PostCreateNestedManyWithoutUserInput = {
@@ -466,8 +516,8 @@ export type PostCreateWithoutUserInput = {
   caption?: string | null
   imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
+  latitude: number
+  longitude: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -477,8 +527,8 @@ export type PostUncheckedCreateWithoutUserInput = {
   caption?: string | null
   imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
+  latitude: number
+  longitude: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -518,8 +568,8 @@ export type PostScalarWhereInput = {
   caption?: Prisma.StringNullableFilter<"Post"> | string | null
   imageUrls?: Prisma.StringNullableListFilter<"Post">
   imageFileIds?: Prisma.StringNullableListFilter<"Post">
-  isDeleted?: Prisma.BoolFilter<"Post"> | boolean
-  deletedAt?: Prisma.DateTimeNullableFilter<"Post"> | Date | string | null
+  latitude?: Prisma.FloatFilter<"Post"> | number
+  longitude?: Prisma.FloatFilter<"Post"> | number
   createdAt?: Prisma.DateTimeFilter<"Post"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Post"> | Date | string
 }
@@ -529,8 +579,8 @@ export type PostCreateManyUserInput = {
   caption?: string | null
   imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
+  latitude: number
+  longitude: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -540,8 +590,8 @@ export type PostUpdateWithoutUserInput = {
   caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -551,8 +601,8 @@ export type PostUncheckedUpdateWithoutUserInput = {
   caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -562,8 +612,8 @@ export type PostUncheckedUpdateManyWithoutUserInput = {
   caption?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
   imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -576,8 +626,8 @@ export type PostSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   caption?: boolean
   imageUrls?: boolean
   imageFileIds?: boolean
-  isDeleted?: boolean
-  deletedAt?: boolean
+  latitude?: boolean
+  longitude?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -589,8 +639,8 @@ export type PostSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   caption?: boolean
   imageUrls?: boolean
   imageFileIds?: boolean
-  isDeleted?: boolean
-  deletedAt?: boolean
+  latitude?: boolean
+  longitude?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -602,8 +652,8 @@ export type PostSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   caption?: boolean
   imageUrls?: boolean
   imageFileIds?: boolean
-  isDeleted?: boolean
-  deletedAt?: boolean
+  latitude?: boolean
+  longitude?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -615,13 +665,13 @@ export type PostSelectScalar = {
   caption?: boolean
   imageUrls?: boolean
   imageFileIds?: boolean
-  isDeleted?: boolean
-  deletedAt?: boolean
+  latitude?: boolean
+  longitude?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type PostOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "caption" | "imageUrls" | "imageFileIds" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["post"]>
+export type PostOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "caption" | "imageUrls" | "imageFileIds" | "latitude" | "longitude" | "createdAt" | "updatedAt", ExtArgs["result"]["post"]>
 export type PostInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -643,8 +693,8 @@ export type $PostPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     caption: string | null
     imageUrls: string[]
     imageFileIds: string[]
-    isDeleted: boolean
-    deletedAt: Date | null
+    latitude: number
+    longitude: number
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["post"]>
@@ -1076,8 +1126,8 @@ export interface PostFieldRefs {
   readonly caption: Prisma.FieldRef<"Post", 'String'>
   readonly imageUrls: Prisma.FieldRef<"Post", 'String[]'>
   readonly imageFileIds: Prisma.FieldRef<"Post", 'String[]'>
-  readonly isDeleted: Prisma.FieldRef<"Post", 'Boolean'>
-  readonly deletedAt: Prisma.FieldRef<"Post", 'DateTime'>
+  readonly latitude: Prisma.FieldRef<"Post", 'Float'>
+  readonly longitude: Prisma.FieldRef<"Post", 'Float'>
   readonly createdAt: Prisma.FieldRef<"Post", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Post", 'DateTime'>
 }

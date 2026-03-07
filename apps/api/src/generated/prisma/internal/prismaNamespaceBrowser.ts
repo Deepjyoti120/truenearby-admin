@@ -151,8 +151,6 @@ export const PhotoScalarFieldEnum = {
   url: 'url',
   fileId: 'fileId',
   isPrimary: 'isPrimary',
-  isDeleted: 'isDeleted',
-  deletedAt: 'deletedAt',
   createdAt: 'createdAt'
 } as const
 
@@ -165,8 +163,8 @@ export const PostScalarFieldEnum = {
   caption: 'caption',
   imageUrls: 'imageUrls',
   imageFileIds: 'imageFileIds',
-  isDeleted: 'isDeleted',
-  deletedAt: 'deletedAt',
+  latitude: 'latitude',
+  longitude: 'longitude',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
