@@ -24,12 +24,25 @@ export class PostsService {
       files.map((file) => this.imageKitService.uploadFile(file)),
     );
 
+    const profile = await this.prisma.profile.findUnique({
+      where: { userId },
+      select: { latitude: true, longitude: true },
+    });
+
+    if (!profile) {
+      throw new BadRequestException('Profile not found');
+    }
+
+    const prompt = dto.prompt?.trim() || dto.caption?.trim() || null;
+
     const post = await this.prisma.post.create({
       data: {
         userId,
-        pr: dto.caption?.trim() ? dto.caption.trim() : null,
+        prompt,
         imageUrls: uploads.map((upload) => upload.url),
         imageFileIds: uploads.map((upload) => upload.fileId),
+        latitude: profile.latitude,
+        longitude: profile.longitude,
       },
     });
 
