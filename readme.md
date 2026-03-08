@@ -3,6 +3,7 @@ nest g controller users
 
 pnpm prisma migrate dev
 pnpm exec prisma migrate dev --name create_users
+pnpm exec prisma migrate dev --name update_dateof_both_field_property
 pnpm exec prisma generate
 pnpm exec prisma migrate deploy
 pnpm exec prisma migrate resolve --rolled-back "20260124021641_add_postgis"
