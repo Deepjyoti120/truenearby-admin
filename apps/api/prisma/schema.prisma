@@ -51,11 +51,10 @@ model Profile {
   userName   String?    @unique
   gender     Gender
   bio        String?
-  /// Store date of birth only. Age should always be derived at query time.
   birthDate  DateTime
   heightCm   Int?
   lookingFor LookingFor
-  /// Keep normalized interest keys here for simple Prisma array filters.
+
   interests  String[]   @default([])
 
   latitude  Float
