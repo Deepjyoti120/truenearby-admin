@@ -34,32 +34,41 @@ export class ProfileService {
       dto.latitude,
       dto.longitude,
     );
-
-    const profile = await this.prisma.profile.create({
-      data: {
-        userId,
-        gender: dto.gender,
-        lookingFor: dto.lookingFor,
-        birthDate: new Date(dto.birthDate),
-        heightCm: dto.heightCm,
-        bio: dto.bio,
-        interests,
-        latitude: dto.latitude,
-        longitude: dto.longitude,
-        city: geocodeResult.city,
-        country: geocodeResult.country,
-        matchPreference: {
-          create: preferenceAgeRange,
+    const result = await this.prisma.$transaction(async (tx) => {
+      const profile = await tx.profile.create({
+        data: {
+          userId,
+          gender: dto.gender,
+          lookingFor: dto.lookingFor,
+          birthDate: new Date(dto.birthDate),
+          heightCm: dto.heightCm,
+          bio: dto.bio,
+          interests,
+          latitude: dto.latitude,
+          longitude: dto.longitude,
+          city: geocodeResult.city,
+          country: geocodeResult.country,
+          matchPreference: {
+            create: preferenceAgeRange,
+          },
+          isRegistered: true,
         },
-        isRegistered: true,
-      },
-      include: {
-        matchPreference: true,
-      },
+        include: {
+          matchPreference: true,
+        },
+      });
+      await tx.user.update({
+        where: { id: userId },
+        data: {
+          isRegistered: true,
+          isVerified: true,
+        },
+      });
+      return profile;
     });
     return {
       success: true,
-      profile,
+      result,
     };
   }
   async registerDevice(userId: string, dto: RegisterDeviceDto) {
