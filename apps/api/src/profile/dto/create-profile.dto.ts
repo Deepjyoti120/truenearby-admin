@@ -8,6 +8,7 @@ import {
   Max,
   IsLatitude,
   IsLongitude,
+  MaxLength,
 } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Gender, LookingFor } from '../../generated/prisma/enums';
@@ -54,4 +55,10 @@ export class CreateProfileDto {
   @IsOptional()
   @IsString()
   country?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(2200)
+  @ApiProperty({ type: 'string', example: 'Weekend vibes' })
+  prompt?: string;
 }
