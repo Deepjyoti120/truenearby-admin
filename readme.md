@@ -25,3 +25,4 @@ pnpm exec nest g controller matches
 pnpm exec nest g service matches
 
 
+https://nominatim.openstreetmap.org/reverse?lat=26.1445&lon=91.7362&format=json
