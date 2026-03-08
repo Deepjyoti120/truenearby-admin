@@ -1,6 +1,7 @@
 nest g module|controller|service users
 nest g controller users
 
+pnpm prisma migrate dev
 pnpm exec prisma migrate dev --name create_users
 pnpm exec prisma generate
 pnpm exec prisma migrate deploy
