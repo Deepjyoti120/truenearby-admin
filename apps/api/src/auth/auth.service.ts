@@ -45,6 +45,7 @@ export class AuthService {
       },
     );
   }
+
   async refresh(refreshToken: string) {
     let payload: { sub: string };
     try {
