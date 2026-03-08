@@ -5,6 +5,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { ImageKitService } from '../photos/imagekit.service';
 import { ReverseGeocodeService } from '../common/geo/reverse-geocode.service';
 import { Gender, LookingFor } from '../generated/prisma/enums';
+import { ProfilePreferencesService } from './profile-preferences.service';
 
 describe('ProfileService', () => {
   let service: ProfileService;
@@ -28,6 +29,10 @@ describe('ProfileService', () => {
   };
   let reverseGeocodeService: {
     getCityAndCountry: jest.Mock;
+  };
+  let profilePreferencesService: {
+    normalizeInterests: jest.Mock;
+    resolvePreferredAgeRange: jest.Mock;
   };
 
   beforeEach(async () => {
@@ -67,12 +72,20 @@ describe('ProfileService', () => {
             getCityAndCountry: jest.fn(),
           },
         },
+        {
+          provide: ProfilePreferencesService,
+          useValue: {
+            normalizeInterests: jest.fn(),
+            resolvePreferredAgeRange: jest.fn(),
+          },
+        },
       ],
     }).compile();
 
     service = module.get<ProfileService>(ProfileService);
     prisma = module.get(PrismaService);
     reverseGeocodeService = module.get(ReverseGeocodeService);
+    profilePreferencesService = module.get(ProfilePreferencesService);
   });
 
   it('should be defined', () => {
@@ -85,6 +98,14 @@ describe('ProfileService', () => {
       reverseGeocodeService.getCityAndCountry.mockResolvedValue({
         city: 'Delhi',
         country: 'India',
+      });
+      profilePreferencesService.normalizeInterests.mockReturnValue([
+        'travel',
+        'coffee',
+      ]);
+      profilePreferencesService.resolvePreferredAgeRange.mockReturnValue({
+        minAge: 24,
+        maxAge: 32,
       });
 
       const createdProfile = {
@@ -110,6 +131,14 @@ describe('ProfileService', () => {
         longitude: 77.209,
       });
 
+      expect(profilePreferencesService.normalizeInterests).toHaveBeenCalledWith([
+        ' Travel ',
+        'Coffee',
+        'travel',
+      ]);
+      expect(
+        profilePreferencesService.resolvePreferredAgeRange,
+      ).toHaveBeenCalledWith(24, 32);
       expect(prisma.profile.create).toHaveBeenCalledWith({
         data: expect.objectContaining({
           userId: 'user-1',
@@ -135,6 +164,11 @@ describe('ProfileService', () => {
 
     it('rejects an inverted preferred age range', async () => {
       prisma.profile.findUnique.mockResolvedValue(null);
+      profilePreferencesService.resolvePreferredAgeRange.mockImplementation(() => {
+        throw new BadRequestException(
+          'preferredMinAge must be less than or equal to preferredMaxAge',
+        );
+      });
 
       await expect(
         service.create('user-1', {
@@ -148,6 +182,12 @@ describe('ProfileService', () => {
         }),
       ).rejects.toBeInstanceOf(BadRequestException);
 
+      expect(profilePreferencesService.normalizeInterests).toHaveBeenCalledWith(
+        undefined,
+      );
+      expect(
+        profilePreferencesService.resolvePreferredAgeRange,
+      ).toHaveBeenCalledWith(35, 30);
       expect(reverseGeocodeService.getCityAndCountry).not.toHaveBeenCalled();
       expect(prisma.profile.create).not.toHaveBeenCalled();
     });

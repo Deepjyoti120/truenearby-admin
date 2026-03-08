@@ -19,6 +19,7 @@ nest g service auth
 pnpm exec nest g module profile
 pnpm exec nest g controller profile
 pnpm exec nest g service profile
+pnpm exec nest g service profile/profile-preferences --flat --no-spec
 
 pnpm exec nest g module matches
 pnpm exec nest g controller matches

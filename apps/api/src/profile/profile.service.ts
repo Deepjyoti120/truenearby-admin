@@ -4,9 +4,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { RegisterDeviceDto } from './dto/register-device.dto';
 import { ImageKitService } from '../photos/imagekit.service';
 import { ReverseGeocodeService } from '../common/geo/reverse-geocode.service';
-
-const DEFAULT_MIN_PREFERRED_AGE = 18;
-const DEFAULT_MAX_PREFERRED_AGE = 99;
+import { ProfilePreferencesService } from './profile-preferences.service';
 
 @Injectable()
 export class ProfileService {
@@ -14,6 +12,7 @@ export class ProfileService {
     private readonly prisma: PrismaService,
     private readonly imageKitService: ImageKitService,
     private readonly reverseGeocodeService: ReverseGeocodeService,
+    private readonly profilePreferencesService: ProfilePreferencesService,
   ) {}
 
   async create(userId: string, dto: CreateProfileDto) {
@@ -23,11 +22,14 @@ export class ProfileService {
     if (existing) {
       throw new BadRequestException('Profile already exists');
     }
-    const interests = this.normalizeInterests(dto.interests);
-    const preferenceAgeRange = this.resolvePreferredAgeRange(
-      dto.preferredMinAge,
-      dto.preferredMaxAge,
+    const interests = this.profilePreferencesService.normalizeInterests(
+      dto.interests,
     );
+    const preferenceAgeRange =
+      this.profilePreferencesService.resolvePreferredAgeRange(
+        dto.preferredMinAge,
+        dto.preferredMaxAge,
+      );
     const geocodeResult = await this.reverseGeocodeService.getCityAndCountry(
       dto.latitude,
       dto.longitude,
@@ -155,31 +157,6 @@ export class ProfileService {
     return {
       success: true,
       photos,
-    };
-  }
-
-  private normalizeInterests(interests?: string[]) {
-    if (!interests?.length) {
-      return [];
-    }
-    return [
-      ...new Set(interests.map((interest) => interest.trim().toLowerCase())),
-    ].filter((interest) => interest.length > 0);
-  }
-
-  private resolvePreferredAgeRange(minAge?: number, maxAge?: number) {
-    const normalizedMinAge = minAge ?? DEFAULT_MIN_PREFERRED_AGE;
-    const normalizedMaxAge = maxAge ?? DEFAULT_MAX_PREFERRED_AGE;
-
-    if (normalizedMinAge > normalizedMaxAge) {
-      throw new BadRequestException(
-        'preferredMinAge must be less than or equal to preferredMaxAge',
-      );
-    }
-
-    return {
-      minAge: normalizedMinAge,
-      maxAge: normalizedMaxAge,
     };
   }
 }
