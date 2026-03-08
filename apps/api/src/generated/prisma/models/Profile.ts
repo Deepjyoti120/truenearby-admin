@@ -1062,15 +1062,9 @@ export type $ProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     userName: string | null
     gender: $Enums.Gender
     bio: string | null
-    /**
-     * Store date of birth only. Age should always be derived at query time.
-     */
     birthDate: Date
     heightCm: number | null
     lookingFor: $Enums.LookingFor
-    /**
-     * Keep normalized interest keys here for simple Prisma array filters.
-     */
     interests: string[]
     latitude: number
     longitude: number
