@@ -53,6 +53,7 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   User: 'User',
   Profile: 'Profile',
+  ProfileMatchPreference: 'ProfileMatchPreference',
   UserDevice: 'UserDevice',
   RefreshToken: 'RefreshToken',
   Photo: 'Photo',
@@ -108,6 +109,7 @@ export const ProfileScalarFieldEnum = {
   birthDate: 'birthDate',
   heightCm: 'heightCm',
   lookingFor: 'lookingFor',
+  interests: 'interests',
   latitude: 'latitude',
   longitude: 'longitude',
   city: 'city',
@@ -119,6 +121,18 @@ export const ProfileScalarFieldEnum = {
 } as const
 
 export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
+
+
+export const ProfileMatchPreferenceScalarFieldEnum = {
+  id: 'id',
+  profileId: 'profileId',
+  minAge: 'minAge',
+  maxAge: 'maxAge',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProfileMatchPreferenceScalarFieldEnum = (typeof ProfileMatchPreferenceScalarFieldEnum)[keyof typeof ProfileMatchPreferenceScalarFieldEnum]
 
 
 export const UserDeviceScalarFieldEnum = {

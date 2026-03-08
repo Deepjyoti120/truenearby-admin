@@ -88,6 +88,7 @@ export type ProfileCountAggregateOutputType = {
   birthDate: number
   heightCm: number
   lookingFor: number
+  interests: number
   latitude: number
   longitude: number
   city: number
@@ -162,6 +163,7 @@ export type ProfileCountAggregateInputType = {
   birthDate?: true
   heightCm?: true
   lookingFor?: true
+  interests?: true
   latitude?: true
   longitude?: true
   city?: true
@@ -269,6 +271,7 @@ export type ProfileGroupByOutputType = {
   birthDate: Date
   heightCm: number | null
   lookingFor: $Enums.LookingFor
+  interests: string[]
   latitude: number
   longitude: number
   city: string | null
@@ -312,6 +315,7 @@ export type ProfileWhereInput = {
   birthDate?: Prisma.DateTimeFilter<"Profile"> | Date | string
   heightCm?: Prisma.IntNullableFilter<"Profile"> | number | null
   lookingFor?: Prisma.EnumLookingForFilter<"Profile"> | $Enums.LookingFor
+  interests?: Prisma.StringNullableListFilter<"Profile">
   latitude?: Prisma.FloatFilter<"Profile"> | number
   longitude?: Prisma.FloatFilter<"Profile"> | number
   city?: Prisma.StringNullableFilter<"Profile"> | string | null
@@ -321,6 +325,7 @@ export type ProfileWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  matchPreference?: Prisma.XOR<Prisma.ProfileMatchPreferenceNullableScalarRelationFilter, Prisma.ProfileMatchPreferenceWhereInput> | null
 }
 
 export type ProfileOrderByWithRelationInput = {
@@ -333,6 +338,7 @@ export type ProfileOrderByWithRelationInput = {
   birthDate?: Prisma.SortOrder
   heightCm?: Prisma.SortOrderInput | Prisma.SortOrder
   lookingFor?: Prisma.SortOrder
+  interests?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
   longitude?: Prisma.SortOrder
   city?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -342,6 +348,7 @@ export type ProfileOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
+  matchPreference?: Prisma.ProfileMatchPreferenceOrderByWithRelationInput
 }
 
 export type ProfileWhereUniqueInput = Prisma.AtLeast<{
@@ -357,6 +364,7 @@ export type ProfileWhereUniqueInput = Prisma.AtLeast<{
   birthDate?: Prisma.DateTimeFilter<"Profile"> | Date | string
   heightCm?: Prisma.IntNullableFilter<"Profile"> | number | null
   lookingFor?: Prisma.EnumLookingForFilter<"Profile"> | $Enums.LookingFor
+  interests?: Prisma.StringNullableListFilter<"Profile">
   latitude?: Prisma.FloatFilter<"Profile"> | number
   longitude?: Prisma.FloatFilter<"Profile"> | number
   city?: Prisma.StringNullableFilter<"Profile"> | string | null
@@ -366,6 +374,7 @@ export type ProfileWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  matchPreference?: Prisma.XOR<Prisma.ProfileMatchPreferenceNullableScalarRelationFilter, Prisma.ProfileMatchPreferenceWhereInput> | null
 }, "id" | "userId" | "userName">
 
 export type ProfileOrderByWithAggregationInput = {
@@ -378,6 +387,7 @@ export type ProfileOrderByWithAggregationInput = {
   birthDate?: Prisma.SortOrder
   heightCm?: Prisma.SortOrderInput | Prisma.SortOrder
   lookingFor?: Prisma.SortOrder
+  interests?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
   longitude?: Prisma.SortOrder
   city?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -406,6 +416,7 @@ export type ProfileScalarWhereWithAggregatesInput = {
   birthDate?: Prisma.DateTimeWithAggregatesFilter<"Profile"> | Date | string
   heightCm?: Prisma.IntNullableWithAggregatesFilter<"Profile"> | number | null
   lookingFor?: Prisma.EnumLookingForWithAggregatesFilter<"Profile"> | $Enums.LookingFor
+  interests?: Prisma.StringNullableListFilter<"Profile">
   latitude?: Prisma.FloatWithAggregatesFilter<"Profile"> | number
   longitude?: Prisma.FloatWithAggregatesFilter<"Profile"> | number
   city?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
@@ -425,6 +436,7 @@ export type ProfileCreateInput = {
   birthDate: Date | string
   heightCm?: number | null
   lookingFor: $Enums.LookingFor
+  interests?: Prisma.ProfileCreateinterestsInput | string[]
   latitude: number
   longitude: number
   city?: string | null
@@ -434,6 +446,7 @@ export type ProfileCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutProfileInput
+  matchPreference?: Prisma.ProfileMatchPreferenceCreateNestedOneWithoutProfileInput
 }
 
 export type ProfileUncheckedCreateInput = {
@@ -446,6 +459,7 @@ export type ProfileUncheckedCreateInput = {
   birthDate: Date | string
   heightCm?: number | null
   lookingFor: $Enums.LookingFor
+  interests?: Prisma.ProfileCreateinterestsInput | string[]
   latitude: number
   longitude: number
   city?: string | null
@@ -454,6 +468,7 @@ export type ProfileUncheckedCreateInput = {
   isRegistered?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  matchPreference?: Prisma.ProfileMatchPreferenceUncheckedCreateNestedOneWithoutProfileInput
 }
 
 export type ProfileUpdateInput = {
@@ -465,6 +480,7 @@ export type ProfileUpdateInput = {
   birthDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   heightCm?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   lookingFor?: Prisma.EnumLookingForFieldUpdateOperationsInput | $Enums.LookingFor
+  interests?: Prisma.ProfileUpdateinterestsInput | string[]
   latitude?: Prisma.FloatFieldUpdateOperationsInput | number
   longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -474,6 +490,7 @@ export type ProfileUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutProfileNestedInput
+  matchPreference?: Prisma.ProfileMatchPreferenceUpdateOneWithoutProfileNestedInput
 }
 
 export type ProfileUncheckedUpdateInput = {
@@ -486,6 +503,7 @@ export type ProfileUncheckedUpdateInput = {
   birthDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   heightCm?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   lookingFor?: Prisma.EnumLookingForFieldUpdateOperationsInput | $Enums.LookingFor
+  interests?: Prisma.ProfileUpdateinterestsInput | string[]
   latitude?: Prisma.FloatFieldUpdateOperationsInput | number
   longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -494,6 +512,7 @@ export type ProfileUncheckedUpdateInput = {
   isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  matchPreference?: Prisma.ProfileMatchPreferenceUncheckedUpdateOneWithoutProfileNestedInput
 }
 
 export type ProfileCreateManyInput = {
@@ -506,6 +525,7 @@ export type ProfileCreateManyInput = {
   birthDate: Date | string
   heightCm?: number | null
   lookingFor: $Enums.LookingFor
+  interests?: Prisma.ProfileCreateinterestsInput | string[]
   latitude: number
   longitude: number
   city?: string | null
@@ -525,6 +545,7 @@ export type ProfileUpdateManyMutationInput = {
   birthDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   heightCm?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   lookingFor?: Prisma.EnumLookingForFieldUpdateOperationsInput | $Enums.LookingFor
+  interests?: Prisma.ProfileUpdateinterestsInput | string[]
   latitude?: Prisma.FloatFieldUpdateOperationsInput | number
   longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -545,6 +566,7 @@ export type ProfileUncheckedUpdateManyInput = {
   birthDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   heightCm?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   lookingFor?: Prisma.EnumLookingForFieldUpdateOperationsInput | $Enums.LookingFor
+  interests?: Prisma.ProfileUpdateinterestsInput | string[]
   latitude?: Prisma.FloatFieldUpdateOperationsInput | number
   longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -560,6 +582,14 @@ export type ProfileNullableScalarRelationFilter = {
   isNot?: Prisma.ProfileWhereInput | null
 }
 
+export type StringNullableListFilter<$PrismaModel = never> = {
+  equals?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel> | null
+  has?: string | Prisma.StringFieldRefInput<$PrismaModel> | null
+  hasEvery?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
+  hasSome?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
+  isEmpty?: boolean
+}
+
 export type ProfileCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
@@ -570,6 +600,7 @@ export type ProfileCountOrderByAggregateInput = {
   birthDate?: Prisma.SortOrder
   heightCm?: Prisma.SortOrder
   lookingFor?: Prisma.SortOrder
+  interests?: Prisma.SortOrder
   latitude?: Prisma.SortOrder
   longitude?: Prisma.SortOrder
   city?: Prisma.SortOrder
@@ -632,6 +663,11 @@ export type ProfileSumOrderByAggregateInput = {
   longitude?: Prisma.SortOrder
 }
 
+export type ProfileScalarRelationFilter = {
+  is?: Prisma.ProfileWhereInput
+  isNot?: Prisma.ProfileWhereInput
+}
+
 export type ProfileCreateNestedOneWithoutUserInput = {
   create?: Prisma.XOR<Prisma.ProfileCreateWithoutUserInput, Prisma.ProfileUncheckedCreateWithoutUserInput>
   connectOrCreate?: Prisma.ProfileCreateOrConnectWithoutUserInput
@@ -664,6 +700,10 @@ export type ProfileUncheckedUpdateOneWithoutUserNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ProfileUpdateToOneWithWhereWithoutUserInput, Prisma.ProfileUpdateWithoutUserInput>, Prisma.ProfileUncheckedUpdateWithoutUserInput>
 }
 
+export type ProfileCreateinterestsInput = {
+  set: string[]
+}
+
 export type EnumGenderFieldUpdateOperationsInput = {
   set?: $Enums.Gender
 }
@@ -680,12 +720,31 @@ export type EnumLookingForFieldUpdateOperationsInput = {
   set?: $Enums.LookingFor
 }
 
+export type ProfileUpdateinterestsInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
 export type FloatFieldUpdateOperationsInput = {
   set?: number
   increment?: number
   decrement?: number
   multiply?: number
   divide?: number
+}
+
+export type ProfileCreateNestedOneWithoutMatchPreferenceInput = {
+  create?: Prisma.XOR<Prisma.ProfileCreateWithoutMatchPreferenceInput, Prisma.ProfileUncheckedCreateWithoutMatchPreferenceInput>
+  connectOrCreate?: Prisma.ProfileCreateOrConnectWithoutMatchPreferenceInput
+  connect?: Prisma.ProfileWhereUniqueInput
+}
+
+export type ProfileUpdateOneRequiredWithoutMatchPreferenceNestedInput = {
+  create?: Prisma.XOR<Prisma.ProfileCreateWithoutMatchPreferenceInput, Prisma.ProfileUncheckedCreateWithoutMatchPreferenceInput>
+  connectOrCreate?: Prisma.ProfileCreateOrConnectWithoutMatchPreferenceInput
+  upsert?: Prisma.ProfileUpsertWithoutMatchPreferenceInput
+  connect?: Prisma.ProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProfileUpdateToOneWithWhereWithoutMatchPreferenceInput, Prisma.ProfileUpdateWithoutMatchPreferenceInput>, Prisma.ProfileUncheckedUpdateWithoutMatchPreferenceInput>
 }
 
 export type ProfileCreateWithoutUserInput = {
@@ -697,6 +756,7 @@ export type ProfileCreateWithoutUserInput = {
   birthDate: Date | string
   heightCm?: number | null
   lookingFor: $Enums.LookingFor
+  interests?: Prisma.ProfileCreateinterestsInput | string[]
   latitude: number
   longitude: number
   city?: string | null
@@ -705,6 +765,7 @@ export type ProfileCreateWithoutUserInput = {
   isRegistered?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  matchPreference?: Prisma.ProfileMatchPreferenceCreateNestedOneWithoutProfileInput
 }
 
 export type ProfileUncheckedCreateWithoutUserInput = {
@@ -716,6 +777,7 @@ export type ProfileUncheckedCreateWithoutUserInput = {
   birthDate: Date | string
   heightCm?: number | null
   lookingFor: $Enums.LookingFor
+  interests?: Prisma.ProfileCreateinterestsInput | string[]
   latitude: number
   longitude: number
   city?: string | null
@@ -724,6 +786,7 @@ export type ProfileUncheckedCreateWithoutUserInput = {
   isRegistered?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  matchPreference?: Prisma.ProfileMatchPreferenceUncheckedCreateNestedOneWithoutProfileInput
 }
 
 export type ProfileCreateOrConnectWithoutUserInput = {
@@ -751,6 +814,7 @@ export type ProfileUpdateWithoutUserInput = {
   birthDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   heightCm?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   lookingFor?: Prisma.EnumLookingForFieldUpdateOperationsInput | $Enums.LookingFor
+  interests?: Prisma.ProfileUpdateinterestsInput | string[]
   latitude?: Prisma.FloatFieldUpdateOperationsInput | number
   longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -759,6 +823,7 @@ export type ProfileUpdateWithoutUserInput = {
   isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  matchPreference?: Prisma.ProfileMatchPreferenceUpdateOneWithoutProfileNestedInput
 }
 
 export type ProfileUncheckedUpdateWithoutUserInput = {
@@ -770,6 +835,108 @@ export type ProfileUncheckedUpdateWithoutUserInput = {
   birthDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   heightCm?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   lookingFor?: Prisma.EnumLookingForFieldUpdateOperationsInput | $Enums.LookingFor
+  interests?: Prisma.ProfileUpdateinterestsInput | string[]
+  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isHidden?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  matchPreference?: Prisma.ProfileMatchPreferenceUncheckedUpdateOneWithoutProfileNestedInput
+}
+
+export type ProfileCreateWithoutMatchPreferenceInput = {
+  id?: string
+  name?: string | null
+  userName?: string | null
+  gender: $Enums.Gender
+  bio?: string | null
+  birthDate: Date | string
+  heightCm?: number | null
+  lookingFor: $Enums.LookingFor
+  interests?: Prisma.ProfileCreateinterestsInput | string[]
+  latitude: number
+  longitude: number
+  city?: string | null
+  country?: string | null
+  isHidden?: boolean
+  isRegistered?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutProfileInput
+}
+
+export type ProfileUncheckedCreateWithoutMatchPreferenceInput = {
+  id?: string
+  userId: string
+  name?: string | null
+  userName?: string | null
+  gender: $Enums.Gender
+  bio?: string | null
+  birthDate: Date | string
+  heightCm?: number | null
+  lookingFor: $Enums.LookingFor
+  interests?: Prisma.ProfileCreateinterestsInput | string[]
+  latitude: number
+  longitude: number
+  city?: string | null
+  country?: string | null
+  isHidden?: boolean
+  isRegistered?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type ProfileCreateOrConnectWithoutMatchPreferenceInput = {
+  where: Prisma.ProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.ProfileCreateWithoutMatchPreferenceInput, Prisma.ProfileUncheckedCreateWithoutMatchPreferenceInput>
+}
+
+export type ProfileUpsertWithoutMatchPreferenceInput = {
+  update: Prisma.XOR<Prisma.ProfileUpdateWithoutMatchPreferenceInput, Prisma.ProfileUncheckedUpdateWithoutMatchPreferenceInput>
+  create: Prisma.XOR<Prisma.ProfileCreateWithoutMatchPreferenceInput, Prisma.ProfileUncheckedCreateWithoutMatchPreferenceInput>
+  where?: Prisma.ProfileWhereInput
+}
+
+export type ProfileUpdateToOneWithWhereWithoutMatchPreferenceInput = {
+  where?: Prisma.ProfileWhereInput
+  data: Prisma.XOR<Prisma.ProfileUpdateWithoutMatchPreferenceInput, Prisma.ProfileUncheckedUpdateWithoutMatchPreferenceInput>
+}
+
+export type ProfileUpdateWithoutMatchPreferenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  birthDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  heightCm?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lookingFor?: Prisma.EnumLookingForFieldUpdateOperationsInput | $Enums.LookingFor
+  interests?: Prisma.ProfileUpdateinterestsInput | string[]
+  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isHidden?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutProfileNestedInput
+}
+
+export type ProfileUncheckedUpdateWithoutMatchPreferenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  birthDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  heightCm?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lookingFor?: Prisma.EnumLookingForFieldUpdateOperationsInput | $Enums.LookingFor
+  interests?: Prisma.ProfileUpdateinterestsInput | string[]
   latitude?: Prisma.FloatFieldUpdateOperationsInput | number
   longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -792,6 +959,7 @@ export type ProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   birthDate?: boolean
   heightCm?: boolean
   lookingFor?: boolean
+  interests?: boolean
   latitude?: boolean
   longitude?: boolean
   city?: boolean
@@ -801,6 +969,7 @@ export type ProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  matchPreference?: boolean | Prisma.Profile$matchPreferenceArgs<ExtArgs>
 }, ExtArgs["result"]["profile"]>
 
 export type ProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -813,6 +982,7 @@ export type ProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   birthDate?: boolean
   heightCm?: boolean
   lookingFor?: boolean
+  interests?: boolean
   latitude?: boolean
   longitude?: boolean
   city?: boolean
@@ -834,6 +1004,7 @@ export type ProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   birthDate?: boolean
   heightCm?: boolean
   lookingFor?: boolean
+  interests?: boolean
   latitude?: boolean
   longitude?: boolean
   city?: boolean
@@ -855,6 +1026,7 @@ export type ProfileSelectScalar = {
   birthDate?: boolean
   heightCm?: boolean
   lookingFor?: boolean
+  interests?: boolean
   latitude?: boolean
   longitude?: boolean
   city?: boolean
@@ -865,9 +1037,10 @@ export type ProfileSelectScalar = {
   updatedAt?: boolean
 }
 
-export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "name" | "userName" | "gender" | "bio" | "birthDate" | "heightCm" | "lookingFor" | "latitude" | "longitude" | "city" | "country" | "isHidden" | "isRegistered" | "createdAt" | "updatedAt", ExtArgs["result"]["profile"]>
+export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "name" | "userName" | "gender" | "bio" | "birthDate" | "heightCm" | "lookingFor" | "interests" | "latitude" | "longitude" | "city" | "country" | "isHidden" | "isRegistered" | "createdAt" | "updatedAt", ExtArgs["result"]["profile"]>
 export type ProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  matchPreference?: boolean | Prisma.Profile$matchPreferenceArgs<ExtArgs>
 }
 export type ProfileIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -880,6 +1053,7 @@ export type $ProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   name: "Profile"
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
+    matchPreference: Prisma.$ProfileMatchPreferencePayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -888,9 +1062,16 @@ export type $ProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     userName: string | null
     gender: $Enums.Gender
     bio: string | null
+    /**
+     * Store date of birth only. Age should always be derived at query time.
+     */
     birthDate: Date
     heightCm: number | null
     lookingFor: $Enums.LookingFor
+    /**
+     * Keep normalized interest keys here for simple Prisma array filters.
+     */
+    interests: string[]
     latitude: number
     longitude: number
     city: string | null
@@ -1294,6 +1475,7 @@ readonly fields: ProfileFieldRefs;
 export interface Prisma__ProfileClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  matchPreference<T extends Prisma.Profile$matchPreferenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Profile$matchPreferenceArgs<ExtArgs>>): Prisma.Prisma__ProfileMatchPreferenceClient<runtime.Types.Result.GetResult<Prisma.$ProfileMatchPreferencePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1332,6 +1514,7 @@ export interface ProfileFieldRefs {
   readonly birthDate: Prisma.FieldRef<"Profile", 'DateTime'>
   readonly heightCm: Prisma.FieldRef<"Profile", 'Int'>
   readonly lookingFor: Prisma.FieldRef<"Profile", 'LookingFor'>
+  readonly interests: Prisma.FieldRef<"Profile", 'String[]'>
   readonly latitude: Prisma.FieldRef<"Profile", 'Float'>
   readonly longitude: Prisma.FieldRef<"Profile", 'Float'>
   readonly city: Prisma.FieldRef<"Profile", 'String'>
@@ -1733,6 +1916,25 @@ export type ProfileDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Limit how many Profiles to delete.
    */
   limit?: number
+}
+
+/**
+ * Profile.matchPreference
+ */
+export type Profile$matchPreferenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProfileMatchPreference
+   */
+  select?: Prisma.ProfileMatchPreferenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProfileMatchPreference
+   */
+  omit?: Prisma.ProfileMatchPreferenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProfileMatchPreferenceInclude<ExtArgs> | null
+  where?: Prisma.ProfileMatchPreferenceWhereInput
 }
 
 /**

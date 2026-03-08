@@ -10,6 +10,7 @@
  */
 export type * from './models/User'
 export type * from './models/Profile'
+export type * from './models/ProfileMatchPreference'
 export type * from './models/UserDevice'
 export type * from './models/RefreshToken'
 export type * from './models/Photo'

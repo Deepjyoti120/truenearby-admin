@@ -1,4 +1,8 @@
 import { Module } from '@nestjs/common';
+import { ReverseGeocodeService } from './reverse-geocode.service';
 
-@Module({})
+@Module({
+  providers: [ReverseGeocodeService],
+  exports: [ReverseGeocodeService],
+})
 export class GeoModule {}

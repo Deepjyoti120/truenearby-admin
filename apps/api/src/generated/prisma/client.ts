@@ -48,6 +48,11 @@ export type User = Prisma.UserModel
  */
 export type Profile = Prisma.ProfileModel
 /**
+ * Model ProfileMatchPreference
+ * 
+ */
+export type ProfileMatchPreference = Prisma.ProfileMatchPreferenceModel
+/**
  * Model UserDevice
  * 
  */

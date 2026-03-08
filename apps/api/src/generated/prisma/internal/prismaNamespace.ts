@@ -386,6 +386,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   User: 'User',
   Profile: 'Profile',
+  ProfileMatchPreference: 'ProfileMatchPreference',
   UserDevice: 'UserDevice',
   RefreshToken: 'RefreshToken',
   Photo: 'Photo',
@@ -412,7 +413,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "profile" | "userDevice" | "refreshToken" | "photo" | "post" | "like" | "match" | "chat" | "message" | "block" | "subscription" | "swipe"
+    modelProps: "user" | "profile" | "profileMatchPreference" | "userDevice" | "refreshToken" | "photo" | "post" | "like" | "match" | "chat" | "message" | "block" | "subscription" | "swipe"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -561,6 +562,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.ProfileCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.ProfileCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProfileMatchPreference: {
+      payload: Prisma.$ProfileMatchPreferencePayload<ExtArgs>
+      fields: Prisma.ProfileMatchPreferenceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProfileMatchPreferenceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfileMatchPreferencePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProfileMatchPreferenceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfileMatchPreferencePayload>
+        }
+        findFirst: {
+          args: Prisma.ProfileMatchPreferenceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfileMatchPreferencePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProfileMatchPreferenceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfileMatchPreferencePayload>
+        }
+        findMany: {
+          args: Prisma.ProfileMatchPreferenceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfileMatchPreferencePayload>[]
+        }
+        create: {
+          args: Prisma.ProfileMatchPreferenceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfileMatchPreferencePayload>
+        }
+        createMany: {
+          args: Prisma.ProfileMatchPreferenceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProfileMatchPreferenceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfileMatchPreferencePayload>[]
+        }
+        delete: {
+          args: Prisma.ProfileMatchPreferenceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfileMatchPreferencePayload>
+        }
+        update: {
+          args: Prisma.ProfileMatchPreferenceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfileMatchPreferencePayload>
+        }
+        deleteMany: {
+          args: Prisma.ProfileMatchPreferenceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProfileMatchPreferenceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProfileMatchPreferenceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfileMatchPreferencePayload>[]
+        }
+        upsert: {
+          args: Prisma.ProfileMatchPreferenceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProfileMatchPreferencePayload>
+        }
+        aggregate: {
+          args: Prisma.ProfileMatchPreferenceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProfileMatchPreference>
+        }
+        groupBy: {
+          args: Prisma.ProfileMatchPreferenceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProfileMatchPreferenceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProfileMatchPreferenceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProfileMatchPreferenceCountAggregateOutputType> | number
         }
       }
     }
@@ -1443,6 +1518,7 @@ export const ProfileScalarFieldEnum = {
   birthDate: 'birthDate',
   heightCm: 'heightCm',
   lookingFor: 'lookingFor',
+  interests: 'interests',
   latitude: 'latitude',
   longitude: 'longitude',
   city: 'city',
@@ -1454,6 +1530,18 @@ export const ProfileScalarFieldEnum = {
 } as const
 
 export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
+
+
+export const ProfileMatchPreferenceScalarFieldEnum = {
+  id: 'id',
+  profileId: 'profileId',
+  minAge: 'minAge',
+  maxAge: 'maxAge',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProfileMatchPreferenceScalarFieldEnum = (typeof ProfileMatchPreferenceScalarFieldEnum)[keyof typeof ProfileMatchPreferenceScalarFieldEnum]
 
 
 export const UserDeviceScalarFieldEnum = {
@@ -1827,6 +1915,7 @@ export type PrismaClientOptions = ({
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   profile?: Prisma.ProfileOmit
+  profileMatchPreference?: Prisma.ProfileMatchPreferenceOmit
   userDevice?: Prisma.UserDeviceOmit
   refreshToken?: Prisma.RefreshTokenOmit
   photo?: Prisma.PhotoOmit
