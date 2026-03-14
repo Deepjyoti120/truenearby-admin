@@ -5,6 +5,7 @@ import { RegisterDeviceDto } from './dto/register-device.dto';
 import { ImageKitService } from '../photos/imagekit.service';
 import { ReverseGeocodeService } from '../common/geo/reverse-geocode.service';
 import { ProfilePreferencesService } from './profile-preferences.service';
+import { GetPostsDto } from './dto/get-posts.dto';
 
 @Injectable()
 export class ProfileService {
@@ -13,7 +14,7 @@ export class ProfileService {
     private readonly imageKitService: ImageKitService,
     private readonly reverseGeocodeService: ReverseGeocodeService,
     private readonly profilePreferencesService: ProfilePreferencesService,
-  ) {}
+  ) { }
 
   async create(userId: string, dto: CreateProfileDto) {
     const existing = await this.prisma.profile.findUnique({
@@ -166,6 +167,57 @@ export class ProfileService {
     return {
       success: true,
       photos,
+    };
+  }
+
+  async getProfile(userId: string) {
+    const profile = await this.prisma.profile.findFirst({
+      where: { userId },
+      include: {
+        matchPreference: true,
+        user: {
+          select: {
+            photos: {
+              orderBy: {
+                createdAt: 'asc',
+              },
+            },
+          },
+        },
+      },
+    });
+    return {
+      success: true,
+      profile,
+    };
+  }
+  async getPosts(query: GetPostsDto) {
+    const page = query.page ?? 1;
+    const limit = query.limit ?? 10;
+
+    const skip = (page - 1) * limit;
+
+    const [posts, total] = await this.prisma.$transaction([
+      this.prisma.post.findMany({
+        skip,
+        take: limit,
+        orderBy: {
+          createdAt: 'desc',
+        },
+      }),
+
+      this.prisma.post.count(),
+    ]);
+
+    return {
+      success: true,
+      pagination: {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
+      },
+      posts,
     };
   }
 }
