@@ -87,7 +87,7 @@ export class ProfileController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('photos')
+  @Get('posts')
   getPosts(@Query() query: GetPostsDto) {
     return this.profileService.getPosts(query);
   }

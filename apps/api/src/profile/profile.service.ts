@@ -176,12 +176,8 @@ export class ProfileService {
       include: {
         matchPreference: true,
         user: {
-          select: {
-            photos: {
-              orderBy: {
-                createdAt: 'asc',
-              },
-            },
+          include: {
+            photos: true,
           },
         },
       },
