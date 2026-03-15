@@ -176,7 +176,7 @@ export class ProfileService {
       include: {
         matchPreference: true,
         user: {
-          include: {
+          select: {
             photos: true,
           },
         },

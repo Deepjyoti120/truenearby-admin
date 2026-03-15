@@ -192,4 +192,83 @@ describe('ProfileService', () => {
       expect(prisma.profile.create).not.toHaveBeenCalled();
     });
   });
+
+  describe('getProfile', () => {
+    it('returns photos on the profile object for the current user', async () => {
+      const profileRecord = {
+        id: 'profile-1',
+        userId: 'user-1',
+        gender: Gender.MALE,
+        lookingFor: LookingFor.LONG_TERM_RELATIONSHIP,
+        birthDate: new Date('1998-05-20'),
+        bio: 'Hello',
+        interests: ['travel'],
+        latitude: 28.6139,
+        longitude: 77.209,
+        city: 'Delhi',
+        country: 'India',
+        isHidden: false,
+        isRegistered: true,
+        createdAt: new Date('2026-03-15T00:00:00.000Z'),
+        updatedAt: new Date('2026-03-15T00:00:00.000Z'),
+        matchPreference: {
+          minAge: 24,
+          maxAge: 32,
+        },
+        user: {
+          id: 'user-1',
+          email: 'user@test.com',
+          phone: null,
+          isVerified: true,
+          createdAt: new Date('2026-03-15T00:00:00.000Z'),
+        },
+      };
+      const photos = [
+        {
+          id: 'photo-1',
+          userId: 'user-1',
+          url: 'https://example.com/1.jpg',
+          fileId: 'file-1',
+          isPrimary: true,
+          createdAt: new Date('2026-03-15T00:00:00.000Z'),
+        },
+      ];
+
+      prisma.profile.findUnique.mockResolvedValue(profileRecord);
+      prisma.photo.findMany.mockResolvedValue(photos);
+
+      const result = await service.getProfile('user-1');
+
+      expect(prisma.profile.findUnique).toHaveBeenCalledWith({
+        where: { userId: 'user-1' },
+        include: {
+          matchPreference: true,
+          user: {
+            select: {
+              id: true,
+              email: true,
+              phone: true,
+              isVerified: true,
+              createdAt: true,
+            },
+          },
+        },
+      });
+      expect(prisma.photo.findMany).toHaveBeenCalledWith({
+        where: { userId: 'user-1' },
+        orderBy: [{ isPrimary: 'desc' }, { createdAt: 'asc' }],
+      });
+      expect(result).toEqual({
+        success: true,
+        profile: {
+          ...profileRecord,
+          photos,
+          user: {
+            ...profileRecord.user,
+            photos,
+          },
+        },
+      });
+    });
+  });
 });
