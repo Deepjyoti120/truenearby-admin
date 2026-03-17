@@ -2,6 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { ImageKitService } from '../photos/imagekit.service';
 import { CreatePostDto } from './dto/create-post.dto';
+import { GetPostsDto } from './dto/get-posts.dto';
 
 @Injectable()
 export class PostsService {
@@ -11,6 +12,37 @@ export class PostsService {
     private readonly prisma: PrismaService,
     private readonly imageKitService: ImageKitService,
   ) {}
+
+  async findAllByUser(userId: string, query: GetPostsDto) {
+    const page = query.page ?? 1;
+    const limit = query.limit ?? 10;
+    const skip = (page - 1) * limit;
+
+    const [posts, total] = await this.prisma.$transaction([
+      this.prisma.post.findMany({
+        where: { userId },
+        skip,
+        take: limit,
+        orderBy: {
+          createdAt: 'desc',
+        },
+      }),
+      this.prisma.post.count({
+        where: { userId },
+      }),
+    ]);
+
+    return {
+      success: true,
+      pagination: {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
+      },
+      posts,
+    };
+  }
 
   async create(
     userId: string,

@@ -2,9 +2,11 @@ import {
   Body,
   Controller,
   Delete,
+  Get,
   Param,
   ParseUUIDPipe,
   Post,
+  Query,
   UploadedFiles,
   UseGuards,
   UseInterceptors,
@@ -19,12 +21,22 @@ import {
 import { memoryFileStorage } from '../photos/multer.config';
 import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
+import { GetPostsDto } from './dto/get-posts.dto';
 
 @ApiTags('Posts')
 @ApiBearerAuth('access-token')
 @Controller('posts')
 export class PostsController {
   constructor(private readonly postsService: PostsService) {}
+
+  @UseGuards(JwtAuthGuard)
+  @Get()
+  findMyPosts(
+    @CurrentUser() user: CurrentUserPayload,
+    @Query() query: GetPostsDto,
+  ) {
+    return this.postsService.findAllByUser(user.id, query);
+  }
 
   @UseGuards(JwtAuthGuard)
   @Post()
