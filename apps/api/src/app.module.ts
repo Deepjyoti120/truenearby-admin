@@ -11,6 +11,7 @@ import { GeoModule } from './common/geo/geo.module';
 import { ChatModule } from './chat/chat.module';
 import { MatchesModule } from './matches/matches.module';
 import { PostsModule } from './posts/posts.module';
+import { LikesController } from './likes/likes.controller';
 
 @Module({
   imports: [
@@ -33,5 +34,6 @@ import { PostsModule } from './posts/posts.module';
       useClass: ResponseInterceptor,
     },
   ],
+  controllers: [LikesController],
 })
 export class AppModule {}
