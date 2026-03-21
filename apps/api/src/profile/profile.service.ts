@@ -6,6 +6,7 @@ import { ImageKitService } from '../photos/imagekit.service';
 import { ReverseGeocodeService } from '../common/geo/reverse-geocode.service';
 import { ProfilePreferencesService } from './profile-preferences.service';
 import { GetPostsDto } from './dto/get-posts.dto';
+import { Prisma } from '../generated/prisma/client';
 
 @Injectable()
 export class ProfileService {
@@ -14,7 +15,7 @@ export class ProfileService {
     private readonly imageKitService: ImageKitService,
     private readonly reverseGeocodeService: ReverseGeocodeService,
     private readonly profilePreferencesService: ProfilePreferencesService,
-  ) { }
+  ) {}
 
   async create(userId: string, dto: CreateProfileDto) {
     const existing = await this.prisma.profile.findUnique({
@@ -187,23 +188,87 @@ export class ProfileService {
       profile,
     };
   }
-  async getPosts(query: GetPostsDto) {
+  async getPosts(userId: string, query: GetPostsDto) {
     const page = query.page ?? 1;
     const limit = query.limit ?? 10;
-
     const skip = (page - 1) * limit;
+    const referenceLocation = await this.resolvePostsReferenceLocation(
+      userId,
+      query,
+    );
 
-    const [posts, total] = await this.prisma.$transaction([
-      this.prisma.post.findMany({
-        skip,
-        take: limit,
-        orderBy: {
-          createdAt: 'desc',
+    if (!referenceLocation) {
+      const [posts, total] = await this.prisma.$transaction([
+        this.prisma.post.findMany({
+          skip,
+          take: limit,
+          orderBy: {
+            createdAt: 'desc',
+          },
+        }),
+        this.prisma.post.count(),
+      ]);
+
+      return {
+        success: true,
+        pagination: {
+          total,
+          page,
+          limit,
+          totalPages: Math.ceil(total / limit),
         },
-      }),
+        posts,
+      };
+    }
 
+    const { latitude, longitude, radiusKm } = referenceLocation;
+    const [postOrderRows, total] = await Promise.all([
+      this.prisma.$queryRaw<Array<{ id: string }>>(Prisma.sql`
+        SELECT sub.id
+        FROM (
+          SELECT
+            p.id,
+            p."createdAt",
+            (
+              6371 * acos(
+                LEAST(
+                  1,
+                  GREATEST(
+                    -1,
+                    cos(radians(${latitude})) * cos(radians(p.latitude)) *
+                    cos(radians(p.longitude) - radians(${longitude})) +
+                    sin(radians(${latitude})) * sin(radians(p.latitude))
+                  )
+                )
+              )
+            ) AS distance
+          FROM posts p
+        ) AS sub
+        ORDER BY
+          CASE WHEN sub.distance <= ${radiusKm} THEN 0 ELSE 1 END ASC,
+          sub.distance ASC,
+          sub."createdAt" DESC
+        LIMIT ${limit}
+        OFFSET ${skip};
+      `),
       this.prisma.post.count(),
     ]);
+
+    const postIds = postOrderRows.map((post) => post.id);
+    const posts =
+      postIds.length === 0
+        ? []
+        : await this.prisma.post.findMany({
+            where: {
+              id: {
+                in: postIds,
+              },
+            },
+          });
+    const postsById = new Map(posts.map((post) => [post.id, post]));
+    const orderedPosts = postIds
+      .map((id) => postsById.get(id))
+      .filter((post): post is NonNullable<typeof post> => Boolean(post));
 
     return {
       success: true,
@@ -212,8 +277,49 @@ export class ProfileService {
         page,
         limit,
         totalPages: Math.ceil(total / limit),
+        radiusKm,
       },
-      posts,
+      posts: orderedPosts,
+    };
+  }
+
+  private async resolvePostsReferenceLocation(
+    userId: string,
+    query: GetPostsDto,
+  ) {
+    const hasLatitude = query.latitude !== undefined;
+    const hasLongitude = query.longitude !== undefined;
+
+    if (hasLatitude !== hasLongitude) {
+      throw new BadRequestException(
+        'latitude and longitude must be provided together',
+      );
+    }
+
+    if (hasLatitude && hasLongitude) {
+      return {
+        latitude: query.latitude!,
+        longitude: query.longitude!,
+        radiusKm: query.radiusKm ?? 20,
+      };
+    }
+
+    const profile = await this.prisma.profile.findUnique({
+      where: { userId },
+      select: {
+        latitude: true,
+        longitude: true,
+      },
+    });
+
+    if (!profile) {
+      return null;
+    }
+
+    return {
+      latitude: profile.latitude,
+      longitude: profile.longitude,
+      radiusKm: query.radiusKm ?? 20,
     };
   }
 }

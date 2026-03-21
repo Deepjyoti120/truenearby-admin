@@ -88,7 +88,7 @@ export class ProfileController {
 
   @UseGuards(JwtAuthGuard)
   @Get('posts')
-  getPosts(@Query() query: GetPostsDto) {
-    return this.profileService.getPosts(query);
+  getPosts(@CurrentUser() user: { id: string }, @Query() query: GetPostsDto) {
+    return this.profileService.getPosts(user.id, query);
   }
 }
