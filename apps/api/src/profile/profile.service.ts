@@ -198,16 +198,30 @@ export class ProfileService {
     );
 
     if (!referenceLocation) {
-      const [posts, total] = await this.prisma.$transaction([
-        this.prisma.post.findMany({
-          skip,
-          take: limit,
-          orderBy: {
-            createdAt: 'desc',
-          },
-        }),
-        this.prisma.post.count(),
+      const [postOrderRows, total] = await Promise.all([
+        this.prisma.$queryRaw<Array<{ id: string }>>(Prisma.sql`
+          SELECT ranked.id
+          FROM (
+            SELECT
+              p.id,
+              p."userId",
+              p."createdAt",
+              ROW_NUMBER() OVER (
+                PARTITION BY p."userId"
+                ORDER BY p."createdAt" DESC
+              ) AS row_num
+            FROM posts p
+          ) AS ranked
+          WHERE ranked.row_num = 1
+          ORDER BY ranked."createdAt" DESC
+          LIMIT ${limit}
+          OFFSET ${skip};
+        `),
+        this.getUniquePostCount(),
       ]);
+      const posts = await this.findPostsByOrderedIds(
+        postOrderRows.map((post) => post.id),
+      );
 
       return {
         success: true,
@@ -224,51 +238,52 @@ export class ProfileService {
     const { latitude, longitude, radiusKm } = referenceLocation;
     const [postOrderRows, total] = await Promise.all([
       this.prisma.$queryRaw<Array<{ id: string }>>(Prisma.sql`
-        SELECT sub.id
+        SELECT ranked.id
         FROM (
           SELECT
-            p.id,
-            p."createdAt",
-            (
-              6371 * acos(
-                LEAST(
-                  1,
-                  GREATEST(
-                    -1,
-                    cos(radians(${latitude})) * cos(radians(p.latitude)) *
-                    cos(radians(p.longitude) - radians(${longitude})) +
-                    sin(radians(${latitude})) * sin(radians(p.latitude))
+            scored.id,
+            scored."userId",
+            scored."createdAt",
+            scored.distance,
+            ROW_NUMBER() OVER (
+              PARTITION BY scored."userId"
+              ORDER BY scored.distance ASC, scored."createdAt" DESC
+            ) AS row_num
+          FROM (
+            SELECT
+              p.id,
+              p."userId",
+              p."createdAt",
+              (
+                6371 * acos(
+                  LEAST(
+                    1,
+                    GREATEST(
+                      -1,
+                      cos(radians(${latitude})) * cos(radians(p.latitude)) *
+                      cos(radians(p.longitude) - radians(${longitude})) +
+                      sin(radians(${latitude})) * sin(radians(p.latitude))
+                    )
                   )
                 )
-              )
-            ) AS distance
-          FROM posts p
-        ) AS sub
+              ) AS distance
+            FROM posts p
+          ) AS scored
+        ) AS ranked
+        WHERE ranked.row_num = 1
         ORDER BY
-          CASE WHEN sub.distance <= ${radiusKm} THEN 0 ELSE 1 END ASC,
-          sub.distance ASC,
-          sub."createdAt" DESC
+          CASE WHEN ranked.distance <= ${radiusKm} THEN 0 ELSE 1 END ASC,
+          ranked.distance ASC,
+          ranked."createdAt" DESC
         LIMIT ${limit}
         OFFSET ${skip};
       `),
-      this.prisma.post.count(),
+      this.getUniquePostCount(),
     ]);
 
-    const postIds = postOrderRows.map((post) => post.id);
-    const posts =
-      postIds.length === 0
-        ? []
-        : await this.prisma.post.findMany({
-            where: {
-              id: {
-                in: postIds,
-              },
-            },
-          });
-    const postsById = new Map(posts.map((post) => [post.id, post]));
-    const orderedPosts = postIds
-      .map((id) => postsById.get(id))
-      .filter((post): post is NonNullable<typeof post> => Boolean(post));
+    const orderedPosts = await this.findPostsByOrderedIds(
+      postOrderRows.map((post) => post.id),
+    );
 
     return {
       success: true,
@@ -321,5 +336,35 @@ export class ProfileService {
       longitude: profile.longitude,
       radiusKm: query.radiusKm ?? 20,
     };
+  }
+
+  private async getUniquePostCount() {
+    const [result] = await this.prisma.$queryRaw<Array<{ total: number }>>(
+      Prisma.sql`
+        SELECT COUNT(DISTINCT p."userId")::int AS total
+        FROM posts p;
+      `,
+    );
+
+    return result?.total ?? 0;
+  }
+
+  private async findPostsByOrderedIds(postIds: string[]) {
+    if (postIds.length === 0) {
+      return [];
+    }
+
+    const posts = await this.prisma.post.findMany({
+      where: {
+        id: {
+          in: postIds,
+        },
+      },
+    });
+    const postsById = new Map(posts.map((post) => [post.id, post]));
+
+    return postIds
+      .map((id) => postsById.get(id))
+      .filter((post): post is NonNullable<typeof post> => Boolean(post));
   }
 }
