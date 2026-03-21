@@ -8,6 +8,24 @@ import { ProfilePreferencesService } from './profile-preferences.service';
 import { GetPostsDto } from './dto/get-posts.dto';
 import { Prisma } from '../generated/prisma/client';
 
+const FEED_POST_SELECT = {
+  id: true,
+  userId: true,
+  prompt: true,
+  imageUrls: true,
+  imageFileIds: true,
+  latitude: true,
+  longitude: true,
+  createdAt: true,
+  updatedAt: true,
+  user: {
+    select: {
+      id: true,
+      profile: true,
+    },
+  },
+} satisfies Prisma.PostSelect;
+
 @Injectable()
 export class ProfileService {
   constructor(
@@ -360,6 +378,7 @@ export class ProfileService {
           in: postIds,
         },
       },
+      select: FEED_POST_SELECT,
     });
     const postsById = new Map(posts.map((post) => [post.id, post]));
 
