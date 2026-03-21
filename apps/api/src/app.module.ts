@@ -12,6 +12,7 @@ import { ChatModule } from './chat/chat.module';
 import { MatchesModule } from './matches/matches.module';
 import { PostsModule } from './posts/posts.module';
 import { LikesController } from './likes/likes.controller';
+import { LikesModule } from './likes/likes.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { LikesController } from './likes/likes.controller';
     ChatModule,
     MatchesModule,
     PostsModule,
+    LikesModule,
   ],
   providers: [
     {

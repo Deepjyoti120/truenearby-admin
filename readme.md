@@ -1,6 +1,10 @@
 nest g module|controller|service users
 nest g controller users
 
+nest g module likes 
+\nest g controller likes
+\nest g service likes
+
 pnpm prisma migrate dev
 pnpm exec prisma migrate dev --name create_users
 pnpm exec prisma migrate dev --name update_dateof_both_field_property
