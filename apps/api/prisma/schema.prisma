@@ -20,6 +20,7 @@ model User {
   profile        Profile?
   photos         Photo[]
   posts          Post[]
+  postSwipes     PostSwipe[]
   likesSent      Like[]         @relation("LikesSent")
   likesReceived  Like[]         @relation("LikesReceived")
   matchesA       Match[]        @relation("MatchA")
@@ -137,6 +138,7 @@ model Post {
   id     String @id @default(uuid()) @db.Uuid
   userId String @db.Uuid
   user   User   @relation(fields: [userId], references: [id])
+  swipes PostSwipe[]
 
   prompt       String?
   imageUrls    String[]
@@ -150,6 +152,24 @@ model Post {
 
   @@index([userId, createdAt])
   @@map("posts")
+}
+
+model PostSwipe {
+  id     String @id @default(uuid()) @db.Uuid
+  userId String @db.Uuid
+  postId String @db.Uuid
+
+  type SwipeType
+
+  user User @relation(fields: [userId], references: [id])
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, postId])
+  @@index([postId])
+  @@index([userId])
+  @@map("post_swipes")
 }
 
 model Like {

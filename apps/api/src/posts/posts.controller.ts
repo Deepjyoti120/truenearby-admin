@@ -22,6 +22,7 @@ import { memoryFileStorage } from '../photos/multer.config';
 import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { GetPostsDto } from './dto/get-posts.dto';
+import { SwipePostDto } from './dto/swipe-post.dto';
 
 @ApiTags('Posts')
 @ApiBearerAuth('access-token')
@@ -68,6 +69,15 @@ export class PostsController {
     @UploadedFiles() files: Express.Multer.File[],
   ) {
     return this.postsService.create(user.id, dto, files);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('swipe')
+  swipePost(
+    @CurrentUser() user: CurrentUserPayload,
+    @Body() dto: SwipePostDto,
+  ) {
+    return this.postsService.swipePost(user.id, dto);
   }
 
   @UseGuards(JwtAuthGuard)

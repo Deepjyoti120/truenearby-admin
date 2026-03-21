@@ -1,8 +1,16 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { ImageKitService } from '../photos/imagekit.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { GetPostsDto } from './dto/get-posts.dto';
+import { SwipePostDto } from './dto/swipe-post.dto';
+import { Prisma } from '../generated/prisma/client';
+import { SwipeType } from '../generated/prisma/enums';
+import { randomUUID } from 'crypto';
 
 @Injectable()
 export class PostsService {
@@ -112,5 +120,50 @@ export class PostsService {
     });
 
     return { success: true };
+  }
+
+  async swipePost(userId: string, dto: SwipePostDto) {
+    const post = await this.prisma.post.findUnique({
+      where: { id: dto.postId },
+      select: {
+        id: true,
+        userId: true,
+      },
+    });
+
+    if (!post) {
+      throw new NotFoundException('Post not found');
+    }
+
+    if (post.userId === userId) {
+      throw new BadRequestException('Cannot swipe your own post');
+    }
+
+    const [swipe] = await this.prisma.$queryRaw<
+      Array<{
+        id: string;
+        userId: string;
+        postId: string;
+        type: SwipeType;
+        createdAt: Date;
+      }>
+    >(Prisma.sql`
+      INSERT INTO "post_swipes" ("id", "userId", "postId", "type", "createdAt")
+      VALUES (
+        ${randomUUID()}::uuid,
+        ${userId}::uuid,
+        ${dto.postId}::uuid,
+        CAST(${dto.type} AS "SwipeType"),
+        CURRENT_TIMESTAMP
+      )
+      ON CONFLICT ("userId", "postId")
+      DO UPDATE SET "type" = EXCLUDED."type"
+      RETURNING "id", "userId", "postId", "type", "createdAt";
+    `);
+
+    return {
+      success: true,
+      swipe,
+    };
   }
 }
