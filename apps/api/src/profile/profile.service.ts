@@ -214,6 +214,7 @@ export class ProfileService {
       userId,
       query,
     );
+    const unswipedPostsClause = this.buildUnswipedPostsClause(userId);
 
     if (!referenceLocation) {
       const [postOrderRows, total] = await Promise.all([
@@ -229,13 +230,14 @@ export class ProfileService {
                 ORDER BY p."createdAt" DESC
               ) AS row_num
             FROM posts p
+            ${unswipedPostsClause}
           ) AS ranked
           WHERE ranked.row_num = 1
           ORDER BY ranked."createdAt" DESC
           LIMIT ${limit}
           OFFSET ${skip};
         `),
-        this.getUniquePostCount(),
+        this.getUniquePostCount(userId),
       ]);
       const posts = await this.findPostsByOrderedIds(
         postOrderRows.map((post) => post.id),
@@ -286,6 +288,7 @@ export class ProfileService {
                 )
               ) AS distance
             FROM posts p
+            ${unswipedPostsClause}
           ) AS scored
         ) AS ranked
         WHERE ranked.row_num = 1
@@ -296,7 +299,7 @@ export class ProfileService {
         LIMIT ${limit}
         OFFSET ${skip};
       `),
-      this.getUniquePostCount(),
+      this.getUniquePostCount(userId),
     ]);
 
     const orderedPosts = await this.findPostsByOrderedIds(
@@ -356,11 +359,24 @@ export class ProfileService {
     };
   }
 
-  private async getUniquePostCount() {
+  private buildUnswipedPostsClause(userId: string) {
+    return Prisma.sql`
+      WHERE NOT EXISTS (
+        SELECT 1
+        FROM "post_swipes" ps
+        WHERE ps."postId" = p.id
+          AND ps."userId" = ${userId}::uuid
+      )
+    `;
+  }
+
+  private async getUniquePostCount(userId: string) {
+    const unswipedPostsClause = this.buildUnswipedPostsClause(userId);
     const [result] = await this.prisma.$queryRaw<Array<{ total: number }>>(
       Prisma.sql`
         SELECT COUNT(DISTINCT p."userId")::int AS total
-        FROM posts p;
+        FROM posts p
+        ${unswipedPostsClause};
       `,
     );
 

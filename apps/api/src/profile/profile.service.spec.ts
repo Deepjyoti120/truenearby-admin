@@ -12,6 +12,7 @@ describe('ProfileService', () => {
   let prisma: {
     profile: {
       findUnique: jest.Mock;
+      findFirst: jest.Mock;
       create: jest.Mock;
     };
     photo: {
@@ -25,6 +26,13 @@ describe('ProfileService', () => {
       update: jest.Mock;
       create: jest.Mock;
     };
+    post: {
+      findMany: jest.Mock;
+    };
+    user: {
+      update: jest.Mock;
+    };
+    $queryRaw: jest.Mock;
     $transaction: jest.Mock;
   };
   let reverseGeocodeService: {
@@ -44,6 +52,7 @@ describe('ProfileService', () => {
           useValue: {
             profile: {
               findUnique: jest.fn(),
+              findFirst: jest.fn(),
               create: jest.fn(),
             },
             photo: {
@@ -57,6 +66,13 @@ describe('ProfileService', () => {
               update: jest.fn(),
               create: jest.fn(),
             },
+            post: {
+              findMany: jest.fn(),
+            },
+            user: {
+              update: jest.fn(),
+            },
+            $queryRaw: jest.fn(),
             $transaction: jest.fn(),
           },
         },
@@ -94,6 +110,15 @@ describe('ProfileService', () => {
 
   describe('create', () => {
     it('stores normalized interests and match preference range', async () => {
+      const tx = {
+        profile: {
+          create: jest.fn(),
+        },
+        user: {
+          update: jest.fn(),
+        },
+      };
+
       prisma.profile.findUnique.mockResolvedValue(null);
       reverseGeocodeService.getCityAndCountry.mockResolvedValue({
         city: 'Delhi',
@@ -117,7 +142,11 @@ describe('ProfileService', () => {
           maxAge: 32,
         },
       };
-      prisma.profile.create.mockResolvedValue(createdProfile);
+      tx.profile.create.mockResolvedValue(createdProfile);
+      tx.user.update.mockResolvedValue({
+        id: 'user-1',
+      });
+      prisma.$transaction.mockImplementation(async (callback) => callback(tx));
 
       const result = await service.create('user-1', {
         gender: Gender.MALE,
@@ -131,15 +160,13 @@ describe('ProfileService', () => {
         longitude: 77.209,
       });
 
-      expect(profilePreferencesService.normalizeInterests).toHaveBeenCalledWith([
-        ' Travel ',
-        'Coffee',
-        'travel',
-      ]);
+      expect(profilePreferencesService.normalizeInterests).toHaveBeenCalledWith(
+        [' Travel ', 'Coffee', 'travel'],
+      );
       expect(
         profilePreferencesService.resolvePreferredAgeRange,
       ).toHaveBeenCalledWith(24, 32);
-      expect(prisma.profile.create).toHaveBeenCalledWith({
+      expect(tx.profile.create).toHaveBeenCalledWith({
         data: expect.objectContaining({
           userId: 'user-1',
           interests: ['travel', 'coffee'],
@@ -156,19 +183,28 @@ describe('ProfileService', () => {
           matchPreference: true,
         },
       });
+      expect(tx.user.update).toHaveBeenCalledWith({
+        where: { id: 'user-1' },
+        data: {
+          isRegistered: true,
+          isVerified: true,
+        },
+      });
       expect(result).toEqual({
         success: true,
-        profile: createdProfile,
+        result: createdProfile,
       });
     });
 
     it('rejects an inverted preferred age range', async () => {
       prisma.profile.findUnique.mockResolvedValue(null);
-      profilePreferencesService.resolvePreferredAgeRange.mockImplementation(() => {
-        throw new BadRequestException(
-          'preferredMinAge must be less than or equal to preferredMaxAge',
-        );
-      });
+      profilePreferencesService.resolvePreferredAgeRange.mockImplementation(
+        () => {
+          throw new BadRequestException(
+            'preferredMinAge must be less than or equal to preferredMaxAge',
+          );
+        },
+      );
 
       await expect(
         service.create('user-1', {
@@ -190,11 +226,12 @@ describe('ProfileService', () => {
       ).toHaveBeenCalledWith(35, 30);
       expect(reverseGeocodeService.getCityAndCountry).not.toHaveBeenCalled();
       expect(prisma.profile.create).not.toHaveBeenCalled();
+      expect(prisma.$transaction).not.toHaveBeenCalled();
     });
   });
 
   describe('getProfile', () => {
-    it('returns photos on the profile object for the current user', async () => {
+    it('returns the current user profile with match preference and user photos', async () => {
       const profileRecord = {
         id: 'profile-1',
         userId: 'user-1',
@@ -223,51 +260,136 @@ describe('ProfileService', () => {
           createdAt: new Date('2026-03-15T00:00:00.000Z'),
         },
       };
-      const photos = [
-        {
-          id: 'photo-1',
-          userId: 'user-1',
-          url: 'https://example.com/1.jpg',
-          fileId: 'file-1',
-          isPrimary: true,
-          createdAt: new Date('2026-03-15T00:00:00.000Z'),
-        },
-      ];
-
-      prisma.profile.findUnique.mockResolvedValue(profileRecord);
-      prisma.photo.findMany.mockResolvedValue(photos);
+      prisma.profile.findFirst.mockResolvedValue(profileRecord);
 
       const result = await service.getProfile('user-1');
 
-      expect(prisma.profile.findUnique).toHaveBeenCalledWith({
+      expect(prisma.profile.findFirst).toHaveBeenCalledWith({
         where: { userId: 'user-1' },
         include: {
           matchPreference: true,
           user: {
             select: {
-              id: true,
-              email: true,
-              phone: true,
-              isVerified: true,
-              createdAt: true,
+              photos: true,
             },
           },
         },
       });
-      expect(prisma.photo.findMany).toHaveBeenCalledWith({
-        where: { userId: 'user-1' },
-        orderBy: [{ isPrimary: 'desc' }, { createdAt: 'asc' }],
+      expect(result).toEqual({
+        success: true,
+        profile: profileRecord,
+      });
+    });
+  });
+
+  describe('getPosts', () => {
+    it('excludes swiped posts from the default feed query and total count', async () => {
+      const postRecord = {
+        id: 'post-2',
+        userId: 'user-2',
+        prompt: 'Hello',
+        imageUrls: ['https://example.com/post-2.jpg'],
+        imageFileIds: ['file-2'],
+        latitude: 28.61,
+        longitude: 77.2,
+        createdAt: new Date('2026-03-20T00:00:00.000Z'),
+        updatedAt: new Date('2026-03-20T00:00:00.000Z'),
+        user: {
+          id: 'user-2',
+          profile: {
+            id: 'profile-2',
+          },
+        },
+      };
+
+      prisma.profile.findUnique.mockResolvedValue(null);
+      prisma.$queryRaw
+        .mockResolvedValueOnce([{ id: 'post-2' }])
+        .mockResolvedValueOnce([{ total: 1 }]);
+      prisma.post.findMany.mockResolvedValue([postRecord]);
+
+      const result = await service.getPosts('user-1', {
+        page: 1,
+        limit: 10,
+      });
+
+      const [feedSql] = prisma.$queryRaw.mock.calls[0];
+      const [countSql] = prisma.$queryRaw.mock.calls[1];
+
+      expect(feedSql.sql).toContain('"post_swipes"');
+      expect(feedSql.sql).toContain('WHERE NOT EXISTS');
+      expect(feedSql.values).toContain('user-1');
+      expect(countSql.sql).toContain('COUNT(DISTINCT p."userId")');
+      expect(countSql.sql).toContain('"post_swipes"');
+      expect(countSql.values).toContain('user-1');
+      expect(prisma.post.findMany).toHaveBeenCalledWith({
+        where: {
+          id: {
+            in: ['post-2'],
+          },
+        },
+        select: expect.any(Object),
       });
       expect(result).toEqual({
         success: true,
-        profile: {
-          ...profileRecord,
-          photos,
-          user: {
-            ...profileRecord.user,
-            photos,
+        pagination: {
+          total: 1,
+          page: 1,
+          limit: 10,
+          totalPages: 1,
+        },
+        posts: [postRecord],
+      });
+    });
+
+    it('excludes swiped posts from the distance-ranked feed query', async () => {
+      const postRecord = {
+        id: 'post-3',
+        userId: 'user-3',
+        prompt: 'Nearby',
+        imageUrls: ['https://example.com/post-3.jpg'],
+        imageFileIds: ['file-3'],
+        latitude: 26.14,
+        longitude: 91.73,
+        createdAt: new Date('2026-03-21T00:00:00.000Z'),
+        updatedAt: new Date('2026-03-21T00:00:00.000Z'),
+        user: {
+          id: 'user-3',
+          profile: {
+            id: 'profile-3',
           },
         },
+      };
+
+      prisma.$queryRaw
+        .mockResolvedValueOnce([{ id: 'post-3' }])
+        .mockResolvedValueOnce([{ total: 1 }]);
+      prisma.post.findMany.mockResolvedValue([postRecord]);
+
+      const result = await service.getPosts('user-1', {
+        page: 1,
+        limit: 10,
+        latitude: 26.1445,
+        longitude: 91.7362,
+        radiusKm: 25,
+      });
+
+      const [feedSql] = prisma.$queryRaw.mock.calls[0];
+
+      expect(prisma.profile.findUnique).not.toHaveBeenCalled();
+      expect(feedSql.sql).toContain('distance');
+      expect(feedSql.sql).toContain('"post_swipes"');
+      expect(feedSql.values).toContain('user-1');
+      expect(result).toEqual({
+        success: true,
+        pagination: {
+          total: 1,
+          page: 1,
+          limit: 10,
+          totalPages: 1,
+          radiusKm: 25,
+        },
+        posts: [postRecord],
       });
     });
   });
