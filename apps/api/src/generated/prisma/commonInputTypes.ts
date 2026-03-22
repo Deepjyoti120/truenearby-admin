@@ -290,23 +290,6 @@ export type IntWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedIntFilter<$PrismaModel>
 }
 
-export type EnumPlanFilter<$PrismaModel = never> = {
-  equals?: $Enums.Plan | Prisma.EnumPlanFieldRefInput<$PrismaModel>
-  in?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
-  notIn?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumPlanFilter<$PrismaModel> | $Enums.Plan
-}
-
-export type EnumPlanWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.Plan | Prisma.EnumPlanFieldRefInput<$PrismaModel>
-  in?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
-  notIn?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumPlanWithAggregatesFilter<$PrismaModel> | $Enums.Plan
-  _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumPlanFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumPlanFilter<$PrismaModel>
-}
-
 export type EnumSwipeTypeFilter<$PrismaModel = never> = {
   equals?: $Enums.SwipeType | Prisma.EnumSwipeTypeFieldRefInput<$PrismaModel>
   in?: $Enums.SwipeType[] | Prisma.ListEnumSwipeTypeFieldRefInput<$PrismaModel>
@@ -322,6 +305,23 @@ export type EnumSwipeTypeWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumSwipeTypeFilter<$PrismaModel>
   _max?: Prisma.NestedEnumSwipeTypeFilter<$PrismaModel>
+}
+
+export type EnumPlanFilter<$PrismaModel = never> = {
+  equals?: $Enums.Plan | Prisma.EnumPlanFieldRefInput<$PrismaModel>
+  in?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlanFilter<$PrismaModel> | $Enums.Plan
+}
+
+export type EnumPlanWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Plan | Prisma.EnumPlanFieldRefInput<$PrismaModel>
+  in?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlanWithAggregatesFilter<$PrismaModel> | $Enums.Plan
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlanFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlanFilter<$PrismaModel>
 }
 
 export type NestedUuidFilter<$PrismaModel = never> = {
@@ -600,23 +600,6 @@ export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedIntFilter<$PrismaModel>
 }
 
-export type NestedEnumPlanFilter<$PrismaModel = never> = {
-  equals?: $Enums.Plan | Prisma.EnumPlanFieldRefInput<$PrismaModel>
-  in?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
-  notIn?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumPlanFilter<$PrismaModel> | $Enums.Plan
-}
-
-export type NestedEnumPlanWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.Plan | Prisma.EnumPlanFieldRefInput<$PrismaModel>
-  in?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
-  notIn?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumPlanWithAggregatesFilter<$PrismaModel> | $Enums.Plan
-  _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumPlanFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumPlanFilter<$PrismaModel>
-}
-
 export type NestedEnumSwipeTypeFilter<$PrismaModel = never> = {
   equals?: $Enums.SwipeType | Prisma.EnumSwipeTypeFieldRefInput<$PrismaModel>
   in?: $Enums.SwipeType[] | Prisma.ListEnumSwipeTypeFieldRefInput<$PrismaModel>
@@ -632,6 +615,23 @@ export type NestedEnumSwipeTypeWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumSwipeTypeFilter<$PrismaModel>
   _max?: Prisma.NestedEnumSwipeTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumPlanFilter<$PrismaModel = never> = {
+  equals?: $Enums.Plan | Prisma.EnumPlanFieldRefInput<$PrismaModel>
+  in?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlanFilter<$PrismaModel> | $Enums.Plan
+}
+
+export type NestedEnumPlanWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Plan | Prisma.EnumPlanFieldRefInput<$PrismaModel>
+  in?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Plan[] | Prisma.ListEnumPlanFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlanWithAggregatesFilter<$PrismaModel> | $Enums.Plan
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlanFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlanFilter<$PrismaModel>
 }
 
 

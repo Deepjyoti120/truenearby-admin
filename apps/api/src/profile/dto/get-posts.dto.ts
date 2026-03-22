@@ -1,6 +1,13 @@
 import { Type } from 'class-transformer';
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { IsInt, IsNumber, IsOptional, Max, Min } from 'class-validator';
+import {
+  IsInt,
+  IsNumber,
+  IsOptional,
+  IsString,
+  Max,
+  Min,
+} from 'class-validator';
 
 export class GetPostsDto {
   @IsOptional()
@@ -14,6 +21,7 @@ export class GetPostsDto {
   @Type(() => Number)
   @IsInt()
   @Min(1)
+  @Max(50)
   @ApiPropertyOptional({ example: 10, default: 10 })
   limit?: number = 10;
 
@@ -46,4 +54,14 @@ export class GetPostsDto {
     description: 'Optional longitude to rank posts by distance',
   })
   longitude?: number;
+
+  @IsOptional()
+  @IsString()
+  @ApiPropertyOptional({
+    example:
+      'eyJwb3N0SWQiOiI4M2ZhZjE4NS1jMjE3LTRjM2YtOTM2Ni0wMzk5ZDFhN2MxZDEiLCJwb3N0Q3JlYXRlZEF0IjoiMjAyNi0wMy0yMlQxMDozMDowMC4wMDBaIn0',
+    description:
+      'Opaque cursor for scalable feed pagination. Do not combine with page > 1.',
+  })
+  cursor?: string;
 }

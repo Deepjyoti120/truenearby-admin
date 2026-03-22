@@ -21,16 +21,17 @@ model User {
   photos         Photo[]
   posts          Post[]
   postSwipes     PostSwipe[]
-  likesSent      Like[]         @relation("LikesSent")
-  likesReceived  Like[]         @relation("LikesReceived")
-  matchesA       Match[]        @relation("MatchA")
-  matchesB       Match[]        @relation("MatchB")
+  latestUserPost LatestUserPost? @relation("LatestUserPostUser")
+  likesSent      Like[]          @relation("LikesSent")
+  likesReceived  Like[]          @relation("LikesReceived")
+  matchesA       Match[]         @relation("MatchA")
+  matchesB       Match[]         @relation("MatchB")
   messages       Message[]
   subscriptions  Subscription[]
-  blocksSent     Block[]        @relation("BlocksSent")
-  blocksReceived Block[]        @relation("BlocksReceived")
-  swipesSent     Swipe[]        @relation("SwipesSent")
-  swipesReceived Swipe[]        @relation("SwipesReceived")
+  blocksSent     Block[]         @relation("BlocksSent")
+  blocksReceived Block[]         @relation("BlocksReceived")
+  swipesSent     Swipe[]         @relation("SwipesSent")
+  swipesReceived Swipe[]         @relation("SwipesReceived")
 
   devices       UserDevice[]
   refreshTokens RefreshToken[]
@@ -135,10 +136,11 @@ model Photo {
 }
 
 model Post {
-  id     String @id @default(uuid()) @db.Uuid
-  userId String @db.Uuid
-  user   User   @relation(fields: [userId], references: [id])
-  swipes PostSwipe[]
+  id            String          @id @default(uuid()) @db.Uuid
+  userId        String          @db.Uuid
+  user          User            @relation(fields: [userId], references: [id])
+  swipes        PostSwipe[]
+  latestForUser LatestUserPost? @relation("LatestUserPostPost")
 
   prompt       String?
   imageUrls    String[]
@@ -152,6 +154,21 @@ model Post {
 
   @@index([userId, createdAt])
   @@map("posts")
+}
+
+model LatestUserPost {
+  userId String @id @db.Uuid
+  postId String @unique @db.Uuid
+
+  postCreatedAt DateTime
+  latitude      Float
+  longitude     Float
+
+  user User @relation("LatestUserPostUser", fields: [userId], references: [id], onDelete: Cascade)
+  post Post @relation("LatestUserPostPost", fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([latitude, longitude])
+  @@map("latest_user_posts")
 }
 
 model PostSwipe {

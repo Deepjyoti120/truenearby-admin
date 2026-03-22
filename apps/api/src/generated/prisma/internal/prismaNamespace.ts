@@ -391,6 +391,8 @@ export const ModelName = {
   RefreshToken: 'RefreshToken',
   Photo: 'Photo',
   Post: 'Post',
+  LatestUserPost: 'LatestUserPost',
+  PostSwipe: 'PostSwipe',
   Like: 'Like',
   Match: 'Match',
   Chat: 'Chat',
@@ -413,7 +415,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "profile" | "profileMatchPreference" | "userDevice" | "refreshToken" | "photo" | "post" | "like" | "match" | "chat" | "message" | "block" | "subscription" | "swipe"
+    modelProps: "user" | "profile" | "profileMatchPreference" | "userDevice" | "refreshToken" | "photo" | "post" | "latestUserPost" | "postSwipe" | "like" | "match" | "chat" | "message" | "block" | "subscription" | "swipe"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -932,6 +934,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.PostCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.PostCountAggregateOutputType> | number
+        }
+      }
+    }
+    LatestUserPost: {
+      payload: Prisma.$LatestUserPostPayload<ExtArgs>
+      fields: Prisma.LatestUserPostFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LatestUserPostFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LatestUserPostPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LatestUserPostFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LatestUserPostPayload>
+        }
+        findFirst: {
+          args: Prisma.LatestUserPostFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LatestUserPostPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LatestUserPostFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LatestUserPostPayload>
+        }
+        findMany: {
+          args: Prisma.LatestUserPostFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LatestUserPostPayload>[]
+        }
+        create: {
+          args: Prisma.LatestUserPostCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LatestUserPostPayload>
+        }
+        createMany: {
+          args: Prisma.LatestUserPostCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LatestUserPostCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LatestUserPostPayload>[]
+        }
+        delete: {
+          args: Prisma.LatestUserPostDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LatestUserPostPayload>
+        }
+        update: {
+          args: Prisma.LatestUserPostUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LatestUserPostPayload>
+        }
+        deleteMany: {
+          args: Prisma.LatestUserPostDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LatestUserPostUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LatestUserPostUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LatestUserPostPayload>[]
+        }
+        upsert: {
+          args: Prisma.LatestUserPostUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LatestUserPostPayload>
+        }
+        aggregate: {
+          args: Prisma.LatestUserPostAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLatestUserPost>
+        }
+        groupBy: {
+          args: Prisma.LatestUserPostGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LatestUserPostGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LatestUserPostCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LatestUserPostCountAggregateOutputType> | number
+        }
+      }
+    }
+    PostSwipe: {
+      payload: Prisma.$PostSwipePayload<ExtArgs>
+      fields: Prisma.PostSwipeFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PostSwipeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PostSwipePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PostSwipeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PostSwipePayload>
+        }
+        findFirst: {
+          args: Prisma.PostSwipeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PostSwipePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PostSwipeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PostSwipePayload>
+        }
+        findMany: {
+          args: Prisma.PostSwipeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PostSwipePayload>[]
+        }
+        create: {
+          args: Prisma.PostSwipeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PostSwipePayload>
+        }
+        createMany: {
+          args: Prisma.PostSwipeCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PostSwipeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PostSwipePayload>[]
+        }
+        delete: {
+          args: Prisma.PostSwipeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PostSwipePayload>
+        }
+        update: {
+          args: Prisma.PostSwipeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PostSwipePayload>
+        }
+        deleteMany: {
+          args: Prisma.PostSwipeDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PostSwipeUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PostSwipeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PostSwipePayload>[]
+        }
+        upsert: {
+          args: Prisma.PostSwipeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PostSwipePayload>
+        }
+        aggregate: {
+          args: Prisma.PostSwipeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePostSwipe>
+        }
+        groupBy: {
+          args: Prisma.PostSwipeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PostSwipeGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PostSwipeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PostSwipeCountAggregateOutputType> | number
         }
       }
     }
@@ -1595,6 +1745,28 @@ export const PostScalarFieldEnum = {
 export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
 
 
+export const LatestUserPostScalarFieldEnum = {
+  userId: 'userId',
+  postId: 'postId',
+  postCreatedAt: 'postCreatedAt',
+  latitude: 'latitude',
+  longitude: 'longitude'
+} as const
+
+export type LatestUserPostScalarFieldEnum = (typeof LatestUserPostScalarFieldEnum)[keyof typeof LatestUserPostScalarFieldEnum]
+
+
+export const PostSwipeScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  postId: 'postId',
+  type: 'type',
+  createdAt: 'createdAt'
+} as const
+
+export type PostSwipeScalarFieldEnum = (typeof PostSwipeScalarFieldEnum)[keyof typeof PostSwipeScalarFieldEnum]
+
+
 export const LikeScalarFieldEnum = {
   id: 'id',
   fromUserId: 'fromUserId',
@@ -1792,20 +1964,6 @@ export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMode
 
 
 /**
- * Reference to a field of type 'Plan'
- */
-export type EnumPlanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Plan'>
-    
-
-
-/**
- * Reference to a field of type 'Plan[]'
- */
-export type ListEnumPlanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Plan[]'>
-    
-
-
-/**
  * Reference to a field of type 'SwipeType'
  */
 export type EnumSwipeTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SwipeType'>
@@ -1816,6 +1974,20 @@ export type EnumSwipeTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$Prisma
  * Reference to a field of type 'SwipeType[]'
  */
 export type ListEnumSwipeTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SwipeType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Plan'
+ */
+export type EnumPlanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Plan'>
+    
+
+
+/**
+ * Reference to a field of type 'Plan[]'
+ */
+export type ListEnumPlanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Plan[]'>
     
 
 /**
@@ -1920,6 +2092,8 @@ export type GlobalOmitConfig = {
   refreshToken?: Prisma.RefreshTokenOmit
   photo?: Prisma.PhotoOmit
   post?: Prisma.PostOmit
+  latestUserPost?: Prisma.LatestUserPostOmit
+  postSwipe?: Prisma.PostSwipeOmit
   like?: Prisma.LikeOmit
   match?: Prisma.MatchOmit
   chat?: Prisma.ChatOmit

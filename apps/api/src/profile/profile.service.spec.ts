@@ -283,7 +283,7 @@ describe('ProfileService', () => {
   });
 
   describe('getPosts', () => {
-    it('excludes swiped posts from the default feed query and total count', async () => {
+    it('reads the default feed from latest_user_posts and excludes swiped posts', async () => {
       const postRecord = {
         id: 'post-2',
         userId: 'user-2',
@@ -304,7 +304,12 @@ describe('ProfileService', () => {
 
       prisma.profile.findUnique.mockResolvedValue(null);
       prisma.$queryRaw
-        .mockResolvedValueOnce([{ id: 'post-2' }])
+        .mockResolvedValueOnce([
+          {
+            id: 'post-2',
+            postCreatedAt: new Date('2026-03-20T00:00:00.000Z'),
+          },
+        ])
         .mockResolvedValueOnce([{ total: 1 }]);
       prisma.post.findMany.mockResolvedValue([postRecord]);
 
@@ -316,10 +321,12 @@ describe('ProfileService', () => {
       const [feedSql] = prisma.$queryRaw.mock.calls[0];
       const [countSql] = prisma.$queryRaw.mock.calls[1];
 
+      expect(feedSql.sql).toContain('"latest_user_posts"');
       expect(feedSql.sql).toContain('"post_swipes"');
-      expect(feedSql.sql).toContain('WHERE NOT EXISTS');
+      expect(feedSql.sql).toContain('ORDER BY lup."postCreatedAt" DESC');
       expect(feedSql.values).toContain('user-1');
-      expect(countSql.sql).toContain('COUNT(DISTINCT p."userId")');
+      expect(countSql.sql).toContain('COUNT(*)::int AS total');
+      expect(countSql.sql).toContain('"latest_user_posts"');
       expect(countSql.sql).toContain('"post_swipes"');
       expect(countSql.values).toContain('user-1');
       expect(prisma.post.findMany).toHaveBeenCalledWith({
@@ -337,12 +344,14 @@ describe('ProfileService', () => {
           page: 1,
           limit: 10,
           totalPages: 1,
+          hasMore: false,
+          nextCursor: null,
         },
         posts: [postRecord],
       });
     });
 
-    it('excludes swiped posts from the distance-ranked feed query', async () => {
+    it('reads the distance-ranked feed from latest_user_posts and excludes swiped posts', async () => {
       const postRecord = {
         id: 'post-3',
         userId: 'user-3',
@@ -362,7 +371,13 @@ describe('ProfileService', () => {
       };
 
       prisma.$queryRaw
-        .mockResolvedValueOnce([{ id: 'post-3' }])
+        .mockResolvedValueOnce([
+          {
+            id: 'post-3',
+            postCreatedAt: new Date('2026-03-21T00:00:00.000Z'),
+            distanceKm: 3.2,
+          },
+        ])
         .mockResolvedValueOnce([{ total: 1 }]);
       prisma.post.findMany.mockResolvedValue([postRecord]);
 
@@ -378,6 +393,7 @@ describe('ProfileService', () => {
 
       expect(prisma.profile.findUnique).not.toHaveBeenCalled();
       expect(feedSql.sql).toContain('distance');
+      expect(feedSql.sql).toContain('"latest_user_posts"');
       expect(feedSql.sql).toContain('"post_swipes"');
       expect(feedSql.values).toContain('user-1');
       expect(result).toEqual({
@@ -388,8 +404,69 @@ describe('ProfileService', () => {
           limit: 10,
           totalPages: 1,
           radiusKm: 25,
+          hasMore: false,
+          nextCursor: null,
         },
         posts: [postRecord],
+      });
+    });
+
+    it('returns an opaque nextCursor without running an exact count in cursor mode', async () => {
+      const firstPost = {
+        id: 'post-4',
+        userId: 'user-4',
+        prompt: 'First',
+        imageUrls: ['https://example.com/post-4.jpg'],
+        imageFileIds: ['file-4'],
+        latitude: 28.61,
+        longitude: 77.2,
+        createdAt: new Date('2026-03-22T00:00:00.000Z'),
+        updatedAt: new Date('2026-03-22T00:00:00.000Z'),
+        user: {
+          id: 'user-4',
+          profile: {
+            id: 'profile-4',
+          },
+        },
+      };
+      const cursor = Buffer.from(
+        JSON.stringify({
+          postId: 'post-3',
+          postCreatedAt: '2026-03-21T00:00:00.000Z',
+        }),
+        'utf8',
+      ).toString('base64url');
+
+      prisma.profile.findUnique.mockResolvedValue(null);
+      prisma.$queryRaw.mockResolvedValueOnce([
+        {
+          id: 'post-4',
+          postCreatedAt: new Date('2026-03-22T00:00:00.000Z'),
+        },
+        {
+          id: 'post-5',
+          postCreatedAt: new Date('2026-03-20T00:00:00.000Z'),
+        },
+      ]);
+      prisma.post.findMany.mockResolvedValue([firstPost]);
+
+      const result = await service.getPosts('user-1', {
+        limit: 1,
+        cursor,
+      });
+
+      const [feedSql] = prisma.$queryRaw.mock.calls[0];
+
+      expect(prisma.$queryRaw).toHaveBeenCalledTimes(1);
+      expect(feedSql.sql).toContain('"latest_user_posts"');
+      expect(result).toEqual({
+        success: true,
+        pagination: {
+          limit: 1,
+          hasMore: true,
+          nextCursor: expect.any(String),
+        },
+        posts: [firstPost],
       });
     });
   });

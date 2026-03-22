@@ -245,6 +245,8 @@ export type PostWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Post"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Post"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  swipes?: Prisma.PostSwipeListRelationFilter
+  latestForUser?: Prisma.XOR<Prisma.LatestUserPostNullableScalarRelationFilter, Prisma.LatestUserPostWhereInput> | null
 }
 
 export type PostOrderByWithRelationInput = {
@@ -258,6 +260,8 @@ export type PostOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
+  swipes?: Prisma.PostSwipeOrderByRelationAggregateInput
+  latestForUser?: Prisma.LatestUserPostOrderByWithRelationInput
 }
 
 export type PostWhereUniqueInput = Prisma.AtLeast<{
@@ -274,6 +278,8 @@ export type PostWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"Post"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Post"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  swipes?: Prisma.PostSwipeListRelationFilter
+  latestForUser?: Prisma.XOR<Prisma.LatestUserPostNullableScalarRelationFilter, Prisma.LatestUserPostWhereInput> | null
 }, "id">
 
 export type PostOrderByWithAggregationInput = {
@@ -318,6 +324,8 @@ export type PostCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutPostsInput
+  swipes?: Prisma.PostSwipeCreateNestedManyWithoutPostInput
+  latestForUser?: Prisma.LatestUserPostCreateNestedOneWithoutPostInput
 }
 
 export type PostUncheckedCreateInput = {
@@ -330,6 +338,8 @@ export type PostUncheckedCreateInput = {
   longitude: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  swipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutPostInput
+  latestForUser?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutPostInput
 }
 
 export type PostUpdateInput = {
@@ -342,6 +352,8 @@ export type PostUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput
+  swipes?: Prisma.PostSwipeUpdateManyWithoutPostNestedInput
+  latestForUser?: Prisma.LatestUserPostUpdateOneWithoutPostNestedInput
 }
 
 export type PostUncheckedUpdateInput = {
@@ -354,6 +366,8 @@ export type PostUncheckedUpdateInput = {
   longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  swipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutPostNestedInput
+  latestForUser?: Prisma.LatestUserPostUncheckedUpdateOneWithoutPostNestedInput
 }
 
 export type PostCreateManyInput = {
@@ -443,6 +457,11 @@ export type PostSumOrderByAggregateInput = {
   longitude?: Prisma.SortOrder
 }
 
+export type PostScalarRelationFilter = {
+  is?: Prisma.PostWhereInput
+  isNot?: Prisma.PostWhereInput
+}
+
 export type PostCreateNestedManyWithoutUserInput = {
   create?: Prisma.XOR<Prisma.PostCreateWithoutUserInput, Prisma.PostUncheckedCreateWithoutUserInput> | Prisma.PostCreateWithoutUserInput[] | Prisma.PostUncheckedCreateWithoutUserInput[]
   connectOrCreate?: Prisma.PostCreateOrConnectWithoutUserInput | Prisma.PostCreateOrConnectWithoutUserInput[]
@@ -503,6 +522,34 @@ export type PostUpdateimageFileIdsInput = {
   push?: string | string[]
 }
 
+export type PostCreateNestedOneWithoutLatestForUserInput = {
+  create?: Prisma.XOR<Prisma.PostCreateWithoutLatestForUserInput, Prisma.PostUncheckedCreateWithoutLatestForUserInput>
+  connectOrCreate?: Prisma.PostCreateOrConnectWithoutLatestForUserInput
+  connect?: Prisma.PostWhereUniqueInput
+}
+
+export type PostUpdateOneRequiredWithoutLatestForUserNestedInput = {
+  create?: Prisma.XOR<Prisma.PostCreateWithoutLatestForUserInput, Prisma.PostUncheckedCreateWithoutLatestForUserInput>
+  connectOrCreate?: Prisma.PostCreateOrConnectWithoutLatestForUserInput
+  upsert?: Prisma.PostUpsertWithoutLatestForUserInput
+  connect?: Prisma.PostWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PostUpdateToOneWithWhereWithoutLatestForUserInput, Prisma.PostUpdateWithoutLatestForUserInput>, Prisma.PostUncheckedUpdateWithoutLatestForUserInput>
+}
+
+export type PostCreateNestedOneWithoutSwipesInput = {
+  create?: Prisma.XOR<Prisma.PostCreateWithoutSwipesInput, Prisma.PostUncheckedCreateWithoutSwipesInput>
+  connectOrCreate?: Prisma.PostCreateOrConnectWithoutSwipesInput
+  connect?: Prisma.PostWhereUniqueInput
+}
+
+export type PostUpdateOneRequiredWithoutSwipesNestedInput = {
+  create?: Prisma.XOR<Prisma.PostCreateWithoutSwipesInput, Prisma.PostUncheckedCreateWithoutSwipesInput>
+  connectOrCreate?: Prisma.PostCreateOrConnectWithoutSwipesInput
+  upsert?: Prisma.PostUpsertWithoutSwipesInput
+  connect?: Prisma.PostWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PostUpdateToOneWithWhereWithoutSwipesInput, Prisma.PostUpdateWithoutSwipesInput>, Prisma.PostUncheckedUpdateWithoutSwipesInput>
+}
+
 export type PostCreateWithoutUserInput = {
   id?: string
   prompt?: string | null
@@ -512,6 +559,8 @@ export type PostCreateWithoutUserInput = {
   longitude: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  swipes?: Prisma.PostSwipeCreateNestedManyWithoutPostInput
+  latestForUser?: Prisma.LatestUserPostCreateNestedOneWithoutPostInput
 }
 
 export type PostUncheckedCreateWithoutUserInput = {
@@ -523,6 +572,8 @@ export type PostUncheckedCreateWithoutUserInput = {
   longitude: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  swipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutPostInput
+  latestForUser?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutPostInput
 }
 
 export type PostCreateOrConnectWithoutUserInput = {
@@ -566,6 +617,142 @@ export type PostScalarWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"Post"> | Date | string
 }
 
+export type PostCreateWithoutLatestForUserInput = {
+  id?: string
+  prompt?: string | null
+  imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
+  imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
+  latitude: number
+  longitude: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutPostsInput
+  swipes?: Prisma.PostSwipeCreateNestedManyWithoutPostInput
+}
+
+export type PostUncheckedCreateWithoutLatestForUserInput = {
+  id?: string
+  userId: string
+  prompt?: string | null
+  imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
+  imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
+  latitude: number
+  longitude: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  swipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutPostInput
+}
+
+export type PostCreateOrConnectWithoutLatestForUserInput = {
+  where: Prisma.PostWhereUniqueInput
+  create: Prisma.XOR<Prisma.PostCreateWithoutLatestForUserInput, Prisma.PostUncheckedCreateWithoutLatestForUserInput>
+}
+
+export type PostUpsertWithoutLatestForUserInput = {
+  update: Prisma.XOR<Prisma.PostUpdateWithoutLatestForUserInput, Prisma.PostUncheckedUpdateWithoutLatestForUserInput>
+  create: Prisma.XOR<Prisma.PostCreateWithoutLatestForUserInput, Prisma.PostUncheckedCreateWithoutLatestForUserInput>
+  where?: Prisma.PostWhereInput
+}
+
+export type PostUpdateToOneWithWhereWithoutLatestForUserInput = {
+  where?: Prisma.PostWhereInput
+  data: Prisma.XOR<Prisma.PostUpdateWithoutLatestForUserInput, Prisma.PostUncheckedUpdateWithoutLatestForUserInput>
+}
+
+export type PostUpdateWithoutLatestForUserInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
+  imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
+  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput
+  swipes?: Prisma.PostSwipeUpdateManyWithoutPostNestedInput
+}
+
+export type PostUncheckedUpdateWithoutLatestForUserInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
+  imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
+  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  swipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutPostNestedInput
+}
+
+export type PostCreateWithoutSwipesInput = {
+  id?: string
+  prompt?: string | null
+  imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
+  imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
+  latitude: number
+  longitude: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutPostsInput
+  latestForUser?: Prisma.LatestUserPostCreateNestedOneWithoutPostInput
+}
+
+export type PostUncheckedCreateWithoutSwipesInput = {
+  id?: string
+  userId: string
+  prompt?: string | null
+  imageUrls?: Prisma.PostCreateimageUrlsInput | string[]
+  imageFileIds?: Prisma.PostCreateimageFileIdsInput | string[]
+  latitude: number
+  longitude: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  latestForUser?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutPostInput
+}
+
+export type PostCreateOrConnectWithoutSwipesInput = {
+  where: Prisma.PostWhereUniqueInput
+  create: Prisma.XOR<Prisma.PostCreateWithoutSwipesInput, Prisma.PostUncheckedCreateWithoutSwipesInput>
+}
+
+export type PostUpsertWithoutSwipesInput = {
+  update: Prisma.XOR<Prisma.PostUpdateWithoutSwipesInput, Prisma.PostUncheckedUpdateWithoutSwipesInput>
+  create: Prisma.XOR<Prisma.PostCreateWithoutSwipesInput, Prisma.PostUncheckedCreateWithoutSwipesInput>
+  where?: Prisma.PostWhereInput
+}
+
+export type PostUpdateToOneWithWhereWithoutSwipesInput = {
+  where?: Prisma.PostWhereInput
+  data: Prisma.XOR<Prisma.PostUpdateWithoutSwipesInput, Prisma.PostUncheckedUpdateWithoutSwipesInput>
+}
+
+export type PostUpdateWithoutSwipesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
+  imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
+  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput
+  latestForUser?: Prisma.LatestUserPostUpdateOneWithoutPostNestedInput
+}
+
+export type PostUncheckedUpdateWithoutSwipesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrls?: Prisma.PostUpdateimageUrlsInput | string[]
+  imageFileIds?: Prisma.PostUpdateimageFileIdsInput | string[]
+  latitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  longitude?: Prisma.FloatFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  latestForUser?: Prisma.LatestUserPostUncheckedUpdateOneWithoutPostNestedInput
+}
+
 export type PostCreateManyUserInput = {
   id?: string
   prompt?: string | null
@@ -586,6 +773,8 @@ export type PostUpdateWithoutUserInput = {
   longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  swipes?: Prisma.PostSwipeUpdateManyWithoutPostNestedInput
+  latestForUser?: Prisma.LatestUserPostUpdateOneWithoutPostNestedInput
 }
 
 export type PostUncheckedUpdateWithoutUserInput = {
@@ -597,6 +786,8 @@ export type PostUncheckedUpdateWithoutUserInput = {
   longitude?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  swipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutPostNestedInput
+  latestForUser?: Prisma.LatestUserPostUncheckedUpdateOneWithoutPostNestedInput
 }
 
 export type PostUncheckedUpdateManyWithoutUserInput = {
@@ -611,6 +802,35 @@ export type PostUncheckedUpdateManyWithoutUserInput = {
 }
 
 
+/**
+ * Count Type PostCountOutputType
+ */
+
+export type PostCountOutputType = {
+  swipes: number
+}
+
+export type PostCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  swipes?: boolean | PostCountOutputTypeCountSwipesArgs
+}
+
+/**
+ * PostCountOutputType without action
+ */
+export type PostCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PostCountOutputType
+   */
+  select?: Prisma.PostCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * PostCountOutputType without action
+ */
+export type PostCountOutputTypeCountSwipesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PostSwipeWhereInput
+}
+
 
 export type PostSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -623,6 +843,9 @@ export type PostSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  swipes?: boolean | Prisma.Post$swipesArgs<ExtArgs>
+  latestForUser?: boolean | Prisma.Post$latestForUserArgs<ExtArgs>
+  _count?: boolean | Prisma.PostCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["post"]>
 
 export type PostSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -666,6 +889,9 @@ export type PostSelectScalar = {
 export type PostOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "prompt" | "imageUrls" | "imageFileIds" | "latitude" | "longitude" | "createdAt" | "updatedAt", ExtArgs["result"]["post"]>
 export type PostInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  swipes?: boolean | Prisma.Post$swipesArgs<ExtArgs>
+  latestForUser?: boolean | Prisma.Post$latestForUserArgs<ExtArgs>
+  _count?: boolean | Prisma.PostCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PostIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -678,6 +904,8 @@ export type $PostPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   name: "Post"
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
+    swipes: Prisma.$PostSwipePayload<ExtArgs>[]
+    latestForUser: Prisma.$LatestUserPostPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1084,6 +1312,8 @@ readonly fields: PostFieldRefs;
 export interface Prisma__PostClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  swipes<T extends Prisma.Post$swipesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Post$swipesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PostSwipePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  latestForUser<T extends Prisma.Post$latestForUserArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Post$latestForUserArgs<ExtArgs>>): Prisma.Prisma__LatestUserPostClient<runtime.Types.Result.GetResult<Prisma.$LatestUserPostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1515,6 +1745,49 @@ export type PostDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Limit how many Posts to delete.
    */
   limit?: number
+}
+
+/**
+ * Post.swipes
+ */
+export type Post$swipesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PostSwipe
+   */
+  select?: Prisma.PostSwipeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PostSwipe
+   */
+  omit?: Prisma.PostSwipeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PostSwipeInclude<ExtArgs> | null
+  where?: Prisma.PostSwipeWhereInput
+  orderBy?: Prisma.PostSwipeOrderByWithRelationInput | Prisma.PostSwipeOrderByWithRelationInput[]
+  cursor?: Prisma.PostSwipeWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PostSwipeScalarFieldEnum | Prisma.PostSwipeScalarFieldEnum[]
+}
+
+/**
+ * Post.latestForUser
+ */
+export type Post$latestForUserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LatestUserPost
+   */
+  select?: Prisma.LatestUserPostSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LatestUserPost
+   */
+  omit?: Prisma.LatestUserPostOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LatestUserPostInclude<ExtArgs> | null
+  where?: Prisma.LatestUserPostWhereInput
 }
 
 /**

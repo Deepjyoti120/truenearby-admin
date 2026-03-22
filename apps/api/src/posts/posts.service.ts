@@ -12,6 +12,13 @@ import { Prisma } from '../generated/prisma/client';
 import { SwipeType } from '../generated/prisma/enums';
 import { randomUUID } from 'crypto';
 
+type LatestPostSnapshot = {
+  id: string;
+  createdAt: Date;
+  latitude: number;
+  longitude: number;
+};
+
 @Injectable()
 export class PostsService {
   private readonly MAX_IMAGES_PER_POST = 10;
@@ -81,15 +88,26 @@ export class PostsService {
     const latitude = dto.latitude ?? profile.latitude;
     const longitude = dto.longitude ?? profile.longitude;
 
-    const post = await this.prisma.post.create({
-      data: {
-        userId,
-        prompt,
-        imageUrls: uploads.map((upload) => upload.url),
-        imageFileIds: uploads.map((upload) => upload.fileId),
-        latitude,
-        longitude,
-      },
+    const post = await this.prisma.$transaction(async (tx) => {
+      const createdPost = await tx.post.create({
+        data: {
+          userId,
+          prompt,
+          imageUrls: uploads.map((upload) => upload.url),
+          imageFileIds: uploads.map((upload) => upload.fileId),
+          latitude,
+          longitude,
+        },
+      });
+
+      await this.upsertLatestUserPost(tx, userId, {
+        id: createdPost.id,
+        createdAt: createdPost.createdAt,
+        latitude: createdPost.latitude,
+        longitude: createdPost.longitude,
+      });
+
+      return createdPost;
     });
 
     return {
@@ -115,8 +133,12 @@ export class PostsService {
       );
     }
 
-    await this.prisma.post.delete({
-      where: { id: postId },
+    await this.prisma.$transaction(async (tx) => {
+      await tx.post.delete({
+        where: { id: postId },
+      });
+
+      await this.refreshLatestUserPost(tx, userId);
     });
 
     return { success: true };
@@ -165,5 +187,63 @@ export class PostsService {
       success: true,
       swipe,
     };
+  }
+
+  private async upsertLatestUserPost(
+    tx: Prisma.TransactionClient,
+    userId: string,
+    post: LatestPostSnapshot,
+  ) {
+    await tx.$executeRaw(Prisma.sql`
+      INSERT INTO "latest_user_posts" (
+        "userId",
+        "postId",
+        "postCreatedAt",
+        "latitude",
+        "longitude"
+      )
+      VALUES (
+        ${userId}::uuid,
+        ${post.id}::uuid,
+        ${post.createdAt},
+        ${post.latitude},
+        ${post.longitude}
+      )
+      ON CONFLICT ("userId")
+      DO UPDATE SET
+        "postId" = EXCLUDED."postId",
+        "postCreatedAt" = EXCLUDED."postCreatedAt",
+        "latitude" = EXCLUDED."latitude",
+        "longitude" = EXCLUDED."longitude";
+    `);
+  }
+
+  private async refreshLatestUserPost(
+    tx: Prisma.TransactionClient,
+    userId: string,
+  ) {
+    const [latestRemainingPost] = await tx.$queryRaw<Array<LatestPostSnapshot>>(
+      Prisma.sql`
+        SELECT
+          p.id,
+          p."createdAt",
+          p.latitude,
+          p.longitude
+        FROM "posts" p
+        WHERE p."userId" = ${userId}::uuid
+        ORDER BY p."createdAt" DESC, p.id DESC
+        LIMIT 1;
+      `,
+    );
+
+    if (!latestRemainingPost) {
+      await tx.$executeRaw(Prisma.sql`
+        DELETE FROM "latest_user_posts"
+        WHERE "userId" = ${userId}::uuid;
+      `);
+      return;
+    }
+
+    await this.upsertLatestUserPost(tx, userId, latestRemainingPost);
   }
 }

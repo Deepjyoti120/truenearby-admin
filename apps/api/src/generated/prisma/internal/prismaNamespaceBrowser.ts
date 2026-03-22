@@ -58,6 +58,8 @@ export const ModelName = {
   RefreshToken: 'RefreshToken',
   Photo: 'Photo',
   Post: 'Post',
+  LatestUserPost: 'LatestUserPost',
+  PostSwipe: 'PostSwipe',
   Like: 'Like',
   Match: 'Match',
   Chat: 'Chat',
@@ -184,6 +186,28 @@ export const PostScalarFieldEnum = {
 } as const
 
 export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
+
+
+export const LatestUserPostScalarFieldEnum = {
+  userId: 'userId',
+  postId: 'postId',
+  postCreatedAt: 'postCreatedAt',
+  latitude: 'latitude',
+  longitude: 'longitude'
+} as const
+
+export type LatestUserPostScalarFieldEnum = (typeof LatestUserPostScalarFieldEnum)[keyof typeof LatestUserPostScalarFieldEnum]
+
+
+export const PostSwipeScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  postId: 'postId',
+  type: 'type',
+  createdAt: 'createdAt'
+} as const
+
+export type PostSwipeScalarFieldEnum = (typeof PostSwipeScalarFieldEnum)[keyof typeof PostSwipeScalarFieldEnum]
 
 
 export const LikeScalarFieldEnum = {

@@ -73,6 +73,16 @@ export type Photo = Prisma.PhotoModel
  */
 export type Post = Prisma.PostModel
 /**
+ * Model LatestUserPost
+ * 
+ */
+export type LatestUserPost = Prisma.LatestUserPostModel
+/**
+ * Model PostSwipe
+ * 
+ */
+export type PostSwipe = Prisma.PostSwipeModel
+/**
  * Model Like
  * 
  */
