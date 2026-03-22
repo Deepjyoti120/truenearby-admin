@@ -30,7 +30,7 @@ export class AuthService {
         email: user.email,
       },
       {
-        expiresIn: '15m',
+        expiresIn: '1m',
       },
     );
   }
@@ -156,7 +156,7 @@ export class AuthService {
         profile: user.profile,
         createdAt: user.createdAt,
       },
-      _refreshToken: refreshToken,
+      refreshToken,
     };
   }
 

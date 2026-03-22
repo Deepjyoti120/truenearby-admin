@@ -15,7 +15,7 @@ async function bootstrap() {
     new ExpressAdapter(expressApp),
   );
   app.use(cookieParser());
-  app.enableCors();
+  app.enableCors({ origin: true, credentials: true });
   app.setGlobalPrefix('api');
   app.useGlobalPipes(
     new ValidationPipe({

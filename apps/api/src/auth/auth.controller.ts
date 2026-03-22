@@ -19,6 +19,17 @@ export class AuthController {
     private config: ConfigService,
   ) {}
 
+  private get refreshCookieOptions() {
+    const isProduction = this.config.get('NODE_ENV') === 'production';
+    return {
+      httpOnly: true,
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
+      path: '/api/v1/auth/refresh',
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+    } as const;
+  }
+
   @Post('register')
   async register(@Body() dto: RegisterDto) {
     return {
@@ -34,22 +45,19 @@ export class AuthController {
     @Res({ passthrough: true }) res: Response,
   ) {
     const result = await this.authService.entry(dto);
-    res.cookie('refresh_token', result._refreshToken, {
-      httpOnly: true,
-      secure: this.config.get('NODE_ENV') === 'production',
-      sameSite: 'strict',
-      path: '/auth/refresh',
-      maxAge: 30 * 24 * 60 * 60 * 1000,
-    });
+    res.cookie('refresh_token', result.refreshToken, this.refreshCookieOptions);
+
     return {
       accessToken: result.accessToken,
+      ...(dto.platform != 'web' ? { refreshToken: result.refreshToken } : {}),
       user: result.user,
     };
   }
 
   @Post('refresh')
-  async refresh(@Req() req: Request) {
-    const refreshToken = req.cookies?.refresh_token as string;
+  async refresh(@Req() req: Request, @Body() body: { refreshToken?: string }) {
+    const refreshToken =
+      body.refreshToken ?? (req.cookies?.refresh_token as string | undefined);
     if (!refreshToken) {
       throw new UnauthorizedException('Refresh token missing');
     }
@@ -57,15 +65,20 @@ export class AuthController {
   }
 
   @Post('logout')
-  async logout(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
-    const refreshToken = req.cookies?.refresh_token as string;
+  async logout(
+    @Req() req: Request,
+    @Body() body: { refreshToken?: string },
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    const refreshToken =
+      body.refreshToken ?? (req.cookies?.refresh_token as string | undefined);
 
     if (refreshToken) {
       await this.authService.logout(refreshToken);
     }
 
     res.clearCookie('refresh_token', {
-      path: '/auth/refresh',
+      path: '/api/v1/auth/refresh',
     });
 
     return { success: true };
