@@ -167,7 +167,9 @@ model LatestUserPost {
   user User @relation("LatestUserPostUser", fields: [userId], references: [id], onDelete: Cascade)
   post Post @relation("LatestUserPostPost", fields: [postId], references: [id], onDelete: Cascade)
 
+  @@index([postCreatedAt(sort: Desc)])
   @@index([latitude, longitude])
+  @@index([latitude, longitude, postCreatedAt(sort: Desc)])
   @@map("latest_user_posts")
 }
 
