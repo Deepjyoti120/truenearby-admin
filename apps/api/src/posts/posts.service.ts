@@ -182,6 +182,8 @@ export class PostsService {
       DO UPDATE SET "type" = EXCLUDED."type"
       RETURNING "id", "userId", "postId", "type", "createdAt";
     `);
+    // match done
+    // await this.prisma.match;
 
     return {
       success: true,
