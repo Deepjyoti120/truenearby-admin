@@ -327,6 +327,7 @@ describe('ProfileService', () => {
       expect(feedSql.values).toContain('user-1');
       expect(countSql.sql).toContain('COUNT(*)::int AS total');
       expect(countSql.sql).toContain('"latest_user_posts"');
+      expect(countSql.sql).toContain('WHERE lup."userId" !=');
       expect(countSql.sql).toContain('"post_swipes"');
       expect(countSql.values).toContain('user-1');
       expect(prisma.post.findMany).toHaveBeenCalledWith({

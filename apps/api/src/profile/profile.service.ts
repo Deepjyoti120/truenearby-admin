@@ -542,7 +542,8 @@ export class ProfileService {
       Prisma.sql`
         SELECT COUNT(*)::int AS total
         FROM "latest_user_posts" lup
-        WHERE NOT EXISTS (
+        WHERE lup."userId" != ${userId}::uuid
+        AND NOT EXISTS (
           SELECT 1
           FROM "post_swipes" ps
           WHERE ps."postId" = lup."postId"
