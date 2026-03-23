@@ -374,7 +374,8 @@ export class ProfileService {
         lup."postId" AS id,
         lup."postCreatedAt"
       FROM "latest_user_posts" lup
-      WHERE NOT EXISTS (
+      WHERE lup."userId" != ${userId}::uuid
+      AND NOT EXISTS (
         SELECT 1
         FROM "post_swipes" ps
         WHERE ps."postId" = lup."postId"
@@ -465,7 +466,8 @@ export class ProfileService {
             )
           ) AS "distanceKm"
         FROM "latest_user_posts" lup
-        WHERE NOT EXISTS (
+        WHERE lup."userId" != ${userId}::uuid
+        AND NOT EXISTS (
           SELECT 1
           FROM "post_swipes" ps
           WHERE ps."postId" = lup."postId"
