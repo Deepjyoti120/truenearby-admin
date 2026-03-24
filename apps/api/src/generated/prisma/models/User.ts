@@ -224,6 +224,9 @@ export type UserWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   profile?: Prisma.XOR<Prisma.ProfileNullableScalarRelationFilter, Prisma.ProfileWhereInput> | null
   photos?: Prisma.PhotoListRelationFilter
+  posts?: Prisma.PostListRelationFilter
+  postSwipes?: Prisma.PostSwipeListRelationFilter
+  latestUserPost?: Prisma.XOR<Prisma.LatestUserPostNullableScalarRelationFilter, Prisma.LatestUserPostWhereInput> | null
   likesSent?: Prisma.LikeListRelationFilter
   likesReceived?: Prisma.LikeListRelationFilter
   matchesA?: Prisma.MatchListRelationFilter
@@ -251,6 +254,9 @@ export type UserOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   profile?: Prisma.ProfileOrderByWithRelationInput
   photos?: Prisma.PhotoOrderByRelationAggregateInput
+  posts?: Prisma.PostOrderByRelationAggregateInput
+  postSwipes?: Prisma.PostSwipeOrderByRelationAggregateInput
+  latestUserPost?: Prisma.LatestUserPostOrderByWithRelationInput
   likesSent?: Prisma.LikeOrderByRelationAggregateInput
   likesReceived?: Prisma.LikeOrderByRelationAggregateInput
   matchesA?: Prisma.MatchOrderByRelationAggregateInput
@@ -281,6 +287,9 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   profile?: Prisma.XOR<Prisma.ProfileNullableScalarRelationFilter, Prisma.ProfileWhereInput> | null
   photos?: Prisma.PhotoListRelationFilter
+  posts?: Prisma.PostListRelationFilter
+  postSwipes?: Prisma.PostSwipeListRelationFilter
+  latestUserPost?: Prisma.XOR<Prisma.LatestUserPostNullableScalarRelationFilter, Prisma.LatestUserPostWhereInput> | null
   likesSent?: Prisma.LikeListRelationFilter
   likesReceived?: Prisma.LikeListRelationFilter
   matchesA?: Prisma.MatchListRelationFilter
@@ -340,6 +349,9 @@ export type UserCreateInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
@@ -367,6 +379,9 @@ export type UserUncheckedCreateInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
@@ -394,6 +409,9 @@ export type UserUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
@@ -421,6 +439,9 @@ export type UserUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
@@ -594,6 +615,48 @@ export type UserUpdateOneRequiredWithoutPhotosNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPhotosInput, Prisma.UserUpdateWithoutPhotosInput>, Prisma.UserUncheckedUpdateWithoutPhotosInput>
 }
 
+export type UserCreateNestedOneWithoutPostsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPostsInput, Prisma.UserUncheckedCreateWithoutPostsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPostsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutPostsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPostsInput, Prisma.UserUncheckedCreateWithoutPostsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPostsInput
+  upsert?: Prisma.UserUpsertWithoutPostsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPostsInput, Prisma.UserUpdateWithoutPostsInput>, Prisma.UserUncheckedUpdateWithoutPostsInput>
+}
+
+export type UserCreateNestedOneWithoutLatestUserPostInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutLatestUserPostInput, Prisma.UserUncheckedCreateWithoutLatestUserPostInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutLatestUserPostInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutLatestUserPostNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutLatestUserPostInput, Prisma.UserUncheckedCreateWithoutLatestUserPostInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutLatestUserPostInput
+  upsert?: Prisma.UserUpsertWithoutLatestUserPostInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutLatestUserPostInput, Prisma.UserUpdateWithoutLatestUserPostInput>, Prisma.UserUncheckedUpdateWithoutLatestUserPostInput>
+}
+
+export type UserCreateNestedOneWithoutPostSwipesInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPostSwipesInput, Prisma.UserUncheckedCreateWithoutPostSwipesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPostSwipesInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutPostSwipesNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPostSwipesInput, Prisma.UserUncheckedCreateWithoutPostSwipesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPostSwipesInput
+  upsert?: Prisma.UserUpsertWithoutPostSwipesInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPostSwipesInput, Prisma.UserUpdateWithoutPostSwipesInput>, Prisma.UserUncheckedUpdateWithoutPostSwipesInput>
+}
+
 export type UserCreateNestedOneWithoutLikesSentInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutLikesSentInput, Prisma.UserUncheckedCreateWithoutLikesSentInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutLikesSentInput
@@ -746,6 +809,9 @@ export type UserCreateWithoutProfileInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
@@ -772,6 +838,9 @@ export type UserUncheckedCreateWithoutProfileInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
@@ -814,6 +883,9 @@ export type UserUpdateWithoutProfileInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
@@ -840,6 +912,9 @@ export type UserUncheckedUpdateWithoutProfileInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
@@ -867,6 +942,9 @@ export type UserCreateWithoutDevicesInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
@@ -893,6 +971,9 @@ export type UserUncheckedCreateWithoutDevicesInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
@@ -935,6 +1016,9 @@ export type UserUpdateWithoutDevicesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
@@ -961,6 +1045,9 @@ export type UserUncheckedUpdateWithoutDevicesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
@@ -987,6 +1074,9 @@ export type UserCreateWithoutRefreshTokensInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
@@ -1013,6 +1103,9 @@ export type UserUncheckedCreateWithoutRefreshTokensInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
@@ -1055,6 +1148,9 @@ export type UserUpdateWithoutRefreshTokensInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
@@ -1081,6 +1177,9 @@ export type UserUncheckedUpdateWithoutRefreshTokensInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
@@ -1106,6 +1205,9 @@ export type UserCreateWithoutPhotosInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
@@ -1132,6 +1234,9 @@ export type UserUncheckedCreateWithoutPhotosInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
@@ -1174,6 +1279,9 @@ export type UserUpdateWithoutPhotosInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
@@ -1200,6 +1308,405 @@ export type UserUncheckedUpdateWithoutPhotosInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
+  likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
+  likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
+  matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
+  matchesB?: Prisma.MatchUncheckedUpdateManyWithoutUserBNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
+  blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
+  devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutPostsInput = {
+  id?: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  isActive?: boolean
+  isVerified?: boolean
+  isRegistered?: boolean
+  lastActiveAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
+  photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
+  likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
+  likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
+  matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
+  matchesB?: Prisma.MatchCreateNestedManyWithoutUserBInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
+  blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
+  blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
+  devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutPostsInput = {
+  id?: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  isActive?: boolean
+  isVerified?: boolean
+  isRegistered?: boolean
+  lastActiveAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
+  photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
+  likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
+  likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
+  matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
+  matchesB?: Prisma.MatchUncheckedCreateNestedManyWithoutUserBInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
+  blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
+  blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
+  devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutPostsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPostsInput, Prisma.UserUncheckedCreateWithoutPostsInput>
+}
+
+export type UserUpsertWithoutPostsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPostsInput, Prisma.UserUncheckedUpdateWithoutPostsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPostsInput, Prisma.UserUncheckedCreateWithoutPostsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutPostsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPostsInput, Prisma.UserUncheckedUpdateWithoutPostsInput>
+}
+
+export type UserUpdateWithoutPostsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
+  photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
+  likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
+  likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
+  matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
+  matchesB?: Prisma.MatchUpdateManyWithoutUserBNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
+  blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
+  blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
+  devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutPostsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
+  photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
+  likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
+  likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
+  matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
+  matchesB?: Prisma.MatchUncheckedUpdateManyWithoutUserBNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
+  blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
+  devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutLatestUserPostInput = {
+  id?: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  isActive?: boolean
+  isVerified?: boolean
+  isRegistered?: boolean
+  lastActiveAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
+  photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
+  likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
+  matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
+  matchesB?: Prisma.MatchCreateNestedManyWithoutUserBInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
+  blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
+  blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
+  devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutLatestUserPostInput = {
+  id?: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  isActive?: boolean
+  isVerified?: boolean
+  isRegistered?: boolean
+  lastActiveAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
+  photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
+  likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
+  matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
+  matchesB?: Prisma.MatchUncheckedCreateNestedManyWithoutUserBInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
+  blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
+  blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
+  devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutLatestUserPostInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutLatestUserPostInput, Prisma.UserUncheckedCreateWithoutLatestUserPostInput>
+}
+
+export type UserUpsertWithoutLatestUserPostInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutLatestUserPostInput, Prisma.UserUncheckedUpdateWithoutLatestUserPostInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutLatestUserPostInput, Prisma.UserUncheckedCreateWithoutLatestUserPostInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutLatestUserPostInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutLatestUserPostInput, Prisma.UserUncheckedUpdateWithoutLatestUserPostInput>
+}
+
+export type UserUpdateWithoutLatestUserPostInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
+  photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
+  likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
+  matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
+  matchesB?: Prisma.MatchUpdateManyWithoutUserBNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
+  blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
+  blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
+  devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutLatestUserPostInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
+  photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
+  likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
+  matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
+  matchesB?: Prisma.MatchUncheckedUpdateManyWithoutUserBNestedInput
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutSenderNestedInput
+  subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  blocksSent?: Prisma.BlockUncheckedUpdateManyWithoutBlockerNestedInput
+  blocksReceived?: Prisma.BlockUncheckedUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUncheckedUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUncheckedUpdateManyWithoutToUserNestedInput
+  devices?: Prisma.UserDeviceUncheckedUpdateManyWithoutUserNestedInput
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutPostSwipesInput = {
+  id?: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  isActive?: boolean
+  isVerified?: boolean
+  isRegistered?: boolean
+  lastActiveAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
+  photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
+  likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
+  likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
+  matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
+  matchesB?: Prisma.MatchCreateNestedManyWithoutUserBInput
+  messages?: Prisma.MessageCreateNestedManyWithoutSenderInput
+  subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
+  blocksSent?: Prisma.BlockCreateNestedManyWithoutBlockerInput
+  blocksReceived?: Prisma.BlockCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeCreateNestedManyWithoutToUserInput
+  devices?: Prisma.UserDeviceCreateNestedManyWithoutUserInput
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutPostSwipesInput = {
+  id?: string
+  email: string
+  phone?: string | null
+  passwordHash: string
+  isActive?: boolean
+  isVerified?: boolean
+  isRegistered?: boolean
+  lastActiveAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
+  photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
+  likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
+  likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
+  matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
+  matchesB?: Prisma.MatchUncheckedCreateNestedManyWithoutUserBInput
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutSenderInput
+  subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
+  blocksSent?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockerInput
+  blocksReceived?: Prisma.BlockUncheckedCreateNestedManyWithoutBlockedInput
+  swipesSent?: Prisma.SwipeUncheckedCreateNestedManyWithoutFromUserInput
+  swipesReceived?: Prisma.SwipeUncheckedCreateNestedManyWithoutToUserInput
+  devices?: Prisma.UserDeviceUncheckedCreateNestedManyWithoutUserInput
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutPostSwipesInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPostSwipesInput, Prisma.UserUncheckedCreateWithoutPostSwipesInput>
+}
+
+export type UserUpsertWithoutPostSwipesInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPostSwipesInput, Prisma.UserUncheckedUpdateWithoutPostSwipesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPostSwipesInput, Prisma.UserUncheckedCreateWithoutPostSwipesInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutPostSwipesInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPostSwipesInput, Prisma.UserUncheckedUpdateWithoutPostSwipesInput>
+}
+
+export type UserUpdateWithoutPostSwipesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
+  photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
+  likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
+  likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
+  matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
+  matchesB?: Prisma.MatchUpdateManyWithoutUserBNestedInput
+  messages?: Prisma.MessageUpdateManyWithoutSenderNestedInput
+  subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
+  blocksSent?: Prisma.BlockUpdateManyWithoutBlockerNestedInput
+  blocksReceived?: Prisma.BlockUpdateManyWithoutBlockedNestedInput
+  swipesSent?: Prisma.SwipeUpdateManyWithoutFromUserNestedInput
+  swipesReceived?: Prisma.SwipeUpdateManyWithoutToUserNestedInput
+  devices?: Prisma.UserDeviceUpdateManyWithoutUserNestedInput
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutPostSwipesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isRegistered?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
+  photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
@@ -1227,6 +1734,9 @@ export type UserCreateWithoutLikesSentInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
   matchesB?: Prisma.MatchCreateNestedManyWithoutUserBInput
@@ -1253,6 +1763,9 @@ export type UserUncheckedCreateWithoutLikesSentInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
   matchesB?: Prisma.MatchUncheckedCreateNestedManyWithoutUserBInput
@@ -1284,6 +1797,9 @@ export type UserCreateWithoutLikesReceivedInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
   matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
   matchesB?: Prisma.MatchCreateNestedManyWithoutUserBInput
@@ -1310,6 +1826,9 @@ export type UserUncheckedCreateWithoutLikesReceivedInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
   matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
   matchesB?: Prisma.MatchUncheckedCreateNestedManyWithoutUserBInput
@@ -1352,6 +1871,9 @@ export type UserUpdateWithoutLikesSentInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
   matchesB?: Prisma.MatchUpdateManyWithoutUserBNestedInput
@@ -1378,6 +1900,9 @@ export type UserUncheckedUpdateWithoutLikesSentInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
   matchesB?: Prisma.MatchUncheckedUpdateManyWithoutUserBNestedInput
@@ -1415,6 +1940,9 @@ export type UserUpdateWithoutLikesReceivedInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
   matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
   matchesB?: Prisma.MatchUpdateManyWithoutUserBNestedInput
@@ -1441,6 +1969,9 @@ export type UserUncheckedUpdateWithoutLikesReceivedInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
   matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
   matchesB?: Prisma.MatchUncheckedUpdateManyWithoutUserBNestedInput
@@ -1467,6 +1998,9 @@ export type UserCreateWithoutMatchesAInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
   matchesB?: Prisma.MatchCreateNestedManyWithoutUserBInput
@@ -1493,6 +2027,9 @@ export type UserUncheckedCreateWithoutMatchesAInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
   matchesB?: Prisma.MatchUncheckedCreateNestedManyWithoutUserBInput
@@ -1524,6 +2061,9 @@ export type UserCreateWithoutMatchesBInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
@@ -1550,6 +2090,9 @@ export type UserUncheckedCreateWithoutMatchesBInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
@@ -1592,6 +2135,9 @@ export type UserUpdateWithoutMatchesAInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
   matchesB?: Prisma.MatchUpdateManyWithoutUserBNestedInput
@@ -1618,6 +2164,9 @@ export type UserUncheckedUpdateWithoutMatchesAInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
   matchesB?: Prisma.MatchUncheckedUpdateManyWithoutUserBNestedInput
@@ -1655,6 +2204,9 @@ export type UserUpdateWithoutMatchesBInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
@@ -1681,6 +2233,9 @@ export type UserUncheckedUpdateWithoutMatchesBInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
@@ -1707,6 +2262,9 @@ export type UserCreateWithoutMessagesInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
@@ -1733,6 +2291,9 @@ export type UserUncheckedCreateWithoutMessagesInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
@@ -1775,6 +2336,9 @@ export type UserUpdateWithoutMessagesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
@@ -1801,6 +2365,9 @@ export type UserUncheckedUpdateWithoutMessagesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
@@ -1827,6 +2394,9 @@ export type UserCreateWithoutBlocksSentInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
@@ -1853,6 +2423,9 @@ export type UserUncheckedCreateWithoutBlocksSentInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
@@ -1884,6 +2457,9 @@ export type UserCreateWithoutBlocksReceivedInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
@@ -1910,6 +2486,9 @@ export type UserUncheckedCreateWithoutBlocksReceivedInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
@@ -1952,6 +2531,9 @@ export type UserUpdateWithoutBlocksSentInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
@@ -1978,6 +2560,9 @@ export type UserUncheckedUpdateWithoutBlocksSentInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
@@ -2015,6 +2600,9 @@ export type UserUpdateWithoutBlocksReceivedInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
@@ -2041,6 +2629,9 @@ export type UserUncheckedUpdateWithoutBlocksReceivedInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
@@ -2067,6 +2658,9 @@ export type UserCreateWithoutSubscriptionsInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
@@ -2093,6 +2687,9 @@ export type UserUncheckedCreateWithoutSubscriptionsInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
@@ -2135,6 +2732,9 @@ export type UserUpdateWithoutSubscriptionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
@@ -2161,6 +2761,9 @@ export type UserUncheckedUpdateWithoutSubscriptionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
@@ -2187,6 +2790,9 @@ export type UserCreateWithoutSwipesSentInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
@@ -2213,6 +2819,9 @@ export type UserUncheckedCreateWithoutSwipesSentInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
@@ -2244,6 +2853,9 @@ export type UserCreateWithoutSwipesReceivedInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchCreateNestedManyWithoutUserAInput
@@ -2270,6 +2882,9 @@ export type UserUncheckedCreateWithoutSwipesReceivedInput = {
   updatedAt?: Date | string
   profile?: Prisma.ProfileUncheckedCreateNestedOneWithoutUserInput
   photos?: Prisma.PhotoUncheckedCreateNestedManyWithoutUserInput
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutUserInput
+  postSwipes?: Prisma.PostSwipeUncheckedCreateNestedManyWithoutUserInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedCreateNestedOneWithoutUserInput
   likesSent?: Prisma.LikeUncheckedCreateNestedManyWithoutFromUserInput
   likesReceived?: Prisma.LikeUncheckedCreateNestedManyWithoutToUserInput
   matchesA?: Prisma.MatchUncheckedCreateNestedManyWithoutUserAInput
@@ -2312,6 +2927,9 @@ export type UserUpdateWithoutSwipesSentInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
@@ -2338,6 +2956,9 @@ export type UserUncheckedUpdateWithoutSwipesSentInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
@@ -2375,6 +2996,9 @@ export type UserUpdateWithoutSwipesReceivedInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUpdateManyWithoutUserANestedInput
@@ -2401,6 +3025,9 @@ export type UserUncheckedUpdateWithoutSwipesReceivedInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.ProfileUncheckedUpdateOneWithoutUserNestedInput
   photos?: Prisma.PhotoUncheckedUpdateManyWithoutUserNestedInput
+  posts?: Prisma.PostUncheckedUpdateManyWithoutUserNestedInput
+  postSwipes?: Prisma.PostSwipeUncheckedUpdateManyWithoutUserNestedInput
+  latestUserPost?: Prisma.LatestUserPostUncheckedUpdateOneWithoutUserNestedInput
   likesSent?: Prisma.LikeUncheckedUpdateManyWithoutFromUserNestedInput
   likesReceived?: Prisma.LikeUncheckedUpdateManyWithoutToUserNestedInput
   matchesA?: Prisma.MatchUncheckedUpdateManyWithoutUserANestedInput
@@ -2421,6 +3048,8 @@ export type UserUncheckedUpdateWithoutSwipesReceivedInput = {
 
 export type UserCountOutputType = {
   photos: number
+  posts: number
+  postSwipes: number
   likesSent: number
   likesReceived: number
   matchesA: number
@@ -2437,6 +3066,8 @@ export type UserCountOutputType = {
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   photos?: boolean | UserCountOutputTypeCountPhotosArgs
+  posts?: boolean | UserCountOutputTypeCountPostsArgs
+  postSwipes?: boolean | UserCountOutputTypeCountPostSwipesArgs
   likesSent?: boolean | UserCountOutputTypeCountLikesSentArgs
   likesReceived?: boolean | UserCountOutputTypeCountLikesReceivedArgs
   matchesA?: boolean | UserCountOutputTypeCountMatchesAArgs
@@ -2466,6 +3097,20 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
  */
 export type UserCountOutputTypeCountPhotosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.PhotoWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountPostsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PostWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountPostSwipesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PostSwipeWhereInput
 }
 
 /**
@@ -2566,6 +3211,9 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   updatedAt?: boolean
   profile?: boolean | Prisma.User$profileArgs<ExtArgs>
   photos?: boolean | Prisma.User$photosArgs<ExtArgs>
+  posts?: boolean | Prisma.User$postsArgs<ExtArgs>
+  postSwipes?: boolean | Prisma.User$postSwipesArgs<ExtArgs>
+  latestUserPost?: boolean | Prisma.User$latestUserPostArgs<ExtArgs>
   likesSent?: boolean | Prisma.User$likesSentArgs<ExtArgs>
   likesReceived?: boolean | Prisma.User$likesReceivedArgs<ExtArgs>
   matchesA?: boolean | Prisma.User$matchesAArgs<ExtArgs>
@@ -2624,6 +3272,9 @@ export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = run
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   profile?: boolean | Prisma.User$profileArgs<ExtArgs>
   photos?: boolean | Prisma.User$photosArgs<ExtArgs>
+  posts?: boolean | Prisma.User$postsArgs<ExtArgs>
+  postSwipes?: boolean | Prisma.User$postSwipesArgs<ExtArgs>
+  latestUserPost?: boolean | Prisma.User$latestUserPostArgs<ExtArgs>
   likesSent?: boolean | Prisma.User$likesSentArgs<ExtArgs>
   likesReceived?: boolean | Prisma.User$likesReceivedArgs<ExtArgs>
   matchesA?: boolean | Prisma.User$matchesAArgs<ExtArgs>
@@ -2646,6 +3297,9 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   objects: {
     profile: Prisma.$ProfilePayload<ExtArgs> | null
     photos: Prisma.$PhotoPayload<ExtArgs>[]
+    posts: Prisma.$PostPayload<ExtArgs>[]
+    postSwipes: Prisma.$PostSwipePayload<ExtArgs>[]
+    latestUserPost: Prisma.$LatestUserPostPayload<ExtArgs> | null
     likesSent: Prisma.$LikePayload<ExtArgs>[]
     likesReceived: Prisma.$LikePayload<ExtArgs>[]
     matchesA: Prisma.$MatchPayload<ExtArgs>[]
@@ -3066,6 +3720,9 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   readonly [Symbol.toStringTag]: "PrismaPromise"
   profile<T extends Prisma.User$profileArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$profileArgs<ExtArgs>>): Prisma.Prisma__ProfileClient<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   photos<T extends Prisma.User$photosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$photosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PhotoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  posts<T extends Prisma.User$postsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$postsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  postSwipes<T extends Prisma.User$postSwipesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$postSwipesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PostSwipePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  latestUserPost<T extends Prisma.User$latestUserPostArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$latestUserPostArgs<ExtArgs>>): Prisma.Prisma__LatestUserPostClient<runtime.Types.Result.GetResult<Prisma.$LatestUserPostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   likesSent<T extends Prisma.User$likesSentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$likesSentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   likesReceived<T extends Prisma.User$likesReceivedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$likesReceivedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   matchesA<T extends Prisma.User$matchesAArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$matchesAArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -3545,6 +4202,73 @@ export type User$photosArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
   take?: number
   skip?: number
   distinct?: Prisma.PhotoScalarFieldEnum | Prisma.PhotoScalarFieldEnum[]
+}
+
+/**
+ * User.posts
+ */
+export type User$postsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Post
+   */
+  select?: Prisma.PostSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Post
+   */
+  omit?: Prisma.PostOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PostInclude<ExtArgs> | null
+  where?: Prisma.PostWhereInput
+  orderBy?: Prisma.PostOrderByWithRelationInput | Prisma.PostOrderByWithRelationInput[]
+  cursor?: Prisma.PostWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PostScalarFieldEnum | Prisma.PostScalarFieldEnum[]
+}
+
+/**
+ * User.postSwipes
+ */
+export type User$postSwipesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PostSwipe
+   */
+  select?: Prisma.PostSwipeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PostSwipe
+   */
+  omit?: Prisma.PostSwipeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PostSwipeInclude<ExtArgs> | null
+  where?: Prisma.PostSwipeWhereInput
+  orderBy?: Prisma.PostSwipeOrderByWithRelationInput | Prisma.PostSwipeOrderByWithRelationInput[]
+  cursor?: Prisma.PostSwipeWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PostSwipeScalarFieldEnum | Prisma.PostSwipeScalarFieldEnum[]
+}
+
+/**
+ * User.latestUserPost
+ */
+export type User$latestUserPostArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LatestUserPost
+   */
+  select?: Prisma.LatestUserPostSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LatestUserPost
+   */
+  omit?: Prisma.LatestUserPostOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LatestUserPostInclude<ExtArgs> | null
+  where?: Prisma.LatestUserPostWhereInput
 }
 
 /**

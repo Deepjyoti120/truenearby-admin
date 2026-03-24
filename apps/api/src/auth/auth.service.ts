@@ -45,6 +45,7 @@ export class AuthService {
       },
     );
   }
+
   async refresh(refreshToken: string) {
     let payload: { sub: string };
     try {
@@ -155,7 +156,7 @@ export class AuthService {
         profile: user.profile,
         createdAt: user.createdAt,
       },
-      _refreshToken: refreshToken,
+      refreshToken,
     };
   }
 

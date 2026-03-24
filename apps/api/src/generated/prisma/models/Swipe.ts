@@ -409,10 +409,6 @@ export type SwipeUncheckedUpdateManyWithoutToUserNestedInput = {
   deleteMany?: Prisma.SwipeScalarWhereInput | Prisma.SwipeScalarWhereInput[]
 }
 
-export type EnumSwipeTypeFieldUpdateOperationsInput = {
-  set?: $Enums.SwipeType
-}
-
 export type SwipeCreateWithoutFromUserInput = {
   id?: string
   type: $Enums.SwipeType

@@ -10,6 +10,9 @@ import { PhotosModule } from './photos/photos.module';
 import { GeoModule } from './common/geo/geo.module';
 import { ChatModule } from './chat/chat.module';
 import { MatchesModule } from './matches/matches.module';
+import { PostsModule } from './posts/posts.module';
+import { LikesController } from './likes/likes.controller';
+import { LikesModule } from './likes/likes.module';
 
 @Module({
   imports: [
@@ -24,6 +27,8 @@ import { MatchesModule } from './matches/matches.module';
     GeoModule,
     ChatModule,
     MatchesModule,
+    PostsModule,
+    LikesModule,
   ],
   providers: [
     {
@@ -31,5 +36,6 @@ import { MatchesModule } from './matches/matches.module';
       useClass: ResponseInterceptor,
     },
   ],
+  controllers: [LikesController],
 })
 export class AppModule {}

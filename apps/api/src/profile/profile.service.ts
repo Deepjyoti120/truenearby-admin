@@ -3,12 +3,50 @@ import { CreateProfileDto } from './dto/create-profile.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import { RegisterDeviceDto } from './dto/register-device.dto';
 import { ImageKitService } from '../photos/imagekit.service';
+import { ReverseGeocodeService } from '../common/geo/reverse-geocode.service';
+import { ProfilePreferencesService } from './profile-preferences.service';
+import { GetPostsDto } from './dto/get-posts.dto';
+import { Prisma } from '../generated/prisma/client';
+
+const FEED_POST_SELECT = {
+  id: true,
+  userId: true,
+  prompt: true,
+  imageUrls: true,
+  imageFileIds: true,
+  latitude: true,
+  longitude: true,
+  createdAt: true,
+  updatedAt: true,
+  user: {
+    select: {
+      id: true,
+      profile: true,
+    },
+  },
+} satisfies Prisma.PostSelect;
+
+const DEFAULT_POST_LIMIT = 10;
+
+type FeedCursor = {
+  postId: string;
+  postCreatedAt: Date;
+  distanceKm?: number;
+};
+
+type FeedOrderRow = {
+  id: string;
+  postCreatedAt: Date;
+  distanceKm?: number | null;
+};
 
 @Injectable()
 export class ProfileService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly imageKitService: ImageKitService,
+    private readonly reverseGeocodeService: ReverseGeocodeService,
+    private readonly profilePreferencesService: ProfilePreferencesService,
   ) {}
 
   async create(userId: string, dto: CreateProfileDto) {
@@ -18,24 +56,53 @@ export class ProfileService {
     if (existing) {
       throw new BadRequestException('Profile already exists');
     }
-    const profile = await this.prisma.profile.create({
-      data: {
-        userId,
-        gender: dto.gender,
-        lookingFor: dto.lookingFor,
-        birthDate: new Date(dto.birthDate),
-        heightCm: dto.heightCm,
-        bio: dto.bio,
-        latitude: dto.latitude,
-        longitude: dto.longitude,
-        city: dto.city,
-        country: dto.country,
-        isRegistered: true,
-      },
+    const interests = this.profilePreferencesService.normalizeInterests(
+      dto.interests,
+    );
+    const preferenceAgeRange =
+      this.profilePreferencesService.resolvePreferredAgeRange(
+        dto.preferredMinAge,
+        dto.preferredMaxAge,
+      );
+    const geocodeResult = await this.reverseGeocodeService.getCityAndCountry(
+      dto.latitude,
+      dto.longitude,
+    );
+    const result = await this.prisma.$transaction(async (tx) => {
+      const profile = await tx.profile.create({
+        data: {
+          userId,
+          gender: dto.gender,
+          lookingFor: dto.lookingFor,
+          birthDate: new Date(dto.birthDate),
+          heightCm: dto.heightCm,
+          bio: dto.bio,
+          interests,
+          latitude: dto.latitude,
+          longitude: dto.longitude,
+          city: geocodeResult.city,
+          country: geocodeResult.country,
+          matchPreference: {
+            create: preferenceAgeRange,
+          },
+          isRegistered: true,
+        },
+        include: {
+          matchPreference: true,
+        },
+      });
+      await tx.user.update({
+        where: { id: userId },
+        data: {
+          isRegistered: true,
+          isVerified: true,
+        },
+      });
+      return profile;
     });
     return {
       success: true,
-      profile,
+      result,
     };
   }
   async registerDevice(userId: string, dto: RegisterDeviceDto) {
@@ -71,7 +138,7 @@ export class ProfileService {
     }
 
     const activeCount = await this.prisma.photo.count({
-      where: { userId, isDeleted: false },
+      where: { userId },
     });
     if (activeCount + files.length > 2) {
       throw new BadRequestException('Maximum 6 photos allowed');
@@ -88,7 +155,7 @@ export class ProfileService {
     }));
     await this.prisma.photo.createMany({ data: photosToCreate });
     const photos = await this.prisma.photo.findMany({
-      where: { userId, isDeleted: false },
+      where: { userId },
       orderBy: { createdAt: 'asc' },
     });
     return {
@@ -101,7 +168,6 @@ export class ProfileService {
     const activePhotos = await this.prisma.photo.findMany({
       where: {
         userId,
-        isDeleted: false,
       },
       orderBy: { createdAt: 'asc' },
     });
@@ -117,8 +183,6 @@ export class ProfileService {
       await tx.photo.update({
         where: { id: photoId },
         data: {
-          isDeleted: true,
-          deletedAt: new Date(),
           isPrimary: false,
         },
       });
@@ -130,12 +194,430 @@ export class ProfileService {
       }
     });
     const photos = await this.prisma.photo.findMany({
-      where: { userId, isDeleted: false },
+      where: { userId },
       orderBy: { createdAt: 'asc' },
     });
     return {
       success: true,
       photos,
     };
+  }
+
+  async getProfile(userId: string) {
+    const profile = await this.prisma.profile.findFirst({
+      where: { userId },
+      include: {
+        matchPreference: true,
+        user: {
+          select: {
+            photos: true,
+          },
+        },
+      },
+    });
+    return {
+      success: true,
+      profile,
+    };
+  }
+  async getPosts(userId: string, query: GetPostsDto) {
+    const cursor = this.parseFeedCursor(query.cursor);
+    const page = query.page ?? 1;
+    const limit = query.limit ?? DEFAULT_POST_LIMIT;
+    const skip = cursor ? 0 : (page - 1) * limit;
+    const take = limit + 1;
+
+    if (cursor && page > 1) {
+      throw new BadRequestException(
+        'cursor cannot be combined with page greater than 1',
+      );
+    }
+
+    const referenceLocation = await this.resolvePostsReferenceLocation(
+      userId,
+      query,
+    );
+
+    if (!referenceLocation) {
+      const [postOrderRows, total] = await Promise.all([
+        this.fetchLatestPostsByRecency(userId, {
+          cursor,
+          skip,
+          take,
+        }),
+        cursor ? Promise.resolve(undefined) : this.getLatestPostCount(userId),
+      ]);
+
+      return this.buildPostFeedResponse(postOrderRows, limit, {
+        userId,
+        page,
+        total,
+      });
+    }
+
+    const { latitude, longitude, radiusKm } = referenceLocation;
+    const [postOrderRows, total] = await Promise.all([
+      this.fetchLatestPostsByDistance(
+        userId,
+        { latitude, longitude, radiusKm },
+        { cursor, skip, take },
+      ),
+      cursor ? Promise.resolve(undefined) : this.getLatestPostCount(userId),
+    ]);
+
+    return this.buildPostFeedResponse(postOrderRows, limit, {
+      userId,
+      page,
+      total,
+      radiusKm,
+    });
+  }
+
+  private async resolvePostsReferenceLocation(
+    userId: string,
+    query: GetPostsDto,
+  ) {
+    const hasLatitude = query.latitude !== undefined;
+    const hasLongitude = query.longitude !== undefined;
+
+    if (hasLatitude !== hasLongitude) {
+      throw new BadRequestException(
+        'latitude and longitude must be provided together',
+      );
+    }
+
+    if (hasLatitude && hasLongitude) {
+      return {
+        latitude: query.latitude!,
+        longitude: query.longitude!,
+        radiusKm: query.radiusKm ?? 20,
+      };
+    }
+
+    const profile = await this.prisma.profile.findUnique({
+      where: { userId },
+      select: {
+        latitude: true,
+        longitude: true,
+      },
+    });
+
+    if (!profile) {
+      return null;
+    }
+
+    return {
+      latitude: profile.latitude,
+      longitude: profile.longitude,
+      radiusKm: query.radiusKm ?? 20,
+    };
+  }
+
+  private async buildPostFeedResponse(
+    rows: FeedOrderRow[],
+    limit: number,
+    options: {
+      userId: string;
+      page: number;
+      total?: number;
+      radiusKm?: number;
+    },
+  ) {
+    const hasMore = rows.length > limit;
+    const visibleRows = hasMore ? rows.slice(0, limit) : rows;
+    const posts = await this.findPostsByOrderedIds(
+      options.userId,
+      visibleRows.map((post) => post.id),
+    );
+    const lastRow = visibleRows.at(-1);
+
+    return {
+      success: true,
+      pagination: {
+        limit,
+        ...(options.total !== undefined
+          ? {
+              total: options.total,
+              page: options.page,
+              totalPages: Math.ceil(options.total / limit),
+            }
+          : {}),
+        ...(options.radiusKm !== undefined
+          ? { radiusKm: options.radiusKm }
+          : {}),
+        hasMore,
+        nextCursor:
+          hasMore && lastRow ? this.serializeFeedCursor(lastRow) : null,
+      },
+      posts,
+    };
+  }
+
+  private async fetchLatestPostsByRecency(
+    userId: string,
+    options: {
+      cursor: FeedCursor | null;
+      skip: number;
+      take: number;
+    },
+  ) {
+    const cursorClause = options.cursor
+      ? Prisma.sql`
+          AND (
+            lup."postCreatedAt" < ${options.cursor.postCreatedAt}
+            OR (
+              lup."postCreatedAt" = ${options.cursor.postCreatedAt}
+              AND lup."postId" < ${options.cursor.postId}::uuid
+            )
+          )
+        `
+      : Prisma.empty;
+
+    return this.prisma.$queryRaw<Array<FeedOrderRow>>(Prisma.sql`
+      SELECT
+        lup."postId" AS id,
+        lup."postCreatedAt"
+      FROM "latest_user_posts" lup
+      WHERE lup."userId" != ${userId}::uuid
+      AND NOT EXISTS (
+        SELECT 1
+        FROM "post_swipes" ps
+        WHERE ps."postId" = lup."postId"
+          AND ps."userId" = ${userId}::uuid
+      )
+      ${cursorClause}
+      ORDER BY lup."postCreatedAt" DESC, lup."postId" DESC
+      LIMIT ${options.take}
+      OFFSET ${options.skip};
+    `);
+  }
+
+  private async fetchLatestPostsByDistance(
+    userId: string,
+    referenceLocation: {
+      latitude: number;
+      longitude: number;
+      radiusKm: number;
+    },
+    options: {
+      cursor: FeedCursor | null;
+      skip: number;
+      take: number;
+    },
+  ) {
+    if (options.cursor && options.cursor.distanceKm === undefined) {
+      throw new BadRequestException('Invalid posts cursor');
+    }
+
+    const distanceBucket =
+      options.cursor && options.cursor.distanceKm! <= referenceLocation.radiusKm
+        ? 0
+        : 1;
+    const cursorClause = options.cursor
+      ? Prisma.sql`
+          WHERE (
+            CASE
+              WHEN scored."distanceKm" <= ${referenceLocation.radiusKm} THEN 0
+              ELSE 1
+            END > ${distanceBucket}
+            OR (
+              CASE
+                WHEN scored."distanceKm" <= ${referenceLocation.radiusKm}
+                  THEN 0
+                ELSE 1
+              END = ${distanceBucket}
+              AND (
+                scored."distanceKm" > ${options.cursor.distanceKm!}
+                OR (
+                  scored."distanceKm" = ${options.cursor.distanceKm!}
+                  AND (
+                    scored."postCreatedAt" < ${options.cursor.postCreatedAt}
+                    OR (
+                      scored."postCreatedAt" =
+                        ${options.cursor.postCreatedAt}
+                      AND scored.id < ${options.cursor.postId}::uuid
+                    )
+                  )
+                )
+              )
+            )
+          )
+        `
+      : Prisma.empty;
+
+    return this.prisma.$queryRaw<Array<FeedOrderRow>>(Prisma.sql`
+      SELECT
+        scored.id,
+        scored."postCreatedAt",
+        scored."distanceKm"
+      FROM (
+        SELECT
+          lup."postId" AS id,
+          lup."postCreatedAt",
+          (
+            6371 * acos(
+              LEAST(
+                1,
+                GREATEST(
+                  -1,
+                  cos(radians(${referenceLocation.latitude})) *
+                  cos(radians(lup.latitude)) *
+                  cos(radians(lup.longitude) - radians(${referenceLocation.longitude})) +
+                  sin(radians(${referenceLocation.latitude})) *
+                  sin(radians(lup.latitude))
+                )
+              )
+            )
+          ) AS "distanceKm"
+        FROM "latest_user_posts" lup
+        WHERE lup."userId" != ${userId}::uuid
+        AND NOT EXISTS (
+          SELECT 1
+          FROM "post_swipes" ps
+          WHERE ps."postId" = lup."postId"
+            AND ps."userId" = ${userId}::uuid
+        )
+      ) AS scored
+      ${cursorClause}
+      ORDER BY
+        CASE WHEN scored."distanceKm" <= ${referenceLocation.radiusKm} THEN 0 ELSE 1 END ASC,
+        scored."distanceKm" ASC,
+        scored."postCreatedAt" DESC,
+        scored.id DESC
+      LIMIT ${options.take}
+      OFFSET ${options.skip};
+    `);
+  }
+
+  private parseFeedCursor(cursor?: string): FeedCursor | null {
+    if (!cursor) {
+      return null;
+    }
+
+    try {
+      const decoded = JSON.parse(
+        Buffer.from(cursor, 'base64url').toString('utf8'),
+      ) as {
+        postId?: unknown;
+        postCreatedAt?: unknown;
+        distanceKm?: unknown;
+      };
+
+      if (
+        typeof decoded.postId !== 'string' ||
+        typeof decoded.postCreatedAt !== 'string' ||
+        (decoded.distanceKm !== undefined &&
+          typeof decoded.distanceKm !== 'number')
+      ) {
+        throw new Error('Invalid cursor payload');
+      }
+
+      const postCreatedAt = new Date(decoded.postCreatedAt);
+
+      if (Number.isNaN(postCreatedAt.getTime())) {
+        throw new Error('Invalid cursor date');
+      }
+
+      return {
+        postId: decoded.postId,
+        postCreatedAt,
+        distanceKm: decoded.distanceKm,
+      };
+    } catch {
+      throw new BadRequestException('Invalid posts cursor');
+    }
+  }
+
+  private serializeFeedCursor(row: FeedOrderRow) {
+    return Buffer.from(
+      JSON.stringify({
+        postId: row.id,
+        postCreatedAt: row.postCreatedAt.toISOString(),
+        ...(row.distanceKm !== undefined && row.distanceKm !== null
+          ? { distanceKm: row.distanceKm }
+          : {}),
+      }),
+      'utf8',
+    ).toString('base64url');
+  }
+
+  private async getLatestPostCount(userId: string) {
+    const [result] = await this.prisma.$queryRaw<Array<{ total: number }>>(
+      Prisma.sql`
+        SELECT COUNT(*)::int AS total
+        FROM "latest_user_posts" lup
+        WHERE lup."userId" != ${userId}::uuid
+        AND NOT EXISTS (
+          SELECT 1
+          FROM "post_swipes" ps
+          WHERE ps."postId" = lup."postId"
+            AND ps."userId" = ${userId}::uuid
+        );
+      `,
+    );
+
+    return result?.total ?? 0;
+  }
+
+  private async findPostsByOrderedIds(userId: string, postIds: string[]) {
+    if (postIds.length === 0) {
+      return [];
+    }
+
+    const posts = await this.prisma.post.findMany({
+      where: {
+        id: {
+          in: postIds,
+        },
+      },
+      select: FEED_POST_SELECT,
+    });
+    const ownerIds = [...new Set(posts.map((post) => post.userId))];
+    const matches =
+      ownerIds.length === 0
+        ? []
+        : await this.prisma.match.findMany({
+            where: {
+              OR: [
+                {
+                  userAId: userId,
+                  userBId: {
+                    in: ownerIds,
+                  },
+                },
+                {
+                  userBId: userId,
+                  userAId: {
+                    in: ownerIds,
+                  },
+                },
+              ],
+            },
+            select: {
+              userAId: true,
+              userBId: true,
+            },
+          });
+    const postsById = new Map(posts.map((post) => [post.id, post]));
+    const matchedUserIds = new Set(
+      matches.map((match) =>
+        match.userAId === userId ? match.userBId : match.userAId,
+      ),
+    );
+
+    return postIds
+      .map((id) => {
+        const post = postsById.get(id);
+
+        if (!post) {
+          return null;
+        }
+
+        return {
+          ...post,
+          isMatch: matchedUserIds.has(post.userId),
+        };
+      })
+      .filter((post): post is NonNullable<typeof post> => Boolean(post));
   }
 }

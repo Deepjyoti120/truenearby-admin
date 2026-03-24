@@ -27,9 +27,12 @@ export type Gender = (typeof Gender)[keyof typeof Gender]
 
 
 export const LookingFor = {
-  MALE: 'MALE',
-  FEMALE: 'FEMALE',
-  BOTH: 'BOTH'
+  LONG_TERM_RELATIONSHIP: 'LONG_TERM_RELATIONSHIP',
+  SERIOUS_DATING: 'SERIOUS_DATING',
+  MARRIAGE_MINDED: 'MARRIAGE_MINDED',
+  CASUAL_DATING: 'CASUAL_DATING',
+  NEW_FRIENDS: 'NEW_FRIENDS',
+  OPEN_TO_ANYTHING: 'OPEN_TO_ANYTHING'
 } as const
 
 export type LookingFor = (typeof LookingFor)[keyof typeof LookingFor]

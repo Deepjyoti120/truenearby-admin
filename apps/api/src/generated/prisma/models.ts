@@ -10,9 +10,13 @@
  */
 export type * from './models/User'
 export type * from './models/Profile'
+export type * from './models/ProfileMatchPreference'
 export type * from './models/UserDevice'
 export type * from './models/RefreshToken'
 export type * from './models/Photo'
+export type * from './models/Post'
+export type * from './models/LatestUserPost'
+export type * from './models/PostSwipe'
 export type * from './models/Like'
 export type * from './models/Match'
 export type * from './models/Chat'

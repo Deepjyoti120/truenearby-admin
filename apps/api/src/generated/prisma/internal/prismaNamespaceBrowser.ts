@@ -53,9 +53,13 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   User: 'User',
   Profile: 'Profile',
+  ProfileMatchPreference: 'ProfileMatchPreference',
   UserDevice: 'UserDevice',
   RefreshToken: 'RefreshToken',
   Photo: 'Photo',
+  Post: 'Post',
+  LatestUserPost: 'LatestUserPost',
+  PostSwipe: 'PostSwipe',
   Like: 'Like',
   Match: 'Match',
   Chat: 'Chat',
@@ -107,6 +111,7 @@ export const ProfileScalarFieldEnum = {
   birthDate: 'birthDate',
   heightCm: 'heightCm',
   lookingFor: 'lookingFor',
+  interests: 'interests',
   latitude: 'latitude',
   longitude: 'longitude',
   city: 'city',
@@ -118,6 +123,18 @@ export const ProfileScalarFieldEnum = {
 } as const
 
 export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
+
+
+export const ProfileMatchPreferenceScalarFieldEnum = {
+  id: 'id',
+  profileId: 'profileId',
+  minAge: 'minAge',
+  maxAge: 'maxAge',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProfileMatchPreferenceScalarFieldEnum = (typeof ProfileMatchPreferenceScalarFieldEnum)[keyof typeof ProfileMatchPreferenceScalarFieldEnum]
 
 
 export const UserDeviceScalarFieldEnum = {
@@ -150,12 +167,47 @@ export const PhotoScalarFieldEnum = {
   url: 'url',
   fileId: 'fileId',
   isPrimary: 'isPrimary',
-  isDeleted: 'isDeleted',
-  deletedAt: 'deletedAt',
   createdAt: 'createdAt'
 } as const
 
 export type PhotoScalarFieldEnum = (typeof PhotoScalarFieldEnum)[keyof typeof PhotoScalarFieldEnum]
+
+
+export const PostScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  prompt: 'prompt',
+  imageUrls: 'imageUrls',
+  imageFileIds: 'imageFileIds',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
+
+
+export const LatestUserPostScalarFieldEnum = {
+  userId: 'userId',
+  postId: 'postId',
+  postCreatedAt: 'postCreatedAt',
+  latitude: 'latitude',
+  longitude: 'longitude'
+} as const
+
+export type LatestUserPostScalarFieldEnum = (typeof LatestUserPostScalarFieldEnum)[keyof typeof LatestUserPostScalarFieldEnum]
+
+
+export const PostSwipeScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  postId: 'postId',
+  type: 'type',
+  createdAt: 'createdAt'
+} as const
+
+export type PostSwipeScalarFieldEnum = (typeof PostSwipeScalarFieldEnum)[keyof typeof PostSwipeScalarFieldEnum]
 
 
 export const LikeScalarFieldEnum = {

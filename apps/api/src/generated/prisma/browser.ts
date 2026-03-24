@@ -28,6 +28,11 @@ export type User = Prisma.UserModel
  */
 export type Profile = Prisma.ProfileModel
 /**
+ * Model ProfileMatchPreference
+ * 
+ */
+export type ProfileMatchPreference = Prisma.ProfileMatchPreferenceModel
+/**
  * Model UserDevice
  * 
  */
@@ -42,6 +47,21 @@ export type RefreshToken = Prisma.RefreshTokenModel
  * 
  */
 export type Photo = Prisma.PhotoModel
+/**
+ * Model Post
+ * 
+ */
+export type Post = Prisma.PostModel
+/**
+ * Model LatestUserPost
+ * 
+ */
+export type LatestUserPost = Prisma.LatestUserPostModel
+/**
+ * Model PostSwipe
+ * 
+ */
+export type PostSwipe = Prisma.PostSwipeModel
 /**
  * Model Like
  * 

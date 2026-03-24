@@ -8,89 +8,107 @@ datasource db {
 }
 
 model User {
-  @@map("users")
+  id           String    @id @default(uuid()) @db.Uuid
+  email        String    @unique
+  phone        String?   @unique
+  passwordHash String
+  isActive     Boolean   @default(true)
+  isVerified   Boolean   @default(false)
+  isRegistered Boolean   @default(false)
+  lastActiveAt DateTime?
 
-  id            String      @id @default(uuid()) @db.Uuid
-  email         String      @unique
-  phone         String?     @unique
-  passwordHash  String
-  isActive      Boolean     @default(true)
-  isVerified    Boolean     @default(false)
-  isRegistered  Boolean     @default(false)
-  lastActiveAt  DateTime?
-
-  profile       Profile?
-  photos        Photo[]
-  likesSent     Like[]      @relation("LikesSent")
-  likesReceived Like[]      @relation("LikesReceived")
-  matchesA      Match[]     @relation("MatchA")
-  matchesB      Match[]     @relation("MatchB")
-  messages      Message[]
-  subscriptions Subscription[]
-  blocksSent    Block[]     @relation("BlocksSent")
-  blocksReceived Block[]    @relation("BlocksReceived")
-  swipesSent     Swipe[] @relation("SwipesSent")
-  swipesReceived Swipe[] @relation("SwipesReceived")
+  profile        Profile?
+  photos         Photo[]
+  posts          Post[]
+  postSwipes     PostSwipe[]
+  latestUserPost LatestUserPost? @relation("LatestUserPostUser")
+  likesSent      Like[]          @relation("LikesSent")
+  likesReceived  Like[]          @relation("LikesReceived")
+  matchesA       Match[]         @relation("MatchA")
+  matchesB       Match[]         @relation("MatchB")
+  messages       Message[]
+  subscriptions  Subscription[]
+  blocksSent     Block[]         @relation("BlocksSent")
+  blocksReceived Block[]         @relation("BlocksReceived")
+  swipesSent     Swipe[]         @relation("SwipesSent")
+  swipesReceived Swipe[]         @relation("SwipesReceived")
 
   devices       UserDevice[]
-  refreshTokens       RefreshToken[]
+  refreshTokens RefreshToken[]
 
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
 }
 
 model Profile {
-  @@map("profiles")
+  id     String @id @default(uuid()) @db.Uuid
+  userId String @unique @db.Uuid
+  user   User   @relation(fields: [userId], references: [id])
 
-  id          String   @id @default(uuid()) @db.Uuid
-  userId      String   @unique @db.Uuid
-  user        User     @relation(fields: [userId], references: [id])
+  name       String?
+  userName   String?    @unique
+  gender     Gender
+  bio        String?
+  birthDate  DateTime   @db.Date
+  heightCm   Int?
+  lookingFor LookingFor
 
-  name        String?
-  userName    String?  @unique
-  gender      Gender
-  bio         String?
-  birthDate   DateTime
-  heightCm    Int?
-  lookingFor  LookingFor
+  interests String[] @default([])
 
-  latitude    Float
-  longitude   Float
-  city        String?
-  country     String?
+  latitude  Float
+  longitude Float
+  city      String?
+  country   String?
 
-  isHidden    Boolean  @default(false)
-  isRegistered    Boolean     @default(false)
+  matchPreference ProfileMatchPreference?
 
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  isHidden     Boolean @default(false)
+  isRegistered Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([latitude, longitude])
+  @@map("profiles")
+}
+
+model ProfileMatchPreference {
+  id        String  @id @default(uuid()) @db.Uuid
+  profileId String  @unique @db.Uuid
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  minAge Int @default(18)
+  maxAge Int @default(99)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([minAge, maxAge])
+  @@map("profile_match_preferences")
 }
 
 model UserDevice {
-  @@map("user_devices")
+  id     String @id @default(uuid()) @db.Uuid
+  userId String @db.Uuid
+  user   User   @relation(fields: [userId], references: [id])
 
-  id        String   @id @default(uuid()) @db.Uuid
-  userId    String   @db.Uuid
-  user      User     @relation(fields: [userId], references: [id])
-
-  fcmToken  String
-  platform  String
-  isActive  Boolean  @default(true)
+  fcmToken String
+  platform String
+  isActive Boolean @default(true)
 
   createdAt DateTime @default(now())
 
   @@unique([fcmToken])
   @@index([userId])
+  @@map("user_devices")
 }
 
 model RefreshToken {
-  @@map("refresh_tokens")
-
-  id        String   @id @default(uuid()) @db.Uuid
-  userId    String   @db.Uuid
-  user      User     @relation(fields: [userId], references: [id])
+  id     String @id @default(uuid()) @db.Uuid
+  userId String @db.Uuid
+  user   User   @relation(fields: [userId], references: [id])
 
   tokenHash String
   isRevoked Boolean  @default(false)
@@ -99,132 +117,181 @@ model RefreshToken {
   createdAt DateTime @default(now())
 
   @@index([userId])
+  @@map("refresh_tokens")
 }
 
 model Photo {
-  @@map("photos")
-
-  id        String   @id @default(uuid()) @db.Uuid
-  userId    String   @db.Uuid
-  user      User     @relation(fields: [userId], references: [id])
+  id     String @id @default(uuid()) @db.Uuid
+  userId String @db.Uuid
+  user   User   @relation(fields: [userId], references: [id])
 
   url       String
   fileId    String
-  isPrimary Boolean  @default(false)
-  isDeleted Boolean  @default(false)
-  deletedAt DateTime?
+  isPrimary Boolean @default(false)
 
   createdAt DateTime @default(now())
 
-  @@index([userId, isDeleted])
+  @@index([userId])
+  @@map("photos")
+}
+
+model Post {
+  id            String          @id @default(uuid()) @db.Uuid
+  userId        String          @db.Uuid
+  user          User            @relation(fields: [userId], references: [id])
+  swipes        PostSwipe[]
+  latestForUser LatestUserPost? @relation("LatestUserPostPost")
+
+  prompt       String?
+  imageUrls    String[]
+  imageFileIds String[]
+
+  latitude  Float
+  longitude Float
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, createdAt])
+  @@map("posts")
+}
+
+model LatestUserPost {
+  userId String @id @db.Uuid
+  postId String @unique @db.Uuid
+
+  postCreatedAt DateTime
+  latitude      Float
+  longitude     Float
+
+  user User @relation("LatestUserPostUser", fields: [userId], references: [id], onDelete: Cascade)
+  post Post @relation("LatestUserPostPost", fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([postCreatedAt(sort: Desc)])
+  @@index([latitude, longitude])
+  @@index([latitude, longitude, postCreatedAt(sort: Desc)])
+  @@map("latest_user_posts")
+}
+
+model PostSwipe {
+  id     String @id @default(uuid()) @db.Uuid
+  userId String @db.Uuid
+  postId String @db.Uuid
+
+  type SwipeType
+
+  user User @relation(fields: [userId], references: [id])
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, postId])
+  @@index([postId])
+  @@index([userId])
+  @@map("post_swipes")
 }
 
 model Like {
-  @@map("likes")
+  id         String @id @default(uuid()) @db.Uuid
+  fromUserId String @db.Uuid
+  toUserId   String @db.Uuid
 
-  id         String   @id @default(uuid()) @db.Uuid
-  fromUserId String   @db.Uuid
-  toUserId   String   @db.Uuid
+  fromUser User @relation("LikesSent", fields: [fromUserId], references: [id])
+  toUser   User @relation("LikesReceived", fields: [toUserId], references: [id])
 
-  fromUser   User     @relation("LikesSent", fields: [fromUserId], references: [id])
-  toUser     User     @relation("LikesReceived", fields: [toUserId], references: [id])
-
-  createdAt  DateTime @default(now())
+  createdAt DateTime @default(now())
 
   @@unique([fromUserId, toUserId])
+  @@map("likes")
 }
 
 model Match {
-  @@map("matches")
+  id      String @id @default(uuid()) @db.Uuid
+  userAId String @db.Uuid
+  userBId String @db.Uuid
 
-  id        String   @id @default(uuid()) @db.Uuid
-  userAId   String   @db.Uuid
-  userBId   String   @db.Uuid
+  userA User @relation("MatchA", fields: [userAId], references: [id])
+  userB User @relation("MatchB", fields: [userBId], references: [id])
 
-  userA     User     @relation("MatchA", fields: [userAId], references: [id])
-  userB     User     @relation("MatchB", fields: [userBId], references: [id])
-
-  chat      Chat?
+  chat Chat?
 
   createdAt DateTime @default(now())
 
   @@unique([userAId, userBId])
+  @@map("matches")
 }
 
-
 model Chat {
+  id      String @id @default(uuid()) @db.Uuid
+  matchId String @unique @db.Uuid
+  match   Match  @relation(fields: [matchId], references: [id])
+
+  messages Message[]
+
+  createdAt DateTime @default(now())
+
   @@map("chats")
-
-  id        String    @id @default(uuid()) @db.Uuid
-  matchId   String    @unique @db.Uuid
-  match     Match     @relation(fields: [matchId], references: [id])
-
-  messages  Message[]
-
-  createdAt DateTime  @default(now())
 }
 
 model Message {
-  @@map("messages")
+  id       String @id @default(uuid()) @db.Uuid
+  chatId   String @db.Uuid
+  senderId String @db.Uuid
 
-  id        String   @id @default(uuid()) @db.Uuid
-  chatId   String   @db.Uuid
-  senderId String   @db.Uuid
+  chat   Chat @relation(fields: [chatId], references: [id])
+  sender User @relation(fields: [senderId], references: [id])
 
-  chat     Chat     @relation(fields: [chatId], references: [id])
-  sender   User     @relation(fields: [senderId], references: [id])
-
-  content  String
-  isRead   Boolean  @default(false)
+  content String
+  isRead  Boolean @default(false)
 
   createdAt DateTime @default(now())
+
+  @@map("messages")
 }
 
 model Block {
-  @@map("blocks")
+  id        String @id @default(uuid()) @db.Uuid
+  blockerId String @db.Uuid
+  blockedId String @db.Uuid
 
-  id           String   @id @default(uuid()) @db.Uuid
-  blockerId    String   @db.Uuid
-  blockedId    String   @db.Uuid
+  blocker User @relation("BlocksSent", fields: [blockerId], references: [id])
+  blocked User @relation("BlocksReceived", fields: [blockedId], references: [id])
 
-  blocker      User     @relation("BlocksSent", fields: [blockerId], references: [id])
-  blocked      User     @relation("BlocksReceived", fields: [blockedId], references: [id])
-
-  createdAt    DateTime @default(now())
+  createdAt DateTime @default(now())
 
   @@unique([blockerId, blockedId])
+  @@map("blocks")
 }
 
 model Subscription {
-  @@map("subscriptions")
+  id     String @id @default(uuid()) @db.Uuid
+  userId String @db.Uuid
+  user   User   @relation(fields: [userId], references: [id])
 
-  id        String   @id @default(uuid()) @db.Uuid
-  userId    String   @db.Uuid
-  user      User     @relation(fields: [userId], references: [id])
-
-  plan      Plan
-  startAt   DateTime
-  endAt     DateTime
-  isActive  Boolean  @default(true)
+  plan     Plan
+  startAt  DateTime
+  endAt    DateTime
+  isActive Boolean  @default(true)
 
   createdAt DateTime @default(now())
+
+  @@map("subscriptions")
 }
 
 model Swipe {
-  @@map("swipes")
+  id         String @id @default(uuid()) @db.Uuid
+  fromUserId String @db.Uuid
+  toUserId   String @db.Uuid
 
-  id          String   @id @default(uuid()) @db.Uuid
-  fromUserId  String   @db.Uuid
-  toUserId    String   @db.Uuid
+  type SwipeType
 
-  type        SwipeType
+  fromUser User @relation("SwipesSent", fields: [fromUserId], references: [id])
+  toUser   User @relation("SwipesReceived", fields: [toUserId], references: [id])
 
-  fromUser    User     @relation("SwipesSent", fields: [fromUserId], references: [id])
-  toUser      User     @relation("SwipesReceived", fields: [toUserId], references: [id])
-
-  createdAt   DateTime @default(now())
+  createdAt DateTime @default(now())
 
   @@unique([fromUserId, toUserId])
+  @@map("swipes")
 }
 
 enum SwipeType {
@@ -239,9 +306,12 @@ enum Gender {
 }
 
 enum LookingFor {
-  MALE
-  FEMALE
-  BOTH
+  LONG_TERM_RELATIONSHIP
+  SERIOUS_DATING
+  MARRIAGE_MINDED
+  CASUAL_DATING
+  NEW_FRIENDS
+  OPEN_TO_ANYTHING
 }
 
 enum Plan {
@@ -249,4 +319,3 @@ enum Plan {
   PLUS
   GOLD
 }
-

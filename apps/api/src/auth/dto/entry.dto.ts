@@ -3,7 +3,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class AuthEntryDto {
   @ApiProperty({
-    example: 'user@example.com',
+    example: 'assamjoy8@gmail.com',
     description: 'User email address',
   })
   @IsEmail()
@@ -18,7 +18,7 @@ export class AuthEntryDto {
   phone?: string;
 
   @ApiPropertyOptional({
-    example: 'Password@123',
+    example: 'assamjoy8@gmail.com',
     description: 'Required for first-time registration',
     minLength: 8,
   })

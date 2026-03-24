@@ -5,8 +5,10 @@ import {
   CurrentUser,
   CurrentUserPayload,
 } from '../auth/decorators/current-user.decorator';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
 @Controller('matches')
+@ApiBearerAuth('access-token')
 export class MatchesController {
   constructor(private readonly matchService: MatchesService) {}
 

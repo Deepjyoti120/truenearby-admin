@@ -1,9 +1,11 @@
 import {
   Body,
   Controller,
+  Get,
   Param,
   ParseUUIDPipe,
   Post,
+  Query,
   UploadedFiles,
   UseGuards,
   UseInterceptors,
@@ -16,6 +18,7 @@ import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from '@nestjs/swagger';
 import { RegisterDeviceDto } from './dto/register-device.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { memoryFileStorage } from '../photos/multer.config';
+import { GetPostsDto } from './dto/get-posts.dto';
 
 @ApiTags('Profile')
 @ApiBearerAuth('access-token')
@@ -75,5 +78,17 @@ export class ProfileController {
     @Param('photoId', new ParseUUIDPipe()) photoId: string,
   ) {
     return this.profileService.softDeletePhoto(user.id, photoId);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get()
+  getProfile(@CurrentUser() user: { id: string }) {
+    return this.profileService.getProfile(user.id);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('posts')
+  getPosts(@CurrentUser() user: { id: string }, @Query() query: GetPostsDto) {
+    return this.profileService.getPosts(user.id, query);
   }
 }
