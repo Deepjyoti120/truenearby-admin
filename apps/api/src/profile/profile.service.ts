@@ -249,6 +249,7 @@ export class ProfileService {
       ]);
 
       return this.buildPostFeedResponse(postOrderRows, limit, {
+        userId,
         page,
         total,
       });
@@ -265,6 +266,7 @@ export class ProfileService {
     ]);
 
     return this.buildPostFeedResponse(postOrderRows, limit, {
+      userId,
       page,
       total,
       radiusKm,
@@ -315,6 +317,7 @@ export class ProfileService {
     rows: FeedOrderRow[],
     limit: number,
     options: {
+      userId: string;
       page: number;
       total?: number;
       radiusKm?: number;
@@ -323,6 +326,7 @@ export class ProfileService {
     const hasMore = rows.length > limit;
     const visibleRows = hasMore ? rows.slice(0, limit) : rows;
     const posts = await this.findPostsByOrderedIds(
+      options.userId,
       visibleRows.map((post) => post.id),
     );
     const lastRow = visibleRows.at(-1);
@@ -555,7 +559,7 @@ export class ProfileService {
     return result?.total ?? 0;
   }
 
-  private async findPostsByOrderedIds(postIds: string[]) {
+  private async findPostsByOrderedIds(userId: string, postIds: string[]) {
     if (postIds.length === 0) {
       return [];
     }
@@ -568,10 +572,52 @@ export class ProfileService {
       },
       select: FEED_POST_SELECT,
     });
+    const ownerIds = [...new Set(posts.map((post) => post.userId))];
+    const matches =
+      ownerIds.length === 0
+        ? []
+        : await this.prisma.match.findMany({
+            where: {
+              OR: [
+                {
+                  userAId: userId,
+                  userBId: {
+                    in: ownerIds,
+                  },
+                },
+                {
+                  userBId: userId,
+                  userAId: {
+                    in: ownerIds,
+                  },
+                },
+              ],
+            },
+            select: {
+              userAId: true,
+              userBId: true,
+            },
+          });
     const postsById = new Map(posts.map((post) => [post.id, post]));
+    const matchedUserIds = new Set(
+      matches.map((match) =>
+        match.userAId === userId ? match.userBId : match.userAId,
+      ),
+    );
 
     return postIds
-      .map((id) => postsById.get(id))
+      .map((id) => {
+        const post = postsById.get(id);
+
+        if (!post) {
+          return null;
+        }
+
+        return {
+          ...post,
+          isMatch: matchedUserIds.has(post.userId),
+        };
+      })
       .filter((post): post is NonNullable<typeof post> => Boolean(post));
   }
 }

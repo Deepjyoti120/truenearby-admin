@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { PostsService } from './posts.service';
 import { PrismaService } from '../prisma/prisma.service';
 import { ImageKitService } from '../photos/imagekit.service';
+import { SwipeType } from '../generated/prisma/enums';
 
 describe('PostsService', () => {
   let service: PostsService;
@@ -13,6 +14,7 @@ describe('PostsService', () => {
       findFirst: jest.Mock;
       findUnique: jest.Mock;
     };
+    $queryRaw: jest.Mock;
     $transaction: jest.Mock;
   };
   let imageKitService: {
@@ -34,6 +36,7 @@ describe('PostsService', () => {
               findFirst: jest.fn(),
               findUnique: jest.fn(),
             },
+            $queryRaw: jest.fn(),
             $transaction: jest.fn(),
           },
         },
@@ -195,6 +198,141 @@ describe('PostsService', () => {
         }),
       );
       expect(result).toEqual({ success: true });
+    });
+  });
+
+  describe('swipePost', () => {
+    it('stores a pending like without creating a match', async () => {
+      const tx = {
+        $queryRaw: jest.fn(),
+        like: {
+          deleteMany: jest.fn(),
+          upsert: jest.fn(),
+          findUnique: jest.fn(),
+        },
+        match: {
+          upsert: jest.fn(),
+        },
+      };
+      const swipe = {
+        id: 'swipe-1',
+        userId: 'user-1',
+        postId: 'post-1',
+        type: SwipeType.LIKE,
+        createdAt: new Date('2026-03-24T00:00:00.000Z'),
+      };
+
+      prisma.post.findUnique.mockResolvedValue({
+        id: 'post-1',
+        userId: 'user-2',
+      });
+      tx.$queryRaw.mockResolvedValue([swipe]);
+      tx.like.upsert.mockResolvedValue({ id: 'like-1' });
+      tx.like.findUnique.mockResolvedValue(null);
+      prisma.$transaction.mockImplementation(async (callback) => callback(tx));
+
+      const result = await service.swipePost('user-1', {
+        postId: 'post-1',
+        type: SwipeType.LIKE,
+      });
+
+      expect(tx.match.upsert).not.toHaveBeenCalled();
+      expect(result).toEqual({
+        success: true,
+        swipe,
+        match: null,
+      });
+    });
+
+    it('creates a match and chat on mutual like', async () => {
+      const tx = {
+        $queryRaw: jest.fn(),
+        like: {
+          deleteMany: jest.fn(),
+          upsert: jest.fn(),
+          findUnique: jest.fn(),
+        },
+        match: {
+          upsert: jest.fn(),
+        },
+      };
+      const swipe = {
+        id: 'swipe-2',
+        userId: 'user-2',
+        postId: 'post-2',
+        type: SwipeType.LIKE,
+        createdAt: new Date('2026-03-24T00:00:00.000Z'),
+      };
+      const match = {
+        id: 'match-1',
+        userAId: 'user-1',
+        userBId: 'user-2',
+        chat: {
+          id: 'chat-1',
+        },
+      };
+
+      prisma.post.findUnique.mockResolvedValue({
+        id: 'post-2',
+        userId: 'user-1',
+      });
+      tx.$queryRaw.mockResolvedValue([swipe]);
+      tx.like.upsert.mockResolvedValue({ id: 'like-2' });
+      tx.like.findUnique.mockResolvedValue({ id: 'reverse-like-1' });
+      tx.match.upsert.mockResolvedValue(match);
+      prisma.$transaction.mockImplementation(async (callback) => callback(tx));
+
+      const result = await service.swipePost('user-2', {
+        postId: 'post-2',
+        type: SwipeType.LIKE,
+      });
+
+      expect(result).toEqual({
+        success: true,
+        swipe,
+        match,
+      });
+    });
+
+    it('removes the pending like when the swipe is pass', async () => {
+      const tx = {
+        $queryRaw: jest.fn(),
+        like: {
+          deleteMany: jest.fn(),
+          upsert: jest.fn(),
+          findUnique: jest.fn(),
+        },
+        match: {
+          upsert: jest.fn(),
+        },
+      };
+      const swipe = {
+        id: 'swipe-3',
+        userId: 'user-1',
+        postId: 'post-3',
+        type: SwipeType.PASS,
+        createdAt: new Date('2026-03-24T00:00:00.000Z'),
+      };
+
+      prisma.post.findUnique.mockResolvedValue({
+        id: 'post-3',
+        userId: 'user-3',
+      });
+      tx.$queryRaw.mockResolvedValue([swipe]);
+      tx.like.deleteMany.mockResolvedValue({ count: 1 });
+      prisma.$transaction.mockImplementation(async (callback) => callback(tx));
+
+      const result = await service.swipePost('user-1', {
+        postId: 'post-3',
+        type: SwipeType.PASS,
+      });
+
+      expect(tx.like.upsert).not.toHaveBeenCalled();
+      expect(result).toEqual({
+        success: true,
+        swipe,
+        match: null,
+      });
     });
   });
 });

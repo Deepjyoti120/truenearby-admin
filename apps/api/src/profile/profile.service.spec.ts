@@ -29,6 +29,9 @@ describe('ProfileService', () => {
     post: {
       findMany: jest.Mock;
     };
+    match: {
+      findMany: jest.Mock;
+    };
     user: {
       update: jest.Mock;
     };
@@ -67,6 +70,9 @@ describe('ProfileService', () => {
               create: jest.fn(),
             },
             post: {
+              findMany: jest.fn(),
+            },
+            match: {
               findMany: jest.fn(),
             },
             user: {
@@ -312,6 +318,7 @@ describe('ProfileService', () => {
         ])
         .mockResolvedValueOnce([{ total: 1 }]);
       prisma.post.findMany.mockResolvedValue([postRecord]);
+      prisma.match.findMany.mockResolvedValue([]);
 
       const result = await service.getPosts('user-1', {
         page: 1,
@@ -348,7 +355,12 @@ describe('ProfileService', () => {
           hasMore: false,
           nextCursor: null,
         },
-        posts: [postRecord],
+        posts: [
+          {
+            ...postRecord,
+            isMatch: false,
+          },
+        ],
       });
     });
 
@@ -381,6 +393,7 @@ describe('ProfileService', () => {
         ])
         .mockResolvedValueOnce([{ total: 1 }]);
       prisma.post.findMany.mockResolvedValue([postRecord]);
+      prisma.match.findMany.mockResolvedValue([]);
 
       const result = await service.getPosts('user-1', {
         page: 1,
@@ -408,7 +421,12 @@ describe('ProfileService', () => {
           hasMore: false,
           nextCursor: null,
         },
-        posts: [postRecord],
+        posts: [
+          {
+            ...postRecord,
+            isMatch: false,
+          },
+        ],
       });
     });
 
@@ -450,6 +468,7 @@ describe('ProfileService', () => {
         },
       ]);
       prisma.post.findMany.mockResolvedValue([firstPost]);
+      prisma.match.findMany.mockResolvedValue([]);
 
       const result = await service.getPosts('user-1', {
         limit: 1,
@@ -467,8 +486,62 @@ describe('ProfileService', () => {
           hasMore: true,
           nextCursor: expect.any(String),
         },
-        posts: [firstPost],
+        posts: [
+          {
+            ...firstPost,
+            isMatch: false,
+          },
+        ],
       });
+    });
+
+    it('adds isMatch=true when the current user has matched with the post owner', async () => {
+      const postRecord = {
+        id: 'post-6',
+        userId: 'user-6',
+        prompt: 'Matched',
+        imageUrls: ['https://example.com/post-6.jpg'],
+        imageFileIds: ['file-6'],
+        latitude: 28.61,
+        longitude: 77.2,
+        createdAt: new Date('2026-03-23T00:00:00.000Z'),
+        updatedAt: new Date('2026-03-23T00:00:00.000Z'),
+        user: {
+          id: 'user-6',
+          profile: {
+            id: 'profile-6',
+          },
+        },
+      };
+
+      prisma.profile.findUnique.mockResolvedValue(null);
+      prisma.$queryRaw
+        .mockResolvedValueOnce([
+          {
+            id: 'post-6',
+            postCreatedAt: new Date('2026-03-23T00:00:00.000Z'),
+          },
+        ])
+        .mockResolvedValueOnce([{ total: 1 }]);
+      prisma.post.findMany.mockResolvedValue([postRecord]);
+      prisma.match.findMany.mockResolvedValue([
+        {
+          userAId: 'user-1',
+          userBId: 'user-6',
+        },
+      ]);
+
+      const result = await service.getPosts('user-1', {
+        page: 1,
+        limit: 10,
+      });
+
+      expect(result.posts).toEqual([
+        {
+          ...postRecord,
+          isMatch: true,
+        },
+      ]);
     });
   });
 });

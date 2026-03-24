@@ -161,33 +161,97 @@ export class PostsService {
       throw new BadRequestException('Cannot swipe your own post');
     }
 
-    const [swipe] = await this.prisma.$queryRaw<
-      Array<{
-        id: string;
-        userId: string;
-        postId: string;
-        type: SwipeType;
-        createdAt: Date;
-      }>
-    >(Prisma.sql`
-      INSERT INTO "post_swipes" ("id", "userId", "postId", "type", "createdAt")
-      VALUES (
-        ${randomUUID()}::uuid,
-        ${userId}::uuid,
-        ${dto.postId}::uuid,
-        CAST(${dto.type} AS "SwipeType"),
-        CURRENT_TIMESTAMP
-      )
-      ON CONFLICT ("userId", "postId")
-      DO UPDATE SET "type" = EXCLUDED."type"
-      RETURNING "id", "userId", "postId", "type", "createdAt";
-    `);
-    // match done
-    // await this.prisma.match;
+    const result = await this.prisma.$transaction(async (tx) => {
+      const [swipe] = await tx.$queryRaw<
+        Array<{
+          id: string;
+          userId: string;
+          postId: string;
+          type: SwipeType;
+          createdAt: Date;
+        }>
+      >(Prisma.sql`
+        INSERT INTO "post_swipes" ("id", "userId", "postId", "type", "createdAt")
+        VALUES (
+          ${randomUUID()}::uuid,
+          ${userId}::uuid,
+          ${dto.postId}::uuid,
+          CAST(${dto.type} AS "SwipeType"),
+          CURRENT_TIMESTAMP
+        )
+        ON CONFLICT ("userId", "postId")
+        DO UPDATE SET "type" = EXCLUDED."type"
+        RETURNING "id", "userId", "postId", "type", "createdAt";
+      `);
+
+      if (dto.type !== SwipeType.LIKE) {
+        await tx.like.deleteMany({
+          where: {
+            fromUserId: userId,
+            toUserId: post.userId,
+          },
+        });
+
+        return { swipe, match: null };
+      }
+
+      await tx.like.upsert({
+        where: {
+          fromUserId_toUserId: {
+            fromUserId: userId,
+            toUserId: post.userId,
+          },
+        },
+        update: {},
+        create: {
+          fromUserId: userId,
+          toUserId: post.userId,
+        },
+      });
+
+      const reverseLike = await tx.like.findUnique({
+        where: {
+          fromUserId_toUserId: {
+            fromUserId: post.userId,
+            toUserId: userId,
+          },
+        },
+        select: { id: true },
+      });
+
+      if (!reverseLike) {
+        return { swipe, match: null };
+      }
+
+      const [userAId, userBId] =
+        userId < post.userId ? [userId, post.userId] : [post.userId, userId];
+
+      const match = await tx.match.upsert({
+        where: {
+          userAId_userBId: {
+            userAId,
+            userBId,
+          },
+        },
+        update: {},
+        create: {
+          userAId,
+          userBId,
+          chat: {
+            create: {},
+          },
+        },
+        include: {
+          chat: true,
+        },
+      });
+
+      return { swipe, match };
+    });
 
     return {
       success: true,
-      swipe,
+      ...result,
     };
   }
 
