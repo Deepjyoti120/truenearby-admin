@@ -45,7 +45,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
   // if (!process.env.VERCEL) {
-  await app.listen(3001);
+  await app.listen(3000);
   console.log('Nest API running at http://localhost:3001/api/v1');
   // } else {
   //   await app.init();
