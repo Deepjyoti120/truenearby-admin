@@ -29,10 +29,7 @@ export class LikesService {
       }),
       this.prisma.match.findMany({
         where: {
-          OR: [
-            { userAId: currentUserId },
-            { userBId: currentUserId },
-          ],
+          OR: [{ userAId: currentUserId }, { userBId: currentUserId }],
         },
         select: {
           userAId: true,
@@ -48,23 +45,23 @@ export class LikesService {
     );
 
     const pendingLikes = likes
-        .filter((like) => !matchedUserIds.has(like.fromUserId))
-        .map((like) => {
-          const previewPhoto =
-            like.fromUser.photos.find((photo) => photo.isPrimary)?.url ??
-            like.fromUser.photos[0]?.url ??
-            null;
-          return {
-            id: like.id,
-            fromUserId: like.fromUserId,
-            createdAt: like.createdAt,
-            isLocked: !isUnlocked,
-            user: {
-              ...like.fromUser,
-              previewPhoto,
-            },
-          };
-        });
+      .filter((like) => !matchedUserIds.has(like.fromUserId))
+      .map((like) => {
+        const previewPhoto =
+          like.fromUser.photos.find((photo) => photo.isPrimary)?.url ??
+          like.fromUser.photos[0]?.url ??
+          null;
+        return {
+          id: like.id,
+          fromUserId: like.fromUserId,
+          createdAt: like.createdAt,
+          isLocked: !isUnlocked,
+          user: {
+            ...like.fromUser,
+            previewPhoto,
+          },
+        };
+      });
 
     return {
       isUnlocked,
