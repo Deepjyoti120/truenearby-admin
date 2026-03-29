@@ -3,44 +3,55 @@ import {
   SubscribeMessage,
   MessageBody,
   ConnectedSocket,
+  WebSocketServer,
 } from '@nestjs/websockets';
 
-import { Socket } from 'socket.io';
+import { Server, Socket } from 'socket.io';
 import { ChatService } from './chat.service';
 import { UseGuards } from '@nestjs/common';
 import { WsJwtGuard } from '../auth/guards/ws-jwt/ws-jwt.guard';
+import { CurrentUserPayload } from '../auth/decorators/current-user.decorator';
+
+type AuthenticatedSocket = Socket & {
+  user: CurrentUserPayload;
+};
 
 @WebSocketGateway({
   cors: true,
 })
 @UseGuards(WsJwtGuard)
 export class ChatGateway {
-  constructor(private chatService: ChatService) {}
+  @WebSocketServer()
+  server!: Server;
+
+  constructor(private readonly chatService: ChatService) {}
+
   @SubscribeMessage('joinChat')
-  joinChat(
+  async joinChat(
     @MessageBody() data: { chatId: string },
-    @ConnectedSocket() client: Socket,
+    @ConnectedSocket() client: AuthenticatedSocket,
   ) {
+    await this.chatService.ensureChatAccess(data.chatId, client.user.id);
     void client.join(data.chatId);
+    return { chatId: data.chatId };
   }
+
   @SubscribeMessage('sendMessage')
   async sendMessage(
     @MessageBody()
     data: {
       chatId: string;
-      senderId: string;
       content: string;
     },
-    @ConnectedSocket() client: Socket,
+    @ConnectedSocket() client: AuthenticatedSocket,
   ) {
-    const message = await this.chatService.createMessage(
+    const message = await this.chatService.createMessageForUser(
       data.chatId,
-      data.senderId,
+      client.user.id,
       data.content,
     );
-    client.to(data.chatId).emit('newMessage', message);
-    client.emit('newMessage', message);
-    console.log('Message sent:', message);
+
+    this.server.to(data.chatId).emit('newMessage', message);
     return message;
   }
 }

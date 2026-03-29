@@ -12,9 +12,15 @@ import { ApiBearerAuth } from '@nestjs/swagger';
 export class MatchesController {
   constructor(private readonly matchService: MatchesService) {}
 
-  @Get('matches')
+  @Get()
   @UseGuards(JwtAuthGuard)
   getMatches(@CurrentUser() user: CurrentUserPayload) {
+    return this.matchService.getMatches(user.id);
+  }
+
+  @Get('matches')
+  @UseGuards(JwtAuthGuard)
+  getMatchesLegacy(@CurrentUser() user: CurrentUserPayload) {
     return this.matchService.getMatches(user.id);
   }
 }

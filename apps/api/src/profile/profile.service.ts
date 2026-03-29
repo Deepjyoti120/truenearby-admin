@@ -573,36 +573,52 @@ export class ProfileService {
       select: FEED_POST_SELECT,
     });
     const ownerIds = [...new Set(posts.map((post) => post.userId))];
-    const matches =
+    const [matches, likesReceived] =
       ownerIds.length === 0
-        ? []
-        : await this.prisma.match.findMany({
-            where: {
-              OR: [
-                {
-                  userAId: userId,
-                  userBId: {
-                    in: ownerIds,
+        ? [[], []]
+        : await Promise.all([
+            this.prisma.match.findMany({
+              where: {
+                OR: [
+                  {
+                    userAId: userId,
+                    userBId: {
+                      in: ownerIds,
+                    },
                   },
-                },
-                {
-                  userBId: userId,
-                  userAId: {
-                    in: ownerIds,
+                  {
+                    userBId: userId,
+                    userAId: {
+                      in: ownerIds,
+                    },
                   },
+                ],
+              },
+              select: {
+                userAId: true,
+                userBId: true,
+              },
+            }),
+            this.prisma.like.findMany({
+              where: {
+                toUserId: userId,
+                fromUserId: {
+                  in: ownerIds,
                 },
-              ],
-            },
-            select: {
-              userAId: true,
-              userBId: true,
-            },
-          });
+              },
+              select: {
+                fromUserId: true,
+              },
+            }),
+          ]);
     const postsById = new Map(posts.map((post) => [post.id, post]));
     const matchedUserIds = new Set(
       matches.map((match) =>
         match.userAId === userId ? match.userBId : match.userAId,
       ),
+    );
+    const likedYouUserIds = new Set(
+      likesReceived.map((like) => like.fromUserId),
     );
 
     return postIds
@@ -615,7 +631,9 @@ export class ProfileService {
 
         return {
           ...post,
-          isMatch: matchedUserIds.has(post.userId),
+          isMatch:
+            matchedUserIds.has(post.userId) ||
+            likedYouUserIds.has(post.userId),
         };
       })
       .filter((post): post is NonNullable<typeof post> => Boolean(post));
