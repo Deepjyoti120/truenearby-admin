@@ -7,6 +7,7 @@ import { SubscriptionsService } from './subscriptions.service';
 
 @ApiTags('Subscriptions')
 @Controller('subscriptions')
+@ApiBearerAuth('access-token')
 export class SubscriptionsController {
   constructor(private readonly subscriptionsService: SubscriptionsService) {}
 
@@ -15,14 +16,12 @@ export class SubscriptionsController {
     return this.subscriptionsService.listPlans();
   }
 
-  @ApiBearerAuth('access-token')
   @UseGuards(JwtAuthGuard)
   @Get('me')
   getMySubscriptions(@CurrentUser() user: { id: string }) {
     return this.subscriptionsService.getUserSubscriptions(user.id);
   }
 
-  @ApiBearerAuth('access-token')
   @UseGuards(JwtAuthGuard)
   @Post('activate')
   activateSubscription(
