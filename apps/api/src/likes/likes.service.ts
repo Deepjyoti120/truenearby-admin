@@ -6,13 +6,22 @@ import {
 import { PrismaService } from '../prisma/prisma.service';
 import { CHAT_PARTICIPANT_SELECT } from '../chat/chat.selects';
 import { Plan } from '../generated/prisma/enums';
+import { SubscriptionsService } from '../subscriptions/subscriptions.service';
 
 @Injectable()
 export class LikesService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly subscriptionsService: SubscriptionsService,
+  ) {}
 
   async getLikes(currentUserId: string) {
-    const isUnlocked = await this.hasActiveSubscription(currentUserId);
+    const activeSubscription =
+      await this.subscriptionsService.getCurrentSubscriptionForUser(
+        currentUserId,
+      );
+    const isUnlocked =
+      activeSubscription?.features.canSeeWhoLikedYou ?? false;
     const [likes, matches] = await Promise.all([
       this.prisma.like.findMany({
         where: {
@@ -68,6 +77,7 @@ export class LikesService {
       totalLikes: pendingLikes.length,
       likes: pendingLikes,
       featuredLike: pendingLikes.length === 0 ? null : pendingLikes[0],
+      activeSubscription,
     };
   }
 
@@ -141,53 +151,13 @@ export class LikesService {
     };
   }
 
-  async unlockLikes(currentUserId: string, plan: Plan = Plan.PLUS) {
-    const now = new Date();
-    const endAt = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
-
-    await this.prisma.$transaction([
-      this.prisma.subscription.updateMany({
-        where: {
-          userId: currentUserId,
-          isActive: true,
-        },
-        data: {
-          isActive: false,
-        },
-      }),
-      this.prisma.subscription.create({
-        data: {
-          userId: currentUserId,
-          plan,
-          startAt: now,
-          endAt,
-          isActive: true,
-        },
-      }),
-    ]);
+  async unlockLikes(currentUserId: string, plan: Plan = Plan.GOLD) {
+    const { activeSubscription } =
+      await this.subscriptionsService.activateSubscription(currentUserId, plan);
 
     return {
-      unlocked: true,
-      plan,
-      startAt: now,
-      endAt,
+      unlocked: activeSubscription.features.canSeeWhoLikedYou,
+      activeSubscription,
     };
-  }
-
-  private async hasActiveSubscription(userId: string) {
-    const subscription = await this.prisma.subscription.findFirst({
-      where: {
-        userId,
-        isActive: true,
-        endAt: {
-          gt: new Date(),
-        },
-      },
-      select: {
-        id: true,
-      },
-    });
-
-    return subscription != null;
   }
 }

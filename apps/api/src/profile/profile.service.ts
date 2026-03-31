@@ -7,6 +7,7 @@ import { ReverseGeocodeService } from '../common/geo/reverse-geocode.service';
 import { ProfilePreferencesService } from './profile-preferences.service';
 import { GetPostsDto } from './dto/get-posts.dto';
 import { Prisma } from '../generated/prisma/client';
+import { SubscriptionsService } from '../subscriptions/subscriptions.service';
 
 const FEED_POST_SELECT = {
   id: true,
@@ -47,6 +48,7 @@ export class ProfileService {
     private readonly imageKitService: ImageKitService,
     private readonly reverseGeocodeService: ReverseGeocodeService,
     private readonly profilePreferencesService: ProfilePreferencesService,
+    private readonly subscriptionsService: SubscriptionsService,
   ) {}
 
   async create(userId: string, dto: CreateProfileDto) {
@@ -204,20 +206,24 @@ export class ProfileService {
   }
 
   async getProfile(userId: string) {
-    const profile = await this.prisma.profile.findFirst({
-      where: { userId },
-      include: {
-        matchPreference: true,
-        user: {
-          select: {
-            photos: true,
+    const [profile, activeSubscription] = await Promise.all([
+      this.prisma.profile.findFirst({
+        where: { userId },
+        include: {
+          matchPreference: true,
+          user: {
+            select: {
+              photos: true,
+            },
           },
         },
-      },
-    });
+      }),
+      this.subscriptionsService.getCurrentSubscriptionForUser(userId),
+    ]);
     return {
       success: true,
       profile,
+      activeSubscription,
     };
   }
   async getPosts(userId: string, query: GetPostsDto) {
@@ -573,9 +579,11 @@ export class ProfileService {
       select: FEED_POST_SELECT,
     });
     const ownerIds = [...new Set(posts.map((post) => post.userId))];
-    const [matches, likesReceived] =
+    const activeSubscriptionPromise =
+      this.subscriptionsService.getCurrentSubscriptionForUser(userId);
+    const [matches, likesReceived, activeSubscription] =
       ownerIds.length === 0
-        ? [[], []]
+        ? [[], [], await activeSubscriptionPromise]
         : await Promise.all([
             this.prisma.match.findMany({
               where: {
@@ -610,6 +618,7 @@ export class ProfileService {
                 fromUserId: true,
               },
             }),
+            activeSubscriptionPromise,
           ]);
     const postsById = new Map(posts.map((post) => [post.id, post]));
     const matchedUserIds = new Set(
@@ -620,6 +629,8 @@ export class ProfileService {
     const likedYouUserIds = new Set(
       likesReceived.map((like) => like.fromUserId),
     );
+    const canSeeLikedYouInAdvancedHome =
+      activeSubscription?.features.showLikesInAdvancedHome ?? false;
 
     return postIds
       .map((id) => {
@@ -629,11 +640,14 @@ export class ProfileService {
           return null;
         }
 
+        const isMatch = matchedUserIds.has(post.userId);
+        const likedYou = !isMatch && likedYouUserIds.has(post.userId);
+
         return {
           ...post,
-          isMatch:
-            matchedUserIds.has(post.userId) ||
-            likedYouUserIds.has(post.userId),
+          isMatch,
+          likedYou: canSeeLikedYouInAdvancedHome && likedYou,
+          likedYouLocked: !canSeeLikedYouInAdvancedHome && likedYou,
         };
       })
       .filter((post): post is NonNullable<typeof post> => Boolean(post));

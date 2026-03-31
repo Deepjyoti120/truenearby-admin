@@ -108,10 +108,15 @@ export type Message = Prisma.MessageModel
  */
 export type Block = Prisma.BlockModel
 /**
- * Model Subscription
+ * Model SubscriptionPlan
  * 
  */
-export type Subscription = Prisma.SubscriptionModel
+export type SubscriptionPlan = Prisma.SubscriptionPlanModel
+/**
+ * Model UserSubscription
+ * 
+ */
+export type UserSubscription = Prisma.UserSubscriptionModel
 /**
  * Model Swipe
  * 

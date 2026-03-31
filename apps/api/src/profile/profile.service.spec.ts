@@ -4,8 +4,9 @@ import { ProfileService } from './profile.service';
 import { PrismaService } from '../prisma/prisma.service';
 import { ImageKitService } from '../photos/imagekit.service';
 import { ReverseGeocodeService } from '../common/geo/reverse-geocode.service';
-import { Gender, LookingFor } from '../generated/prisma/enums';
+import { Gender, LookingFor, Plan } from '../generated/prisma/enums';
 import { ProfilePreferencesService } from './profile-preferences.service';
+import { SubscriptionsService } from '../subscriptions/subscriptions.service';
 
 describe('ProfileService', () => {
   let service: ProfileService;
@@ -29,6 +30,9 @@ describe('ProfileService', () => {
     post: {
       findMany: jest.Mock;
     };
+    like: {
+      findMany: jest.Mock;
+    };
     match: {
       findMany: jest.Mock;
     };
@@ -44,6 +48,9 @@ describe('ProfileService', () => {
   let profilePreferencesService: {
     normalizeInterests: jest.Mock;
     resolvePreferredAgeRange: jest.Mock;
+  };
+  let subscriptionsService: {
+    getCurrentSubscriptionForUser: jest.Mock;
   };
 
   beforeEach(async () => {
@@ -70,6 +77,9 @@ describe('ProfileService', () => {
               create: jest.fn(),
             },
             post: {
+              findMany: jest.fn(),
+            },
+            like: {
               findMany: jest.fn(),
             },
             match: {
@@ -101,6 +111,12 @@ describe('ProfileService', () => {
             resolvePreferredAgeRange: jest.fn(),
           },
         },
+        {
+          provide: SubscriptionsService,
+          useValue: {
+            getCurrentSubscriptionForUser: jest.fn(),
+          },
+        },
       ],
     }).compile();
 
@@ -108,6 +124,8 @@ describe('ProfileService', () => {
     prisma = module.get(PrismaService);
     reverseGeocodeService = module.get(ReverseGeocodeService);
     profilePreferencesService = module.get(ProfilePreferencesService);
+    subscriptionsService = module.get(SubscriptionsService);
+    jest.clearAllMocks();
   });
 
   it('should be defined', () => {
@@ -238,6 +256,25 @@ describe('ProfileService', () => {
 
   describe('getProfile', () => {
     it('returns the current user profile with match preference and user photos', async () => {
+      const activeSubscription = {
+        id: 'sub-1',
+        planId: 'plan-gold',
+        plan: Plan.GOLD,
+        name: 'Gold',
+        description: 'Gold plan',
+        durationDays: 30,
+        isActive: true,
+        isDefault: false,
+        startAt: new Date('2026-03-20T00:00:00.000Z'),
+        endAt: new Date('2026-04-19T00:00:00.000Z'),
+        cancelledAt: null,
+        features: {
+          canReverseLastSwipe: true,
+          canChangeSwipeDecision: true,
+          canSeeWhoLikedYou: true,
+          showLikesInAdvancedHome: true,
+        },
+      };
       const profileRecord = {
         id: 'profile-1',
         userId: 'user-1',
@@ -267,6 +304,9 @@ describe('ProfileService', () => {
         },
       };
       prisma.profile.findFirst.mockResolvedValue(profileRecord);
+      subscriptionsService.getCurrentSubscriptionForUser.mockResolvedValue(
+        activeSubscription,
+      );
 
       const result = await service.getProfile('user-1');
 
@@ -284,6 +324,7 @@ describe('ProfileService', () => {
       expect(result).toEqual({
         success: true,
         profile: profileRecord,
+        activeSubscription,
       });
     });
   });
@@ -318,7 +359,13 @@ describe('ProfileService', () => {
         ])
         .mockResolvedValueOnce([{ total: 1 }]);
       prisma.post.findMany.mockResolvedValue([postRecord]);
+      prisma.like.findMany.mockResolvedValue([]);
       prisma.match.findMany.mockResolvedValue([]);
+      subscriptionsService.getCurrentSubscriptionForUser.mockResolvedValue({
+        features: {
+          showLikesInAdvancedHome: false,
+        },
+      });
 
       const result = await service.getPosts('user-1', {
         page: 1,
@@ -359,6 +406,8 @@ describe('ProfileService', () => {
           {
             ...postRecord,
             isMatch: false,
+            likedYou: false,
+            likedYouLocked: false,
           },
         ],
       });
@@ -393,7 +442,13 @@ describe('ProfileService', () => {
         ])
         .mockResolvedValueOnce([{ total: 1 }]);
       prisma.post.findMany.mockResolvedValue([postRecord]);
+      prisma.like.findMany.mockResolvedValue([]);
       prisma.match.findMany.mockResolvedValue([]);
+      subscriptionsService.getCurrentSubscriptionForUser.mockResolvedValue({
+        features: {
+          showLikesInAdvancedHome: false,
+        },
+      });
 
       const result = await service.getPosts('user-1', {
         page: 1,
@@ -425,6 +480,8 @@ describe('ProfileService', () => {
           {
             ...postRecord,
             isMatch: false,
+            likedYou: false,
+            likedYouLocked: false,
           },
         ],
       });
@@ -468,7 +525,13 @@ describe('ProfileService', () => {
         },
       ]);
       prisma.post.findMany.mockResolvedValue([firstPost]);
+      prisma.like.findMany.mockResolvedValue([]);
       prisma.match.findMany.mockResolvedValue([]);
+      subscriptionsService.getCurrentSubscriptionForUser.mockResolvedValue({
+        features: {
+          showLikesInAdvancedHome: false,
+        },
+      });
 
       const result = await service.getPosts('user-1', {
         limit: 1,
@@ -490,6 +553,8 @@ describe('ProfileService', () => {
           {
             ...firstPost,
             isMatch: false,
+            likedYou: false,
+            likedYouLocked: false,
           },
         ],
       });
@@ -524,6 +589,7 @@ describe('ProfileService', () => {
         ])
         .mockResolvedValueOnce([{ total: 1 }]);
       prisma.post.findMany.mockResolvedValue([postRecord]);
+      prisma.like.findMany.mockResolvedValue([]);
       prisma.match.findMany.mockResolvedValue([
         {
           userAId: 'user-1',
@@ -540,6 +606,64 @@ describe('ProfileService', () => {
         {
           ...postRecord,
           isMatch: true,
+          likedYou: false,
+          likedYouLocked: false,
+        },
+      ]);
+    });
+
+    it('marks likedYou when the active subscription shows likes in advanced home', async () => {
+      const postRecord = {
+        id: 'post-7',
+        userId: 'user-7',
+        prompt: 'Liked you',
+        imageUrls: ['https://example.com/post-7.jpg'],
+        imageFileIds: ['file-7'],
+        latitude: 28.61,
+        longitude: 77.2,
+        createdAt: new Date('2026-03-24T00:00:00.000Z'),
+        updatedAt: new Date('2026-03-24T00:00:00.000Z'),
+        user: {
+          id: 'user-7',
+          profile: {
+            id: 'profile-7',
+          },
+        },
+      };
+
+      prisma.profile.findUnique.mockResolvedValue(null);
+      prisma.$queryRaw
+        .mockResolvedValueOnce([
+          {
+            id: 'post-7',
+            postCreatedAt: new Date('2026-03-24T00:00:00.000Z'),
+          },
+        ])
+        .mockResolvedValueOnce([{ total: 1 }]);
+      prisma.post.findMany.mockResolvedValue([postRecord]);
+      prisma.match.findMany.mockResolvedValue([]);
+      prisma.like.findMany.mockResolvedValue([
+        {
+          fromUserId: 'user-7',
+        },
+      ]);
+      subscriptionsService.getCurrentSubscriptionForUser.mockResolvedValue({
+        features: {
+          showLikesInAdvancedHome: true,
+        },
+      });
+
+      const result = await service.getPosts('user-1', {
+        page: 1,
+        limit: 10,
+      });
+
+      expect(result.posts).toEqual([
+        {
+          ...postRecord,
+          isMatch: false,
+          likedYou: true,
+          likedYouLocked: false,
         },
       ]);
     });

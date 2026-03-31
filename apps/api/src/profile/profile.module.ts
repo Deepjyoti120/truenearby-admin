@@ -4,10 +4,11 @@ import { ProfileService } from './profile.service';
 import { ImageKitService } from '../photos/imagekit.service';
 import { GeoModule } from '../common/geo/geo.module';
 import { ProfilePreferencesService } from './profile-preferences.service';
+import { SubscriptionsModule } from '../subscriptions/subscriptions.module';
 
 @Module({
   controllers: [ProfileController],
   providers: [ProfileService, ProfilePreferencesService, ImageKitService],
-  imports: [GeoModule],
+  imports: [GeoModule, SubscriptionsModule],
 })
 export class ProfileModule {}

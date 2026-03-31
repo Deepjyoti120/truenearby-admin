@@ -65,7 +65,8 @@ export const ModelName = {
   Chat: 'Chat',
   Message: 'Message',
   Block: 'Block',
-  Subscription: 'Subscription',
+  SubscriptionPlan: 'SubscriptionPlan',
+  UserSubscription: 'UserSubscription',
   Swipe: 'Swipe'
 } as const
 
@@ -261,17 +262,39 @@ export const BlockScalarFieldEnum = {
 export type BlockScalarFieldEnum = (typeof BlockScalarFieldEnum)[keyof typeof BlockScalarFieldEnum]
 
 
-export const SubscriptionScalarFieldEnum = {
+export const SubscriptionPlanScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  name: 'name',
+  description: 'description',
+  durationDays: 'durationDays',
+  isActive: 'isActive',
+  sortOrder: 'sortOrder',
+  canReverseLastSwipe: 'canReverseLastSwipe',
+  canChangeSwipeDecision: 'canChangeSwipeDecision',
+  canSeeWhoLikedYou: 'canSeeWhoLikedYou',
+  showLikesInAdvancedHome: 'showLikesInAdvancedHome',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SubscriptionPlanScalarFieldEnum = (typeof SubscriptionPlanScalarFieldEnum)[keyof typeof SubscriptionPlanScalarFieldEnum]
+
+
+export const UserSubscriptionScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
+  subscriptionPlanId: 'subscriptionPlanId',
   plan: 'plan',
   startAt: 'startAt',
   endAt: 'endAt',
   isActive: 'isActive',
-  createdAt: 'createdAt'
+  cancelledAt: 'cancelledAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
-export type SubscriptionScalarFieldEnum = (typeof SubscriptionScalarFieldEnum)[keyof typeof SubscriptionScalarFieldEnum]
+export type UserSubscriptionScalarFieldEnum = (typeof UserSubscriptionScalarFieldEnum)[keyof typeof UserSubscriptionScalarFieldEnum]
 
 
 export const SwipeScalarFieldEnum = {

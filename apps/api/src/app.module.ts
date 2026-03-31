@@ -12,6 +12,7 @@ import { ChatModule } from './chat/chat.module';
 import { MatchesModule } from './matches/matches.module';
 import { PostsModule } from './posts/posts.module';
 import { LikesModule } from './likes/likes.module';
+import { SubscriptionsModule } from './subscriptions/subscriptions.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { LikesModule } from './likes/likes.module';
     MatchesModule,
     PostsModule,
     LikesModule,
+    SubscriptionsModule,
   ],
   providers: [
     {

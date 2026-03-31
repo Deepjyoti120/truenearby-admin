@@ -27,7 +27,7 @@ model User {
   matchesA       Match[]         @relation("MatchA")
   matchesB       Match[]         @relation("MatchB")
   messages       Message[]
-  subscriptions  Subscription[]
+  userSubscriptions UserSubscription[]
   blocksSent     Block[]         @relation("BlocksSent")
   blocksReceived Block[]         @relation("BlocksReceived")
   swipesSent     Swipe[]         @relation("SwipesSent")
@@ -263,19 +263,49 @@ model Block {
   @@map("blocks")
 }
 
-model Subscription {
-  id     String @id @default(uuid()) @db.Uuid
-  userId String @db.Uuid
-  user   User   @relation(fields: [userId], references: [id])
+model SubscriptionPlan {
+  id          String @id @default(uuid()) @db.Uuid
+  code        Plan   @unique
+  name        String
+  description String?
+
+  durationDays Int  @default(30)
+  isActive     Boolean @default(true)
+  sortOrder    Int  @default(0)
+
+  canReverseLastSwipe Boolean @default(false)
+  canChangeSwipeDecision Boolean @default(false)
+  canSeeWhoLikedYou Boolean @default(false)
+  showLikesInAdvancedHome Boolean @default(false)
+
+  userSubscriptions UserSubscription[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("subscription_plans")
+}
+
+model UserSubscription {
+  id                 String @id @default(uuid()) @db.Uuid
+  userId             String @db.Uuid
+  subscriptionPlanId String @db.Uuid
 
   plan     Plan
   startAt  DateTime
   endAt    DateTime
   isActive Boolean  @default(true)
+  cancelledAt DateTime?
+
+  user             User             @relation(fields: [userId], references: [id])
+  subscriptionPlan SubscriptionPlan @relation(fields: [subscriptionPlanId], references: [id])
 
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@map("subscriptions")
+  @@index([userId, isActive, endAt])
+  @@index([subscriptionPlanId])
+  @@map("user_subscriptions")
 }
 
 model Swipe {

@@ -1,6 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { Plan } from '../generated/prisma/enums';
 import { LikesService } from './likes.service';
 import { PrismaService } from '../prisma/prisma.service';
+import { SubscriptionsService } from '../subscriptions/subscriptions.service';
 
 describe('LikesService', () => {
   let service: LikesService;
@@ -14,12 +16,10 @@ describe('LikesService', () => {
       findMany: jest.fn(),
       upsert: jest.fn(),
     },
-    subscription: {
-      findFirst: jest.fn(),
-      updateMany: jest.fn(),
-      create: jest.fn(),
-    },
-    $transaction: jest.fn(),
+  };
+  const subscriptionsService = {
+    getCurrentSubscriptionForUser: jest.fn(),
+    activateSubscription: jest.fn(),
   };
 
   beforeEach(async () => {
@@ -29,6 +29,10 @@ describe('LikesService', () => {
         {
           provide: PrismaService,
           useValue: prisma,
+        },
+        {
+          provide: SubscriptionsService,
+          useValue: subscriptionsService,
         },
       ],
     }).compile();
@@ -42,7 +46,25 @@ describe('LikesService', () => {
   });
 
   it('returns pending received likes and hides matched users', async () => {
-    prisma.subscription.findFirst.mockResolvedValue(null);
+    subscriptionsService.getCurrentSubscriptionForUser.mockResolvedValue({
+      id: null,
+      planId: 'plan-free',
+      plan: Plan.FREE,
+      name: 'Free',
+      description: 'Free plan',
+      durationDays: 30,
+      isActive: true,
+      isDefault: true,
+      startAt: null,
+      endAt: null,
+      cancelledAt: null,
+      features: {
+        canReverseLastSwipe: false,
+        canChangeSwipeDecision: false,
+        canSeeWhoLikedYou: false,
+        showLikesInAdvancedHome: false,
+      },
+    });
     prisma.like.findMany.mockResolvedValue([
       {
         id: 'like-1',
@@ -78,5 +100,6 @@ describe('LikesService', () => {
     expect(result.totalLikes).toBe(1);
     expect(result.likes[0]?.fromUserId).toBe('user-2');
     expect(result.likes[0]?.isLocked).toBe(true);
+    expect(result.activeSubscription?.plan).toBe(Plan.FREE);
   });
 });

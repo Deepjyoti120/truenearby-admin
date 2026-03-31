@@ -44,6 +44,6 @@ export class LikesController {
     @CurrentUser() user: { id: string },
     @Body() body: UnlockLikesDto,
   ) {
-    return this.likesService.unlockLikes(user.id, body.plan ?? Plan.PLUS);
+    return this.likesService.unlockLikes(user.id, body.plan ?? Plan.GOLD);
   }
 }
