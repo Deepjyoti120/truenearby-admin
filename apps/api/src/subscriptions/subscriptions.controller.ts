@@ -22,6 +22,7 @@ export class SubscriptionsController {
     return this.subscriptionsService.getUserSubscriptions(user.id);
   }
 
+  
   @UseGuards(JwtAuthGuard)
   @Post('activate')
   activateSubscription(
