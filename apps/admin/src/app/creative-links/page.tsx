@@ -38,7 +38,7 @@ export default function CreativeLinksPage() {
             source for design inspiration while building onboarding, banners,
             profile moments, empty states, and message-themed layouts.
           </p>
-          <CreativeAttributionNotice className="max-w-3xl" />
+          {/* <CreativeAttributionNotice className="max-w-3xl" /> */}
         </header>
 
         <div className="mt-8 space-y-7 text-sm leading-relaxed md:text-base">

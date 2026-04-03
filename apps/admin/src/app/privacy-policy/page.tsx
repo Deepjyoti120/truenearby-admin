@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { CreativeAttributionNotice } from "@/components/creative-attribution-notice";
+
 export const metadata: Metadata = {
   title: "Privacy Policy | TrueNearby",
   description: "Privacy Policy for the TrueNearby dating app.",
@@ -35,6 +37,7 @@ export default function PrivacyPolicyPage() {
             Google Play policy requirements, and platform safety expectations
             for dating services.
           </p>
+          <CreativeAttributionNotice className="max-w-3xl" />
         </header>
 
         <div className="mt-8 space-y-7 text-sm leading-relaxed md:text-base">
