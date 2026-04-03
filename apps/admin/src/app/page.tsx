@@ -166,6 +166,13 @@ export default function Home() {
             >
               Privacy Policy
             </Link>
+            {" "}and can browse our{" "}
+            <Link
+              href="/creative-links"
+              className="font-semibold text-[#F7DDE8] underline underline-offset-4 transition hover:text-white"
+            >
+              Creative Links
+            </Link>
             .
           </p>
         </section>

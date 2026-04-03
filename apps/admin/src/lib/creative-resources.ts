@@ -128,26 +128,26 @@ export const creativeResourceGroups: CreativeResourceGroup[] = [
       },
     ],
   },
-  {
-    id: "wallpaper",
-    title: "Moodboard Wallpaper",
-    description:
-      "Use this as a visual direction cue for pink messaging scenes and romantic social promo layouts.",
-    icon: ImageIcon,
-    accentClassName:
-      "from-pink-100 via-rose-50 to-violet-50 text-pink-700 border-pink-200/80",
-    resources: [
-      {
-        id: "pink-message-wallpaper",
-        title: "Heart Message Pink Wallpaper",
-        href: "https://wallpapers.com/wallpapers/heart-message-pink-instagram-profile-vizwoyoue6ir9qxi.html",
-        description:
-          "Mood reference for background treatment, profile story cards, and pink gradient scenes.",
-        source: "Wallpapers.com",
-        type: "wallpaper",
-      },
-    ],
-  },
+  // {
+  //   id: "wallpaper",
+  //   title: "Moodboard Wallpaper",
+  //   description:
+  //     "Use this as a visual direction cue for pink messaging scenes and romantic social promo layouts.",
+  //   icon: ImageIcon,
+  //   accentClassName:
+  //     "from-pink-100 via-rose-50 to-violet-50 text-pink-700 border-pink-200/80",
+  //   resources: [
+  //     {
+  //       id: "pink-message-wallpaper",
+  //       title: "Heart Message Pink Wallpaper",
+  //       href: "https://wallpapers.com/wallpapers/heart-message-pink-instagram-profile-vizwoyoue6ir9qxi.html",
+  //       description:
+  //         "Mood reference for background treatment, profile story cards, and pink gradient scenes.",
+  //       source: "Wallpapers.com",
+  //       type: "wallpaper",
+  //     },
+  //   ],
+  // },
 ]
 
 export const creativeResources = creativeResourceGroups.flatMap(
