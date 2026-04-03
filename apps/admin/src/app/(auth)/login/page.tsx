@@ -22,7 +22,7 @@ export default function LoginPage() {
       const data = await apiLogin(email, password) 
       console.log("Login successful:", data)
       router.push("/dashboard")
-    } catch (err) {
+    } catch {
       setError("Invalid email or password")
     } finally {
       setLoading(false)

@@ -17,7 +17,6 @@ const quickStats = [
 const storeLinks = {
   playStore:
     "https://play.google.com/store/apps/details?id=com.baraxuntech.truenearby",
-  appStore: "https://apps.apple.com/us/search?term=truenearby",
 };
 
 function GooglePlayIcon() {
@@ -31,26 +30,6 @@ function GooglePlayIcon() {
     >
       <path d="M5 3v18l12-9L5 3z" fill="currentColor" />
       <path d="M17 9l3 3-3 3" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  );
-}
-
-function AppStoreIcon() {
-  return (
-    <svg
-      aria-hidden
-      viewBox="0 0 24 24"
-      className="h-4 w-4"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8 18h8M8 15l4-8 4 8M10 11h4"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
     </svg>
   );
 }
