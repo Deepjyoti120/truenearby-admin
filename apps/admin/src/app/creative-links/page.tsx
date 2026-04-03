@@ -84,7 +84,20 @@ export default function CreativeLinksPage() {
 
           <section className="rounded-2xl border border-white/15 bg-white/5 p-5">
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              {creativeResourceGroups.length + 1}. Usage Notes
+              {creativeResourceGroups.length + 1}. Attribution Notice
+            </h2>
+            <p className="mt-3 text-[#E3CDD6]">
+              Some icons, stickers, and visual assets used in this app are
+              provided by Flaticon authors and other external creators. These
+              assets are used under their respective licenses and are credited
+              accordingly. For full attribution details, please refer to the
+              Creative Links above.
+            </p>
+          </section>
+
+          <section className="rounded-2xl border border-white/15 bg-white/5 p-5">
+            <h2 className="text-lg font-semibold text-white md:text-xl">
+              {creativeResourceGroups.length + 2}. Usage Notes
             </h2>
             <ul className="mt-3 list-disc space-y-1 pl-5 text-[#E3CDD6]">
               <li>Use icon references for likes, profile actions, and chat UI.</li>

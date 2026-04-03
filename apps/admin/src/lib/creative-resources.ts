@@ -1,11 +1,5 @@
 import type { LucideIcon } from "lucide-react"
-import {
-  Heart,
-  Image as ImageIcon,
-  Palette,
-  Sparkles,
-  UserRound,
-} from "lucide-react"
+import { Heart, Palette, Sparkles, UserRound } from "lucide-react"
 
 export type CreativeResourceType =
   | "icons"
