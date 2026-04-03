@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 
+import { CreativeAttributionNotice } from "@/components/creative-attribution-notice"
 import { creativeResourceGroups } from "@/lib/creative-resources"
 
 export const metadata: Metadata = {
@@ -37,6 +38,7 @@ export default function CreativeLinksPage() {
             source for design inspiration while building onboarding, banners,
             profile moments, empty states, and message-themed layouts.
           </p>
+          <CreativeAttributionNotice className="max-w-3xl" />
         </header>
 
         <div className="mt-8 space-y-7 text-sm leading-relaxed md:text-base">

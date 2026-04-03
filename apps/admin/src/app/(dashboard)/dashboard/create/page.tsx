@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
 
+import { CreativeAttributionNotice } from "@/components/creative-attribution-notice"
 import { AppSidebarLayout } from "@/components/app-sidebar-layout"
 import { Button } from "@/components/ui/button"
 import {
@@ -70,6 +71,11 @@ export default function CreatePage() {
                   </a>
                 </Button>
               </div>
+
+              <CreativeAttributionNotice
+                variant="light"
+                className="max-w-2xl"
+              />
             </div>
 
             <div className="grid gap-3 sm:grid-cols-3 xl:grid-cols-1">

@@ -1,6 +1,7 @@
 import { ArrowUpRight, ExternalLink } from "lucide-react"
 
 import { AppSidebarLayout } from "@/components/app-sidebar-layout"
+import { CreativeAttributionNotice } from "@/components/creative-attribution-notice"
 import {
   Card,
   CardContent,
@@ -36,6 +37,10 @@ export default function LinksPage() {
                 wallpaper links in one place with a visible redirect icon on each
                 card.
               </p>
+              <CreativeAttributionNotice
+                variant="light"
+                className="max-w-2xl"
+              />
             </div>
 
             <div className="flex items-center gap-3 rounded-3xl border border-white bg-white/80 px-4 py-3">

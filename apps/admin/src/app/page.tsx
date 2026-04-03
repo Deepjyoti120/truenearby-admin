@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { CreativeAttributionNotice } from "@/components/creative-attribution-notice";
+
 const trustPills = [
   "Verified members",
   "Private by design",
@@ -166,25 +168,16 @@ export default function Home() {
             >
               Privacy Policy
             </Link>
-            {" "}and can browse our{" "}
+            {/* {" "}and can browse our{" "}
             <Link
               href="/creative-links"
               className="font-semibold text-[#F7DDE8] underline underline-offset-4 transition hover:text-white"
             >
               Creative Links
             </Link>
-            .
+            . */}
           </p>
-          <p className="text-center text-[11px] text-white/60 md:text-left">
-            Icons and stickers by Flaticon authors. See{" "}
-            <Link
-              href="/creative-links"
-              className="font-medium text-[#F7DDE8] underline underline-offset-4 transition hover:text-white"
-            >
-              Creative Links
-            </Link>
-            .
-          </p>
+          {/* <CreativeAttributionNotice className="max-w-lg" /> */}
         </section>
 
         <section className="mx-auto flex w-full flex-1 items-end justify-center md:justify-end">
