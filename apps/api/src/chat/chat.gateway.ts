@@ -27,7 +27,6 @@ export class ChatGateway {
   constructor(private readonly chatService: ChatService) {}
 
   broadcastNewMessage(chatId: string, message: unknown) {
-    console.error(message);
     this.server?.to(chatId).emit('newMessage', message);
   }
 
@@ -37,7 +36,7 @@ export class ChatGateway {
     @ConnectedSocket() client: AuthenticatedSocket,
   ) {
     await this.chatService.ensureChatAccess(data.chatId, client.user.id);
-    void client.join(data.chatId);
+    await client.join(data.chatId);
     return { chatId: data.chatId };
   }
 
@@ -50,6 +49,9 @@ export class ChatGateway {
     },
     @ConnectedSocket() client: AuthenticatedSocket,
   ) {
+    await this.chatService.ensureChatAccess(data.chatId, client.user.id);
+    await client.join(data.chatId);
+
     const message = await this.chatService.createMessageForUser(
       data.chatId,
       client.user.id,

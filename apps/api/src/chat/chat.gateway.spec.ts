@@ -57,6 +57,7 @@ describe('ChatGateway', () => {
 
     const client = {
       user: { id: 'user-1' },
+      join: jest.fn().mockResolvedValue(undefined),
     } as any;
 
     await gateway.sendMessage(
@@ -69,6 +70,7 @@ describe('ChatGateway', () => {
       'user-1',
       'hello',
     );
+    expect(client.join).toHaveBeenCalledWith('chat-1');
     expect(gateway.server.to).toHaveBeenCalledWith('chat-1');
   });
 });
