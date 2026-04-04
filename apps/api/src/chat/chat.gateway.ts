@@ -27,6 +27,7 @@ export class ChatGateway {
   constructor(private readonly chatService: ChatService) {}
 
   broadcastNewMessage(chatId: string, message: unknown) {
+    console.error(message);
     this.server?.to(chatId).emit('newMessage', message);
   }
 
