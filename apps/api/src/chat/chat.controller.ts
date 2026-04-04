@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { ApiBearerAuth } from '@nestjs/swagger';
 import { ChatService } from './chat.service';
+import { ChatGateway } from './chat.gateway';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth/jwt-auth.guard';
 import {
   CurrentUser,
@@ -26,7 +27,10 @@ class CreateMessageDto {
 @ApiBearerAuth('access-token')
 @UseGuards(JwtAuthGuard)
 export class ChatController {
-  constructor(private readonly chatService: ChatService) {}
+  constructor(
+    private readonly chatService: ChatService,
+    private readonly chatGateway: ChatGateway,
+  ) {}
 
   @Get(':chatId')
   getChat(
@@ -46,11 +50,17 @@ export class ChatController {
   }
 
   @Post(':chatId/messages')
-  createMessage(
+  async createMessage(
     @Param('chatId') chatId: string,
     @CurrentUser() user: CurrentUserPayload,
     @Body() body: CreateMessageDto,
   ) {
-    return this.chatService.createMessageForUser(chatId, user.id, body.content);
+    const message = await this.chatService.createMessageForUser(
+      chatId,
+      user.id,
+      body.content,
+    );
+    this.chatGateway.broadcastNewMessage(chatId, message);
+    return message;
   }
 }

@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ChatController } from './chat.controller';
 import { ChatService } from './chat.service';
+import { ChatGateway } from './chat.gateway';
 
 describe('ChatController', () => {
   let controller: ChatController;
@@ -8,6 +9,9 @@ describe('ChatController', () => {
     getChat: jest.fn(),
     getMessages: jest.fn(),
     createMessageForUser: jest.fn(),
+  };
+  const chatGateway = {
+    broadcastNewMessage: jest.fn(),
   };
 
   beforeEach(async () => {
@@ -17,6 +21,10 @@ describe('ChatController', () => {
         {
           provide: ChatService,
           useValue: chatService,
+        },
+        {
+          provide: ChatGateway,
+          useValue: chatGateway,
         },
       ],
     }).compile();
@@ -48,5 +56,11 @@ describe('ChatController', () => {
       'user-1',
       'hello',
     );
+    expect(chatGateway.broadcastNewMessage).toHaveBeenCalledWith('chat-1', {
+      id: 'msg-1',
+      chatId: 'chat-1',
+      senderId: 'user-1',
+      content: 'hello',
+    });
   });
 });

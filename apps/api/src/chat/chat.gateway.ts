@@ -26,6 +26,10 @@ export class ChatGateway {
 
   constructor(private readonly chatService: ChatService) {}
 
+  broadcastNewMessage(chatId: string, message: unknown) {
+    this.server?.to(chatId).emit('newMessage', message);
+  }
+
   @SubscribeMessage('joinChat')
   async joinChat(
     @MessageBody() data: { chatId: string },
@@ -51,7 +55,7 @@ export class ChatGateway {
       data.content,
     );
 
-    this.server.to(data.chatId).emit('newMessage', message);
+    this.broadcastNewMessage(data.chatId, message);
     return message;
   }
 }

@@ -69,5 +69,6 @@ describe('ChatGateway', () => {
       'user-1',
       'hello',
     );
+    expect(gateway.server.to).toHaveBeenCalledWith('chat-1');
   });
 });
