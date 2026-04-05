@@ -92,7 +92,11 @@ export class ChatService {
     };
   }
 
-  async createMessageForUser(chatId: string, senderId: string, content: string) {
+  async createMessageForUser(
+    chatId: string,
+    senderId: string,
+    content: string,
+  ) {
     const trimmedContent = content?.trim();
 
     if (!trimmedContent) {
