@@ -17,10 +17,4 @@ export class MatchesController {
   getMatches(@CurrentUser() user: CurrentUserPayload) {
     return this.matchService.getMatches(user.id);
   }
-
-  @Get('matches')
-  @UseGuards(JwtAuthGuard)
-  getMatchesLegacy(@CurrentUser() user: CurrentUserPayload) {
-    return this.matchService.getMatches(user.id);
-  }
 }

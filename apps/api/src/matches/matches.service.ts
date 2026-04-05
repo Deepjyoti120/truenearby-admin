@@ -1,6 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import { CHAT_MESSAGE_SELECT, CHAT_PARTICIPANT_SELECT } from '../chat/chat.selects';
+import {
+  CHAT_MESSAGE_SELECT,
+  CHAT_PARTICIPANT_SELECT,
+} from '../chat/chat.selects';
 
 @Injectable()
 export class MatchesService {
