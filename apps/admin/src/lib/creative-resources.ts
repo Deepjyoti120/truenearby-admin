@@ -100,6 +100,24 @@ export const creativeResourceGroups: CreativeResourceGroup[] = [
         source: "Flaticon",
         type: "stickers",
       },
+      {
+        id: "dating-stickers",
+        title: "Dating Stickers",
+        href: "https://www.flaticon.com/free-stickers/dating",
+        description:
+          "Dating stickers created by MrHamster - Flaticon",
+        source: "Flaticon",
+        type: "stickers",
+      }, 
+      {
+        id: "calendar-stickers",
+        title: "Calendar Stickers",
+        href: "https://www.flaticon.com/free-stickers/calendar",
+        description:
+          "Calendar stickers created by Stickers - Flaticon",
+        source: "Flaticon",
+        type: "stickers",
+      }, 
     ],
   },
   {
