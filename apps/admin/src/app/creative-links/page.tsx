@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react"
 import { creativeResourceGroups } from "@/lib/creative-resources"
 
 export const metadata: Metadata = {
-  title: "Creative Links | TrueNearby",
+  title: "Creative Credits Links | TrueNearby",
   description:
     "Curated design links and inspiration references for the TrueNearby app.",
 }
@@ -26,9 +26,8 @@ export default function CreativeLinksPage() {
         >
           Back to Home
         </Link>
-
         <header className="mt-5 space-y-3">
-          <h1 className="text-3xl font-semibold md:text-4xl">Creative Links</h1>
+          <h1 className="text-3xl font-semibold md:text-4xl">Creative Credits Links</h1>
           <p className="text-sm text-[#C6AEB8]">Last updated: {lastUpdated}</p>
           <p className="text-sm leading-relaxed text-[#D9C3CD] md:text-base">
             This page collects the romantic icon, sticker, author, and
