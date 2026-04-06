@@ -87,11 +87,7 @@ export default function CreativeLinksPage() {
               {creativeResourceGroups.length + 1}. Attribution Notice
             </h2>
             <p className="mt-3 text-[#E3CDD6]">
-              Some icons, stickers, and visual assets used in this app are
-              provided by Flaticon authors and other external creators. These
-              assets are used under their respective licenses and are credited
-              accordingly. For full attribution details, please refer to the
-              Creative Links above.
+              Some icons, stickers, and visual assets used in this application are sourced from Flaticon and other external creators. These assets are used under their respective free licenses and are properly attributed to their authors as required. For full attribution details, please refer to the Creative Links section.
             </p>
           </section>
 
