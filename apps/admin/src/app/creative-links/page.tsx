@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
-
-import { CreativeAttributionNotice } from "@/components/creative-attribution-notice"
 import { creativeResourceGroups } from "@/lib/creative-resources"
 
 export const metadata: Metadata = {

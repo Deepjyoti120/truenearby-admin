@@ -91,6 +91,15 @@ export const creativeResourceGroups: CreativeResourceGroup[] = [
         source: "Flaticon",
         type: "stickers",
       },
+      {
+        id: "flower-stickers",
+        title: "Flower Stickers",
+        href: "https://www.flaticon.com/free-stickers/flower",
+        description:
+          "Flower stickers created by smashingstocks - Flaticon",
+        source: "Flaticon",
+        type: "stickers",
+      },
     ],
   },
   {
