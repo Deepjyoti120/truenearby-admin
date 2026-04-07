@@ -147,6 +147,7 @@ export class AuthService {
         expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
       },
     });
+    await this.upsertDeviceToken(user.id, dto.fcmToken, dto.platform);
     return {
       accessToken,
       user: {
@@ -182,6 +183,33 @@ export class AuthService {
     await this.prisma.refreshToken.updateMany({
       where: { userId },
       data: { isRevoked: true },
+    });
+  }
+
+  private async upsertDeviceToken(
+    userId: string,
+    fcmToken?: string,
+    platform?: string,
+  ) {
+    const normalizedToken = fcmToken?.trim();
+
+    if (!normalizedToken) {
+      return;
+    }
+
+    await this.prisma.userDevice.upsert({
+      where: { fcmToken: normalizedToken },
+      update: {
+        userId,
+        isActive: true,
+        platform: platform?.trim() || 'unknown',
+      },
+      create: {
+        userId,
+        fcmToken: normalizedToken,
+        platform: platform?.trim() || 'unknown',
+        isActive: true,
+      },
     });
   }
 }

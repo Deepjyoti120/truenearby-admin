@@ -13,6 +13,7 @@ import { MatchesModule } from './matches/matches.module';
 import { PostsModule } from './posts/posts.module';
 import { LikesModule } from './likes/likes.module';
 import { SubscriptionsModule } from './subscriptions/subscriptions.module';
+import { FirebaseModule } from './firebase/firebase.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { SubscriptionsModule } from './subscriptions/subscriptions.module';
     PostsModule,
     LikesModule,
     SubscriptionsModule,
+    FirebaseModule,
   ],
   providers: [
     {
