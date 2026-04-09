@@ -60,7 +60,7 @@ export class ChatController {
       user.id,
       body.content,
     );
-    this.chatGateway.broadcastNewMessage(chatId, message);
+    // this.chatGateway.broadcastNewMessage(chatId, message);
     return message;
   }
 }
