@@ -47,7 +47,7 @@ async function bootstrap() {
   SwaggerModule.setup('docs', app, document);
   // if (!process.env.VERCEL) {
   await app.listen(3001);
-  console.log('Nest API running at http://localhost:3001/api/v1');
+  console.log('Nest API running at http://localhost:3001/docs');
   // } else {
   //   await app.init();
   //   console.log('Nest API running at server less');
