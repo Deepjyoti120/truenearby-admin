@@ -6,6 +6,7 @@ import express from 'express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
 import cookieParser from 'cookie-parser';
+import 'dotenv/config';
 
 const expressApp = express();
 
@@ -44,13 +45,13 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
-  if (!process.env.VERCEL) {
-    await app.listen(3001);
-    console.log('Nest API running at http://localhost:3001/api/v1');
-  } else {
-    await app.init();
-    console.log('Nest API running at server less');
-  }
+  // if (!process.env.VERCEL) {
+  await app.listen(3001);
+  console.log('Nest API running at http://localhost:3001/api/v1');
+  // } else {
+  //   await app.init();
+  //   console.log('Nest API running at server less');
+  // }
 }
 
 void bootstrap();
