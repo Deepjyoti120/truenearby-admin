@@ -14,7 +14,7 @@ export class AuthService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly jwtService: JwtService,
-  ) {}
+  ) { }
 
   // private signToken(user: { id: string; email: string }) {
   //   return this.jwtService.sign({
@@ -150,13 +150,7 @@ export class AuthService {
     await this.upsertDeviceToken(user.id, dto.fcmToken, dto.platform);
     return {
       accessToken,
-      user: {
-        id: user.id,
-        email: user.email,
-        phone: user.phone,
-        profile: user.profile,
-        createdAt: user.createdAt,
-      },
+      user,
       refreshToken,
     };
   }
