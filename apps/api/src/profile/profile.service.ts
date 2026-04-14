@@ -690,12 +690,14 @@ export class ProfileService {
 
         const isMatch = matchedUserIds.has(post.userId);
         const likedYou = !isMatch && likedYouUserIds.has(post.userId);
+        const isConnected = isMatch && likedYouUserIds.has(post.userId);
 
         return {
           ...post,
           isMatch,
           likedYou: canSeeLikedYouInAdvancedHome && likedYou,
           likedYouLocked: !canSeeLikedYouInAdvancedHome && likedYou,
+          isConnected,
         };
       })
       .filter((post): post is NonNullable<typeof post> => Boolean(post));
