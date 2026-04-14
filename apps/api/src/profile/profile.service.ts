@@ -214,6 +214,7 @@ export class ProfileService {
           matchPreference: true,
           user: {
             select: {
+              id: true,
               photos: true,
             },
           },
