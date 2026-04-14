@@ -263,10 +263,11 @@ export class ProfileService {
 
     const { latitude, longitude, radiusKm } = referenceLocation;
     const [postOrderRows, total] = await Promise.all([
-      this.fetchLatestPostsByDistance(
+      this.fetchNearestPosts(
         userId,
-        { latitude, longitude, radiusKm },
-        { cursor, skip, take },
+        { latitude, longitude },
+        // { latitude, longitude, radiusKm },
+        { skip, take },
       ),
       cursor ? Promise.resolve(undefined) : this.getLatestPostCount(userId),
     ]);
@@ -396,6 +397,53 @@ export class ProfileService {
       LIMIT ${options.take}
       OFFSET ${options.skip};
     `);
+  }
+
+  private async fetchNearestPosts(
+    userId: string,
+    referenceLocation: {
+      latitude: number;
+      longitude: number;
+    },
+    options: {
+      skip: number;
+      take: number;
+    },
+  ) {
+    return this.prisma.$queryRaw<Array<FeedOrderRow>>(Prisma.sql`
+    SELECT
+      lup."postId" AS id,
+      lup."postCreatedAt",
+      (
+        6371 * acos(
+          LEAST(
+            1,
+            GREATEST(
+              -1,
+              cos(radians(${referenceLocation.latitude})) *
+              cos(radians(lup.latitude)) *
+              cos(radians(lup.longitude) - radians(${referenceLocation.longitude})) +
+              sin(radians(${referenceLocation.latitude})) *
+              sin(radians(lup.latitude))
+            )
+          )
+        )
+      ) AS "distanceKm"
+    FROM "latest_user_posts" lup
+    WHERE lup."userId" != ${userId}::uuid
+      AND NOT EXISTS (
+        SELECT 1
+        FROM "post_swipes" ps
+        WHERE ps."postId" = lup."postId"
+          AND ps."userId" = ${userId}::uuid
+      )
+    ORDER BY
+      "distanceKm" ASC,
+      lup."postCreatedAt" DESC,
+      lup."postId" DESC
+    LIMIT ${options.take}
+    OFFSET ${options.skip};
+  `);
   }
 
   private async fetchLatestPostsByDistance(
