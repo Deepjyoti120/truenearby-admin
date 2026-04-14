@@ -75,6 +75,7 @@ export class ProfileService {
         data: {
           userId,
           gender: dto.gender,
+          name: dto.name,
           lookingFor: dto.lookingFor,
           birthDate: new Date(dto.birthDate),
           heightCm: dto.heightCm,

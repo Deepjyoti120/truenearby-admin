@@ -30,6 +30,10 @@ export class CreateProfileDto {
   @IsDateString()
   birthDate!: string;
 
+  @ApiProperty({ example: 'Deepjyoti Sam' })
+  @IsString()
+  name!: string;
+
   @ApiPropertyOptional({ example: 175 })
   @IsOptional()
   @IsNumber()
