@@ -93,7 +93,7 @@ export class ProfileController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('user/:blockedId/block')
+  @Post(':blockedId/block')
   blockUser(
     @CurrentUser() user: { id: string },
     @Param('blockedId', new ParseUUIDPipe()) blockedId: string,
