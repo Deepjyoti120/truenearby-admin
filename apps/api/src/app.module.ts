@@ -14,6 +14,7 @@ import { PostsModule } from './posts/posts.module';
 import { LikesModule } from './likes/likes.module';
 import { SubscriptionsModule } from './subscriptions/subscriptions.module';
 import { FirebaseModule } from './firebase/firebase.module';
+import { ReportModule } from './report/report.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { FirebaseModule } from './firebase/firebase.module';
     LikesModule,
     SubscriptionsModule,
     FirebaseModule,
+    ReportModule,
   ],
   providers: [
     {

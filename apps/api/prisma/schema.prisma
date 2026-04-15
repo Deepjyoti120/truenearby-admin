@@ -32,6 +32,8 @@ model User {
   blocksReceived Block[]         @relation("BlocksReceived")
   swipesSent     Swipe[]         @relation("SwipesSent")
   swipesReceived Swipe[]         @relation("SwipesReceived")
+  reportsGiven    Report[] @relation("Reporter")
+  reportsReceived Report[] @relation("ReportedUser")
 
   devices       UserDevice[]
   refreshTokens RefreshToken[]
@@ -322,6 +324,20 @@ model Swipe {
 
   @@unique([fromUserId, toUserId])
   @@map("swipes")
+}
+
+model Report {
+  id       String @id @default(uuid()) @db.Uuid
+  isSolved Boolean  @default(false)
+  description String?
+  userId          String   @db.Uuid
+  reportedUserId  String   @db.Uuid
+  reporter        User     @relation("Reporter", fields: [userId], references: [id])
+  reportedUser    User     @relation("ReportedUser", fields: [reportedUserId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@map("reports")
 }
 
 enum SwipeType {

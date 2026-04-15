@@ -1,9 +1,9 @@
 nest g module|controller|service users
 nest g controller users
 
-nest g module likes 
-\nest g controller likes
-\nest g service likes
+pnpm nest g module Report 
+\pnpm nest g controller Report
+\pnpm nest g service Report
 
 pnpm prisma migrate dev
 pnpm exec prisma migrate dev --name create_users
