@@ -91,4 +91,13 @@ export class ProfileController {
   getPosts(@CurrentUser() user: { id: string }, @Query() query: GetPostsDto) {
     return this.profileService.getPosts(user.id, query);
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('user/:blockedId/block')
+  blockUser(
+    @CurrentUser() user: { id: string },
+    @Param('blockedId', new ParseUUIDPipe()) blockedId: string,
+  ) {
+    return this.profileService.userBlock(user.id, blockedId);
+  }
 }

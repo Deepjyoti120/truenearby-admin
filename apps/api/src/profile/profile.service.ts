@@ -704,4 +704,18 @@ export class ProfileService {
       })
       .filter((post): post is NonNullable<typeof post> => Boolean(post));
   }
+
+  async userBlock(userId: string, blockedId: string) {
+    await this.prisma.$transaction(async (tx) => {
+      await tx.block.create({
+        data: {
+          blockerId: userId,
+          blockedId: blockedId,
+        },
+      });
+    });
+    return {
+      success: true,
+    };
+  }
 }
