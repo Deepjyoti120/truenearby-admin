@@ -67,7 +67,8 @@ export const ModelName = {
   Block: 'Block',
   SubscriptionPlan: 'SubscriptionPlan',
   UserSubscription: 'UserSubscription',
-  Swipe: 'Swipe'
+  Swipe: 'Swipe',
+  Report: 'Report'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -306,6 +307,18 @@ export const SwipeScalarFieldEnum = {
 } as const
 
 export type SwipeScalarFieldEnum = (typeof SwipeScalarFieldEnum)[keyof typeof SwipeScalarFieldEnum]
+
+
+export const ReportScalarFieldEnum = {
+  id: 'id',
+  isSolved: 'isSolved',
+  description: 'description',
+  userId: 'userId',
+  reportedUserId: 'reportedUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type ReportScalarFieldEnum = (typeof ReportScalarFieldEnum)[keyof typeof ReportScalarFieldEnum]
 
 
 export const SortOrder = {

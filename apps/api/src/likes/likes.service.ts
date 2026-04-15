@@ -20,8 +20,7 @@ export class LikesService {
       await this.subscriptionsService.getCurrentSubscriptionForUser(
         currentUserId,
       );
-    const isUnlocked =
-      activeSubscription?.features.canSeeWhoLikedYou ?? false;
+    const isUnlocked = activeSubscription?.features.canSeeWhoLikedYou ?? false;
     const [likes, matches] = await Promise.all([
       this.prisma.like.findMany({
         where: {

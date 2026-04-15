@@ -102,3 +102,8 @@ export type UserSubscription = Prisma.UserSubscriptionModel
  * 
  */
 export type Swipe = Prisma.SwipeModel
+/**
+ * Model Report
+ * 
+ */
+export type Report = Prisma.ReportModel
