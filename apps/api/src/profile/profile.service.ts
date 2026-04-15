@@ -705,10 +705,30 @@ export class ProfileService {
       .filter((post): post is NonNullable<typeof post> => Boolean(post));
   }
 
+  // async userBlock(userId: string, blockedId: string) {
+  //   await this.prisma.$transaction(async (tx) => {
+  //     await tx.block.create({
+  //       data: {
+  //         blockerId: userId,
+  //         blockedId: blockedId,
+  //       },
+  //     });
+  //   });
+  //   return {
+  //     success: true,
+  //   };
+  // }
   async userBlock(userId: string, blockedId: string) {
     await this.prisma.$transaction(async (tx) => {
-      await tx.block.create({
-        data: {
+      await tx.block.upsert({
+        where: {
+          blockerId_blockedId: {
+            blockerId: userId,
+            blockedId: blockedId,
+          },
+        },
+        update: {},
+        create: {
           blockerId: userId,
           blockedId: blockedId,
         },
