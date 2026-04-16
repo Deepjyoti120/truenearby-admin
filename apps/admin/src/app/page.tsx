@@ -160,23 +160,45 @@ export default function Home() {
           </div>
 
           <StoreButtons className="w-full max-w-2xl grid-cols-1 gap-3 pt-1 md:grid md:grid-cols-2" />
-          <p className="max-w-lg text-xs leading-relaxed text-[#C6AEB8]">
-            By using TrueNearby, you agree to our{" "}
-            <Link
-              href="/privacy-policy"
-              className="font-semibold text-[#F7DDE8] underline underline-offset-4 transition hover:text-white"
-            >
-              Privacy Policy
-            </Link>
-            {" "}and can browse our{" "}
-            <Link
-              href="/creative-links"
-              className="font-semibold text-[#F7DDE8] underline underline-offset-4 transition hover:text-white"
-            >
-              Creative Links
-            </Link>
-            .
-          </p>
+          <div className="max-w-lg space-y-2 text-xs leading-relaxed text-[#C6AEB8]">
+            <p>By using TrueNearby, you agree to our:</p>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <Link
+                href="/privacy-policy"
+                className="font-semibold text-[#F7DDE8] underline underline-offset-4 transition hover:text-white"
+              >
+                Privacy Policy
+              </Link>
+              <span aria-hidden className="text-[#8C717B]">
+                •
+              </span>
+              <Link
+                href="/terms"
+                className="font-semibold text-[#F7DDE8] underline underline-offset-4 transition hover:text-white"
+              >
+                Terms of Service
+              </Link>
+              <span aria-hidden className="text-[#8C717B]">
+                •
+              </span>
+              <Link
+                href="/account-delete"
+                className="font-semibold text-[#F7DDE8] underline underline-offset-4 transition hover:text-white"
+              >
+                Account Delete Request
+              </Link>
+            </div>
+            <p>
+              You can also browse our{" "}
+              <Link
+                href="/creative-links"
+                className="font-semibold text-[#F7DDE8] underline underline-offset-4 transition hover:text-white"
+              >
+                Creative Links
+              </Link>
+              .
+            </p>
+          </div>
           {/* <CreativeAttributionNotice className="max-w-lg" /> */}
         </section>
 

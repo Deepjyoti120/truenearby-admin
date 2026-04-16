@@ -18,12 +18,12 @@ export default function PrivacyPolicyPage() {
         className="pointer-events-none fixed inset-0 bg-[linear-gradient(160deg,#11070A_0%,#100508_55%,#070305_100%)]"
       />
       <div className="relative z-10 mx-auto w-full max-w-4xl px-6 py-8 md:px-10 md:py-12">
-        <Link
+        {/* <Link
           href="/"
           className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-medium text-[#E9D3DC] transition hover:bg-white/15"
         >
           Back to Home
-        </Link>
+        </Link> */}
 
         <header className="mt-5 space-y-3">
           <h1 className="text-3xl font-semibold md:text-4xl">Privacy Policy</h1>
