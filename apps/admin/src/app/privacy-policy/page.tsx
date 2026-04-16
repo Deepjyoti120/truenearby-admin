@@ -189,9 +189,28 @@ export default function PrivacyPolicyPage() {
             </ul>
           </section>
 
+          <section className="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <h2 className="text-lg font-semibold text-white md:text-xl">
+              9. Account Deletion Request
+            </h2>
+            <p className="mt-3 text-[#D9C3CD]">
+              If you want to delete your TrueNearby account, you can submit a
+              request through our dedicated account deletion page. It explains
+              the immediate account deactivation process, the 90-day retention
+              period, and when your personal data is permanently erased from
+              our systems.
+            </p>
+            <Link
+              href="/account-delete"
+              className="mt-4 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-medium text-[#E9D3DC] transition hover:bg-white/15"
+            >
+              View Account Delete Request
+            </Link>
+          </section>
+
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              9. Children and Age Restriction
+              10. Children and Age Restriction
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               TrueNearby is an adults-only dating platform. You must be at
@@ -202,7 +221,7 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              10. Security Practices
+              11. Security Practices
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               We implement reasonable security practices and technical controls
@@ -214,7 +233,7 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              11. Cross-Border Transfers
+              12. Cross-Border Transfers
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               Where data is processed outside India, we apply contractual and
@@ -225,7 +244,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="rounded-2xl border border-white/15 bg-white/5 p-5">
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              12. Grievance Officer and Contact
+              13. Grievance Officer and Contact
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               For privacy complaints, account safety concerns, or legal data
@@ -263,7 +282,7 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              13. Updates to This Policy
+              14. Updates to This Policy
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               We may update this Privacy Policy from time to time to reflect
