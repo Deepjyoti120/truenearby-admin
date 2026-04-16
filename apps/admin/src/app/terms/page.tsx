@@ -4,13 +4,14 @@ import Link from "next/link";
 import { CreativeAttributionNotice } from "@/components/creative-attribution-notice";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | TrueNearby",
-  description: "Privacy Policy for the TrueNearby dating app.",
+  title: "Terms of Service | TrueNearby",
+  description:
+    "Terms of Service for the TrueNearby Dating app, including account, safety, and Google Sign-In terms.",
 };
 
-const lastUpdated = "March 4, 2026";
+const lastUpdated = "April 16, 2026";
 
-export default function PrivacyPolicyPage() {
+export default function TermsPage() {
   return (
     <main className="relative min-h-dvh w-full overflow-x-hidden bg-[#070305] text-[#F4E6EC]">
       <div
@@ -26,16 +27,14 @@ export default function PrivacyPolicyPage() {
         </Link>
 
         <header className="mt-5 space-y-3">
-          <h1 className="text-3xl font-semibold md:text-4xl">Privacy Policy</h1>
+          <h1 className="text-3xl font-semibold md:text-4xl">Terms of Service</h1>
           <p className="text-sm text-[#C6AEB8]">Last updated: {lastUpdated}</p>
           <p className="text-sm leading-relaxed text-[#D9C3CD] md:text-base">
-            This Privacy Policy explains how TrueNearby, an independently
-            operated product managed by an individual developer, collects,
-            uses, stores, shares, and protects personal data. This policy is
-            intended for users in India and is designed to align with
-            applicable Indian data protection and information technology laws,
-            Google Play policy requirements, and platform safety expectations
-            for dating services.
+            These Terms of Service govern your access to and use of TrueNearby
+            Dating, an independently operated adults-only dating platform. By
+            creating an account, signing in with Google, or using the app, you
+            agree to these terms, our safety rules, and our applicable privacy
+            practices.
           </p>
           <CreativeAttributionNotice className="max-w-3xl" />
         </header>
@@ -43,232 +42,244 @@ export default function PrivacyPolicyPage() {
         <div className="mt-8 space-y-7 text-sm leading-relaxed md:text-base">
           <section className="rounded-2xl border border-white/10 bg-white/5 p-5">
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              1. Legal Framework
+              1. Eligibility
+            </h2>
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-[#E3CDD6]">
+              <li>You must be at least 18 years old to use TrueNearby Dating.</li>
+              <li>
+                You may use the app only if dating services are lawful in your
+                location.
+              </li>
+              <li>
+                You must have the legal capacity to agree to a binding contract.
+              </li>
+              <li>
+                You may not use the service if your account has previously been
+                suspended or removed for policy violations, unless we expressly
+                allow it.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold text-white md:text-xl">
+              2. Account Registration and Google Sign-In
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
-              This policy is published in line with applicable requirements
-              under Indian law, including:
+              You may create or access your TrueNearby Dating account using
+              supported sign-in methods, including Google Sign-In. When you sign
+              in with Google, you authorize us to receive basic profile details
+              made available by Google, such as your name, email address, and
+              profile photo, subject to your Google account settings and our
+              privacy policy.
             </p>
             <ul className="mt-3 list-disc space-y-1 pl-5 text-[#E3CDD6]">
               <li>
-                Digital Personal Data Protection Act, 2023 and rules notified
-                thereunder.
+                You are responsible for ensuring your account details are
+                accurate and up to date.
               </li>
               <li>
-                Information Technology Act, 2000 (including Section 43A and
-                related provisions).
+                You are responsible for all activity that happens through your
+                account.
               </li>
               <li>
-                Information Technology (Reasonable Security Practices and
-                Procedures and Sensitive Personal Data or Information) Rules,
-                2011.
+                You must keep your sign-in credentials and connected devices
+                secure.
               </li>
               <li>
-                Information Technology (Intermediary Guidelines and Digital
-                Media Ethics Code) Rules, 2021, as amended, where applicable.
+                We may ask for additional verification where needed for safety,
+                fraud prevention, or compliance.
               </li>
             </ul>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              2. Data We Collect
-            </h2>
-            <ul className="mt-3 list-disc space-y-1 pl-5 text-[#E3CDD6]">
-              <li>
-                Account and identity details: name, email, mobile number, date
-                of birth, and profile credentials.
-              </li>
-              <li>
-                Profile content: photos, biography, interests, preferences, and
-                in-app prompts.
-              </li>
-              <li>
-                Usage and device data: app activity logs, device identifiers,
-                IP address, crash logs, and diagnostics.
-              </li>
-              <li>
-                Location data (if enabled): approximate or precise location for
-                match discovery.
-              </li>
-              <li>
-                Sensitive or special category data only when voluntarily
-                provided by you and allowed by law.
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-white md:text-xl">
-              3. Why We Use Your Data
-            </h2>
-            <ul className="mt-3 list-disc space-y-1 pl-5 text-[#E3CDD6]">
-              <li>To create and maintain your account.</li>
-              <li>To provide matching, chat, and safety features.</li>
-              <li>To verify age, prevent abuse, and enforce platform rules.</li>
-              <li>
-                To respond to support requests and legal or regulatory
-                obligations.
-              </li>
-              <li>To improve app quality, reliability, and user experience.</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-white md:text-xl">
-              4. Consent and User Controls
+              3. Acceptable Use
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
-              By using the app, you consent to data processing as described in
-              this policy. Where required by law, we request explicit consent.
-              You may withdraw consent at any time by contacting us, though
-              withdrawal may affect service availability.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-white md:text-xl">
-              5. Sharing and Disclosure
-            </h2>
-            <p className="mt-3 text-[#D9C3CD]">We may share data with:</p>
-            <ul className="mt-2 list-disc space-y-1 pl-5 text-[#E3CDD6]">
-              <li>
-                Service providers (cloud hosting, analytics, customer support)
-                under contractual safeguards.
-              </li>
-              <li>Other users according to your profile visibility settings.</li>
-              <li>
-                Law enforcement or government agencies when legally required.
-              </li>
-              <li>
-                A successor entity in case of merger, acquisition, or
-                restructuring, subject to lawful protection of your data.
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-white md:text-xl">
-              6. Payments and Billing Compliance
-            </h2>
-            <p className="mt-3 text-[#D9C3CD]">
-              Where paid features are offered in the Android app, payments for
-              eligible digital services are processed through Google Play
-              Billing in line with applicable Google Play policies. We do not
-              store your full card or UPI credentials on TrueNearby servers.
-              Billing records may be retained as required for tax, accounting,
-              fraud prevention, and legal compliance.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-white md:text-xl">
-              7. Data Retention
-            </h2>
-            <p className="mt-3 text-[#D9C3CD]">
-              We retain personal data only for as long as necessary for service
-              delivery, fraud prevention, dispute resolution, legal compliance,
-              and legitimate business records. Data is deleted or anonymized
-              when no longer required, subject to lawful retention periods.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-white md:text-xl">
-              8. Your Rights
-            </h2>
-            <p className="mt-3 text-[#D9C3CD]">
-              Subject to applicable law, you may request:
+              You agree to use the app respectfully and lawfully. You must not:
             </p>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-[#E3CDD6]">
-              <li>Access to a summary of your personal data.</li>
-              <li>Correction, completion, or update of inaccurate data.</li>
-              <li>Erasure of personal data, where legally permissible.</li>
-              <li>Withdrawal of consent and account deletion.</li>
-              <li>Grievance redressal and escalation mechanisms.</li>
+              <li>Impersonate another person or use false identity details.</li>
+              <li>
+                Harass, threaten, stalk, exploit, defraud, or abuse any user.
+              </li>
+              <li>
+                Upload nudity, sexual exploitation material, hateful content,
+                violent threats, or illegal content.
+              </li>
+              <li>
+                Share another person&apos;s private information without permission.
+              </li>
+              <li>
+                Use bots, scraping tools, automation, or reverse engineering to
+                access or misuse the service.
+              </li>
+              <li>
+                Solicit money, run scams, or promote commercial services without
+                authorization.
+              </li>
             </ul>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              9. Children and Age Restriction
+              4. User Content and Profile Responsibility
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
-              TrueNearby is an adults-only dating platform. You must be at
-              least 18 years old to use this app. We do not knowingly process
-              data of minors for dating services.
+              You retain ownership of the content you upload, including profile
+              photos, biographies, prompts, and messages where applicable.
+              However, you grant TrueNearby Dating a limited, non-exclusive,
+              worldwide license to host, store, reproduce, display, and process
+              that content for the purpose of operating, securing, moderating,
+              and improving the service.
+            </p>
+            <p className="mt-3 text-[#D9C3CD]">
+              You are solely responsible for the content you post and for making
+              sure you have all necessary rights and permissions to share it.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              10. Security Practices
+              5. Safety, Moderation, and Enforcement
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
-              We implement reasonable security practices and technical controls
-              to protect data against unauthorized access, disclosure, loss,
-              misuse, or alteration. However, no online system can guarantee
-              absolute security.
+              To protect users and comply with platform requirements, we may
+              review reports, moderate content, restrict visibility, suspend
+              features, or remove accounts that appear to violate these terms,
+              community standards, or applicable law.
+            </p>
+            <p className="mt-3 text-[#D9C3CD]">
+              We may take action without prior notice where necessary to address
+              urgent safety risks, fraud, impersonation, or legal obligations.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              11. Cross-Border Transfers
+              6. Matching and Location-Based Features
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
-              Where data is processed outside India, we apply contractual and
-              technical safeguards and comply with transfer restrictions
-              applicable under Indian law.
+              TrueNearby Dating may use profile preferences, activity, and
+              location information to show potential matches and nearby users.
+              Match availability, compatibility, and user activity are not
+              guaranteed, and we do not promise that the service will result in
+              any relationship, meeting, or response.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold text-white md:text-xl">
+              7. Paid Features and Billing
+            </h2>
+            <p className="mt-3 text-[#D9C3CD]">
+              If the app offers paid memberships, boosts, or other digital
+              features on Android, eligible purchases are processed through
+              Google Play Billing in accordance with Google Play policies. Prices,
+              billing cycles, renewals, cancellation rights, and refund handling
+              may depend on the purchase flow and the rules of the platform
+              through which you subscribed.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold text-white md:text-xl">
+              8. Privacy and Data Use
+            </h2>
+            <p className="mt-3 text-[#D9C3CD]">
+              Your use of TrueNearby Dating is also subject to our Privacy
+              Policy, which explains how we collect, use, store, and protect
+              personal data, including information received through Google
+              Sign-In and dating-related profile activity.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold text-white md:text-xl">
+              9. Service Availability and Changes
+            </h2>
+            <p className="mt-3 text-[#D9C3CD]">
+              We may update, modify, limit, suspend, or discontinue parts of the
+              service at any time for product, safety, legal, or operational
+              reasons. We do not guarantee uninterrupted availability or that the
+              app will always function on every device or platform version.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold text-white md:text-xl">
+              10. Disclaimers
+            </h2>
+            <p className="mt-3 text-[#D9C3CD]">
+              The service is provided on an &quot;as is&quot; and &quot;as available&quot;
+              basis to the extent permitted by law. We do not guarantee the
+              identity, intentions, conduct, compatibility, or honesty of any
+              user, and you remain responsible for your own interactions, online
+              and offline.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold text-white md:text-xl">
+              11. Limitation of Liability
+            </h2>
+            <p className="mt-3 text-[#D9C3CD]">
+              To the maximum extent permitted by applicable law, TrueNearby
+              Dating and its operator will not be liable for indirect,
+              incidental, special, consequential, exemplary, or punitive damages,
+              or for any loss of data, reputation, profits, or business arising
+              out of or related to your use of the service.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold text-white md:text-xl">
+              12. Termination
+            </h2>
+            <p className="mt-3 text-[#D9C3CD]">
+              You may stop using the app at any time. We may suspend or
+              terminate your access if we reasonably believe you have violated
+              these terms, created risk for other users, exposed us to legal
+              liability, or misused the service.
             </p>
           </section>
 
           <section className="rounded-2xl border border-white/15 bg-white/5 p-5">
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              12. Grievance Officer and Contact
+              13. Contact
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
-              For privacy complaints, account safety concerns, or legal data
-              requests, please contact:
+              For account issues, safety reports, legal notices, or terms-related
+              questions, please contact:
             </p>
             <div className="mt-3 space-y-1 text-[#E8D2DB]">
               <p>
                 <span className="font-semibold text-white">Entity:</span>{" "}
-                Individual Developer (TrueNearby)
-              </p>
-              <p>
-                <span className="font-semibold text-white">
-                  Grievance Officer:
-                </span>{" "}
-                Product Owner and Grievance Contact, TrueNearby
+                Individual Developer (TrueNearby Dating)
               </p>
               <p>
                 <span className="font-semibold text-white">Email:</span>{" "}
                 grievance@baraxuntech.com
               </p>
               <p>
-                <span className="font-semibold text-white">Website:</span>{" "}
-                Official TrueNearby support channel (shared via app and support
-                email)
-              </p>
-              <p>
-                <span className="font-semibold text-white">
-                  Response timelines:
-                </span>{" "}
-                As required by applicable law (including intermediary grievance
-                timelines where applicable).
+                <span className="font-semibold text-white">Support:</span>{" "}
+                Official TrueNearby support channel shared through the app and
+                support email
               </p>
             </div>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              13. Updates to This Policy
+              14. Updates to These Terms
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
-              We may update this Privacy Policy from time to time to reflect
-              legal, operational, or product changes. Material updates will be
-              communicated in-app or through other appropriate channels.
+              We may revise these Terms of Service from time to time to reflect
+              product updates, legal requirements, or safety practices. Your
+              continued use of the app after updated terms become effective means
+              you accept the revised terms.
             </p>
           </section>
         </div>
