@@ -263,7 +263,7 @@ export default function PrivacyPolicyPage() {
               </p>
               <p>
                 <span className="font-semibold text-white">Email:</span>{" "}
-                grievance@baraxuntech.com
+                rubikalita2021@gmail.com
               </p>
               <p>
                 <span className="font-semibold text-white">Website:</span>{" "}
