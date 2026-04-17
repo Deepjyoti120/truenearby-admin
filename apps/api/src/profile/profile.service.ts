@@ -215,6 +215,7 @@ export class ProfileService {
           user: {
             select: {
               id: true,
+              isActive: true,
               photos: true,
             },
           },

@@ -93,8 +93,6 @@ export const UserScalarFieldEnum = {
   phone: 'phone',
   passwordHash: 'passwordHash',
   isActive: 'isActive',
-  isVerified: 'isVerified',
-  isRegistered: 'isRegistered',
   lastActiveAt: 'lastActiveAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -120,6 +118,7 @@ export const ProfileScalarFieldEnum = {
   country: 'country',
   isHidden: 'isHidden',
   isRegistered: 'isRegistered',
+  isVerified: 'isVerified',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

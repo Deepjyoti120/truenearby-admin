@@ -13,8 +13,6 @@ model User {
   phone        String?   @unique
   passwordHash String
   isActive     Boolean   @default(true)
-  isVerified   Boolean   @default(false)
-  isRegistered Boolean   @default(false)
   lastActiveAt DateTime?
 
   profile        Profile?
@@ -68,6 +66,7 @@ model Profile {
 
   isHidden     Boolean @default(false)
   isRegistered Boolean @default(false)
+  isVerified   Boolean   @default(false)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
