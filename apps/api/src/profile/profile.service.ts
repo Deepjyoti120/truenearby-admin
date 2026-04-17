@@ -89,18 +89,18 @@ export class ProfileService {
             create: preferenceAgeRange,
           },
           isRegistered: true,
+          isVerified: true,
         },
         include: {
           matchPreference: true,
         },
       });
-      await tx.user.update({
-        where: { id: userId },
-        data: {
-          isRegistered: true,
-          isVerified: true,
-        },
-      });
+      // await tx.user.update({
+      //   where: { id: userId },
+      //   data: {
+      //     isVerified: true,
+      //   },
+      // });
       return profile;
     });
     return {
