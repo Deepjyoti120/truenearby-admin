@@ -56,7 +56,7 @@ export class UsersService {
         JOIN profiles p ON p."userId" = u.id
         WHERE
           u.id != ${userId}
-          AND u.isActive = true
+          AND u."isActive" = true
           AND p."isHidden" = false
           AND NOT EXISTS (
             SELECT 1 FROM swipes s
