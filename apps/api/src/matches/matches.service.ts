@@ -10,40 +10,66 @@ export class MatchesService {
   constructor(private readonly prisma: PrismaService) {}
 
   async getMatches(currentUserId: string) {
-    const blocks = await this.prisma.block.findMany({
-      where: {
-        OR: [{ blockerId: currentUserId }, { blockedId: currentUserId }],
-      },
-      select: {
-        blockerId: true,
-        blockedId: true,
-      },
-    });
-
-    const blockedUserIds = blocks.map((block) =>
-      block.blockerId === currentUserId ? block.blockedId : block.blockerId,
-    );
-
     const matches = await this.prisma.match.findMany({
       where: {
         OR: [
           {
             userAId: currentUserId,
-            userBId: {
-              notIn: blockedUserIds,
-            },
             userB: {
               isActive: true,
             },
           },
           {
             userBId: currentUserId,
-            userAId: {
-              notIn: blockedUserIds,
-            },
             userA: {
               isActive: true,
             },
+          },
+        ],
+        NOT: [
+          {
+            OR: [
+              {
+                userAId: currentUserId,
+                userB: {
+                  blocksReceived: {
+                    some: {
+                      blockerId: currentUserId,
+                    },
+                  },
+                },
+              },
+              {
+                userBId: currentUserId,
+                userA: {
+                  blocksReceived: {
+                    some: {
+                      blockerId: currentUserId,
+                    },
+                  },
+                },
+              },
+              {
+                userAId: currentUserId,
+                userB: {
+                  blocksSent: {
+                    some: {
+                      blockedId: currentUserId,
+                    },
+                  },
+                },
+              },
+              {
+                userBId: currentUserId,
+                userA: {
+                  blocksSent: {
+                    some: {
+                      blockedId: currentUserId,
+                    },
+                  },
+                },
+              },
+            ],
           },
         ],
       },
