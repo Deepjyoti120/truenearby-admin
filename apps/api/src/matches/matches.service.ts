@@ -12,7 +12,20 @@ export class MatchesService {
   async getMatches(currentUserId: string) {
     const matches = await this.prisma.match.findMany({
       where: {
-        OR: [{ userAId: currentUserId }, { userBId: currentUserId }],
+        OR: [
+          {
+            userAId: currentUserId,
+            userB: {
+              isActive: true,
+            },
+          },
+          {
+            userBId: currentUserId,
+            userA: {
+              isActive: true,
+            },
+          },
+        ],
       },
       select: {
         id: true,
