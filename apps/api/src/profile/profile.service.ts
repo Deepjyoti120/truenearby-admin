@@ -41,6 +41,27 @@ type FeedOrderRow = {
   distanceKm?: number | null;
 };
 
+const buildFeedVisibilityClause = (userId: string) => Prisma.sql`
+  AND EXISTS (
+    SELECT 1
+    FROM "users" u
+    WHERE u.id = lup."userId"
+      AND u."isActive" = true
+  )
+  AND NOT EXISTS (
+    SELECT 1
+    FROM "blocks" b
+    WHERE b."blockerId" = ${userId}::uuid
+      AND b."blockedId" = lup."userId"
+  )
+  AND NOT EXISTS (
+    SELECT 1
+    FROM "blocks" b
+    WHERE b."blockerId" = lup."userId"
+      AND b."blockedId" = ${userId}::uuid
+  )
+`;
+
 @Injectable()
 export class ProfileService {
   constructor(
@@ -389,6 +410,7 @@ export class ProfileService {
         lup."postCreatedAt"
       FROM "latest_user_posts" lup
       WHERE lup."userId" != ${userId}::uuid
+      ${buildFeedVisibilityClause(userId)}
       AND NOT EXISTS (
         SELECT 1
         FROM "post_swipes" ps
@@ -434,6 +456,7 @@ export class ProfileService {
       ) AS "distanceKm"
     FROM "latest_user_posts" lup
     WHERE lup."userId" != ${userId}::uuid
+      ${buildFeedVisibilityClause(userId)}
       AND NOT EXISTS (
         SELECT 1
         FROM "post_swipes" ps
@@ -528,6 +551,7 @@ export class ProfileService {
           ) AS "distanceKm"
         FROM "latest_user_posts" lup
         WHERE lup."userId" != ${userId}::uuid
+        ${buildFeedVisibilityClause(userId)}
         AND NOT EXISTS (
           SELECT 1
           FROM "post_swipes" ps
@@ -604,6 +628,7 @@ export class ProfileService {
         SELECT COUNT(*)::int AS total
         FROM "latest_user_posts" lup
         WHERE lup."userId" != ${userId}::uuid
+        ${buildFeedVisibilityClause(userId)}
         AND NOT EXISTS (
           SELECT 1
           FROM "post_swipes" ps

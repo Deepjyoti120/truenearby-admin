@@ -376,11 +376,21 @@ describe('ProfileService', () => {
       const [countSql] = prisma.$queryRaw.mock.calls[1];
 
       expect(feedSql.sql).toContain('"latest_user_posts"');
+      expect(feedSql.sql).toContain('"users" u');
+      expect(feedSql.sql).toContain('u."isActive" = true');
+      expect(feedSql.sql).toContain('"blocks" b');
+      expect(feedSql.sql).toContain('b."blockerId" =');
+      expect(feedSql.sql).toContain('b."blockedId" = lup."userId"');
+      expect(feedSql.sql).toContain('b."blockerId" = lup."userId"');
+      expect(feedSql.sql).toContain('b."blockedId" =');
       expect(feedSql.sql).toContain('"post_swipes"');
       expect(feedSql.sql).toContain('ORDER BY lup."postCreatedAt" DESC');
       expect(feedSql.values).toContain('user-1');
       expect(countSql.sql).toContain('COUNT(*)::int AS total');
       expect(countSql.sql).toContain('"latest_user_posts"');
+      expect(countSql.sql).toContain('"users" u');
+      expect(countSql.sql).toContain('u."isActive" = true');
+      expect(countSql.sql).toContain('"blocks" b');
       expect(countSql.sql).toContain('WHERE lup."userId" !=');
       expect(countSql.sql).toContain('"post_swipes"');
       expect(countSql.values).toContain('user-1');
@@ -463,6 +473,9 @@ describe('ProfileService', () => {
       expect(prisma.profile.findUnique).not.toHaveBeenCalled();
       expect(feedSql.sql).toContain('distance');
       expect(feedSql.sql).toContain('"latest_user_posts"');
+      expect(feedSql.sql).toContain('"users" u');
+      expect(feedSql.sql).toContain('u."isActive" = true');
+      expect(feedSql.sql).toContain('"blocks" b');
       expect(feedSql.sql).toContain('"post_swipes"');
       expect(feedSql.values).toContain('user-1');
       expect(result).toEqual({
@@ -542,6 +555,8 @@ describe('ProfileService', () => {
 
       expect(prisma.$queryRaw).toHaveBeenCalledTimes(1);
       expect(feedSql.sql).toContain('"latest_user_posts"');
+      expect(feedSql.sql).toContain('"users" u');
+      expect(feedSql.sql).toContain('"blocks" b');
       expect(result).toEqual({
         success: true,
         pagination: {
