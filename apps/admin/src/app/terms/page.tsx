@@ -261,7 +261,7 @@ export default function TermsPage() {
               </p>
               <p>
                 <span className="font-semibold text-white">Email:</span>{" "}
-                rubikalita2021@gmail.com
+                deepjyoti120281@gmail.com
               </p>
               <p>
                 <span className="font-semibold text-white">Support:</span>{" "}
