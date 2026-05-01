@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 import { apiLogin } from "@/lib/api"
+import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -47,7 +48,7 @@ export function LoginForm({
     >
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
-          <h1 className="text-2xl font-bold">Admin Login</h1>
+          <h1 className="text-2xl font-bold">Sign in to {APP_NAME}</h1>
           <p className="text-sm text-balance text-muted-foreground">
             Enter your admin credentials to continue
           </p>
