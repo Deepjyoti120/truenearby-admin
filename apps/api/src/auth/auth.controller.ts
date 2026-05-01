@@ -10,6 +10,7 @@ import type { Request, Response } from 'express';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { AuthEntryDto } from './dto/entry.dto';
+import { LoginDto } from './dto/login.dto';
 import { ConfigService } from '@nestjs/config';
 
 @Controller('auth')
@@ -30,12 +31,37 @@ export class AuthController {
     } as const;
   }
 
+  private get accessCookieOptions() {
+    const isProduction = this.config.get('NODE_ENV') === 'production';
+    return {
+      httpOnly: false,
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
+      path: '/',
+      maxAge: 15 * 60 * 1000,
+    } as const;
+  }
+
   @Post('register')
   async register(@Body() dto: RegisterDto) {
     return {
       success: true,
       message: 'Account created successfully',
       data: await this.authService.register(dto),
+    };
+  }
+
+  @Post('login')
+  async login(
+    @Body() dto: LoginDto,
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    const result = await this.authService.login(dto);
+    res.cookie('refresh_token', result.refreshToken, this.refreshCookieOptions);
+    res.cookie('accessToken', result.accessToken, this.accessCookieOptions);
+    return {
+      accessToken: result.accessToken,
+      user: result.user,
     };
   }
 
@@ -80,6 +106,7 @@ export class AuthController {
     res.clearCookie('refresh_token', {
       path: '/api/v1/auth',
     });
+    res.clearCookie('accessToken', { path: '/' });
 
     return { success: true };
   }

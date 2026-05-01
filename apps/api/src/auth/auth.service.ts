@@ -3,10 +3,12 @@ import { PrismaService } from '../prisma/prisma.service';
 import { RegisterDto } from './dto/register.dto';
 import {
   BadRequestException,
+  ForbiddenException,
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
 import { AuthEntryDto } from './dto/entry.dto';
+import { LoginDto } from './dto/login.dto';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
@@ -104,6 +106,43 @@ export class AuthService {
       },
     });
     return user;
+  }
+
+  async login(dto: LoginDto) {
+    const user = await this.prisma.user.findUnique({
+      where: { email: dto.email },
+    });
+    if (!user) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+    const isValid = await bcrypt.compare(dto.password, user.passwordHash);
+    if (!isValid) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+    if (user.role !== 'admin') {
+      throw new ForbiddenException('Admin access required');
+    }
+    const accessToken = this.signAccessToken({
+      id: user.id,
+      email: user.email,
+    });
+    const refreshToken = this.signRefreshToken(user.id);
+    await this.prisma.refreshToken.create({
+      data: {
+        userId: user.id,
+        tokenHash: await bcrypt.hash(refreshToken, 12),
+        expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+      },
+    });
+    return {
+      accessToken,
+      refreshToken,
+      user: {
+        id: user.id,
+        email: user.email,
+        role: user.role,
+      },
+    };
   }
 
   async entry(dto: AuthEntryDto) {

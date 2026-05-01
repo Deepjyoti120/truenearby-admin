@@ -45,3 +45,11 @@ export const Plan = {
 } as const
 
 export type Plan = (typeof Plan)[keyof typeof Plan]
+
+
+export const Role = {
+  admin: 'admin',
+  user: 'user'
+} as const
+
+export type Role = (typeof Role)[keyof typeof Role]
