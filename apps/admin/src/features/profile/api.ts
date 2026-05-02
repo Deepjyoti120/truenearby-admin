@@ -45,7 +45,7 @@ export type ProfileApiRecord = {
   user: ProfileApiUserSummary
 }
 
-export type ProfileApiResponse = {
+export type UserProfileModel = {
   success: boolean
   account: {
     id: string
@@ -57,6 +57,12 @@ export type ProfileApiResponse = {
   }
   profile: ProfileApiRecord | null
   activeSubscription: unknown
+}
+
+export type UserProfileApiResponse = {
+  success: boolean
+  message: string
+  data: UserProfileModel
 }
 
 export type UpdateProfileSettingsInput = {
@@ -90,7 +96,7 @@ async function parseApiError(res: Response, fallbackMessage: string) {
   return message
 }
 
-export function getProfileDisplayModel(data: ProfileApiResponse) {
+export function getProfileDisplayModel(data: UserProfileModel) {
   const displayName = data.account.profileName || data.profile?.name || "Admin Profile"
 
   return {
@@ -112,7 +118,13 @@ export async function fetchProfile() {
     throw new Error(await parseApiError(res, "Failed to load profile"))
   }
 
-  return (await res.json()) as ProfileApiResponse
+  const body = (await res.json()) as UserProfileApiResponse
+
+  if (!body?.data) {
+    throw new Error("Invalid profile response returned from API")
+  }
+
+  return body.data
 }
 
 export async function updateProfileSettings(input: UpdateProfileSettingsInput) {
