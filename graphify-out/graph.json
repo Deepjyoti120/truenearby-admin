@@ -398,20 +398,20 @@
     {
       "label": "nav-main.tsx",
       "file_type": "code",
-      "source_file": "apps/admin/src/components/nav-main.tsx",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/nav-main.tsx",
       "source_location": "L1",
-      "id": "apps_admin_src_components_nav_main_tsx",
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_nav_main_tsx",
       "community": 36,
       "norm_label": "nav-main.tsx"
     },
     {
-      "label": "NavMain()",
+      "label": "isUrlActive()",
       "file_type": "code",
-      "source_file": "apps/admin/src/components/nav-main.tsx",
-      "source_location": "L23",
-      "id": "nav_main_navmain",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/nav-main.tsx",
+      "source_location": "L24",
+      "id": "nav_main_isurlactive",
       "community": 36,
-      "norm_label": "navmain()"
+      "norm_label": "isurlactive()"
     },
     {
       "label": "app-sidebar-header.tsx",
@@ -5087,13 +5087,13 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "apps/admin/src/components/nav-main.tsx",
-      "source_location": "L23",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/nav-main.tsx",
+      "source_location": "L24",
       "weight": 1.0,
-      "_src": "apps_admin_src_components_nav_main_tsx",
-      "_tgt": "nav_main_navmain",
-      "source": "apps_admin_src_components_nav_main_tsx",
-      "target": "nav_main_navmain",
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_nav_main_tsx",
+      "_tgt": "nav_main_isurlactive",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_nav_main_tsx",
+      "target": "nav_main_isurlactive",
       "confidence_score": 1.0
     },
     {
