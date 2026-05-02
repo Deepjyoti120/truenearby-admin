@@ -9,7 +9,6 @@ import {
   LogOut,
   Sparkles,
 } from "lucide-react"
-import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 import { adminProfileQueryKey } from "@/features/profile/query"
@@ -46,7 +45,6 @@ export function NavUser({
   }
 }) {
   const queryClient = useQueryClient()
-  const router = useRouter()
   const { isMobile } = useSidebar()
   const [isLoggingOut, setIsLoggingOut] = useState(false)
   const initials = user.name
@@ -69,9 +67,7 @@ export function NavUser({
       await queryClient.cancelQueries()
       queryClient.removeQueries({ queryKey: adminProfileQueryKey })
       queryClient.clear()
-      router.replace("/login")
-      router.refresh()
-      setIsLoggingOut(false)
+      window.location.replace("/login")
     }
   }
 
