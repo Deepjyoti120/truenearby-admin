@@ -6,7 +6,6 @@ import { Loader2, LockKeyhole, Mail, Save, UserRound } from "lucide-react"
 import { toast } from "sonner"
 
 import {
-  fetchProfile,
   getProfileDisplayModel,
   updateProfileSettings,
 } from "@/features/profile/api"
@@ -111,21 +110,14 @@ export function SettingsForm() {
           : {}),
       })
 
-      await queryClient.invalidateQueries({ queryKey: adminProfileQueryKey })
-      const nextProfileData = await queryClient.fetchQuery({
-        queryKey: adminProfileQueryKey,
-        queryFn: fetchProfile,
-      })
-      const nextProfileDisplay = getProfileDisplayModel(nextProfileData)
       setForm((current) => ({
         ...current,
-        profileName: nextProfileDisplay.profileName,
-        email: nextProfileDisplay.email,
         currentPassword: "",
         newPassword: "",
         confirmPassword: "",
       }))
       toast.success(response.message)
+      queryClient.invalidateQueries({ queryKey: adminProfileQueryKey })
     } catch (error) {
       setSubmitError(
         error instanceof Error ? error.message : "Failed to update settings"
@@ -195,7 +187,7 @@ export function SettingsForm() {
                   id="profileName"
                   name="profileName"
                   value={form.profileName}
-                  // onChange={(event) => updateField("profileName", event.target.value)}
+                  onChange={(event) => updateField("profileName", event.target.value)}
                   placeholder="Enter profile name"
                 />
                 <FieldDescription>
