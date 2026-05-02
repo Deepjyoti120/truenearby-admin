@@ -5,10 +5,12 @@ import { Loader2, LockKeyhole, Mail, Save, UserRound } from "lucide-react"
 import { toast } from "sonner"
 
 import {
-  apiGetCurrentUser,
-  apiUpdateCurrentUser,
-  type CurrentAdminUser,
+  apiUpdateProfileSettings,
 } from "@/lib/api"
+import {
+  refreshAdminProfile,
+  useAdminProfileStore,
+} from "@/stores/admin-profile-store"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -43,52 +45,22 @@ const initialFormState: FormState = {
 }
 
 export function SettingsForm() {
+  const { profileState, isLoading, error: loadError } = useAdminProfileStore()
   const [form, setForm] = useState<FormState>(initialFormState)
-  const [user, setUser] = useState<CurrentAdminUser | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
   const [isSaving, setIsSaving] = useState(false)
-  const [loadError, setLoadError] = useState("")
   const [submitError, setSubmitError] = useState("")
 
   useEffect(() => {
-    let isMounted = true
-
-    async function loadUser() {
-      try {
-        const currentUser = await apiGetCurrentUser()
-        if (!isMounted) {
-          return
-        }
-
-        setUser(currentUser)
-        setForm({
-          profileName: currentUser.profileName ?? "",
-          email: currentUser.email,
-          currentPassword: "",
-          newPassword: "",
-          confirmPassword: "",
-        })
-      } catch (error) {
-        if (!isMounted) {
-          return
-        }
-
-        setLoadError(
-          error instanceof Error ? error.message : "Failed to load settings"
-        )
-      } finally {
-        if (isMounted) {
-          setIsLoading(false)
-        }
-      }
+    if (!profileState) {
+      return
     }
 
-    void loadUser()
-
-    return () => {
-      isMounted = false
-    }
-  }, [])
+    setForm((current) => ({
+      ...current,
+      profileName: profileState.account.profileName ?? "",
+      email: profileState.account.email,
+    }))
+  }, [profileState])
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((current) => ({ ...current, [key]: value }))
@@ -100,7 +72,8 @@ export function SettingsForm() {
 
     const normalizedProfileName = form.profileName.trim()
     const wantsPasswordChange = Boolean(form.currentPassword || form.newPassword || form.confirmPassword)
-    const profileNameChanged = user !== null && normalizedProfileName !== (user.profileName ?? "")
+    const currentProfileName = profileState?.account.profileName ?? ""
+    const profileNameChanged = normalizedProfileName !== currentProfileName
 
     if (wantsPasswordChange) {
       if (!form.currentPassword || !form.newPassword || !form.confirmPassword) {
@@ -122,7 +95,7 @@ export function SettingsForm() {
     setIsSaving(true)
 
     try {
-      const response = await apiUpdateCurrentUser({
+      const response = await apiUpdateProfileSettings({
         ...(profileNameChanged ? { profileName: normalizedProfileName } : {}),
         ...(wantsPasswordChange
           ? {
@@ -132,11 +105,11 @@ export function SettingsForm() {
           : {}),
       })
 
-      setUser(response.user)
+      const nextProfileState = await refreshAdminProfile()
       setForm((current) => ({
         ...current,
-        profileName: response.user.profileName ?? "",
-        email: response.user.email,
+        profileName: nextProfileState.account.profileName ?? "",
+        email: nextProfileState.account.email,
         currentPassword: "",
         newPassword: "",
         confirmPassword: "",

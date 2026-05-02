@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  Patch,
   Param,
   ParseUUIDPipe,
   Post,
@@ -19,6 +20,7 @@ import { RegisterDeviceDto } from './dto/register-device.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { memoryFileStorage } from '../photos/multer.config';
 import { GetPostsDto } from './dto/get-posts.dto';
+import { UpdateProfileSettingsDto } from './dto/update-profile-settings.dto';
 
 @ApiTags('Profile')
 @ApiBearerAuth('access-token')
@@ -84,6 +86,15 @@ export class ProfileController {
   @Get()
   getProfile(@CurrentUser() user: { id: string }) {
     return this.profileService.getProfile(user.id);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch()
+  updateProfileSettings(
+    @CurrentUser() user: { id: string },
+    @Body() dto: UpdateProfileSettingsDto,
+  ) {
+    return this.profileService.updateSettings(user.id, dto);
   }
 
   @UseGuards(JwtAuthGuard)

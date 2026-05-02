@@ -34,7 +34,7 @@ export class AuthController {
   private get accessCookieOptions() {
     const isProduction = this.config.get('NODE_ENV') === 'production';
     return {
-      httpOnly: false,
+      httpOnly: true,
       secure: isProduction,
       sameSite: isProduction ? 'none' : 'lax',
       path: '/',

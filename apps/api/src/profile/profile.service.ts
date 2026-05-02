@@ -1,4 +1,5 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import * as bcrypt from 'bcrypt';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateProfileDto } from './dto/create-profile.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import { RegisterDeviceDto } from './dto/register-device.dto';
@@ -6,8 +7,9 @@ import { ImageKitService } from '../photos/imagekit.service';
 import { ReverseGeocodeService } from '../common/geo/reverse-geocode.service';
 import { ProfilePreferencesService } from './profile-preferences.service';
 import { GetPostsDto } from './dto/get-posts.dto';
-import { Prisma } from '../generated/prisma/client';
+import { Gender, LookingFor, Prisma } from '../generated/prisma/client';
 import { SubscriptionsService } from '../subscriptions/subscriptions.service';
+import { UpdateProfileSettingsDto } from './dto/update-profile-settings.dto';
 
 const FEED_POST_SELECT = {
   id: true,
@@ -71,6 +73,21 @@ export class ProfileService {
     private readonly profilePreferencesService: ProfilePreferencesService,
     private readonly subscriptionsService: SubscriptionsService,
   ) {}
+
+  private buildAdminProfileDefaults(profileName: string) {
+    return {
+      name: profileName,
+      gender: Gender.OTHER,
+      lookingFor: LookingFor.OPEN_TO_ANYTHING,
+      birthDate: new Date('2000-01-01'),
+      latitude: 0,
+      longitude: 0,
+      isHidden: true,
+      isRegistered: false,
+      isVerified: false,
+      interests: [],
+    };
+  }
 
   async create(userId: string, dto: CreateProfileDto) {
     const existing = await this.prisma.profile.findUnique({
@@ -228,26 +245,143 @@ export class ProfileService {
   }
 
   async getProfile(userId: string) {
-    const [profile, activeSubscription] = await Promise.all([
-      this.prisma.profile.findFirst({
-        where: { userId },
-        include: {
-          matchPreference: true,
-          user: {
-            select: {
-              id: true,
-              isActive: true,
-              photos: true,
+    const [user, activeSubscription] = await Promise.all([
+      this.prisma.user.findUnique({
+        where: { id: userId },
+        select: {
+          id: true,
+          email: true,
+          role: true,
+          isActive: true,
+          photos: true,
+          profile: {
+            include: {
+              matchPreference: true,
             },
           },
         },
       }),
       this.subscriptionsService.getCurrentSubscriptionForUser(userId),
     ]);
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    const profile = user.profile
+      ? {
+          ...user.profile,
+          user: {
+            id: user.id,
+            email: user.email,
+            role: user.role,
+            isActive: user.isActive,
+            photos: user.photos,
+          },
+        }
+      : null;
+
     return {
       success: true,
+      account: {
+        id: user.id,
+        email: user.email,
+        role: user.role,
+        isActive: user.isActive,
+        profileName: user.profile?.name ?? '',
+        photos: user.photos,
+      },
       profile,
       activeSubscription,
+    };
+  }
+
+  async updateSettings(userId: string, dto: UpdateProfileSettingsDto) {
+    const trimmedProfileName = dto.profileName?.trim();
+    const shouldUpdateName = dto.profileName !== undefined;
+    const wantsPasswordChange = !!dto.currentPassword || !!dto.newPassword;
+
+    if (!shouldUpdateName && !wantsPasswordChange) {
+      throw new BadRequestException('No changes provided');
+    }
+
+    if (!!dto.currentPassword !== !!dto.newPassword) {
+      throw new BadRequestException(
+        'Current password and new password are both required',
+      );
+    }
+
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: {
+        id: true,
+        passwordHash: true,
+        profile: {
+          select: {
+            id: true,
+          },
+        },
+      },
+    });
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    if (wantsPasswordChange) {
+      const isValidPassword = await bcrypt.compare(
+        dto.currentPassword!,
+        user.passwordHash,
+      );
+
+      if (!isValidPassword) {
+        throw new BadRequestException('Current password is incorrect');
+      }
+
+      const isSamePassword = await bcrypt.compare(
+        dto.newPassword!,
+        user.passwordHash,
+      );
+
+      if (isSamePassword) {
+        throw new BadRequestException(
+          'New password must be different from the current password',
+        );
+      }
+    }
+
+    await this.prisma.$transaction(async (tx) => {
+      if (shouldUpdateName) {
+        if (user.profile) {
+          await tx.profile.update({
+            where: { userId },
+            data: {
+              name: trimmedProfileName || null,
+            },
+          });
+        } else if (trimmedProfileName) {
+          await tx.profile.create({
+            data: {
+              userId,
+              ...this.buildAdminProfileDefaults(trimmedProfileName),
+            },
+          });
+        }
+      }
+
+      if (wantsPasswordChange) {
+        await tx.user.update({
+          where: { id: userId },
+          data: {
+            passwordHash: await bcrypt.hash(dto.newPassword!, 12),
+          },
+        });
+      }
+    });
+
+    return {
+      success: true,
+      message: 'Settings updated successfully',
     };
   }
   async getPosts(userId: string, query: GetPostsDto) {

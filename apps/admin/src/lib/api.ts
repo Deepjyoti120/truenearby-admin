@@ -7,9 +7,15 @@ export type CurrentAdminUser = {
   profileName: string
 }
 
-type UpdateCurrentUserResponse = {
-  message: string
-  user: CurrentAdminUser
+export type AdminProfileState = {
+  account: CurrentAdminUser & {
+    isActive: boolean
+    roleLabel: string
+  }
+  profile: {
+    id?: string
+    profileName: string
+  } | null
 }
 
 async function parseApiError(res: Response, fallbackMessage: string) {
@@ -54,6 +60,52 @@ function normalizeCurrentAdminUser(payload: unknown): CurrentAdminUser {
   }
 }
 
+function formatRoleLabel(role: string | null) {
+  if (!role) {
+    return "No role"
+  }
+
+  return role.charAt(0).toUpperCase() + role.slice(1)
+}
+
+function normalizeProfileState(payload: unknown): AdminProfileState {
+  if (!payload || typeof payload !== "object") {
+    throw new Error("Invalid profile payload returned from API")
+  }
+
+  const body = payload as {
+    account?: Record<string, unknown>
+    profile?: Record<string, unknown> | null
+  }
+
+  const accountSource =
+    body.account && typeof body.account === "object"
+      ? body.account
+      : {}
+
+  const baseAccount = normalizeCurrentAdminUser(accountSource)
+  const profileSource =
+    body.profile && typeof body.profile === "object" ? body.profile : null
+
+  return {
+    account: {
+      ...baseAccount,
+      isActive:
+        typeof accountSource.isActive === "boolean" ? accountSource.isActive : true,
+      roleLabel: formatRoleLabel(baseAccount.role),
+    },
+    profile: profileSource
+      ? {
+          id: typeof profileSource.id === "string" ? profileSource.id : undefined,
+          profileName:
+            typeof profileSource.name === "string"
+              ? profileSource.name
+              : baseAccount.profileName,
+        }
+      : null,
+  }
+}
+
 export async function apiLogin(email: string, password: string) {
   const res = await fetch(`${API_URL}/api/v1/auth/login`, {
     method: "POST",
@@ -87,12 +139,24 @@ export async function apiGetCurrentUser() {
   return normalizeCurrentAdminUser(await res.json())
 }
 
-export async function apiUpdateCurrentUser(input: {
+export async function apiGetProfileState() {
+  const res = await fetch(`${API_URL}/api/v1/profile`, {
+    credentials: "include",
+  })
+
+  if (!res.ok) {
+    throw new Error(await parseApiError(res, "Failed to load profile"))
+  }
+
+  return normalizeProfileState(await res.json())
+}
+
+export async function apiUpdateProfileSettings(input: {
   profileName?: string
   currentPassword?: string
   newPassword?: string
 }) {
-  const res = await fetch(`${API_URL}/api/v1/users/me`, {
+  const res = await fetch(`${API_URL}/api/v1/profile`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -103,19 +167,9 @@ export async function apiUpdateCurrentUser(input: {
     throw new Error(await parseApiError(res, "Failed to update settings"))
   }
 
-  const body = (await res.json()) as
-    | UpdateCurrentUserResponse
-    | CurrentAdminUser
-    | { message?: string; user?: CurrentAdminUser; name?: string }
+  const body = (await res.json()) as { message?: string }
 
   return {
-    message:
-      typeof body === "object" &&
-      body !== null &&
-      "message" in body &&
-      typeof body.message === "string"
-        ? body.message
-        : "Settings updated successfully",
-    user: normalizeCurrentAdminUser(body),
+    message: typeof body?.message === "string" ? body.message : "Settings updated successfully",
   }
 }

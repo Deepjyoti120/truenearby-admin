@@ -4,6 +4,8 @@ import * as React from "react"
 import { ArrowUpRight, Command, LayoutDashboard, Palette, Settings, Users } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
+import { NavUser } from "@/components/nav-user"
+import { useAdminProfileStore } from "@/stores/admin-profile-store"
 import {
   Sidebar,
   SidebarContent,
@@ -42,6 +44,11 @@ const navItems = [
   },
 ]
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { profileState } = useAdminProfileStore()
+  const accountName = profileState?.account.profileName || "Admin Profile"
+  const accountEmail = profileState?.account.email || "admin@example.com"
+  const roleLabel = profileState?.account.roleLabel || "Admin"
+
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>
@@ -53,8 +60,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <Command className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">Acme Inc</span>
-                  <span className="truncate text-xs">Enterprise</span>
+                  <span className="truncate font-medium">{accountName}</span>
+                  <span className="truncate text-xs">{roleLabel}</span>
                 </div>
               </a>
             </SidebarMenuButton>
@@ -64,7 +71,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain items={navItems} />
       </SidebarContent>
-      <SidebarFooter />
+      <SidebarFooter>
+        <NavUser
+          user={{
+            name: accountName,
+            email: accountEmail,
+            role: roleLabel,
+            avatar: "",
+          }}
+        />
+      </SidebarFooter>
     </Sidebar>
   )
 }
