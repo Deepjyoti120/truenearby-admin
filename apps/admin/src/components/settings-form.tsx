@@ -195,7 +195,7 @@ export function SettingsForm() {
                   id="profileName"
                   name="profileName"
                   value={form.profileName}
-                  onChange={(event) => updateField("profileName", event.target.value)}
+                  // onChange={(event) => updateField("profileName", event.target.value)}
                   placeholder="Enter profile name"
                 />
                 <FieldDescription>
