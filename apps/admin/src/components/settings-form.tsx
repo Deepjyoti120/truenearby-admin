@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useQueryClient } from "@tanstack/react-query"
 import { Loader2, LockKeyhole, Mail, Save, UserRound } from "lucide-react"
 import { toast } from "sonner"
@@ -52,7 +52,10 @@ export function SettingsForm() {
   const [form, setForm] = useState<FormState>(initialFormState)
   const [isSaving, setIsSaving] = useState(false)
   const [submitError, setSubmitError] = useState("")
-  const profileDisplay = profileData ? getProfileDisplayModel(profileData) : null
+  const profileDisplay = useMemo(
+    () => (profileData ? getProfileDisplayModel(profileData) : null),
+    [profileData]
+  )
   const loadError = error instanceof Error ? error.message : ""
 
   useEffect(() => {
