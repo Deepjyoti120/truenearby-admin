@@ -3,9 +3,10 @@
 import * as React from "react"
 import { ArrowUpRight, Command, LayoutDashboard, Palette, Settings, Users } from "lucide-react"
 
+import { getProfileDisplayModel } from "@/features/profile/api"
+import { useAdminProfileQuery } from "@/features/profile/query"
 import { NavMain } from "@/components/nav-main"
 import { NavUser } from "@/components/nav-user"
-import { useAdminProfileStore } from "@/stores/admin-profile-store"
 import {
   Sidebar,
   SidebarContent,
@@ -44,10 +45,11 @@ const navItems = [
   },
 ]
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { profileState } = useAdminProfileStore()
-  const accountName = profileState?.account.profileName || "Admin Profile"
-  const accountEmail = profileState?.account.email || "admin@example.com"
-  const roleLabel = profileState?.account.roleLabel || "Admin"
+  const { data: profileData } = useAdminProfileQuery()
+  const profileDisplay = profileData ? getProfileDisplayModel(profileData) : null
+  const accountName = profileDisplay?.name || "Admin Profile"
+  const accountEmail = profileDisplay?.email || "admin@example.com"
+  const roleLabel = profileDisplay?.roleLabel || "Admin"
 
   return (
     <Sidebar variant="inset" {...props}>
@@ -76,7 +78,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           user={{
             name: accountName,
             email: accountEmail,
-            role: roleLabel,
+            roleLabel,
             avatar: "",
           }}
         />

@@ -1,5 +1,6 @@
 "use client"
 
+import { useQueryClient } from "@tanstack/react-query"
 import {
   BadgeCheck,
   Bell,
@@ -8,7 +9,11 @@ import {
   LogOut,
   Sparkles,
 } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
 
+import { adminProfileQueryKey } from "@/features/profile/query"
+import { apiLogout } from "@/lib/api"
 import {
   Avatar,
   AvatarFallback,
@@ -36,17 +41,39 @@ export function NavUser({
   user: {
     name: string
     email: string
-    role: string
+    roleLabel: string
     avatar: string
   }
 }) {
+  const queryClient = useQueryClient()
+  const router = useRouter()
   const { isMobile } = useSidebar()
+  const [isLoggingOut, setIsLoggingOut] = useState(false)
   const initials = user.name
     .split(" ")
     .filter(Boolean)
     .slice(0, 2)
     .map((part) => part[0]?.toUpperCase())
     .join("") || "AD"
+
+  async function handleLogout() {
+    if (isLoggingOut) {
+      return
+    }
+
+    setIsLoggingOut(true)
+
+    try {
+      await apiLogout()
+    } finally {
+      await queryClient.cancelQueries()
+      queryClient.removeQueries({ queryKey: adminProfileQueryKey })
+      queryClient.clear()
+      router.replace("/login")
+      router.refresh()
+      setIsLoggingOut(false)
+    }
+  }
 
   return (
     <SidebarMenu>
@@ -84,7 +111,7 @@ export function NavUser({
                   <span className="truncate font-medium">{user.name}</span>
                   <span className="truncate text-xs">{user.email}</span>
                   <span className="truncate text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-                    {user.role}
+                    {user.roleLabel}
                   </span>
                 </div>
               </div>
@@ -112,9 +139,9 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={() => void handleLogout()}>
               <LogOut />
-              Log out
+              {isLoggingOut ? "Logging out..." : "Log out"}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

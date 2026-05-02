@@ -1,16 +1,19 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useQueryClient } from "@tanstack/react-query"
 import { Loader2, LockKeyhole, Mail, Save, UserRound } from "lucide-react"
 import { toast } from "sonner"
 
 import {
-  apiUpdateProfileSettings,
-} from "@/lib/api"
+  fetchProfile,
+  getProfileDisplayModel,
+  updateProfileSettings,
+} from "@/features/profile/api"
 import {
-  refreshAdminProfile,
-  useAdminProfileStore,
-} from "@/stores/admin-profile-store"
+  adminProfileQueryKey,
+  useAdminProfileQuery,
+} from "@/features/profile/query"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -45,22 +48,25 @@ const initialFormState: FormState = {
 }
 
 export function SettingsForm() {
-  const { profileState, isLoading, error: loadError } = useAdminProfileStore()
+  const queryClient = useQueryClient()
+  const { data: profileData, isLoading, error } = useAdminProfileQuery()
   const [form, setForm] = useState<FormState>(initialFormState)
   const [isSaving, setIsSaving] = useState(false)
   const [submitError, setSubmitError] = useState("")
+  const profileDisplay = profileData ? getProfileDisplayModel(profileData) : null
+  const loadError = error instanceof Error ? error.message : ""
 
   useEffect(() => {
-    if (!profileState) {
+    if (!profileDisplay) {
       return
     }
 
     setForm((current) => ({
       ...current,
-      profileName: profileState.account.profileName ?? "",
-      email: profileState.account.email,
+      profileName: profileDisplay.profileName,
+      email: profileDisplay.email,
     }))
-  }, [profileState])
+  }, [profileDisplay])
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((current) => ({ ...current, [key]: value }))
@@ -72,7 +78,7 @@ export function SettingsForm() {
 
     const normalizedProfileName = form.profileName.trim()
     const wantsPasswordChange = Boolean(form.currentPassword || form.newPassword || form.confirmPassword)
-    const currentProfileName = profileState?.account.profileName ?? ""
+    const currentProfileName = profileDisplay?.profileName ?? ""
     const profileNameChanged = normalizedProfileName !== currentProfileName
 
     if (wantsPasswordChange) {
@@ -95,7 +101,7 @@ export function SettingsForm() {
     setIsSaving(true)
 
     try {
-      const response = await apiUpdateProfileSettings({
+      const response = await updateProfileSettings({
         ...(profileNameChanged ? { profileName: normalizedProfileName } : {}),
         ...(wantsPasswordChange
           ? {
@@ -105,11 +111,16 @@ export function SettingsForm() {
           : {}),
       })
 
-      const nextProfileState = await refreshAdminProfile()
+      await queryClient.invalidateQueries({ queryKey: adminProfileQueryKey })
+      const nextProfileData = await queryClient.fetchQuery({
+        queryKey: adminProfileQueryKey,
+        queryFn: fetchProfile,
+      })
+      const nextProfileDisplay = getProfileDisplayModel(nextProfileData)
       setForm((current) => ({
         ...current,
-        profileName: nextProfileState.account.profileName ?? "",
-        email: nextProfileState.account.email,
+        profileName: nextProfileDisplay.profileName,
+        email: nextProfileDisplay.email,
         currentPassword: "",
         newPassword: "",
         confirmPassword: "",

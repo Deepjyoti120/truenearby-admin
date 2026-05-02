@@ -1,0 +1,138 @@
+import { API_URL } from "@/lib/api"
+
+export type ProfileApiUserSummary = {
+  id: string
+  email: string
+  role: string | null
+  isActive: boolean
+  photos: Array<{
+    id: string
+    url: string
+    fileId: string
+    isPrimary: boolean
+    createdAt: string
+  }>
+}
+
+export type ProfileApiRecord = {
+  id: string
+  userId: string
+  name: string | null
+  userName: string | null
+  gender: string
+  bio: string | null
+  birthDate: string
+  heightCm: number | null
+  lookingFor: string
+  interests: string[]
+  latitude: number
+  longitude: number
+  city: string | null
+  country: string | null
+  isHidden: boolean
+  isRegistered: boolean
+  isVerified: boolean
+  createdAt: string
+  updatedAt: string
+  matchPreference: {
+    id: string
+    profileId: string
+    minAge: number
+    maxAge: number
+    createdAt: string
+    updatedAt: string
+  } | null
+  user: ProfileApiUserSummary
+}
+
+export type ProfileApiResponse = {
+  success: boolean
+  account: {
+    id: string
+    email: string
+    role: string | null
+    isActive: boolean
+    profileName: string
+    photos: ProfileApiUserSummary["photos"]
+  }
+  profile: ProfileApiRecord | null
+  activeSubscription: unknown
+}
+
+export type UpdateProfileSettingsInput = {
+  profileName?: string
+  currentPassword?: string
+  newPassword?: string
+}
+
+function formatRoleLabel(role: string | null) {
+  if (!role) {
+    return "No role"
+  }
+
+  return role.charAt(0).toUpperCase() + role.slice(1)
+}
+
+async function parseApiError(res: Response, fallbackMessage: string) {
+  let message = fallbackMessage
+
+  try {
+    const body = await res.json()
+    if (typeof body?.message === "string") {
+      message = body.message
+    } else if (Array.isArray(body?.message) && typeof body.message[0] === "string") {
+      message = body.message[0]
+    }
+  } catch {
+    // ignore JSON parse errors
+  }
+
+  return message
+}
+
+export function getProfileDisplayModel(data: ProfileApiResponse) {
+  const displayName = data.account.profileName || data.profile?.name || "Admin Profile"
+
+  return {
+    email: data.account.email,
+    isActive: data.account.isActive,
+    name: displayName,
+    profileName: displayName,
+    role: data.account.role,
+    roleLabel: formatRoleLabel(data.account.role),
+  }
+}
+
+export async function fetchProfile() {
+  const res = await fetch(`${API_URL}/api/v1/profile`, {
+    credentials: "include",
+  })
+
+  if (!res.ok) {
+    throw new Error(await parseApiError(res, "Failed to load profile"))
+  }
+
+  return (await res.json()) as ProfileApiResponse
+}
+
+export async function updateProfileSettings(input: UpdateProfileSettingsInput) {
+  const res = await fetch(`${API_URL}/api/v1/profile`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify(input),
+  })
+
+  if (!res.ok) {
+    throw new Error(await parseApiError(res, "Failed to update settings"))
+  }
+
+  const body = (await res.json()) as { message?: string }
+
+  return {
+    message:
+      typeof body?.message === "string"
+        ? body.message
+        : "Settings updated successfully",
+  }
+}
