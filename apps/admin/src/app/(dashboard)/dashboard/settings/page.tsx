@@ -1,4 +1,5 @@
 import { AppSidebarLayout } from "@/components/app-sidebar-layout"
+import { SettingsForm } from "@/components/settings-form"
 
 export default function SettingsPage() {
   const breadcrumbs = [
@@ -8,7 +9,7 @@ export default function SettingsPage() {
 
   return (
     <AppSidebarLayout breadcrumbs={breadcrumbs}>
-      <div className="text-xl font-semibold">Settings</div>
+      <SettingsForm />
     </AppSidebarLayout>
   )
 }

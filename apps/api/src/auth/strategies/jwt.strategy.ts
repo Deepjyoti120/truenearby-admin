@@ -6,12 +6,20 @@ import {
   StrategyOptions,
   JwtFromRequestFunction,
 } from 'passport-jwt';
+import type { Request } from 'express';
+
+function extractJwtFromCookie(req: Request) {
+  return req.cookies?.accessToken ?? null;
+}
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor() {
     const jwtFromRequest: JwtFromRequestFunction =
-      ExtractJwt.fromAuthHeaderAsBearerToken();
+      ExtractJwt.fromExtractors([
+        extractJwtFromCookie,
+        ExtractJwt.fromAuthHeaderAsBearerToken(),
+      ]);
 
     const options: StrategyOptions = {
       jwtFromRequest,

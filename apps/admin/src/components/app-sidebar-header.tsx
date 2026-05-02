@@ -43,8 +43,8 @@ export function AppSidebarHeader({
 
             <Breadcrumb>
               <BreadcrumbList>
-                {breadcrumbs.map((item, index) => (
-                  <BreadcrumbItem key={index}>
+                {breadcrumbs.map((item, index) => [
+                  <BreadcrumbItem key={`item-${index}`}>
                     {item.href ? (
                       <BreadcrumbLink href={item.href}>
                         {item.title}
@@ -52,12 +52,11 @@ export function AppSidebarHeader({
                     ) : (
                       <BreadcrumbPage>{item.title}</BreadcrumbPage>
                     )}
-
-                    {index < breadcrumbs.length - 1 && (
-                      <BreadcrumbSeparator />
-                    )}
-                  </BreadcrumbItem>
-                ))}
+                  </BreadcrumbItem>,
+                  index < breadcrumbs.length - 1 ? (
+                    <BreadcrumbSeparator key={`separator-${index}`} />
+                  ) : null,
+                ])}
               </BreadcrumbList>
             </Breadcrumb>
           </>

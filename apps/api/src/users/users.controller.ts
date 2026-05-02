@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Patch,
+  Post,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { UsersService } from './users.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth/jwt-auth.guard';
@@ -9,6 +17,7 @@ import {
   CurrentUserPayload,
 } from '../auth/decorators/current-user.decorator';
 import { SwipeDto } from './dto/swipe.dto';
+import { UpdateCurrentUserDto } from './dto/update-current-user.dto';
 
 @ApiTags('users')
 @ApiBearerAuth('access-token')
@@ -23,6 +32,22 @@ export class UsersController {
   async getUsers() {
     return await this.prisma.user.findMany({ where: { isActive: true } });
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('me')
+  async getCurrentUser(@CurrentUser() user: CurrentUserPayload) {
+    return this.usersService.getCurrentUser(user.id);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch('me')
+  async updateCurrentUser(
+    @CurrentUser() user: CurrentUserPayload,
+    @Body() dto: UpdateCurrentUserDto,
+  ) {
+    return this.usersService.updateCurrentUser(user.id, dto);
+  }
+
   @UseGuards(JwtAuthGuard)
   @Get('nearby')
   async getNearbyUsers(

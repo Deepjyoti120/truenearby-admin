@@ -1,9 +1,14 @@
 import * as bcrypt from 'bcrypt';
 import { getBoundingBox } from '../common/geo/geo.utils';
 import { PrismaService } from '../prisma/prisma.service';
-import { BadRequestException, Injectable } from '@nestjs/common';
-import { Prisma } from '../generated/prisma/client';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+import { Gender, LookingFor, Prisma } from '../generated/prisma/client';
 import { SwipeDto } from './dto/swipe.dto';
+import { UpdateCurrentUserDto } from './dto/update-current-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -18,6 +23,163 @@ export class UsersService {
 
   findByEmail(email: string) {
     return this.users.find((u) => u.email === email);
+  }
+
+  private buildAdminProfileDefaults(profileName: string) {
+    return {
+      name: profileName,
+      gender: Gender.OTHER,
+      lookingFor: LookingFor.OPEN_TO_ANYTHING,
+      birthDate: new Date('2000-01-01'),
+      latitude: 0,
+      longitude: 0,
+      isHidden: true,
+      isRegistered: false,
+      isVerified: false,
+      interests: [],
+    };
+  }
+
+  async getCurrentUser(userId: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: {
+        id: true,
+        email: true,
+        role: true,
+        profile: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    return {
+      id: user.id,
+      email: user.email,
+      role: user.role,
+      profileName: user.profile?.name ?? '',
+    };
+  }
+
+  async updateCurrentUser(userId: string, dto: UpdateCurrentUserDto) {
+    const trimmedProfileName = dto.profileName?.trim();
+    const shouldUpdateName = dto.profileName !== undefined;
+    const wantsPasswordChange = !!dto.currentPassword || !!dto.newPassword;
+
+    if (!shouldUpdateName && !wantsPasswordChange) {
+      throw new BadRequestException('No changes provided');
+    }
+
+    if (!!dto.currentPassword !== !!dto.newPassword) {
+      throw new BadRequestException(
+        'Current password and new password are both required',
+      );
+    }
+
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: {
+        id: true,
+        email: true,
+        role: true,
+        passwordHash: true,
+        profile: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+      },
+    });
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    if (wantsPasswordChange) {
+      const isValidPassword = await bcrypt.compare(
+        dto.currentPassword!,
+        user.passwordHash,
+      );
+
+      if (!isValidPassword) {
+        throw new BadRequestException('Current password is incorrect');
+      }
+
+      const isSamePassword = await bcrypt.compare(
+        dto.newPassword!,
+        user.passwordHash,
+      );
+
+      if (isSamePassword) {
+        throw new BadRequestException(
+          'New password must be different from the current password',
+        );
+      }
+    }
+
+    const updatedUser = await this.prisma.$transaction(async (tx) => {
+      if (shouldUpdateName) {
+        if (user.profile) {
+          await tx.profile.update({
+            where: { userId },
+            data: {
+              name: trimmedProfileName || null,
+            },
+          });
+        } else if (trimmedProfileName) {
+          await tx.profile.create({
+            data: {
+              userId,
+              ...this.buildAdminProfileDefaults(trimmedProfileName),
+            },
+          });
+        }
+      }
+
+      if (wantsPasswordChange) {
+        await tx.user.update({
+          where: { id: userId },
+          data: {
+            passwordHash: await bcrypt.hash(dto.newPassword!, 12),
+          },
+        });
+      }
+
+      return tx.user.findUnique({
+        where: { id: userId },
+        select: {
+          id: true,
+          email: true,
+          role: true,
+          profile: {
+            select: {
+              name: true,
+            },
+          },
+        },
+      });
+    });
+
+    if (!updatedUser) {
+      throw new NotFoundException('User not found');
+    }
+
+    return {
+      message: 'Settings updated successfully',
+      user: {
+        id: updatedUser.id,
+        email: updatedUser.email,
+        role: updatedUser.role,
+        profileName: updatedUser.profile?.name ?? '',
+      },
+    };
   }
 
   async getNearbyUsersHybrid(

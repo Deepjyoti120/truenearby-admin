@@ -47,8 +47,8 @@ export function AppSidebarLayout({
                 {breadcrumbs.map((item, index) => {
                   const isLast = index === breadcrumbs.length - 1;
 
-                  return (
-                    <BreadcrumbItem key={index}>
+                  return [
+                    <BreadcrumbItem key={`item-${index}`}>
                       {item.href && !isLast ? (
                         <BreadcrumbLink asChild>
                           <Link href={item.href}>{item.title}</Link>
@@ -56,14 +56,13 @@ export function AppSidebarLayout({
                       ) : (
                         <BreadcrumbPage>{item.title}</BreadcrumbPage>
                       )}
-
-                      {!isLast && (
-                        <BreadcrumbSeparator>
-                          <ChevronRight className="h-4 w-4" />
-                        </BreadcrumbSeparator>
-                      )}
-                    </BreadcrumbItem>
-                  );
+                    </BreadcrumbItem>,
+                    !isLast ? (
+                      <BreadcrumbSeparator key={`separator-${index}`}>
+                        <ChevronRight className="h-4 w-4" />
+                      </BreadcrumbSeparator>
+                    ) : null,
+                  ];
                 })}
               </BreadcrumbList>
             </Breadcrumb>
