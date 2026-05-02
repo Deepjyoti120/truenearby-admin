@@ -132,7 +132,7 @@ export function SettingsForm() {
 
   if (isLoading) {
     return (
-      <div className="flex min-h-[320px] items-center justify-center rounded-[2rem] border border-slate-200/80 bg-white/90 shadow-sm">
+      <div className="admin-panel flex min-h-[320px] items-center justify-center">
         <div className="flex items-center gap-3 text-sm text-slate-500">
           <Loader2 className="size-4 animate-spin" />
           Loading account settings...
@@ -155,13 +155,13 @@ export function SettingsForm() {
   }
 
   return (
-    <form className="space-y-4" onSubmit={onSubmit}>
-      <section className="rounded-[2rem] border border-rose-200/70 bg-[linear-gradient(135deg,#fff7fa_0%,#fff2f5_40%,#fffaf4_100%)] p-6 shadow-sm">
+    <form className="space-y-6" onSubmit={onSubmit}>
+      <section className="admin-hero p-6 md:p-8">
         <div className="max-w-3xl space-y-3">
-          <span className="inline-flex rounded-full border border-rose-200 bg-white px-3 py-1 text-xs font-semibold tracking-[0.18em] text-rose-700 uppercase">
+          <span className="admin-kicker">
             Account settings
           </span>
-          <h1 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+          <h1 className="text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
             Update your admin profile and password from one place.
           </h1>
           <p className="text-sm leading-6 text-slate-600 md:text-base">
@@ -172,10 +172,10 @@ export function SettingsForm() {
       </section>
 
       <div className="grid gap-4 xl:grid-cols-[1.3fr_0.9fr]">
-        <Card className="rounded-[2rem] border-slate-200/80 bg-white/95">
+        <Card className="bg-white/94">
           <CardHeader className="border-b border-slate-100">
             <CardTitle className="flex items-center gap-2 text-xl text-slate-900">
-              <UserRound className="size-5 text-rose-600" />
+              <UserRound className="size-5 text-emerald-600" />
               Profile details
             </CardTitle>
             <CardDescription className="text-sm leading-6 text-slate-600">
@@ -219,10 +219,10 @@ export function SettingsForm() {
           </CardContent>
         </Card>
 
-        <Card className="rounded-[2rem] border-slate-200/80 bg-white/95">
+        <Card className="bg-white/94">
           <CardHeader className="border-b border-slate-100">
             <CardTitle className="flex items-center gap-2 text-xl text-slate-900">
-              <LockKeyhole className="size-5 text-rose-600" />
+              <LockKeyhole className="size-5 text-emerald-600" />
               Password
             </CardTitle>
             <CardDescription className="text-sm leading-6 text-slate-600">
@@ -274,7 +274,7 @@ export function SettingsForm() {
         </Card>
       </div>
 
-      <Card className="rounded-[2rem] border-slate-200/80 bg-white/95">
+      <Card className="bg-white/94">
         <CardContent className="flex flex-col gap-4 pt-6 md:flex-row md:items-center md:justify-between">
           <div className="space-y-1">
             <p className="text-sm font-medium text-slate-900">
@@ -290,7 +290,7 @@ export function SettingsForm() {
             <Button
               type="submit"
               disabled={isSaving}
-              className="w-full rounded-full bg-rose-600 text-white hover:bg-rose-500"
+              className="w-full"
             >
               {isSaving ? (
                 <>

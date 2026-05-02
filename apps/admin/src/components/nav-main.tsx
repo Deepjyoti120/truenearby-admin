@@ -45,8 +45,10 @@ export function NavMain({
   const pathname = usePathname()
 
   return (
-    <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
+    <SidebarGroup className="px-3 py-4">
+      <SidebarGroupLabel className="px-3 text-[11px] font-semibold tracking-[0.22em] text-slate-400 uppercase">
+        Administration
+      </SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => {
           const active = isUrlActive(pathname, item.url)
@@ -55,7 +57,12 @@ export function NavMain({
           return (
             <Collapsible key={item.title} asChild defaultOpen={active || hasActiveChild}>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild tooltip={item.title} isActive={active}>
+                <SidebarMenuButton
+                  asChild
+                  tooltip={item.title}
+                  isActive={active}
+                  className="h-11 rounded-2xl px-3 text-sm font-medium data-[active=true]:bg-emerald-50 data-[active=true]:text-emerald-800 data-[active=true]:shadow-[inset_0_0_0_1px_rgba(16,185,129,0.16)]"
+                >
                   <Link href={item.url}>
                     <item.icon />
                     <span>{item.title}</span>

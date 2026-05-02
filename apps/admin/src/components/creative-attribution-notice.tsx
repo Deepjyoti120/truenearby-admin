@@ -16,8 +16,8 @@ const variantClasses = {
   },
   light: {
     wrapper:
-      "border-rose-200/80 bg-rose-50/80 text-slate-600",
-    link: "text-rose-700 hover:text-rose-800",
+      "border-emerald-200/80 bg-emerald-50/80 text-slate-600",
+    link: "text-emerald-700 hover:text-emerald-800",
     label: "text-slate-900",
   },
 } as const

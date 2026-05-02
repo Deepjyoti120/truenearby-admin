@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { CreativeAttributionNotice } from "@/components/creative-attribution-notice";
-
 export const metadata: Metadata = {
   title: "Child Safety Standards | TrueNearby",
   description:

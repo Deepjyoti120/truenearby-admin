@@ -47,38 +47,38 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --radius: 6px;
+  --background: oklch(0.973 0.007 240);
+  --foreground: oklch(0.24 0.02 248);
+  --card: oklch(0.995 0.002 240);
+  --card-foreground: oklch(0.24 0.02 248);
+  --popover: oklch(0.995 0.002 240);
+  --popover-foreground: oklch(0.24 0.02 248);
+  --primary: oklch(0.58 0.14 167);
+  --primary-foreground: oklch(0.99 0.004 240);
+  --secondary: oklch(0.956 0.01 240);
+  --secondary-foreground: oklch(0.28 0.024 248);
+  --muted: oklch(0.956 0.01 240);
+  --muted-foreground: oklch(0.5 0.025 248);
+  --accent: oklch(0.942 0.016 168);
+  --accent-foreground: oklch(0.28 0.024 248);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.9 0.012 245);
+  --input: oklch(0.918 0.012 245);
+  --ring: oklch(0.69 0.115 167);
+  --chart-1: oklch(0.63 0.16 167);
+  --chart-2: oklch(0.69 0.13 208);
+  --chart-3: oklch(0.76 0.16 88);
+  --chart-4: oklch(0.72 0.12 140);
+  --chart-5: oklch(0.62 0.19 32);
+  --sidebar: oklch(0.995 0.002 240);
+  --sidebar-foreground: oklch(0.28 0.024 248);
+  --sidebar-primary: oklch(0.58 0.14 167);
+  --sidebar-primary-foreground: oklch(0.99 0.004 240);
+  --sidebar-accent: oklch(0.948 0.012 168);
+  --sidebar-accent-foreground: oklch(0.28 0.024 248);
+  --sidebar-border: oklch(0.9 0.012 245);
+  --sidebar-ring: oklch(0.69 0.115 167);
 }
 
 .dark {
@@ -121,6 +121,42 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image:
+      radial-gradient(circle at top left, rgb(16 185 129 / 0.12), transparent 28%),
+      radial-gradient(circle at top right, rgb(59 130 246 / 0.06), transparent 24%),
+      linear-gradient(180deg, rgb(248 250 252 / 0.88), rgb(241 245 249 / 0.94));
+  }
+}
+
+@layer components {
+  .admin-shell {
+    @apply bg-transparent;
+  }
+
+  .admin-panel {
+    @apply rounded-3xl border border-slate-200/80 bg-white/90 shadow-[0_18px_55px_-34px_rgba(15,23,42,0.38)] backdrop-blur-sm;
+  }
+
+  .admin-panel-muted {
+    @apply rounded-[1.25rem] border border-slate-200/75 bg-slate-50/90;
+  }
+
+  .admin-kicker {
+    @apply inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold tracking-[0.22em] text-emerald-700 uppercase;
+  }
+
+  .admin-hero {
+    @apply relative overflow-hidden rounded-[2rem] border border-emerald-100/80 bg-[linear-gradient(135deg,rgba(255,255,255,0.95)_0%,rgba(240,253,250,0.98)_40%,rgba(239,246,255,0.9)_100%)] shadow-[0_20px_60px_-38px_rgba(15,23,42,0.42)];
+  }
+
+  .admin-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at top right, rgb(16 185 129 / 0.16), transparent 28%),
+      radial-gradient(circle at bottom left, rgb(14 165 233 / 0.08), transparent 24%);
+    pointer-events: none;
   }
 }
 

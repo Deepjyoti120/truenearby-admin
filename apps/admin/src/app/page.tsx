@@ -2,8 +2,6 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { CreativeAttributionNotice } from "@/components/creative-attribution-notice";
-
 const trustPills = [
   "Verified members",
   "Private by design",

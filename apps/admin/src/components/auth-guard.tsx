@@ -1,7 +1,7 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
 import { tokenStore } from "@/lib/api"
 
@@ -12,11 +12,11 @@ type AuthGuardProps = {
 
 export function AuthGuard({ mode, children }: AuthGuardProps) {
   const router = useRouter()
-  const [ready, setReady] = useState(false)
+  const hasToken = Boolean(tokenStore.getAccess())
+  const shouldRedirect =
+    (mode === "protected" && !hasToken) || (mode === "guest" && hasToken)
 
   useEffect(() => {
-    const hasToken = Boolean(tokenStore.getAccess())
-
     if (mode === "protected" && !hasToken) {
       router.replace("/login")
       return
@@ -24,13 +24,10 @@ export function AuthGuard({ mode, children }: AuthGuardProps) {
 
     if (mode === "guest" && hasToken) {
       router.replace("/dashboard")
-      return
     }
+  }, [hasToken, mode, router])
 
-    setReady(true)
-  }, [mode, router])
-
-  if (!ready) return null
+  if (shouldRedirect) return null
 
   return <>{children}</>
 }

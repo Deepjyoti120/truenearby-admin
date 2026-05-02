@@ -26,23 +26,20 @@ export default function CreatePage() {
 
   return (
     <AppSidebarLayout breadcrumbs={breadcrumbs}>
-      <div className="space-y-4 pt-4">
-        <section className="relative overflow-hidden rounded-[2rem] border border-rose-200/70 bg-[linear-gradient(135deg,#fff6f8_0%,#fff0f5_45%,#fff8f1_100%)] p-6 shadow-sm">
+      <div className="space-y-6">
+        <section className="admin-hero p-6 md:p-8">
           <div
             aria-hidden
-            className="absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_top_right,rgba(255,118,162,0.24),transparent_62%)]"
+            className="absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.18),transparent_62%)]"
           />
           <div className="relative z-10 grid gap-6 xl:grid-cols-[1.4fr_0.9fr]">
             <div className="space-y-4">
-              <span className="inline-flex rounded-full border border-rose-200 bg-white/80 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-rose-700 uppercase">
-                Creative board
-              </span>
+              <span className="admin-kicker">Resource workspace</span>
               <div className="space-y-2">
-                <h1 className="max-w-3xl text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
-                  Build the dating app create flow with romantic icons, stickers,
-                  and pink mood references.
+                <h1 className="max-w-3xl text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+                  Curate design references inside a structured admin workspace.
                 </h1>
-                <p className="max-w-2xl text-sm leading-6 text-slate-600 md:text-base">
+                <p className="max-w-2xl text-sm leading-7 text-slate-600 md:text-base">
                   I grouped your links into one dashboard page so the team can
                   browse visual references quickly while designing onboarding,
                   banners, profile states, and message-themed screens.
@@ -50,17 +47,13 @@ export default function CreatePage() {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <Button asChild className="rounded-full bg-rose-600 px-5 text-white hover:bg-rose-500">
+                <Button asChild className="px-5">
                   <Link href="/dashboard/links">
                     Open link page
                     <ArrowRight />
                   </Link>
                 </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="rounded-full border-rose-200 bg-white/80 px-5 text-rose-700 hover:bg-rose-50"
-                >
+                <Button asChild variant="outline" className="bg-white/80 px-5">
                   <a
                     href="https://www.flaticon.com/free-icons/valentine"
                     target="_blank"
@@ -82,10 +75,10 @@ export default function CreatePage() {
               {creativePageHighlights.map((item) => (
                 <div
                   key={item.title}
-                  className="rounded-3xl border border-white/70 bg-white/80 p-4 backdrop-blur-sm"
+                  className="rounded-3xl border border-white/80 bg-white/86 p-4 backdrop-blur-sm"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-rose-100 text-rose-700">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100">
                       <item.icon className="h-5 w-5" />
                     </div>
                     <div>
@@ -107,10 +100,7 @@ export default function CreatePage() {
         <section className="grid gap-4 xl:grid-cols-[1.6fr_0.9fr]">
           <div className="grid gap-4 md:grid-cols-2">
             {creativeResourceGroups.map((group) => (
-              <Card
-                key={group.id}
-                className="overflow-hidden border-slate-200/80 bg-white/95 shadow-sm"
-              >
+              <Card key={group.id} className="overflow-hidden bg-white/94">
                 <CardHeader className="gap-3 border-b border-slate-100 pb-5">
                   <div
                     className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border bg-gradient-to-br ${group.accentClassName}`}
@@ -133,14 +123,14 @@ export default function CreatePage() {
                       href={resource.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-start justify-between gap-4 rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4 transition hover:-translate-y-0.5 hover:border-rose-200 hover:bg-rose-50"
+                      className="group flex items-start justify-between gap-4 rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4 transition hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-emerald-50/60"
                     >
                       <div className="space-y-1">
                         <div className="flex flex-wrap items-center gap-2">
                           <span className="rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-slate-600">
                             {resource.source}
                           </span>
-                          <span className="text-[11px] font-medium tracking-[0.18em] text-rose-500 uppercase">
+                          <span className="text-[11px] font-medium tracking-[0.18em] text-emerald-600 uppercase">
                             External
                           </span>
                         </div>
@@ -151,7 +141,7 @@ export default function CreatePage() {
                           {resource.description}
                         </p>
                       </div>
-                      <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:text-rose-600" />
+                      <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:text-emerald-700" />
                     </a>
                   ))}
                 </CardContent>
@@ -159,7 +149,7 @@ export default function CreatePage() {
             ))}
           </div>
 
-          <Card className="border-slate-200/80 bg-[linear-gradient(180deg,#fff8fb_0%,#ffffff_100%)] shadow-sm">
+          <Card className="bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(240,253,250,0.92)_100%)]">
             <CardHeader className="border-b border-slate-100">
               <CardTitle className="text-xl text-slate-900">
                 How to use these links
@@ -170,8 +160,8 @@ export default function CreatePage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-5 pt-6">
-              <div className="rounded-3xl border border-rose-100 bg-white p-5">
-                <p className="text-sm font-semibold tracking-[0.18em] text-rose-500 uppercase">
+              <div className="rounded-3xl border border-emerald-100 bg-white p-5">
+                <p className="text-sm font-semibold tracking-[0.18em] text-emerald-600 uppercase">
                   Saved references
                 </p>
                 <p className="mt-2 text-4xl font-semibold text-slate-900">
@@ -194,7 +184,7 @@ export default function CreatePage() {
                 ))}
               </div>
 
-              <Button asChild variant="outline" className="w-full rounded-full border-rose-200 text-rose-700 hover:bg-rose-50">
+              <Button asChild variant="outline" className="w-full">
                 <Link href="/dashboard/links">
                   View redirect links
                   <ArrowRight />
