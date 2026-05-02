@@ -75,7 +75,7 @@ export class AuthController {
 
     return {
       accessToken: result.accessToken,
-      ...(dto.platform != 'web' ? { refreshToken: result.refreshToken } : {}),
+      refreshToken: result.refreshToken,
       user: result.user,
     };
   }

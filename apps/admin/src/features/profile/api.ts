@@ -1,4 +1,4 @@
-import { API_URL } from "@/lib/api"
+import { apiFetch, parseApiError } from "@/lib/api"
 
 export type ProfileApiUserSummary = {
   id: string
@@ -79,23 +79,6 @@ function formatRoleLabel(role: string | null) {
   return role.charAt(0).toUpperCase() + role.slice(1)
 }
 
-async function parseApiError(res: Response, fallbackMessage: string) {
-  let message = fallbackMessage
-
-  try {
-    const body = await res.json()
-    if (typeof body?.message === "string") {
-      message = body.message
-    } else if (Array.isArray(body?.message) && typeof body.message[0] === "string") {
-      message = body.message[0]
-    }
-  } catch {
-    // ignore JSON parse errors
-  }
-
-  return message
-}
-
 export function getProfileDisplayModel(data: UserProfileModel) {
   const displayName = data.account.profileName || data.profile?.name || "Admin Profile"
 
@@ -110,9 +93,7 @@ export function getProfileDisplayModel(data: UserProfileModel) {
 }
 
 export async function fetchProfile() {
-  const res = await fetch(`${API_URL}/api/v1/profile`, {
-    credentials: "include",
-  })
+  const res = await apiFetch("/api/v1/profile")
 
   if (!res.ok) {
     throw new Error(await parseApiError(res, "Failed to load profile"))
@@ -128,10 +109,9 @@ export async function fetchProfile() {
 }
 
 export async function updateProfileSettings(input: UpdateProfileSettingsInput) {
-  const res = await fetch(`${API_URL}/api/v1/profile`, {
+  const res = await apiFetch("/api/v1/profile", {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
-    credentials: "include",
     body: JSON.stringify(input),
   })
 

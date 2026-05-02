@@ -1,12 +1,12 @@
 # Graph Report - /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin  (2026-05-02)
 
 ## Corpus Check
-- 175 files · ~272,912 words
+- 175 files · ~273,575 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 507 nodes · 418 edges · 154 communities detected
-- Extraction: 86% EXTRACTED · 13% INFERRED · 0% AMBIGUOUS · INFERRED: 56 edges (avg confidence: 0.81)
+- 513 nodes · 431 edges · 154 communities detected
+- Extraction: 86% EXTRACTED · 14% INFERRED · 0% AMBIGUOUS · INFERRED: 60 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -172,10 +172,10 @@
 4. `ProfileController` - 10 edges
 5. `NestJS Framework` - 10 edges
 6. `AuthController` - 9 edges
-7. `PostsService` - 8 edges
-8. `ChatService` - 8 edges
-9. `UsersService` - 8 edges
-10. `UsersController` - 7 edges
+7. `apiFetch()` - 8 edges
+8. `PostsService` - 8 edges
+9. `ChatService` - 8 edges
+10. `UsersService` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `NavUser()` --calls--> `useSidebar()`  [INFERRED]
@@ -186,8 +186,8 @@
   readme.md → apps/api/config/firebase/README.md
 - `Prisma Module` --part_of--> `NestJS Framework`  [INFERRED]
   readme.md → apps/api/README.md
-- `Next.js Admin App` --semantically_similar_to--> `NestJS Framework`  [INFERRED] [semantically similar]
-  apps/admin/README.md → apps/api/README.md
+- `onSubmit()` --calls--> `apiLogin()`  [INFERRED]
+  /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/login-form.tsx → /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/lib/api.ts
 
 ## Hyperedges (group relationships)
 - **NestJS module scaffolding pattern** —  [EXTRACTED 1.00]
@@ -220,16 +220,16 @@ Cohesion: 0.1
 Nodes (3): ImageKitService, PhotosController, PhotosService
 
 ### Community 6 - "Community 6"
+Cohesion: 0.15
+Nodes (15): apiFetch(), apiLogin(), apiLogout(), fetchProfile(), formatRoleLabel(), getPlatform(), getProfileDisplayModel(), isAuthRoute() (+7 more)
+
+### Community 7 - "Community 7"
 Cohesion: 0.11
 Nodes (3): getBoundingBox(), UsersController, UsersService
 
-### Community 7 - "Community 7"
+### Community 8 - "Community 8"
 Cohesion: 0.13
 Nodes (2): PostsController, PostsService
-
-### Community 8 - "Community 8"
-Cohesion: 0.17
-Nodes (9): apiLogin(), fetchProfile(), formatRoleLabel(), getProfileDisplayModel(), parseApiError(), updateProfileSettings(), AppSidebar(), onSubmit() (+1 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.2
@@ -818,15 +818,15 @@ Nodes (0):
 ## Knowledge Gaps
 - **57 isolated node(s):** `AppModule`, `PostsModule`, `SwipePostDto`, `CreatePostDto`, `CreateMessageDto` (+52 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 31`** (2 nodes): `proxy.ts`, `proxy()`
+- **Thin community `Community 31`** (2 nodes): `RootLayout()`, `layout.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 32`** (2 nodes): `RootLayout()`, `layout.tsx`
+- **Thin community `Community 32`** (2 nodes): `page.tsx`, `AccountDeletePage()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 33`** (2 nodes): `page.tsx`, `AccountDeletePage()`
+- **Thin community `Community 33`** (2 nodes): `DashboardLayout()`, `layout.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 34`** (2 nodes): `layout.tsx`, `DashboardLayout()`
+- **Thin community `Community 34`** (2 nodes): `page.tsx`, `LinksPage()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 35`** (2 nodes): `page.tsx`, `LinksPage()`
+- **Thin community `Community 35`** (2 nodes): `AuthGuard()`, `auth-guard.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 36`** (2 nodes): `isUrlActive()`, `nav-main.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -1071,9 +1071,9 @@ _Questions this graph is uniquely positioned to answer:_
 - **What is the exact relationship between `Matches Module` and `Nominatim Reverse Geocoding API`?**
   _Edge tagged AMBIGUOUS (relation: likely_uses) - confidence is low._
 - **Why does `ProfileService` connect `Community 0` to `Community 3`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
+  _High betweenness centrality (0.039) - this node is a cross-community bridge._
 - **Why does `ProfileController` connect `Community 0` to `Community 4`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
+  _High betweenness centrality (0.039) - this node is a cross-community bridge._
 - **Are the 4 inferred relationships involving `NestJS Framework` (e.g. with `NestJS CLI Module/Controller/Service Generation` and `Prisma Module`) actually correct?**
   _`NestJS Framework` has 4 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `AppModule`, `PostsModule`, `SwipePostDto` to the rest of the system?**
