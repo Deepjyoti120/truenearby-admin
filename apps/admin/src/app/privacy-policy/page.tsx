@@ -161,9 +161,30 @@ export default function PrivacyPolicyPage() {
             </p>
           </section>
 
+          <section className="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <h2 className="text-lg font-semibold text-white md:text-xl">
+              7. Refund and Cancellation
+            </h2>
+            <p className="mt-3 text-[#D9C3CD]">
+              Subscriptions and one-time digital purchases on the Android app
+              are processed through Google Play Billing. Cancellations,
+              auto-renewal management, and refund eligibility are governed by
+              Google Play policies and the rules of the platform through which
+              you subscribed. For full details on how cancellations work, when
+              refunds may be issued, and how to escalate a billing dispute,
+              please refer to our dedicated page.
+            </p>
+            <Link
+              href="/refund-cancellation"
+              className="mt-4 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-medium text-[#E9D3DC] transition hover:bg-white/15"
+            >
+              View Refund and Cancellation Policy
+            </Link>
+          </section>
+
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              7. Data Retention
+              8. Data Retention
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               We retain personal data only for as long as necessary for service
@@ -175,7 +196,7 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              8. Your Rights
+              9. Your Rights
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               Subject to applicable law, you may request:
@@ -191,7 +212,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="rounded-2xl border border-white/10 bg-white/5 p-5">
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              9. Account Deletion Request
+              10. Account Deletion Request
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               If you want to delete your TrueNearby account, you can submit a
@@ -210,7 +231,7 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              10. Children and Age Restriction
+              11. Children and Age Restriction
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               TrueNearby is an adults-only dating platform. You must be at
@@ -221,7 +242,7 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              11. Security Practices
+              12. Security Practices
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               We implement reasonable security practices and technical controls
@@ -233,7 +254,7 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              12. Cross-Border Transfers
+              13. Cross-Border Transfers
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               Where data is processed outside India, we apply contractual and
@@ -244,7 +265,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="rounded-2xl border border-white/15 bg-white/5 p-5">
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              13. Grievance Officer and Contact
+              14. Grievance Officer and Contact
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               For privacy complaints, account safety concerns, or legal data
@@ -278,11 +299,17 @@ export default function PrivacyPolicyPage() {
                 timelines where applicable).
               </p>
             </div>
+            <Link
+              href="/contact-us"
+              className="mt-4 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-medium text-[#E9D3DC] transition hover:bg-white/15"
+            >
+              Visit Contact Us Page
+            </Link>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white md:text-xl">
-              14. Updates to This Policy
+              15. Updates to This Policy
             </h2>
             <p className="mt-3 text-[#D9C3CD]">
               We may update this Privacy Policy from time to time to reflect
