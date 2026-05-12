@@ -1,5 +1,7 @@
 import { apiFetch, parseApiError } from "@/lib/api"
 
+export type AdminGender = "MALE" | "FEMALE" | "OTHER"
+
 export type AdminUserRow = {
   id: string
   email: string
@@ -8,6 +10,7 @@ export type AdminUserRow = {
   isActive: boolean
   createdAt: string
   name: string | null
+  gender: AdminGender | null
 }
 
 export type ListUsersResponse = {
@@ -30,6 +33,7 @@ export type ListUsersInput = {
   page?: number
   limit?: number
   search?: string
+  gender?: AdminGender
 }
 
 export async function fetchUsers(input: ListUsersInput): Promise<ListUsersResponse> {
@@ -37,6 +41,7 @@ export async function fetchUsers(input: ListUsersInput): Promise<ListUsersRespon
   if (input.page) params.set("page", String(input.page))
   if (input.limit) params.set("limit", String(input.limit))
   if (input.search?.trim()) params.set("search", input.search.trim())
+  if (input.gender) params.set("gender", input.gender)
 
   const qs = params.toString()
   const res = await apiFetch(`/api/v1/users${qs ? `?${qs}` : ""}`)

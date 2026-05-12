@@ -10,7 +10,13 @@ import {
 } from "@/features/users/api"
 
 export const usersQueryKey = (input: ListUsersInput) =>
-  ["admin-users", input.page ?? 1, input.limit ?? 10, input.search ?? ""] as const
+  [
+    "admin-users",
+    input.page ?? 1,
+    input.limit ?? 10,
+    input.search ?? "",
+    input.gender ?? "",
+  ] as const
 
 export function useUsersQuery(input: ListUsersInput) {
   return useQuery({

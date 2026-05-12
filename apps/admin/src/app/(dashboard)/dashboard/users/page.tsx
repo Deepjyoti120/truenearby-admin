@@ -1,10 +1,11 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
+import { useMemo, useState } from "react"
 import { Search } from "lucide-react"
 import { toast } from "sonner"
 
 import { AppSidebarLayout } from "@/components/app-sidebar-layout"
+import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -22,6 +23,13 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Switch } from "@/components/ui/switch"
 import {
@@ -32,7 +40,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import type { AdminUserRow } from "@/features/users/api"
+import type { AdminGender, AdminUserRow } from "@/features/users/api"
 import {
   useSetUserActiveMutation,
   useUsersQuery,
@@ -40,14 +48,14 @@ import {
 
 const PAGE_SIZE = 10
 
-function useDebouncedValue<T>(value: T, delay = 300) {
-  const [debounced, setDebounced] = useState(value)
-  useEffect(() => {
-    const id = window.setTimeout(() => setDebounced(value), delay)
-    return () => window.clearTimeout(id)
-  }, [value, delay])
-  return debounced
-}
+const GENDER_OPTIONS: Array<{ value: AdminGender; label: string }> = [
+  { value: "MALE", label: "Male" },
+  { value: "FEMALE", label: "Female" },
+  { value: "OTHER", label: "Other" },
+]
+
+const GENDER_ANY = "ALL"
+type GenderInput = AdminGender | typeof GENDER_ANY
 
 type PageToken = number | "ellipsis-start" | "ellipsis-end"
 
@@ -60,15 +68,9 @@ function buildPageList(current: number, total: number): PageToken[] {
   const left = Math.max(2, current - 1)
   const right = Math.min(total - 1, current + 1)
 
-  if (left > 2) {
-    tokens.push("ellipsis-start")
-  }
-  for (let i = left; i <= right; i++) {
-    tokens.push(i)
-  }
-  if (right < total - 1) {
-    tokens.push("ellipsis-end")
-  }
+  if (left > 2) tokens.push("ellipsis-start")
+  for (let i = left; i <= right; i++) tokens.push(i)
+  if (right < total - 1) tokens.push("ellipsis-end")
   tokens.push(total)
   return tokens
 }
@@ -83,6 +85,11 @@ function formatDate(iso: string) {
   })
 }
 
+function formatGender(g: AdminGender | null) {
+  if (!g) return "—"
+  return g.charAt(0) + g.slice(1).toLowerCase()
+}
+
 function UserRowItem({
   user,
   onToggle,
@@ -94,15 +101,16 @@ function UserRowItem({
 }) {
   return (
     <TableRow>
-      <TableCell className="font-medium text-slate-900">
+      <TableCell className="pl-6 font-medium text-slate-900">
         {user.name ?? "—"}
       </TableCell>
       <TableCell className="text-slate-700">{user.email}</TableCell>
       <TableCell className="text-slate-700">{user.phone ?? "—"}</TableCell>
+      <TableCell className="text-slate-700">{formatGender(user.gender)}</TableCell>
       <TableCell className="text-slate-500">
         {formatDate(user.createdAt)}
       </TableCell>
-      <TableCell>
+      <TableCell className="pr-6">
         <div className="flex items-center gap-2">
           <Switch
             checked={user.isActive}
@@ -123,25 +131,34 @@ function UserRowItem({
   )
 }
 
+type AppliedFilters = {
+  search: string
+  gender: GenderInput
+}
+
 export default function UsersPage() {
   const breadcrumbs = [
     { title: "Dashboard", href: "/dashboard" },
     { title: "Users" },
   ]
 
-  const [page, setPage] = useState(1)
   const [searchInput, setSearchInput] = useState("")
-  const search = useDebouncedValue(searchInput, 300)
-  const [lastAppliedSearch, setLastAppliedSearch] = useState(search)
-
-  if (lastAppliedSearch !== search) {
-    setLastAppliedSearch(search)
-    setPage(1)
-  }
+  const [genderInput, setGenderInput] = useState<GenderInput>(GENDER_ANY)
+  const [applied, setApplied] = useState<AppliedFilters>({
+    search: "",
+    gender: GENDER_ANY,
+  })
+  const [page, setPage] = useState(1)
 
   const queryInput = useMemo(
-    () => ({ page, limit: PAGE_SIZE, search: search || undefined }),
-    [page, search],
+    () => ({
+      page,
+      limit: PAGE_SIZE,
+      search: applied.search || undefined,
+      gender:
+        applied.gender === GENDER_ANY ? undefined : (applied.gender as AdminGender),
+    }),
+    [page, applied],
   )
 
   const { data, isLoading, isFetching, isError, error, refetch } =
@@ -152,6 +169,22 @@ export default function UsersPage() {
   const totalPages = data?.meta.totalPages ?? 1
   const total = data?.meta.total ?? 0
   const pageTokens = buildPageList(page, totalPages)
+
+  const isStaged =
+    searchInput.trim() !== applied.search || genderInput !== applied.gender
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setApplied({ search: searchInput.trim(), gender: genderInput })
+    setPage(1)
+  }
+
+  const handleReset = () => {
+    setSearchInput("")
+    setGenderInput(GENDER_ANY)
+    setApplied({ search: "", gender: GENDER_ANY })
+    setPage(1)
+  }
 
   const handleToggle = (user: AdminUserRow, next: boolean) => {
     mutation.mutate(
@@ -189,25 +222,62 @@ export default function UsersPage() {
         </section>
 
         <Card className="bg-white/94">
-          <CardHeader className="gap-4 border-b border-slate-100 sm:flex-row sm:items-end sm:justify-between">
-            <div>
+          <CardHeader className="gap-4 border-b border-slate-100">
+            <div className="flex flex-col gap-1">
               <CardTitle className="text-lg text-slate-900">Users</CardTitle>
-              <CardDescription className="mt-1 text-sm leading-6 text-slate-600">
+              <CardDescription className="text-sm leading-6 text-slate-600">
                 {isLoading
                   ? "Loading users…"
                   : `${total} user${total === 1 ? "" : "s"} found`}
               </CardDescription>
             </div>
-            <div className="relative w-full sm:w-72">
-              <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-slate-400" />
-              <Input
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                placeholder="Search by email or phone"
-                className="pl-9"
-                aria-label="Search users"
-              />
-            </div>
+
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-2"
+            >
+              <div className="relative flex-1">
+                <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-slate-400" />
+                <Input
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
+                  placeholder="Search by email or phone"
+                  className="pl-9"
+                  aria-label="Search users"
+                />
+              </div>
+
+              <Select
+                value={genderInput}
+                onValueChange={(v) => setGenderInput(v as GenderInput)}
+              >
+                <SelectTrigger
+                  className="sm:w-44"
+                  aria-label="Filter by gender"
+                >
+                  <SelectValue placeholder="Gender" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={GENDER_ANY}>All genders</SelectItem>
+                  {GENDER_OPTIONS.map((opt) => (
+                    <SelectItem key={opt.value} value={opt.value}>
+                      {opt.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <div className="flex gap-2 sm:ml-auto">
+                <Button type="submit" disabled={!isStaged && !isFetching}>
+                  Search
+                </Button>
+                {(applied.search || applied.gender !== GENDER_ANY) && (
+                  <Button type="button" variant="outline" onClick={handleReset}>
+                    Reset
+                  </Button>
+                )}
+              </div>
+            </form>
           </CardHeader>
 
           <CardContent className="px-0 pt-0">
@@ -217,6 +287,7 @@ export default function UsersPage() {
                   <TableHead className="pl-6">Name</TableHead>
                   <TableHead>Email</TableHead>
                   <TableHead>Phone</TableHead>
+                  <TableHead>Gender</TableHead>
                   <TableHead>Joined</TableHead>
                   <TableHead className="pr-6">Status</TableHead>
                 </TableRow>
@@ -235,6 +306,9 @@ export default function UsersPage() {
                         <Skeleton className="h-4 w-28" />
                       </TableCell>
                       <TableCell>
+                        <Skeleton className="h-4 w-16" />
+                      </TableCell>
+                      <TableCell>
                         <Skeleton className="h-4 w-24" />
                       </TableCell>
                       <TableCell className="pr-6">
@@ -245,7 +319,7 @@ export default function UsersPage() {
                 ) : isError ? (
                   <TableRow>
                     <TableCell
-                      colSpan={5}
+                      colSpan={6}
                       className="py-10 text-center text-sm text-slate-600"
                     >
                       <div className="space-y-2">
@@ -267,11 +341,11 @@ export default function UsersPage() {
                 ) : rows.length === 0 ? (
                   <TableRow>
                     <TableCell
-                      colSpan={5}
+                      colSpan={6}
                       className="py-10 text-center text-sm text-slate-500"
                     >
-                      {search
-                        ? `No users match "${search}".`
+                      {applied.search || applied.gender !== GENDER_ANY
+                        ? "No users match the current filters."
                         : "No users found yet."}
                     </TableCell>
                   </TableRow>

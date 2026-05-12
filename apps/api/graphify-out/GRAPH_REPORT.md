@@ -1,7 +1,7 @@
 # Graph Report - /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api  (2026-05-12)
 
 ## Corpus Check
-- 121 files · ~151,847 words
+- 121 files · ~151,530 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary

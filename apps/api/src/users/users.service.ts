@@ -42,6 +42,7 @@ export class UsersService {
             ],
           }
         : {}),
+      ...(dto.gender ? { profile: { is: { gender: dto.gender } } } : {}),
     };
 
     const [total, items] = await this.prisma.$transaction([
@@ -58,7 +59,7 @@ export class UsersService {
           role: true,
           isActive: true,
           createdAt: true,
-          profile: { select: { name: true } },
+          profile: { select: { name: true, gender: true } },
         },
       }),
     ]);
@@ -72,6 +73,7 @@ export class UsersService {
         isActive: u.isActive,
         createdAt: u.createdAt,
         name: u.profile?.name ?? null,
+        gender: u.profile?.gender ?? null,
       })),
       meta: {
         page,
