@@ -26,7 +26,7 @@ import { UpdateProfileSettingsDto } from './dto/update-profile-settings.dto';
 @ApiBearerAuth('access-token')
 @Controller('profile')
 export class ProfileController {
-  constructor(private readonly profileService: ProfileService) { }
+  constructor(private readonly profileService: ProfileService) {}
 
   @UseGuards(JwtAuthGuard)
   @Post()

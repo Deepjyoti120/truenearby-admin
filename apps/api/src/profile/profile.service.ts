@@ -1,5 +1,9 @@
 import * as bcrypt from 'bcrypt';
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateProfileDto } from './dto/create-profile.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import { RegisterDeviceDto } from './dto/register-device.dto';
@@ -72,7 +76,7 @@ export class ProfileService {
     private readonly reverseGeocodeService: ReverseGeocodeService,
     private readonly profilePreferencesService: ProfilePreferencesService,
     private readonly subscriptionsService: SubscriptionsService,
-  ) { }
+  ) {}
 
   private buildAdminProfileDefaults(profileName: string) {
     return {
@@ -284,15 +288,15 @@ export class ProfileService {
 
     const profile = user.profile
       ? {
-        ...user.profile,
-        user: {
-          id: user.id,
-          email: user.email,
-          role: user.role,
-          isActive: user.isActive,
-          photos: user.photos,
-        },
-      }
+          ...user.profile,
+          user: {
+            id: user.id,
+            email: user.email,
+            role: user.role,
+            isActive: user.isActive,
+            photos: user.photos,
+          },
+        }
       : null;
 
     return {
@@ -516,10 +520,10 @@ export class ProfileService {
         limit,
         ...(options.total !== undefined
           ? {
-            total: options.total,
-            page: options.page,
-            totalPages: Math.ceil(options.total / limit),
-          }
+              total: options.total,
+              page: options.page,
+              totalPages: Math.ceil(options.total / limit),
+            }
           : {}),
         ...(options.radiusKm !== undefined
           ? { radiusKm: options.radiusKm }
@@ -809,41 +813,41 @@ export class ProfileService {
       ownerIds.length === 0
         ? [[], [], await activeSubscriptionPromise]
         : await Promise.all([
-          this.prisma.match.findMany({
-            where: {
-              OR: [
-                {
-                  userAId: userId,
-                  userBId: {
-                    in: ownerIds,
+            this.prisma.match.findMany({
+              where: {
+                OR: [
+                  {
+                    userAId: userId,
+                    userBId: {
+                      in: ownerIds,
+                    },
                   },
-                },
-                {
-                  userBId: userId,
-                  userAId: {
-                    in: ownerIds,
+                  {
+                    userBId: userId,
+                    userAId: {
+                      in: ownerIds,
+                    },
                   },
-                },
-              ],
-            },
-            select: {
-              userAId: true,
-              userBId: true,
-            },
-          }),
-          this.prisma.like.findMany({
-            where: {
-              toUserId: userId,
-              fromUserId: {
-                in: ownerIds,
+                ],
               },
-            },
-            select: {
-              fromUserId: true,
-            },
-          }),
-          activeSubscriptionPromise,
-        ]);
+              select: {
+                userAId: true,
+                userBId: true,
+              },
+            }),
+            this.prisma.like.findMany({
+              where: {
+                toUserId: userId,
+                fromUserId: {
+                  in: ownerIds,
+                },
+              },
+              select: {
+                fromUserId: true,
+              },
+            }),
+            activeSubscriptionPromise,
+          ]);
     const postsById = new Map(posts.map((post) => [post.id, post]));
     const matchedUserIds = new Set(
       matches.map((match) =>
