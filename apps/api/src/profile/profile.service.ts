@@ -72,7 +72,7 @@ export class ProfileService {
     private readonly reverseGeocodeService: ReverseGeocodeService,
     private readonly profilePreferencesService: ProfilePreferencesService,
     private readonly subscriptionsService: SubscriptionsService,
-  ) {}
+  ) { }
 
   private buildAdminProfileDefaults(profileName: string) {
     return {
@@ -131,6 +131,20 @@ export class ProfileService {
         },
         include: {
           matchPreference: true,
+        },
+      });
+      const photos = await tx.photo.findMany({
+        where: { userId },
+        orderBy: { createdAt: 'asc' },
+      });
+      await tx.post.create({
+        data: {
+          userId,
+          prompt: dto?.bio || '',
+          imageUrls: photos.map((upload) => upload.url),
+          imageFileIds: photos.map((upload) => upload.fileId),
+          latitude: dto?.latitude,
+          longitude: dto?.longitude,
         },
       });
       // await tx.user.update({
@@ -270,15 +284,15 @@ export class ProfileService {
 
     const profile = user.profile
       ? {
-          ...user.profile,
-          user: {
-            id: user.id,
-            email: user.email,
-            role: user.role,
-            isActive: user.isActive,
-            photos: user.photos,
-          },
-        }
+        ...user.profile,
+        user: {
+          id: user.id,
+          email: user.email,
+          role: user.role,
+          isActive: user.isActive,
+          photos: user.photos,
+        },
+      }
       : null;
 
     return {
@@ -502,10 +516,10 @@ export class ProfileService {
         limit,
         ...(options.total !== undefined
           ? {
-              total: options.total,
-              page: options.page,
-              totalPages: Math.ceil(options.total / limit),
-            }
+            total: options.total,
+            page: options.page,
+            totalPages: Math.ceil(options.total / limit),
+          }
           : {}),
         ...(options.radiusKm !== undefined
           ? { radiusKm: options.radiusKm }
@@ -795,41 +809,41 @@ export class ProfileService {
       ownerIds.length === 0
         ? [[], [], await activeSubscriptionPromise]
         : await Promise.all([
-            this.prisma.match.findMany({
-              where: {
-                OR: [
-                  {
-                    userAId: userId,
-                    userBId: {
-                      in: ownerIds,
-                    },
+          this.prisma.match.findMany({
+            where: {
+              OR: [
+                {
+                  userAId: userId,
+                  userBId: {
+                    in: ownerIds,
                   },
-                  {
-                    userBId: userId,
-                    userAId: {
-                      in: ownerIds,
-                    },
-                  },
-                ],
-              },
-              select: {
-                userAId: true,
-                userBId: true,
-              },
-            }),
-            this.prisma.like.findMany({
-              where: {
-                toUserId: userId,
-                fromUserId: {
-                  in: ownerIds,
                 },
+                {
+                  userBId: userId,
+                  userAId: {
+                    in: ownerIds,
+                  },
+                },
+              ],
+            },
+            select: {
+              userAId: true,
+              userBId: true,
+            },
+          }),
+          this.prisma.like.findMany({
+            where: {
+              toUserId: userId,
+              fromUserId: {
+                in: ownerIds,
               },
-              select: {
-                fromUserId: true,
-              },
-            }),
-            activeSubscriptionPromise,
-          ]);
+            },
+            select: {
+              fromUserId: true,
+            },
+          }),
+          activeSubscriptionPromise,
+        ]);
     const postsById = new Map(posts.map((post) => [post.id, post]));
     const matchedUserIds = new Set(
       matches.map((match) =>
