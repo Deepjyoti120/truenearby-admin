@@ -2,6 +2,8 @@ import {
   Body,
   Controller,
   Get,
+  Param,
+  ParseUUIDPipe,
   Patch,
   Post,
   Query,
@@ -18,6 +20,8 @@ import {
 } from '../auth/decorators/current-user.decorator';
 import { SwipeDto } from './dto/swipe.dto';
 import { UpdateCurrentUserDto } from './dto/update-current-user.dto';
+import { ListUsersDto } from './dto/list-users.dto';
+import { SetUserActiveDto } from './dto/set-user-active.dto';
 
 @ApiTags('users')
 @ApiBearerAuth('access-token')
@@ -28,9 +32,19 @@ export class UsersController {
     private readonly usersService: UsersService,
   ) {}
 
+  @UseGuards(JwtAuthGuard)
   @Get()
-  async getUsers() {
-    return await this.prisma.user.findMany({ where: { isActive: true } });
+  async getUsers(@Query() query: ListUsersDto) {
+    return this.usersService.listUsers(query);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch(':id/active')
+  async setUserActive(
+    @Param('id', new ParseUUIDPipe()) id: string,
+    @Body() dto: SetUserActiveDto,
+  ) {
+    return this.usersService.setUserActive(id, dto.isActive);
   }
 
   @UseGuards(JwtAuthGuard)

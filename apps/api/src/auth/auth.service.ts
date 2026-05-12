@@ -10,6 +10,7 @@ import {
 import { AuthEntryDto } from './dto/entry.dto';
 import { LoginDto } from './dto/login.dto';
 import { JwtService } from '@nestjs/jwt';
+import { Role } from '../generated/prisma/enums';
 
 @Injectable()
 export class AuthService {
@@ -162,6 +163,7 @@ export class AuthService {
         data: {
           email: dto.email,
           phone: dto.phone,
+          role: Role.user,
           passwordHash,
         },
         include: { profile: true },

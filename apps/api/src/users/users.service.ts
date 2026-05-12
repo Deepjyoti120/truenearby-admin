@@ -6,9 +6,10 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { Gender, LookingFor, Prisma } from '../generated/prisma/client';
+import { Gender, LookingFor, Prisma, Role } from '../generated/prisma/client';
 import { SwipeDto } from './dto/swipe.dto';
 import { UpdateCurrentUserDto } from './dto/update-current-user.dto';
+import { ListUsersDto } from './dto/list-users.dto';
 
 @Injectable()
 export class UsersService {
@@ -23,6 +24,87 @@ export class UsersService {
 
   findByEmail(email: string) {
     return this.users.find((u) => u.email === email);
+  }
+
+  async listUsers(dto: ListUsersDto) {
+    const page = dto.page ?? 1;
+    const limit = dto.limit ?? 10;
+    const skip = (page - 1) * limit;
+    const search = dto.search?.trim();
+
+    const where: Prisma.UserWhereInput = {
+      role: Role.user,
+      ...(search
+        ? {
+            OR: [
+              { email: { contains: search, mode: 'insensitive' } },
+              { phone: { contains: search, mode: 'insensitive' } },
+            ],
+          }
+        : {}),
+    };
+
+    const [total, items] = await this.prisma.$transaction([
+      this.prisma.user.count({ where }),
+      this.prisma.user.findMany({
+        where,
+        orderBy: { createdAt: 'desc' },
+        skip,
+        take: limit,
+        select: {
+          id: true,
+          email: true,
+          phone: true,
+          role: true,
+          isActive: true,
+          createdAt: true,
+          profile: { select: { name: true } },
+        },
+      }),
+    ]);
+
+    return {
+      data: items.map((u) => ({
+        id: u.id,
+        email: u.email,
+        phone: u.phone,
+        role: u.role,
+        isActive: u.isActive,
+        createdAt: u.createdAt,
+        name: u.profile?.name ?? null,
+      })),
+      meta: {
+        page,
+        limit,
+        total,
+        totalPages: Math.max(1, Math.ceil(total / limit)),
+      },
+    };
+  }
+
+  async setUserActive(userId: string, isActive: boolean) {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: { id: true, role: true },
+    });
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    if (user.role !== Role.user) {
+      throw new BadRequestException(
+        'Only users with role "user" can be toggled',
+      );
+    }
+
+    const updated = await this.prisma.user.update({
+      where: { id: userId },
+      data: { isActive },
+      select: { id: true, isActive: true },
+    });
+
+    return updated;
   }
 
   private buildAdminProfileDefaults(profileName: string) {
