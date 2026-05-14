@@ -84,6 +84,53 @@ export class UsersService {
     };
   }
 
+  async getStats() {
+    const now = new Date();
+    const startOfDay = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+    );
+    const startOfWeek = new Date(startOfDay);
+    startOfWeek.setDate(startOfDay.getDate() - 6);
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+
+    const baseWhere: Prisma.UserWhereInput = { role: Role.user };
+
+    const [total, active, male, female, other, today, thisWeek, thisMonth] =
+      await this.prisma.$transaction([
+        this.prisma.user.count({ where: baseWhere }),
+        this.prisma.user.count({ where: { ...baseWhere, isActive: true } }),
+        this.prisma.user.count({
+          where: { ...baseWhere, profile: { is: { gender: Gender.MALE } } },
+        }),
+        this.prisma.user.count({
+          where: { ...baseWhere, profile: { is: { gender: Gender.FEMALE } } },
+        }),
+        this.prisma.user.count({
+          where: { ...baseWhere, profile: { is: { gender: Gender.OTHER } } },
+        }),
+        this.prisma.user.count({
+          where: { ...baseWhere, createdAt: { gte: startOfDay } },
+        }),
+        this.prisma.user.count({
+          where: { ...baseWhere, createdAt: { gte: startOfWeek } },
+        }),
+        this.prisma.user.count({
+          where: { ...baseWhere, createdAt: { gte: startOfMonth } },
+        }),
+      ]);
+
+    return {
+      total,
+      active,
+      inactive: Math.max(0, total - active),
+      gender: { male, female, other },
+      signups: { today, thisWeek, thisMonth },
+      generatedAt: now.toISOString(),
+    };
+  }
+
   async setUserActive(userId: string, isActive: boolean) {
     const user = await this.prisma.user.findUnique({
       where: { id: userId },

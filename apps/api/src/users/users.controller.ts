@@ -35,6 +35,12 @@ export class UsersController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Get('stats')
+  async getStats() {
+    return this.usersService.getStats();
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Patch(':id/active')
   async setUserActive(
     @Param('id', new ParseUUIDPipe()) id: string,

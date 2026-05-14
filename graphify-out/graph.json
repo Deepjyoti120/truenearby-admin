@@ -9,7 +9,7 @@
       "source_file": "apps/admin/postcss.config.mjs",
       "source_location": "L1",
       "id": "apps_admin_postcss_config_mjs",
-      "community": 89,
+      "community": 90,
       "norm_label": "postcss.config.mjs"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "apps/admin/next-env.d.ts",
       "source_location": "L1",
       "id": "apps_admin_next_env_d_ts",
-      "community": 90,
+      "community": 91,
       "norm_label": "next-env.d.ts"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "apps/admin/eslint.config.mjs",
       "source_location": "L1",
       "id": "apps_admin_eslint_config_mjs",
-      "community": 91,
+      "community": 92,
       "norm_label": "eslint.config.mjs"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "apps/admin/next.config.ts",
       "source_location": "L1",
       "id": "apps_admin_next_config_ts",
-      "community": 92,
+      "community": 93,
       "norm_label": "next.config.ts"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "apps/admin/src/types/index.ts",
       "source_location": "L1",
       "id": "apps_admin_src_types_index_ts",
-      "community": 93,
+      "community": 94,
       "norm_label": "index.ts"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/layout.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_layout_tsx",
-      "community": 35,
+      "community": 36,
       "norm_label": "layout.tsx"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/layout.tsx",
       "source_location": "L22",
       "id": "layout_rootlayout",
-      "community": 35,
+      "community": 36,
       "norm_label": "rootlayout()"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "apps/admin/src/app/privacy-policy/page.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_app_privacy_policy_page_tsx",
-      "community": 94,
+      "community": 95,
       "norm_label": "page.tsx"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "apps/admin/src/app/creative-links/page.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_app_creative_links_page_tsx",
-      "community": 95,
+      "community": 96,
       "norm_label": "page.tsx"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/terms/page.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_terms_page_tsx",
-      "community": 96,
+      "community": 97,
       "norm_label": "page.tsx"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "apps/admin/src/app/refund-cancellation/page.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_app_refund_cancellation_page_tsx",
-      "community": 36,
+      "community": 37,
       "norm_label": "page.tsx"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "apps/admin/src/app/refund-cancellation/page.tsx",
       "source_location": "L12",
       "id": "page_refundcancellationpage",
-      "community": 36,
+      "community": 37,
       "norm_label": "refundcancellationpage()"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/account-delete/page.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_account_delete_page_tsx",
-      "community": 37,
+      "community": 38,
       "norm_label": "page.tsx"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/account-delete/page.tsx",
       "source_location": "L11",
       "id": "page_accountdeletepage",
-      "community": 37,
+      "community": 38,
       "norm_label": "accountdeletepage()"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "apps/admin/src/app/contact-us/page.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_app_contact_us_page_tsx",
-      "community": 38,
+      "community": 39,
       "norm_label": "page.tsx"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "apps/admin/src/app/contact-us/page.tsx",
       "source_location": "L12",
       "id": "page_contactuspage",
-      "community": 38,
+      "community": 39,
       "norm_label": "contactuspage()"
     },
     {
@@ -189,7 +189,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/child-safety/page.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_child_safety_page_tsx",
-      "community": 97,
+      "community": 98,
       "norm_label": "page.tsx"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(auth)/login/page.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_auth_login_page_tsx",
-      "community": 98,
+      "community": 99,
       "norm_label": "page.tsx"
     },
     {
@@ -207,7 +207,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/layout.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_layout_tsx",
-      "community": 39,
+      "community": 40,
       "norm_label": "layout.tsx"
     },
     {
@@ -216,7 +216,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/layout.tsx",
       "source_location": "L3",
       "id": "layout_dashboardlayout",
-      "community": 39,
+      "community": 40,
       "norm_label": "dashboardlayout()"
     },
     {
@@ -225,8 +225,26 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/page.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_page_tsx",
-      "community": 99,
+      "community": 30,
       "norm_label": "page.tsx"
+    },
+    {
+      "label": "formatNumber()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/page.tsx",
+      "source_location": "L78",
+      "id": "page_formatnumber",
+      "community": 30,
+      "norm_label": "formatnumber()"
+    },
+    {
+      "label": "pct()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/page.tsx",
+      "source_location": "L82",
+      "id": "page_pct",
+      "community": 30,
+      "norm_label": "pct()"
     },
     {
       "label": "page.tsx",
@@ -234,7 +252,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/settings/page.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_settings_page_tsx",
-      "community": 40,
+      "community": 41,
       "norm_label": "page.tsx"
     },
     {
@@ -243,26 +261,8 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/settings/page.tsx",
       "source_location": "L4",
       "id": "page_settingspage",
-      "community": 40,
+      "community": 41,
       "norm_label": "settingspage()"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/links/page.tsx",
-      "source_location": "L1",
-      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_links_page_tsx",
-      "community": 41,
-      "norm_label": "page.tsx"
-    },
-    {
-      "label": "LinksPage()",
-      "file_type": "code",
-      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/links/page.tsx",
-      "source_location": "L17",
-      "id": "page_linkspage",
-      "community": 41,
-      "norm_label": "linkspage()"
     },
     {
       "label": "page.tsx",
@@ -335,15 +335,6 @@
       "id": "page_handletoggle",
       "community": 13,
       "norm_label": "handletoggle()"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/create/page.tsx",
-      "source_location": "L1",
-      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_create_page_tsx",
-      "community": 100,
-      "norm_label": "page.tsx"
     },
     {
       "label": "state.ts",
@@ -490,12 +481,48 @@
       "norm_label": "usesetuseractivemutation()"
     },
     {
+      "label": "api.ts",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/stats/api.ts",
+      "source_location": "L1",
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_stats_api_ts",
+      "community": 1,
+      "norm_label": "api.ts"
+    },
+    {
+      "label": "fetchUserStats()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/stats/api.ts",
+      "source_location": "L26",
+      "id": "api_fetchuserstats",
+      "community": 1,
+      "norm_label": "fetchuserstats()"
+    },
+    {
+      "label": "query.ts",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/stats/query.ts",
+      "source_location": "L1",
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_stats_query_ts",
+      "community": 42,
+      "norm_label": "query.ts"
+    },
+    {
+      "label": "useUserStatsQuery()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/stats/query.ts",
+      "source_location": "L9",
+      "id": "query_useuserstatsquery",
+      "community": 42,
+      "norm_label": "useuserstatsquery()"
+    },
+    {
       "label": "auth-guard.tsx",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/auth-guard.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_auth_guard_tsx",
-      "community": 42,
+      "community": 43,
       "norm_label": "auth-guard.tsx"
     },
     {
@@ -504,7 +531,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/auth-guard.tsx",
       "source_location": "L13",
       "id": "auth_guard_authguard",
-      "community": 42,
+      "community": 43,
       "norm_label": "authguard()"
     },
     {
@@ -540,7 +567,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/nav-main.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_nav_main_tsx",
-      "community": 30,
+      "community": 31,
       "norm_label": "nav-main.tsx"
     },
     {
@@ -549,7 +576,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/nav-main.tsx",
       "source_location": "L24",
       "id": "nav_main_isurlactive",
-      "community": 30,
+      "community": 31,
       "norm_label": "isurlactive()"
     },
     {
@@ -558,7 +585,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/nav-main.tsx",
       "source_location": "L31",
       "id": "nav_main_navmain",
-      "community": 30,
+      "community": 31,
       "norm_label": "navmain()"
     },
     {
@@ -567,7 +594,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/app-sidebar-header.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_app_sidebar_header_tsx",
-      "community": 101,
+      "community": 100,
       "norm_label": "app-sidebar-header.tsx"
     },
     {
@@ -576,7 +603,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/app-sidebar-layout.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_app_sidebar_layout_tsx",
-      "community": 102,
+      "community": 101,
       "norm_label": "app-sidebar-layout.tsx"
     },
     {
@@ -610,7 +637,7 @@
       "label": "AppSidebar()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/app-sidebar.tsx",
-      "source_location": "L47",
+      "source_location": "L37",
       "id": "app_sidebar_appsidebar",
       "community": 1,
       "norm_label": "appsidebar()"
@@ -639,7 +666,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/creative-attribution-notice.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_creative_attribution_notice_tsx",
-      "community": 43,
+      "community": 44,
       "norm_label": "creative-attribution-notice.tsx"
     },
     {
@@ -648,7 +675,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/creative-attribution-notice.tsx",
       "source_location": "L25",
       "id": "creative_attribution_notice_creativeattributionnotice",
-      "community": 43,
+      "community": 44,
       "norm_label": "creativeattributionnotice()"
     },
     {
@@ -657,7 +684,7 @@
       "source_file": "apps/admin/src/components/nav-secondary.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_nav_secondary_tsx",
-      "community": 44,
+      "community": 45,
       "norm_label": "nav-secondary.tsx"
     },
     {
@@ -666,7 +693,7 @@
       "source_file": "apps/admin/src/components/nav-secondary.tsx",
       "source_location": "L12",
       "id": "nav_secondary_navsecondary",
-      "community": 44,
+      "community": 45,
       "norm_label": "navsecondary()"
     },
     {
@@ -900,7 +927,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/field.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_ui_field_tsx",
-      "community": 45,
+      "community": 46,
       "norm_label": "field.tsx"
     },
     {
@@ -909,7 +936,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/field.tsx",
       "source_location": "L14",
       "id": "field_cn",
-      "community": 45,
+      "community": 46,
       "norm_label": "cn()"
     },
     {
@@ -918,7 +945,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/label.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_ui_label_tsx",
-      "community": 46,
+      "community": 47,
       "norm_label": "label.tsx"
     },
     {
@@ -927,7 +954,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/label.tsx",
       "source_location": "L8",
       "id": "label_label",
-      "community": 46,
+      "community": 47,
       "norm_label": "label()"
     },
     {
@@ -936,7 +963,7 @@
       "source_file": "apps/admin/src/components/ui/sonner.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_sonner_tsx",
-      "community": 103,
+      "community": 102,
       "norm_label": "sonner.tsx"
     },
     {
@@ -945,7 +972,7 @@
       "source_file": "apps/admin/src/components/ui/tooltip.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_tooltip_tsx",
-      "community": 47,
+      "community": 48,
       "norm_label": "tooltip.tsx"
     },
     {
@@ -954,7 +981,7 @@
       "source_file": "apps/admin/src/components/ui/tooltip.tsx",
       "source_location": "L37",
       "id": "tooltip_tooltipcontent",
-      "community": 47,
+      "community": 48,
       "norm_label": "tooltipcontent()"
     },
     {
@@ -963,7 +990,7 @@
       "source_file": "apps/admin/src/components/ui/switch.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_switch_tsx",
-      "community": 104,
+      "community": 103,
       "norm_label": "switch.tsx"
     },
     {
@@ -1179,7 +1206,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/separator.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_ui_separator_tsx",
-      "community": 48,
+      "community": 49,
       "norm_label": "separator.tsx"
     },
     {
@@ -1188,7 +1215,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/separator.tsx",
       "source_location": "L8",
       "id": "separator_separator",
-      "community": 48,
+      "community": 49,
       "norm_label": "separator()"
     },
     {
@@ -1197,7 +1224,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/button.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_ui_button_tsx",
-      "community": 49,
+      "community": 50,
       "norm_label": "button.tsx"
     },
     {
@@ -1206,7 +1233,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/button.tsx",
       "source_location": "L59",
       "id": "button_cn",
-      "community": 49,
+      "community": 50,
       "norm_label": "cn()"
     },
     {
@@ -1215,7 +1242,7 @@
       "source_file": "apps/admin/src/components/ui/collapsible.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_collapsible_tsx",
-      "community": 50,
+      "community": 51,
       "norm_label": "collapsible.tsx"
     },
     {
@@ -1224,7 +1251,7 @@
       "source_file": "apps/admin/src/components/ui/collapsible.tsx",
       "source_location": "L5",
       "id": "collapsible_collapsible",
-      "community": 50,
+      "community": 51,
       "norm_label": "collapsible()"
     },
     {
@@ -1368,7 +1395,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/input.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_ui_input_tsx",
-      "community": 51,
+      "community": 52,
       "norm_label": "input.tsx"
     },
     {
@@ -1377,7 +1404,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/input.tsx",
       "source_location": "L5",
       "id": "input_input",
-      "community": 51,
+      "community": 52,
       "norm_label": "input()"
     },
     {
@@ -1386,7 +1413,7 @@
       "source_file": "apps/admin/src/components/ui/skeleton.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_skeleton_tsx",
-      "community": 52,
+      "community": 53,
       "norm_label": "skeleton.tsx"
     },
     {
@@ -1395,7 +1422,7 @@
       "source_file": "apps/admin/src/components/ui/skeleton.tsx",
       "source_location": "L3",
       "id": "skeleton_skeleton",
-      "community": 52,
+      "community": 53,
       "norm_label": "skeleton()"
     },
     {
@@ -1404,7 +1431,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/providers/query-provider.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_providers_query_provider_tsx",
-      "community": 53,
+      "community": 54,
       "norm_label": "query-provider.tsx"
     },
     {
@@ -1413,7 +1440,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/providers/query-provider.tsx",
       "source_location": "L6",
       "id": "query_provider_appqueryprovider",
-      "community": 53,
+      "community": 54,
       "norm_label": "appqueryprovider()"
     },
     {
@@ -1422,7 +1449,7 @@
       "source_file": "apps/admin/src/layouts/AppSidebarLayout.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_layouts_appsidebarlayout_tsx",
-      "community": 54,
+      "community": 55,
       "norm_label": "appsidebarlayout.tsx"
     },
     {
@@ -1431,7 +1458,7 @@
       "source_file": "apps/admin/src/layouts/AppSidebarLayout.tsx",
       "source_location": "L13",
       "id": "appsidebarlayout_appsidebarlayout",
-      "community": 54,
+      "community": 55,
       "norm_label": "appsidebarlayout()"
     },
     {
@@ -1440,7 +1467,7 @@
       "source_file": "apps/admin/src/layouts/AppContent.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_layouts_appcontent_tsx",
-      "community": 55,
+      "community": 56,
       "norm_label": "appcontent.tsx"
     },
     {
@@ -1449,7 +1476,7 @@
       "source_file": "apps/admin/src/layouts/AppContent.tsx",
       "source_location": "L3",
       "id": "appcontent_appcontent",
-      "community": 55,
+      "community": 56,
       "norm_label": "appcontent()"
     },
     {
@@ -1458,7 +1485,7 @@
       "source_file": "apps/admin/src/layouts/AppShell.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_layouts_appshell_tsx",
-      "community": 56,
+      "community": 57,
       "norm_label": "appshell.tsx"
     },
     {
@@ -1467,7 +1494,7 @@
       "source_file": "apps/admin/src/layouts/AppShell.tsx",
       "source_location": "L3",
       "id": "appshell_appshell",
-      "community": 56,
+      "community": 57,
       "norm_label": "appshell()"
     },
     {
@@ -1476,7 +1503,7 @@
       "source_file": "apps/admin/src/hooks/use-mobile.ts",
       "source_location": "L1",
       "id": "apps_admin_src_hooks_use_mobile_ts",
-      "community": 57,
+      "community": 58,
       "norm_label": "use-mobile.ts"
     },
     {
@@ -1485,7 +1512,7 @@
       "source_file": "apps/admin/src/hooks/use-mobile.ts",
       "source_location": "L5",
       "id": "use_mobile_useismobile",
-      "community": 57,
+      "community": 58,
       "norm_label": "useismobile()"
     },
     {
@@ -1494,7 +1521,7 @@
       "source_file": "apps/admin/src/lib/utils.ts",
       "source_location": "L1",
       "id": "apps_admin_src_lib_utils_ts",
-      "community": 58,
+      "community": 59,
       "norm_label": "utils.ts"
     },
     {
@@ -1503,7 +1530,7 @@
       "source_file": "apps/admin/src/lib/utils.ts",
       "source_location": "L4",
       "id": "utils_cn",
-      "community": 58,
+      "community": 59,
       "norm_label": "cn()"
     },
     {
@@ -1602,7 +1629,7 @@
       "source_file": "apps/admin/src/lib/creative-resources.ts",
       "source_location": "L1",
       "id": "apps_admin_src_lib_creative_resources_ts",
-      "community": 105,
+      "community": 104,
       "norm_label": "creative-resources.ts"
     },
     {
@@ -1611,7 +1638,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/lib/constants.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_lib_constants_ts",
-      "community": 106,
+      "community": 105,
       "norm_label": "constants.ts"
     },
     {
@@ -1620,7 +1647,7 @@
       "source_file": "apps/api/prisma.config.ts",
       "source_location": "L1",
       "id": "apps_api_prisma_config_ts",
-      "community": 107,
+      "community": 106,
       "norm_label": "prisma.config.ts"
     },
     {
@@ -1629,7 +1656,7 @@
       "source_file": "apps/api/eslint.config.mjs",
       "source_location": "L1",
       "id": "apps_api_eslint_config_mjs",
-      "community": 108,
+      "community": 107,
       "norm_label": "eslint.config.mjs"
     },
     {
@@ -1638,7 +1665,7 @@
       "source_file": "apps/api/test/app.e2e-spec.ts",
       "source_location": "L1",
       "id": "apps_api_test_app_e2e_spec_ts",
-      "community": 109,
+      "community": 108,
       "norm_label": "app.e2e-spec.ts"
     },
     {
@@ -1665,7 +1692,7 @@
       "source_file": "apps/api/src/app.service.ts",
       "source_location": "L1",
       "id": "apps_api_src_app_service_ts",
-      "community": 31,
+      "community": 32,
       "norm_label": "app.service.ts"
     },
     {
@@ -1674,7 +1701,7 @@
       "source_file": "apps/api/src/app.service.ts",
       "source_location": "L4",
       "id": "app_service_appservice",
-      "community": 31,
+      "community": 32,
       "norm_label": "appservice"
     },
     {
@@ -1683,7 +1710,7 @@
       "source_file": "apps/api/src/app.service.ts",
       "source_location": "L5",
       "id": "app_service_appservice_gethello",
-      "community": 31,
+      "community": 32,
       "norm_label": ".gethello()"
     },
     {
@@ -1692,7 +1719,7 @@
       "source_file": "apps/api/src/app.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_app_module_ts",
-      "community": 59,
+      "community": 60,
       "norm_label": "app.module.ts"
     },
     {
@@ -1701,7 +1728,7 @@
       "source_file": "apps/api/src/app.module.ts",
       "source_location": "L45",
       "id": "app_module_appmodule",
-      "community": 59,
+      "community": 60,
       "norm_label": "appmodule"
     },
     {
@@ -1710,7 +1737,7 @@
       "source_file": "apps/api/src/app.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_app_controller_spec_ts",
-      "community": 110,
+      "community": 109,
       "norm_label": "app.controller.spec.ts"
     },
     {
@@ -1755,7 +1782,7 @@
       "source_file": "apps/api/src/generated/prisma/browser.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_browser_ts",
-      "community": 111,
+      "community": 110,
       "norm_label": "browser.ts"
     },
     {
@@ -1764,7 +1791,7 @@
       "source_file": "apps/api/src/generated/prisma/client.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_client_ts",
-      "community": 112,
+      "community": 111,
       "norm_label": "client.ts"
     },
     {
@@ -1773,7 +1800,7 @@
       "source_file": "apps/api/src/generated/prisma/models.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_ts",
-      "community": 113,
+      "community": 112,
       "norm_label": "models.ts"
     },
     {
@@ -1782,7 +1809,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/commonInputTypes.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_commoninputtypes_ts",
-      "community": 114,
+      "community": 113,
       "norm_label": "commoninputtypes.ts"
     },
     {
@@ -1791,7 +1818,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/enums.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_enums_ts",
-      "community": 115,
+      "community": 114,
       "norm_label": "enums.ts"
     },
     {
@@ -1800,7 +1827,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/internal/class.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_internal_class_ts",
-      "community": 32,
+      "community": 33,
       "norm_label": "class.ts"
     },
     {
@@ -1809,7 +1836,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/internal/class.ts",
       "source_location": "L33",
       "id": "class_decodebase64aswasm",
-      "community": 32,
+      "community": 33,
       "norm_label": "decodebase64aswasm()"
     },
     {
@@ -1818,7 +1845,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/internal/class.ts",
       "source_location": "L360",
       "id": "class_getprismaclientclass",
-      "community": 32,
+      "community": 33,
       "norm_label": "getprismaclientclass()"
     },
     {
@@ -1827,7 +1854,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/internal/prismaNamespace.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_internal_prismanamespace_ts",
-      "community": 116,
+      "community": 115,
       "norm_label": "prismanamespace.ts"
     },
     {
@@ -1836,7 +1863,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/internal/prismaNamespaceBrowser.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_internal_prismanamespacebrowser_ts",
-      "community": 117,
+      "community": 116,
       "norm_label": "prismanamespacebrowser.ts"
     },
     {
@@ -1845,7 +1872,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Match.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_match_ts",
-      "community": 118,
+      "community": 117,
       "norm_label": "match.ts"
     },
     {
@@ -1854,7 +1881,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Report.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_report_ts",
-      "community": 119,
+      "community": 118,
       "norm_label": "report.ts"
     },
     {
@@ -1863,7 +1890,7 @@
       "source_file": "apps/api/src/generated/prisma/models/LatestUserPost.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_latestuserpost_ts",
-      "community": 120,
+      "community": 119,
       "norm_label": "latestuserpost.ts"
     },
     {
@@ -1872,7 +1899,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Block.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_block_ts",
-      "community": 121,
+      "community": 120,
       "norm_label": "block.ts"
     },
     {
@@ -1881,7 +1908,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Photo.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_photo_ts",
-      "community": 122,
+      "community": 121,
       "norm_label": "photo.ts"
     },
     {
@@ -1890,7 +1917,7 @@
       "source_file": "apps/api/src/generated/prisma/models/SubscriptionPlan.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_subscriptionplan_ts",
-      "community": 123,
+      "community": 122,
       "norm_label": "subscriptionplan.ts"
     },
     {
@@ -1899,7 +1926,7 @@
       "source_file": "apps/api/src/generated/prisma/models/UserDevice.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_userdevice_ts",
-      "community": 124,
+      "community": 123,
       "norm_label": "userdevice.ts"
     },
     {
@@ -1908,7 +1935,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Chat.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_chat_ts",
-      "community": 125,
+      "community": 124,
       "norm_label": "chat.ts"
     },
     {
@@ -1917,7 +1944,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Message.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_message_ts",
-      "community": 126,
+      "community": 125,
       "norm_label": "message.ts"
     },
     {
@@ -1926,7 +1953,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Like.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_like_ts",
-      "community": 127,
+      "community": 126,
       "norm_label": "like.ts"
     },
     {
@@ -1935,7 +1962,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Profile.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_profile_ts",
-      "community": 128,
+      "community": 127,
       "norm_label": "profile.ts"
     },
     {
@@ -1944,7 +1971,7 @@
       "source_file": "apps/api/src/generated/prisma/models/UserSubscription.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_usersubscription_ts",
-      "community": 129,
+      "community": 128,
       "norm_label": "usersubscription.ts"
     },
     {
@@ -1953,7 +1980,7 @@
       "source_file": "apps/api/src/generated/prisma/models/PostSwipe.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_postswipe_ts",
-      "community": 130,
+      "community": 129,
       "norm_label": "postswipe.ts"
     },
     {
@@ -1962,7 +1989,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/models/User.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_models_user_ts",
-      "community": 131,
+      "community": 130,
       "norm_label": "user.ts"
     },
     {
@@ -1971,7 +1998,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Swipe.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_swipe_ts",
-      "community": 132,
+      "community": 131,
       "norm_label": "swipe.ts"
     },
     {
@@ -1980,7 +2007,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Post.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_post_ts",
-      "community": 133,
+      "community": 132,
       "norm_label": "post.ts"
     },
     {
@@ -1989,7 +2016,7 @@
       "source_file": "apps/api/src/generated/prisma/models/ProfileMatchPreference.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_profilematchpreference_ts",
-      "community": 134,
+      "community": 133,
       "norm_label": "profilematchpreference.ts"
     },
     {
@@ -2061,7 +2088,7 @@
       "source_file": "apps/api/src/posts/posts.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_posts_posts_service_spec_ts",
-      "community": 135,
+      "community": 134,
       "norm_label": "posts.service.spec.ts"
     },
     {
@@ -2070,7 +2097,7 @@
       "source_file": "apps/api/src/posts/posts.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_posts_posts_module_ts",
-      "community": 60,
+      "community": 61,
       "norm_label": "posts.module.ts"
     },
     {
@@ -2079,7 +2106,7 @@
       "source_file": "apps/api/src/posts/posts.module.ts",
       "source_location": "L12",
       "id": "posts_module_postsmodule",
-      "community": 60,
+      "community": 61,
       "norm_label": "postsmodule"
     },
     {
@@ -2169,7 +2196,7 @@
       "source_file": "apps/api/src/posts/dto/swipe-post.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_posts_dto_swipe_post_dto_ts",
-      "community": 61,
+      "community": 62,
       "norm_label": "swipe-post.dto.ts"
     },
     {
@@ -2178,7 +2205,7 @@
       "source_file": "apps/api/src/posts/dto/swipe-post.dto.ts",
       "source_location": "L5",
       "id": "swipe_post_dto_swipepostdto",
-      "community": 61,
+      "community": 62,
       "norm_label": "swipepostdto"
     },
     {
@@ -2187,7 +2214,7 @@
       "source_file": "apps/api/src/posts/dto/create-post.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_posts_dto_create_post_dto_ts",
-      "community": 62,
+      "community": 63,
       "norm_label": "create-post.dto.ts"
     },
     {
@@ -2196,7 +2223,7 @@
       "source_file": "apps/api/src/posts/dto/create-post.dto.ts",
       "source_location": "L5",
       "id": "create_post_dto_createpostdto",
-      "community": 62,
+      "community": 63,
       "norm_label": "createpostdto"
     },
     {
@@ -2205,7 +2232,7 @@
       "source_file": "apps/api/src/posts/dto/get-posts.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_posts_dto_get_posts_dto_ts",
-      "community": 33,
+      "community": 34,
       "norm_label": "get-posts.dto.ts"
     },
     {
@@ -2214,7 +2241,7 @@
       "source_file": "apps/api/src/profile/dto/get-posts.dto.ts",
       "source_location": "L12",
       "id": "get_posts_dto_getpostsdto",
-      "community": 33,
+      "community": 34,
       "norm_label": "getpostsdto"
     },
     {
@@ -2223,7 +2250,7 @@
       "source_file": "apps/api/src/chat/chat.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_chat_chat_controller_spec_ts",
-      "community": 136,
+      "community": 135,
       "norm_label": "chat.controller.spec.ts"
     },
     {
@@ -2313,7 +2340,7 @@
       "source_file": "apps/api/src/chat/chat.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_chat_chat_service_spec_ts",
-      "community": 137,
+      "community": 136,
       "norm_label": "chat.service.spec.ts"
     },
     {
@@ -2439,7 +2466,7 @@
       "source_file": "apps/api/src/chat/chat.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_chat_chat_module_ts",
-      "community": 63,
+      "community": 64,
       "norm_label": "chat.module.ts"
     },
     {
@@ -2448,7 +2475,7 @@
       "source_file": "apps/api/src/chat/chat.module.ts",
       "source_location": "L14",
       "id": "chat_module_chatmodule",
-      "community": 63,
+      "community": 64,
       "norm_label": "chatmodule"
     },
     {
@@ -2457,7 +2484,7 @@
       "source_file": "apps/api/src/chat/chat.selects.ts",
       "source_location": "L1",
       "id": "apps_api_src_chat_chat_selects_ts",
-      "community": 138,
+      "community": 137,
       "norm_label": "chat.selects.ts"
     },
     {
@@ -2466,7 +2493,7 @@
       "source_file": "apps/api/src/chat/chat.gateway.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_chat_chat_gateway_spec_ts",
-      "community": 139,
+      "community": 138,
       "norm_label": "chat.gateway.spec.ts"
     },
     {
@@ -2475,7 +2502,7 @@
       "source_file": "apps/api/src/likes/likes.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_likes_likes_service_spec_ts",
-      "community": 140,
+      "community": 139,
       "norm_label": "likes.service.spec.ts"
     },
     {
@@ -2484,7 +2511,7 @@
       "source_file": "apps/api/src/likes/likes.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_likes_likes_module_ts",
-      "community": 64,
+      "community": 65,
       "norm_label": "likes.module.ts"
     },
     {
@@ -2493,7 +2520,7 @@
       "source_file": "apps/api/src/likes/likes.module.ts",
       "source_location": "L12",
       "id": "likes_module_likesmodule",
-      "community": 64,
+      "community": 65,
       "norm_label": "likesmodule"
     },
     {
@@ -2556,7 +2583,7 @@
       "source_file": "apps/api/src/likes/likes.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_likes_likes_controller_spec_ts",
-      "community": 141,
+      "community": 140,
       "norm_label": "likes.controller.spec.ts"
     },
     {
@@ -2826,7 +2853,7 @@
       "source_file": "apps/api/src/auth/auth.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_auth_service_spec_ts",
-      "community": 142,
+      "community": 141,
       "norm_label": "auth.service.spec.ts"
     },
     {
@@ -2835,7 +2862,7 @@
       "source_file": "apps/api/src/auth/auth.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_auth_controller_spec_ts",
-      "community": 143,
+      "community": 142,
       "norm_label": "auth.controller.spec.ts"
     },
     {
@@ -2844,7 +2871,7 @@
       "source_file": "apps/api/src/auth/auth.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_auth_module_ts",
-      "community": 65,
+      "community": 66,
       "norm_label": "auth.module.ts"
     },
     {
@@ -2853,7 +2880,7 @@
       "source_file": "apps/api/src/auth/auth.module.ts",
       "source_location": "L20",
       "id": "auth_module_authmodule",
-      "community": 65,
+      "community": 66,
       "norm_label": "authmodule"
     },
     {
@@ -2862,7 +2889,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/dto/login.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_auth_dto_login_dto_ts",
-      "community": 66,
+      "community": 67,
       "norm_label": "login.dto.ts"
     },
     {
@@ -2871,7 +2898,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/dto/login.dto.ts",
       "source_location": "L4",
       "id": "login_dto_logindto",
-      "community": 66,
+      "community": 67,
       "norm_label": "logindto"
     },
     {
@@ -2880,7 +2907,7 @@
       "source_file": "apps/api/src/auth/dto/entry.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_dto_entry_dto_ts",
-      "community": 67,
+      "community": 68,
       "norm_label": "entry.dto.ts"
     },
     {
@@ -2889,7 +2916,7 @@
       "source_file": "apps/api/src/auth/dto/entry.dto.ts",
       "source_location": "L4",
       "id": "entry_dto_authentrydto",
-      "community": 67,
+      "community": 68,
       "norm_label": "authentrydto"
     },
     {
@@ -2898,7 +2925,7 @@
       "source_file": "apps/api/src/auth/dto/register.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_dto_register_dto_ts",
-      "community": 68,
+      "community": 69,
       "norm_label": "register.dto.ts"
     },
     {
@@ -2907,7 +2934,7 @@
       "source_file": "apps/api/src/auth/dto/register.dto.ts",
       "source_location": "L3",
       "id": "register_dto_registerdto",
-      "community": 68,
+      "community": 69,
       "norm_label": "registerdto"
     },
     {
@@ -2916,7 +2943,7 @@
       "source_file": "apps/api/src/auth/decorators/current-user.decorator.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_decorators_current_user_decorator_ts",
-      "community": 144,
+      "community": 143,
       "norm_label": "current-user.decorator.ts"
     },
     {
@@ -2970,7 +2997,7 @@
       "source_file": "apps/api/src/auth/guards/ws-jwt/ws-jwt.guard.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_guards_ws_jwt_ws_jwt_guard_spec_ts",
-      "community": 145,
+      "community": 144,
       "norm_label": "ws-jwt.guard.spec.ts"
     },
     {
@@ -3015,7 +3042,7 @@
       "source_file": "apps/api/src/auth/guards/jwt-auth/jwt-auth.guard.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_guards_jwt_auth_jwt_auth_guard_ts",
-      "community": 69,
+      "community": 70,
       "norm_label": "jwt-auth.guard.ts"
     },
     {
@@ -3024,7 +3051,7 @@
       "source_file": "apps/api/src/auth/guards/jwt-auth/jwt-auth.guard.ts",
       "source_location": "L16",
       "id": "jwt_auth_guard_jwtauthguard",
-      "community": 69,
+      "community": 70,
       "norm_label": "jwtauthguard"
     },
     {
@@ -3033,7 +3060,7 @@
       "source_file": "apps/api/src/auth/guards/jwt-auth/jwt-auth.guard.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_guards_jwt_auth_jwt_auth_guard_spec_ts",
-      "community": 146,
+      "community": 145,
       "norm_label": "jwt-auth.guard.spec.ts"
     },
     {
@@ -3087,7 +3114,7 @@
       "source_file": "apps/api/src/prisma/prisma.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_prisma_prisma_module_ts",
-      "community": 70,
+      "community": 71,
       "norm_label": "prisma.module.ts"
     },
     {
@@ -3096,7 +3123,7 @@
       "source_file": "apps/api/src/prisma/prisma.module.ts",
       "source_location": "L9",
       "id": "prisma_module_prismamodule",
-      "community": 70,
+      "community": 71,
       "norm_label": "prismamodule"
     },
     {
@@ -3105,7 +3132,7 @@
       "source_file": "apps/api/src/prisma/prisma.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_prisma_prisma_service_spec_ts",
-      "community": 147,
+      "community": 146,
       "norm_label": "prisma.service.spec.ts"
     },
     {
@@ -3114,7 +3141,7 @@
       "source_file": "apps/api/src/prisma/selects/user.safe.select.ts",
       "source_location": "L1",
       "id": "apps_api_src_prisma_selects_user_safe_select_ts",
-      "community": 148,
+      "community": 147,
       "norm_label": "user.safe.select.ts"
     },
     {
@@ -3159,7 +3186,7 @@
       "source_file": "apps/api/src/matches/matches.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_matches_matches_service_spec_ts",
-      "community": 149,
+      "community": 148,
       "norm_label": "matches.service.spec.ts"
     },
     {
@@ -3168,7 +3195,7 @@
       "source_file": "apps/api/src/matches/matches.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_matches_matches_controller_spec_ts",
-      "community": 150,
+      "community": 149,
       "norm_label": "matches.controller.spec.ts"
     },
     {
@@ -3177,7 +3204,7 @@
       "source_file": "apps/api/src/matches/matches.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_matches_matches_module_ts",
-      "community": 71,
+      "community": 72,
       "norm_label": "matches.module.ts"
     },
     {
@@ -3186,7 +3213,7 @@
       "source_file": "apps/api/src/matches/matches.module.ts",
       "source_location": "L9",
       "id": "matches_module_matchesmodule",
-      "community": 71,
+      "community": 72,
       "norm_label": "matchesmodule"
     },
     {
@@ -3231,7 +3258,7 @@
       "source_file": "apps/api/src/subscriptions/subscriptions.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_subscriptions_subscriptions_service_spec_ts",
-      "community": 151,
+      "community": 150,
       "norm_label": "subscriptions.service.spec.ts"
     },
     {
@@ -3402,7 +3429,7 @@
       "source_file": "apps/api/src/subscriptions/subscriptions.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_subscriptions_subscriptions_module_ts",
-      "community": 72,
+      "community": 73,
       "norm_label": "subscriptions.module.ts"
     },
     {
@@ -3411,7 +3438,7 @@
       "source_file": "apps/api/src/subscriptions/subscriptions.module.ts",
       "source_location": "L12",
       "id": "subscriptions_module_subscriptionsmodule",
-      "community": 72,
+      "community": 73,
       "norm_label": "subscriptionsmodule"
     },
     {
@@ -3420,7 +3447,7 @@
       "source_file": "apps/api/src/subscriptions/dto/activate-subscription.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_subscriptions_dto_activate_subscription_dto_ts",
-      "community": 73,
+      "community": 74,
       "norm_label": "activate-subscription.dto.ts"
     },
     {
@@ -3429,7 +3456,7 @@
       "source_file": "apps/api/src/subscriptions/dto/activate-subscription.dto.ts",
       "source_location": "L5",
       "id": "activate_subscription_dto_activatesubscriptiondto",
-      "community": 73,
+      "community": 74,
       "norm_label": "activatesubscriptiondto"
     },
     {
@@ -3438,7 +3465,7 @@
       "source_file": "apps/api/src/common/response/response.interceptor.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_common_response_response_interceptor_spec_ts",
-      "community": 152,
+      "community": 151,
       "norm_label": "response.interceptor.spec.ts"
     },
     {
@@ -3447,7 +3474,7 @@
       "source_file": "apps/api/src/common/response/response.interceptor.ts",
       "source_location": "L1",
       "id": "apps_api_src_common_response_response_interceptor_ts",
-      "community": 34,
+      "community": 35,
       "norm_label": "response.interceptor.ts"
     },
     {
@@ -3456,7 +3483,7 @@
       "source_file": "apps/api/src/common/response/response.interceptor.ts",
       "source_location": "L16",
       "id": "response_interceptor_responseinterceptor",
-      "community": 34,
+      "community": 35,
       "norm_label": "responseinterceptor"
     },
     {
@@ -3465,7 +3492,7 @@
       "source_file": "apps/api/src/common/response/response.interceptor.ts",
       "source_location": "L20",
       "id": "response_interceptor_responseinterceptor_intercept",
-      "community": 34,
+      "community": 35,
       "norm_label": ".intercept()"
     },
     {
@@ -3474,7 +3501,7 @@
       "source_file": "apps/api/src/common/geo/geo.utils.ts",
       "source_location": "L1",
       "id": "apps_api_src_common_geo_geo_utils_ts",
-      "community": 6,
+      "community": 4,
       "norm_label": "geo.utils.ts"
     },
     {
@@ -3483,7 +3510,7 @@
       "source_file": "apps/api/src/common/geo/geo.utils.ts",
       "source_location": "L1",
       "id": "geo_utils_getboundingbox",
-      "community": 6,
+      "community": 4,
       "norm_label": "getboundingbox()"
     },
     {
@@ -3492,7 +3519,7 @@
       "source_file": "apps/api/src/common/geo/geo.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_common_geo_geo_module_ts",
-      "community": 74,
+      "community": 75,
       "norm_label": "geo.module.ts"
     },
     {
@@ -3501,7 +3528,7 @@
       "source_file": "apps/api/src/common/geo/geo.module.ts",
       "source_location": "L8",
       "id": "geo_module_geomodule",
-      "community": 74,
+      "community": 75,
       "norm_label": "geomodule"
     },
     {
@@ -3591,7 +3618,7 @@
       "source_file": "apps/api/src/firebase/firebase.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_firebase_firebase_module_ts",
-      "community": 75,
+      "community": 76,
       "norm_label": "firebase.module.ts"
     },
     {
@@ -3600,7 +3627,7 @@
       "source_file": "apps/api/src/firebase/firebase.module.ts",
       "source_location": "L11",
       "id": "firebase_module_firebasemodule",
-      "community": 75,
+      "community": 76,
       "norm_label": "firebasemodule"
     },
     {
@@ -3609,7 +3636,7 @@
       "source_file": "apps/api/src/profile/profile.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_profile_profile_controller_spec_ts",
-      "community": 153,
+      "community": 152,
       "norm_label": "profile.controller.spec.ts"
     },
     {
@@ -3645,7 +3672,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.controller.ts",
       "source_location": "L33",
       "id": "profile_controller_profilecontroller_createprofile",
-      "community": 0,
+      "community": 5,
       "norm_label": ".createprofile()"
     },
     {
@@ -3753,7 +3780,7 @@
       "source_file": "apps/api/src/profile/profile.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_profile_profile_module_ts",
-      "community": 76,
+      "community": 77,
       "norm_label": "profile.module.ts"
     },
     {
@@ -3762,7 +3789,7 @@
       "source_file": "apps/api/src/profile/profile.module.ts",
       "source_location": "L14",
       "id": "profile_module_profilemodule",
-      "community": 76,
+      "community": 77,
       "norm_label": "profilemodule"
     },
     {
@@ -3771,7 +3798,7 @@
       "source_file": "apps/api/src/profile/profile.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_profile_profile_service_spec_ts",
-      "community": 154,
+      "community": 153,
       "norm_label": "profile.service.spec.ts"
     },
     {
@@ -3978,7 +4005,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/dto/update-profile-settings.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_profile_dto_update_profile_settings_dto_ts",
-      "community": 77,
+      "community": 78,
       "norm_label": "update-profile-settings.dto.ts"
     },
     {
@@ -3987,7 +4014,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/dto/update-profile-settings.dto.ts",
       "source_location": "L3",
       "id": "update_profile_settings_dto_updateprofilesettingsdto",
-      "community": 77,
+      "community": 78,
       "norm_label": "updateprofilesettingsdto"
     },
     {
@@ -3996,7 +4023,7 @@
       "source_file": "apps/api/src/profile/dto/register-device.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_profile_dto_register_device_dto_ts",
-      "community": 78,
+      "community": 79,
       "norm_label": "register-device.dto.ts"
     },
     {
@@ -4005,7 +4032,7 @@
       "source_file": "apps/api/src/profile/dto/register-device.dto.ts",
       "source_location": "L4",
       "id": "register_device_dto_registerdevicedto",
-      "community": 78,
+      "community": 79,
       "norm_label": "registerdevicedto"
     },
     {
@@ -4014,7 +4041,7 @@
       "source_file": "apps/api/src/profile/dto/create-profile.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_profile_dto_create_profile_dto_ts",
-      "community": 79,
+      "community": 80,
       "norm_label": "create-profile.dto.ts"
     },
     {
@@ -4023,7 +4050,7 @@
       "source_file": "apps/api/src/profile/dto/create-profile.dto.ts",
       "source_location": "L20",
       "id": "create_profile_dto_createprofiledto",
-      "community": 79,
+      "community": 80,
       "norm_label": "createprofiledto"
     },
     {
@@ -4032,7 +4059,7 @@
       "source_file": "apps/api/src/profile/dto/get-posts.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_profile_dto_get_posts_dto_ts",
-      "community": 33,
+      "community": 34,
       "norm_label": "get-posts.dto.ts"
     },
     {
@@ -4041,7 +4068,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_users_users_service_ts",
-      "community": 6,
+      "community": 4,
       "norm_label": "users.service.ts"
     },
     {
@@ -4050,7 +4077,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
       "source_location": "L15",
       "id": "users_service_usersservice",
-      "community": 6,
+      "community": 4,
       "norm_label": "usersservice"
     },
     {
@@ -4059,7 +4086,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
       "source_location": "L16",
       "id": "users_service_usersservice_constructor",
-      "community": 6,
+      "community": 4,
       "norm_label": ".constructor()"
     },
     {
@@ -4068,7 +4095,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
       "source_location": "L25",
       "id": "users_service_usersservice_findbyemail",
-      "community": 6,
+      "community": 4,
       "norm_label": ".findbyemail()"
     },
     {
@@ -4077,61 +4104,70 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
       "source_location": "L29",
       "id": "users_service_usersservice_listusers",
-      "community": 6,
+      "community": 4,
       "norm_label": ".listusers()"
+    },
+    {
+      "label": ".getStats()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
+      "source_location": "L87",
+      "id": "users_service_usersservice_getstats",
+      "community": 4,
+      "norm_label": ".getstats()"
     },
     {
       "label": ".setUserActive()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
-      "source_location": "L87",
+      "source_location": "L134",
       "id": "users_service_usersservice_setuseractive",
-      "community": 6,
+      "community": 4,
       "norm_label": ".setuseractive()"
     },
     {
       "label": ".buildAdminProfileDefaults()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
-      "source_location": "L112",
+      "source_location": "L159",
       "id": "users_service_usersservice_buildadminprofiledefaults",
-      "community": 6,
+      "community": 4,
       "norm_label": ".buildadminprofiledefaults()"
     },
     {
       "label": ".getCurrentUser()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
-      "source_location": "L127",
+      "source_location": "L174",
       "id": "users_service_usersservice_getcurrentuser",
-      "community": 6,
+      "community": 4,
       "norm_label": ".getcurrentuser()"
     },
     {
       "label": ".updateCurrentUser()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
-      "source_location": "L154",
+      "source_location": "L201",
       "id": "users_service_usersservice_updatecurrentuser",
-      "community": 6,
+      "community": 4,
       "norm_label": ".updatecurrentuser()"
     },
     {
       "label": ".getNearbyUsersHybrid()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
-      "source_location": "L269",
+      "source_location": "L316",
       "id": "users_service_usersservice_getnearbyusershybrid",
-      "community": 6,
+      "community": 4,
       "norm_label": ".getnearbyusershybrid()"
     },
     {
       "label": ".swipe()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
-      "source_location": "L386",
+      "source_location": "L433",
       "id": "users_service_usersservice_swipe",
-      "community": 6,
+      "community": 4,
       "norm_label": ".swipe()"
     },
     {
@@ -4140,7 +4176,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_users_users_controller_ts",
-      "community": 6,
+      "community": 4,
       "norm_label": "users.controller.ts"
     },
     {
@@ -4149,7 +4185,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
       "source_location": "L28",
       "id": "users_controller_userscontroller",
-      "community": 6,
+      "community": 4,
       "norm_label": "userscontroller"
     },
     {
@@ -4158,7 +4194,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
       "source_location": "L29",
       "id": "users_controller_userscontroller_constructor",
-      "community": 6,
+      "community": 4,
       "norm_label": ".constructor()"
     },
     {
@@ -4167,52 +4203,61 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
       "source_location": "L33",
       "id": "users_controller_userscontroller_getusers",
-      "community": 6,
+      "community": 4,
       "norm_label": ".getusers()"
+    },
+    {
+      "label": ".getStats()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
+      "source_location": "L39",
+      "id": "users_controller_userscontroller_getstats",
+      "community": 4,
+      "norm_label": ".getstats()"
     },
     {
       "label": ".setUserActive()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
-      "source_location": "L39",
+      "source_location": "L45",
       "id": "users_controller_userscontroller_setuseractive",
-      "community": 6,
+      "community": 4,
       "norm_label": ".setuseractive()"
     },
     {
       "label": ".getCurrentUser()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
-      "source_location": "L48",
+      "source_location": "L54",
       "id": "users_controller_userscontroller_getcurrentuser",
-      "community": 6,
+      "community": 4,
       "norm_label": ".getcurrentuser()"
     },
     {
       "label": ".updateCurrentUser()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
-      "source_location": "L54",
+      "source_location": "L60",
       "id": "users_controller_userscontroller_updatecurrentuser",
-      "community": 6,
+      "community": 4,
       "norm_label": ".updatecurrentuser()"
     },
     {
       "label": ".getNearbyUsers()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
-      "source_location": "L63",
+      "source_location": "L69",
       "id": "users_controller_userscontroller_getnearbyusers",
-      "community": 6,
+      "community": 4,
       "norm_label": ".getnearbyusers()"
     },
     {
       "label": ".swipe()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
-      "source_location": "L86",
+      "source_location": "L92",
       "id": "users_controller_userscontroller_swipe",
-      "community": 6,
+      "community": 4,
       "norm_label": ".swipe()"
     },
     {
@@ -4221,7 +4266,7 @@
       "source_file": "apps/api/src/users/users.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_users_users_module_ts",
-      "community": 80,
+      "community": 81,
       "norm_label": "users.module.ts"
     },
     {
@@ -4230,7 +4275,7 @@
       "source_file": "apps/api/src/users/users.module.ts",
       "source_location": "L9",
       "id": "users_module_usersmodule",
-      "community": 80,
+      "community": 81,
       "norm_label": "usersmodule"
     },
     {
@@ -4239,7 +4284,7 @@
       "source_file": "apps/api/src/users/users.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_users_users_service_spec_ts",
-      "community": 155,
+      "community": 154,
       "norm_label": "users.service.spec.ts"
     },
     {
@@ -4248,7 +4293,7 @@
       "source_file": "apps/api/src/users/users.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_users_users_controller_spec_ts",
-      "community": 156,
+      "community": 155,
       "norm_label": "users.controller.spec.ts"
     },
     {
@@ -4257,7 +4302,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/dto/set-user-active.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_users_dto_set_user_active_dto_ts",
-      "community": 81,
+      "community": 82,
       "norm_label": "set-user-active.dto.ts"
     },
     {
@@ -4266,7 +4311,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/dto/set-user-active.dto.ts",
       "source_location": "L4",
       "id": "set_user_active_dto_setuseractivedto",
-      "community": 81,
+      "community": 82,
       "norm_label": "setuseractivedto"
     },
     {
@@ -4275,7 +4320,7 @@
       "source_file": "apps/api/src/users/dto/swipe.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_users_dto_swipe_dto_ts",
-      "community": 82,
+      "community": 83,
       "norm_label": "swipe.dto.ts"
     },
     {
@@ -4284,7 +4329,7 @@
       "source_file": "apps/api/src/users/dto/swipe.dto.ts",
       "source_location": "L5",
       "id": "swipe_dto_swipedto",
-      "community": 82,
+      "community": 83,
       "norm_label": "swipedto"
     },
     {
@@ -4293,7 +4338,7 @@
       "source_file": "apps/api/src/users/dto/nearby.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_users_dto_nearby_dto_ts",
-      "community": 83,
+      "community": 84,
       "norm_label": "nearby.dto.ts"
     },
     {
@@ -4302,7 +4347,7 @@
       "source_file": "apps/api/src/users/dto/nearby.dto.ts",
       "source_location": "L5",
       "id": "nearby_dto_nearbydto",
-      "community": 83,
+      "community": 84,
       "norm_label": "nearbydto"
     },
     {
@@ -4311,7 +4356,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/dto/update-current-user.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_users_dto_update_current_user_dto_ts",
-      "community": 84,
+      "community": 85,
       "norm_label": "update-current-user.dto.ts"
     },
     {
@@ -4320,7 +4365,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/dto/update-current-user.dto.ts",
       "source_location": "L3",
       "id": "update_current_user_dto_updatecurrentuserdto",
-      "community": 84,
+      "community": 85,
       "norm_label": "updatecurrentuserdto"
     },
     {
@@ -4329,7 +4374,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/dto/list-users.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_users_dto_list_users_dto_ts",
-      "community": 85,
+      "community": 86,
       "norm_label": "list-users.dto.ts"
     },
     {
@@ -4338,7 +4383,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/dto/list-users.dto.ts",
       "source_location": "L6",
       "id": "list_users_dto_listusersdto",
-      "community": 85,
+      "community": 86,
       "norm_label": "listusersdto"
     },
     {
@@ -4383,7 +4428,7 @@
       "source_file": "apps/api/src/report/report.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_report_report_service_spec_ts",
-      "community": 157,
+      "community": 156,
       "norm_label": "report.service.spec.ts"
     },
     {
@@ -4428,7 +4473,7 @@
       "source_file": "apps/api/src/report/report.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_report_report_module_ts",
-      "community": 86,
+      "community": 87,
       "norm_label": "report.module.ts"
     },
     {
@@ -4437,7 +4482,7 @@
       "source_file": "apps/api/src/report/report.module.ts",
       "source_location": "L9",
       "id": "report_module_reportmodule",
-      "community": 86,
+      "community": 87,
       "norm_label": "reportmodule"
     },
     {
@@ -4446,7 +4491,7 @@
       "source_file": "apps/api/src/report/report.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_report_report_controller_spec_ts",
-      "community": 158,
+      "community": 157,
       "norm_label": "report.controller.spec.ts"
     },
     {
@@ -4455,7 +4500,7 @@
       "source_file": "apps/api/src/report/dto/create-report.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_report_dto_create_report_dto_ts",
-      "community": 87,
+      "community": 88,
       "norm_label": "create-report.dto.ts"
     },
     {
@@ -4464,7 +4509,7 @@
       "source_file": "apps/api/src/report/dto/create-report.dto.ts",
       "source_location": "L4",
       "id": "create_report_dto_createreportdto",
-      "community": 87,
+      "community": 88,
       "norm_label": "createreportdto"
     },
     {
@@ -4473,7 +4518,7 @@
       "source_file": "apps/api/src/photos/photos.service.ts",
       "source_location": "L1",
       "id": "apps_api_src_photos_photos_service_ts",
-      "community": 4,
+      "community": 6,
       "norm_label": "photos.service.ts"
     },
     {
@@ -4482,7 +4527,7 @@
       "source_file": "apps/api/src/photos/photos.service.ts",
       "source_location": "L6",
       "id": "photos_service_photosservice",
-      "community": 4,
+      "community": 6,
       "norm_label": "photosservice"
     },
     {
@@ -4491,7 +4536,7 @@
       "source_file": "apps/api/src/photos/photos.service.ts",
       "source_location": "L9",
       "id": "photos_service_photosservice_constructor",
-      "community": 4,
+      "community": 6,
       "norm_label": ".constructor()"
     },
     {
@@ -4500,7 +4545,7 @@
       "source_file": "apps/api/src/photos/photos.service.ts",
       "source_location": "L14",
       "id": "photos_service_photosservice_save",
-      "community": 4,
+      "community": 6,
       "norm_label": ".save()"
     },
     {
@@ -4509,7 +4554,7 @@
       "source_file": "apps/api/src/photos/photos.service.ts",
       "source_location": "L36",
       "id": "photos_service_photosservice_setprimary",
-      "community": 4,
+      "community": 6,
       "norm_label": ".setprimary()"
     },
     {
@@ -4518,7 +4563,7 @@
       "source_file": "apps/api/src/photos/photos.service.ts",
       "source_location": "L62",
       "id": "photos_service_photosservice_delete",
-      "community": 4,
+      "community": 6,
       "norm_label": ".delete()"
     },
     {
@@ -4527,7 +4572,7 @@
       "source_file": "apps/api/src/photos/photos.service.ts",
       "source_location": "L96",
       "id": "photos_service_photosservice_uploadtoimagekit",
-      "community": 4,
+      "community": 6,
       "norm_label": ".uploadtoimagekit()"
     },
     {
@@ -4536,7 +4581,7 @@
       "source_file": "apps/api/src/photos/photos.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_photos_photos_service_spec_ts",
-      "community": 159,
+      "community": 158,
       "norm_label": "photos.service.spec.ts"
     },
     {
@@ -4545,7 +4590,7 @@
       "source_file": "apps/api/src/photos/photos.controller.ts",
       "source_location": "L1",
       "id": "apps_api_src_photos_photos_controller_ts",
-      "community": 4,
+      "community": 6,
       "norm_label": "photos.controller.ts"
     },
     {
@@ -4554,7 +4599,7 @@
       "source_file": "apps/api/src/photos/photos.controller.ts",
       "source_location": "L27",
       "id": "photos_controller_photoscontroller",
-      "community": 4,
+      "community": 6,
       "norm_label": "photoscontroller"
     },
     {
@@ -4563,7 +4608,7 @@
       "source_file": "apps/api/src/photos/photos.controller.ts",
       "source_location": "L28",
       "id": "photos_controller_photoscontroller_constructor",
-      "community": 4,
+      "community": 6,
       "norm_label": ".constructor()"
     },
     {
@@ -4572,7 +4617,7 @@
       "source_file": "apps/api/src/photos/photos.controller.ts",
       "source_location": "L35",
       "id": "photos_controller_photoscontroller_getuploadauth",
-      "community": 4,
+      "community": 6,
       "norm_label": ".getuploadauth()"
     },
     {
@@ -4581,7 +4626,7 @@
       "source_file": "apps/api/src/photos/photos.controller.ts",
       "source_location": "L41",
       "id": "photos_controller_photoscontroller_savephoto",
-      "community": 4,
+      "community": 6,
       "norm_label": ".savephoto()"
     },
     {
@@ -4590,7 +4635,7 @@
       "source_file": "apps/api/src/photos/photos.controller.ts",
       "source_location": "L49",
       "id": "photos_controller_photoscontroller_setprimary",
-      "community": 4,
+      "community": 6,
       "norm_label": ".setprimary()"
     },
     {
@@ -4599,7 +4644,7 @@
       "source_file": "apps/api/src/photos/photos.controller.ts",
       "source_location": "L57",
       "id": "photos_controller_photoscontroller_deletephoto",
-      "community": 4,
+      "community": 6,
       "norm_label": ".deletephoto()"
     },
     {
@@ -4608,7 +4653,7 @@
       "source_file": "apps/api/src/photos/photos.controller.ts",
       "source_location": "L80",
       "id": "photos_controller_photoscontroller_uploadphoto",
-      "community": 4,
+      "community": 6,
       "norm_label": ".uploadphoto()"
     },
     {
@@ -4617,7 +4662,7 @@
       "source_file": "apps/api/src/photos/photos.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_photos_photos_controller_spec_ts",
-      "community": 160,
+      "community": 159,
       "norm_label": "photos.controller.spec.ts"
     },
     {
@@ -4626,7 +4671,7 @@
       "source_file": "apps/api/src/photos/multer.config.ts",
       "source_location": "L1",
       "id": "apps_api_src_photos_multer_config_ts",
-      "community": 161,
+      "community": 160,
       "norm_label": "multer.config.ts"
     },
     {
@@ -4635,7 +4680,7 @@
       "source_file": "apps/api/src/photos/imagekit.service.ts",
       "source_location": "L1",
       "id": "apps_api_src_photos_imagekit_service_ts",
-      "community": 4,
+      "community": 6,
       "norm_label": "imagekit.service.ts"
     },
     {
@@ -4644,7 +4689,7 @@
       "source_file": "apps/api/src/photos/imagekit.service.ts",
       "source_location": "L6",
       "id": "imagekit_service_imagekitservice",
-      "community": 4,
+      "community": 6,
       "norm_label": "imagekitservice"
     },
     {
@@ -4653,7 +4698,7 @@
       "source_file": "apps/api/src/photos/imagekit.service.ts",
       "source_location": "L9",
       "id": "imagekit_service_imagekitservice_constructor",
-      "community": 4,
+      "community": 6,
       "norm_label": ".constructor()"
     },
     {
@@ -4662,7 +4707,7 @@
       "source_file": "apps/api/src/photos/imagekit.service.ts",
       "source_location": "L25",
       "id": "imagekit_service_imagekitservice_getuploadauth",
-      "community": 4,
+      "community": 6,
       "norm_label": ".getuploadauth()"
     },
     {
@@ -4671,7 +4716,7 @@
       "source_file": "apps/api/src/photos/imagekit.service.ts",
       "source_location": "L29",
       "id": "imagekit_service_imagekitservice_uploadfile",
-      "community": 4,
+      "community": 6,
       "norm_label": ".uploadfile()"
     },
     {
@@ -4680,7 +4725,7 @@
       "source_file": "apps/api/src/photos/imagekit.service.ts",
       "source_location": "L44",
       "id": "imagekit_service_imagekitservice_delete",
-      "community": 4,
+      "community": 6,
       "norm_label": ".delete()"
     },
     {
@@ -4689,7 +4734,7 @@
       "source_file": "apps/api/src/photos/imagekit.service.ts",
       "source_location": "L54",
       "id": "imagekit_service_imagekitservice_deletefilebyid",
-      "community": 4,
+      "community": 6,
       "norm_label": ".deletefilebyid()"
     },
     {
@@ -4698,7 +4743,7 @@
       "source_file": "apps/api/src/photos/imagekit.service.ts",
       "source_location": "L58",
       "id": "imagekit_service_imagekitservice_getoptimizedurl",
-      "community": 4,
+      "community": 6,
       "norm_label": ".getoptimizedurl()"
     },
     {
@@ -4707,7 +4752,7 @@
       "source_file": "apps/api/src/photos/photos.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_photos_photos_module_ts",
-      "community": 88,
+      "community": 89,
       "norm_label": "photos.module.ts"
     },
     {
@@ -4716,7 +4761,7 @@
       "source_file": "apps/api/src/photos/photos.module.ts",
       "source_location": "L12",
       "id": "photos_module_photosmodule",
-      "community": 88,
+      "community": 89,
       "norm_label": "photosmodule"
     },
     {
@@ -5002,6 +5047,30 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/page.tsx",
+      "source_location": "L78",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_page_tsx",
+      "_tgt": "page_formatnumber",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_page_tsx",
+      "target": "page_formatnumber",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/page.tsx",
+      "source_location": "L82",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_page_tsx",
+      "_tgt": "page_pct",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_page_tsx",
+      "target": "page_pct",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/settings/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
@@ -5009,18 +5078,6 @@
       "_tgt": "page_settingspage",
       "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_settings_page_tsx",
       "target": "page_settingspage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/links/page.tsx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_links_page_tsx",
-      "_tgt": "page_linkspage",
-      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_links_page_tsx",
-      "target": "page_linkspage",
       "confidence_score": 1.0
     },
     {
@@ -5410,6 +5467,54 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/stats/api.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_stats_api_ts",
+      "_tgt": "api_fetchuserstats",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_stats_api_ts",
+      "target": "api_fetchuserstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/stats/api.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_src": "api_fetchuserstats",
+      "_tgt": "api_apifetch",
+      "source": "api_fetchuserstats",
+      "target": "api_apifetch"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/stats/api.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_src": "api_fetchuserstats",
+      "_tgt": "api_parseapierror",
+      "source": "api_fetchuserstats",
+      "target": "api_parseapierror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/stats/query.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_stats_query_ts",
+      "_tgt": "query_useuserstatsquery",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_stats_query_ts",
+      "target": "query_useuserstatsquery",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/auth-guard.tsx",
       "source_location": "L13",
       "weight": 1.0,
@@ -5507,7 +5612,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/app-sidebar.tsx",
-      "source_location": "L47",
+      "source_location": "L37",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_app_sidebar_tsx",
       "_tgt": "app_sidebar_appsidebar",
@@ -7106,8 +7211,8 @@
       "source_file": "apps/api/src/chat/chat.gateway.ts",
       "source_location": "L38",
       "weight": 1.0,
-      "_src": "chat_gateway_chatgateway_joinchat",
-      "_tgt": "chat_service_chatservice_ensurechataccess",
+      "_src": "chat_service_chatservice_ensurechataccess",
+      "_tgt": "chat_gateway_chatgateway_joinchat",
       "source": "chat_service_chatservice_ensurechataccess",
       "target": "chat_gateway_chatgateway_joinchat"
     },
@@ -7118,8 +7223,8 @@
       "source_file": "apps/api/src/chat/chat.gateway.ts",
       "source_location": "L52",
       "weight": 1.0,
-      "_src": "chat_gateway_chatgateway_sendmessage",
-      "_tgt": "chat_service_chatservice_ensurechataccess",
+      "_src": "chat_service_chatservice_ensurechataccess",
+      "_tgt": "chat_gateway_chatgateway_sendmessage",
       "source": "chat_service_chatservice_ensurechataccess",
       "target": "chat_gateway_chatgateway_sendmessage"
     },
@@ -7154,8 +7259,8 @@
       "source_file": "apps/api/src/chat/chat.gateway.ts",
       "source_location": "L55",
       "weight": 1.0,
-      "_src": "chat_gateway_chatgateway_sendmessage",
-      "_tgt": "chat_service_chatservice_createmessageforuser",
+      "_src": "chat_service_chatservice_createmessageforuser",
+      "_tgt": "chat_gateway_chatgateway_sendmessage",
       "source": "chat_service_chatservice_createmessageforuser",
       "target": "chat_gateway_chatgateway_sendmessage"
     },
@@ -7166,8 +7271,8 @@
       "source_file": "apps/api/src/chat/chat.controller.ts",
       "source_location": "L58",
       "weight": 1.0,
-      "_src": "chat_controller_chatcontroller_createmessage",
-      "_tgt": "chat_service_chatservice_createmessageforuser",
+      "_src": "chat_service_chatservice_createmessageforuser",
+      "_tgt": "chat_controller_chatcontroller_createmessage",
       "source": "chat_service_chatservice_createmessageforuser",
       "target": "chat_controller_chatcontroller_createmessage"
     },
@@ -8438,8 +8543,8 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L282",
       "weight": 1.0,
-      "_src": "profile_service_profileservice_getprofile",
-      "_tgt": "subscriptions_service_subscriptionsservice_getcurrentsubscriptionforuser",
+      "_src": "subscriptions_service_subscriptionsservice_getcurrentsubscriptionforuser",
+      "_tgt": "profile_service_profileservice_getprofile",
       "source": "subscriptions_service_subscriptionsservice_getcurrentsubscriptionforuser",
       "target": "profile_service_profileservice_getprofile"
     },
@@ -8450,8 +8555,8 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L811",
       "weight": 1.0,
-      "_src": "profile_service_profileservice_findpostsbyorderedids",
-      "_tgt": "subscriptions_service_subscriptionsservice_getcurrentsubscriptionforuser",
+      "_src": "subscriptions_service_subscriptionsservice_getcurrentsubscriptionforuser",
+      "_tgt": "profile_service_profileservice_findpostsbyorderedids",
       "source": "subscriptions_service_subscriptionsservice_getcurrentsubscriptionforuser",
       "target": "profile_service_profileservice_findpostsbyorderedids"
     },
@@ -8570,8 +8675,8 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
       "source_location": "L278",
       "weight": 1.0,
-      "_src": "users_service_usersservice_getnearbyusershybrid",
-      "_tgt": "geo_utils_getboundingbox",
+      "_src": "geo_utils_getboundingbox",
+      "_tgt": "users_service_usersservice_getnearbyusershybrid",
       "source": "geo_utils_getboundingbox",
       "target": "users_service_usersservice_getnearbyusershybrid"
     },
@@ -8630,8 +8735,8 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L111",
       "weight": 1.0,
-      "_src": "profile_service_profileservice_create",
-      "_tgt": "reverse_geocode_service_reversegeocodeservice_getcityandcountry",
+      "_src": "reverse_geocode_service_reversegeocodeservice_getcityandcountry",
+      "_tgt": "profile_service_profileservice_create",
       "source": "reverse_geocode_service_reversegeocodeservice_getcityandcountry",
       "target": "profile_service_profileservice_create"
     },
@@ -8930,8 +9035,8 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L103",
       "weight": 1.0,
-      "_src": "profile_service_profileservice_create",
-      "_tgt": "profile_preferences_service_profilepreferencesservice_normalizeinterests",
+      "_src": "profile_preferences_service_profilepreferencesservice_normalizeinterests",
+      "_tgt": "profile_service_profileservice_create",
       "source": "profile_preferences_service_profilepreferencesservice_normalizeinterests",
       "target": "profile_service_profileservice_create"
     },
@@ -8942,8 +9047,8 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L107",
       "weight": 1.0,
-      "_src": "profile_service_profileservice_create",
-      "_tgt": "profile_preferences_service_profilepreferencesservice_resolvepreferredagerange",
+      "_src": "profile_preferences_service_profilepreferencesservice_resolvepreferredagerange",
+      "_tgt": "profile_service_profileservice_create",
       "source": "profile_preferences_service_profilepreferencesservice_resolvepreferredagerange",
       "target": "profile_service_profileservice_create"
     },
@@ -9458,6 +9563,18 @@
       "source_location": "L87",
       "weight": 1.0,
       "_src": "users_service_usersservice",
+      "_tgt": "users_service_usersservice_getstats",
+      "source": "users_service_usersservice",
+      "target": "users_service_usersservice_getstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
+      "source_location": "L134",
+      "weight": 1.0,
+      "_src": "users_service_usersservice",
       "_tgt": "users_service_usersservice_setuseractive",
       "source": "users_service_usersservice",
       "target": "users_service_usersservice_setuseractive",
@@ -9467,7 +9584,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
-      "source_location": "L112",
+      "source_location": "L159",
       "weight": 1.0,
       "_src": "users_service_usersservice",
       "_tgt": "users_service_usersservice_buildadminprofiledefaults",
@@ -9479,7 +9596,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
-      "source_location": "L127",
+      "source_location": "L174",
       "weight": 1.0,
       "_src": "users_service_usersservice",
       "_tgt": "users_service_usersservice_getcurrentuser",
@@ -9491,7 +9608,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
-      "source_location": "L154",
+      "source_location": "L201",
       "weight": 1.0,
       "_src": "users_service_usersservice",
       "_tgt": "users_service_usersservice_updatecurrentuser",
@@ -9503,7 +9620,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
-      "source_location": "L269",
+      "source_location": "L316",
       "weight": 1.0,
       "_src": "users_service_usersservice",
       "_tgt": "users_service_usersservice_getnearbyusershybrid",
@@ -9515,7 +9632,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.service.ts",
-      "source_location": "L386",
+      "source_location": "L433",
       "weight": 1.0,
       "_src": "users_service_usersservice",
       "_tgt": "users_service_usersservice_swipe",
@@ -9530,8 +9647,8 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
       "source_location": "L34",
       "weight": 1.0,
-      "_src": "users_controller_userscontroller_getusers",
-      "_tgt": "users_service_usersservice_listusers",
+      "_src": "users_service_usersservice_listusers",
+      "_tgt": "users_controller_userscontroller_getusers",
       "source": "users_service_usersservice_listusers",
       "target": "users_controller_userscontroller_getusers"
     },
@@ -9542,8 +9659,8 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
       "source_location": "L67",
       "weight": 1.0,
-      "_src": "users_controller_userscontroller_getnearbyusers",
-      "_tgt": "users_service_usersservice_getnearbyusershybrid",
+      "_src": "users_service_usersservice_getnearbyusershybrid",
+      "_tgt": "users_controller_userscontroller_getnearbyusers",
       "source": "users_service_usersservice_getnearbyusershybrid",
       "target": "users_controller_userscontroller_getnearbyusers"
     },
@@ -9590,6 +9707,18 @@
       "source_location": "L39",
       "weight": 1.0,
       "_src": "users_controller_userscontroller",
+      "_tgt": "users_controller_userscontroller_getstats",
+      "source": "users_controller_userscontroller",
+      "target": "users_controller_userscontroller_getstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_src": "users_controller_userscontroller",
       "_tgt": "users_controller_userscontroller_setuseractive",
       "source": "users_controller_userscontroller",
       "target": "users_controller_userscontroller_setuseractive",
@@ -9599,7 +9728,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
-      "source_location": "L48",
+      "source_location": "L54",
       "weight": 1.0,
       "_src": "users_controller_userscontroller",
       "_tgt": "users_controller_userscontroller_getcurrentuser",
@@ -9611,7 +9740,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
-      "source_location": "L54",
+      "source_location": "L60",
       "weight": 1.0,
       "_src": "users_controller_userscontroller",
       "_tgt": "users_controller_userscontroller_updatecurrentuser",
@@ -9623,7 +9752,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
-      "source_location": "L63",
+      "source_location": "L69",
       "weight": 1.0,
       "_src": "users_controller_userscontroller",
       "_tgt": "users_controller_userscontroller_getnearbyusers",
@@ -9635,7 +9764,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/users.controller.ts",
-      "source_location": "L86",
+      "source_location": "L92",
       "weight": 1.0,
       "_src": "users_controller_userscontroller",
       "_tgt": "users_controller_userscontroller_swipe",
@@ -9806,8 +9935,8 @@
       "source_file": "apps/api/src/photos/photos.service.ts",
       "source_location": "L23",
       "weight": 1.0,
-      "_src": "photos_service_photosservice_save",
-      "_tgt": "report_service_reportservice_create",
+      "_src": "report_service_reportservice_create",
+      "_tgt": "photos_service_photosservice_save",
       "source": "report_service_reportservice_create",
       "target": "photos_service_photosservice_save"
     },
@@ -9818,8 +9947,8 @@
       "source_file": "apps/api/src/photos/photos.service.ts",
       "source_location": "L107",
       "weight": 1.0,
-      "_src": "photos_service_photosservice_uploadtoimagekit",
-      "_tgt": "report_service_reportservice_create",
+      "_src": "report_service_reportservice_create",
+      "_tgt": "photos_service_photosservice_uploadtoimagekit",
       "source": "report_service_reportservice_create",
       "target": "photos_service_photosservice_uploadtoimagekit"
     },
@@ -9926,8 +10055,8 @@
       "source_file": "apps/api/src/photos/photos.controller.ts",
       "source_location": "L45",
       "weight": 1.0,
-      "_src": "photos_controller_photoscontroller_savephoto",
-      "_tgt": "photos_service_photosservice_save",
+      "_src": "photos_service_photosservice_save",
+      "_tgt": "photos_controller_photoscontroller_savephoto",
       "source": "photos_service_photosservice_save",
       "target": "photos_controller_photoscontroller_savephoto"
     },
@@ -9950,8 +10079,8 @@
       "source_file": "apps/api/src/photos/photos.controller.ts",
       "source_location": "L84",
       "weight": 1.0,
-      "_src": "photos_controller_photoscontroller_uploadphoto",
-      "_tgt": "photos_service_photosservice_uploadtoimagekit",
+      "_src": "photos_service_photosservice_uploadtoimagekit",
+      "_tgt": "photos_controller_photoscontroller_uploadphoto",
       "source": "photos_service_photosservice_uploadtoimagekit",
       "target": "photos_controller_photoscontroller_uploadphoto"
     },
