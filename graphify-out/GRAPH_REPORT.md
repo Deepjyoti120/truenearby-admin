@@ -1,1091 +1,437 @@
-# Graph Report - /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin  (2026-05-02)
+# Graph Report - apps/admin  (2026-05-14)
 
 ## Corpus Check
-- 175 files · ~274,215 words
+- 79 files · ~115,925 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 515 nodes · 432 edges · 155 communities detected
-- Extraction: 86% EXTRACTED · 14% INFERRED · 0% AMBIGUOUS · INFERRED: 60 edges (avg confidence: 0.81)
+- 191 nodes · 150 edges · 59 communities detected
+- Extraction: 85% EXTRACTED · 15% INFERRED · 0% AMBIGUOUS · INFERRED: 22 edges (avg confidence: 0.82)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Community 0|Community 0]]
-- [[_COMMUNITY_Community 1|Community 1]]
-- [[_COMMUNITY_Community 2|Community 2]]
-- [[_COMMUNITY_Community 3|Community 3]]
-- [[_COMMUNITY_Community 4|Community 4]]
-- [[_COMMUNITY_Community 5|Community 5]]
-- [[_COMMUNITY_Community 6|Community 6]]
-- [[_COMMUNITY_Community 7|Community 7]]
-- [[_COMMUNITY_Community 8|Community 8]]
-- [[_COMMUNITY_Community 9|Community 9]]
-- [[_COMMUNITY_Community 10|Community 10]]
-- [[_COMMUNITY_Community 11|Community 11]]
-- [[_COMMUNITY_Community 12|Community 12]]
-- [[_COMMUNITY_Community 13|Community 13]]
-- [[_COMMUNITY_Community 14|Community 14]]
-- [[_COMMUNITY_Community 15|Community 15]]
-- [[_COMMUNITY_Community 16|Community 16]]
-- [[_COMMUNITY_Community 17|Community 17]]
-- [[_COMMUNITY_Community 18|Community 18]]
-- [[_COMMUNITY_Community 19|Community 19]]
-- [[_COMMUNITY_Community 20|Community 20]]
-- [[_COMMUNITY_Community 21|Community 21]]
-- [[_COMMUNITY_Community 22|Community 22]]
-- [[_COMMUNITY_Community 23|Community 23]]
-- [[_COMMUNITY_Community 24|Community 24]]
-- [[_COMMUNITY_Community 25|Community 25]]
-- [[_COMMUNITY_Community 26|Community 26]]
-- [[_COMMUNITY_Community 27|Community 27]]
-- [[_COMMUNITY_Community 28|Community 28]]
-- [[_COMMUNITY_Community 29|Community 29]]
-- [[_COMMUNITY_Community 30|Community 30]]
-- [[_COMMUNITY_Community 31|Community 31]]
-- [[_COMMUNITY_Community 32|Community 32]]
-- [[_COMMUNITY_Community 33|Community 33]]
-- [[_COMMUNITY_Community 34|Community 34]]
-- [[_COMMUNITY_Community 35|Community 35]]
-- [[_COMMUNITY_Community 36|Community 36]]
-- [[_COMMUNITY_Community 37|Community 37]]
-- [[_COMMUNITY_Community 38|Community 38]]
-- [[_COMMUNITY_Community 39|Community 39]]
-- [[_COMMUNITY_Community 40|Community 40]]
-- [[_COMMUNITY_Community 41|Community 41]]
-- [[_COMMUNITY_Community 42|Community 42]]
-- [[_COMMUNITY_Community 43|Community 43]]
-- [[_COMMUNITY_Community 44|Community 44]]
-- [[_COMMUNITY_Community 45|Community 45]]
-- [[_COMMUNITY_Community 46|Community 46]]
-- [[_COMMUNITY_Community 47|Community 47]]
-- [[_COMMUNITY_Community 48|Community 48]]
-- [[_COMMUNITY_Community 49|Community 49]]
-- [[_COMMUNITY_Community 50|Community 50]]
-- [[_COMMUNITY_Community 51|Community 51]]
-- [[_COMMUNITY_Community 52|Community 52]]
-- [[_COMMUNITY_Community 53|Community 53]]
-- [[_COMMUNITY_Community 54|Community 54]]
-- [[_COMMUNITY_Community 55|Community 55]]
-- [[_COMMUNITY_Community 56|Community 56]]
-- [[_COMMUNITY_Community 57|Community 57]]
-- [[_COMMUNITY_Community 58|Community 58]]
-- [[_COMMUNITY_Community 59|Community 59]]
-- [[_COMMUNITY_Community 60|Community 60]]
-- [[_COMMUNITY_Community 61|Community 61]]
-- [[_COMMUNITY_Community 62|Community 62]]
-- [[_COMMUNITY_Community 63|Community 63]]
-- [[_COMMUNITY_Community 64|Community 64]]
-- [[_COMMUNITY_Community 65|Community 65]]
-- [[_COMMUNITY_Community 66|Community 66]]
-- [[_COMMUNITY_Community 67|Community 67]]
-- [[_COMMUNITY_Community 68|Community 68]]
-- [[_COMMUNITY_Community 69|Community 69]]
-- [[_COMMUNITY_Community 70|Community 70]]
-- [[_COMMUNITY_Community 71|Community 71]]
-- [[_COMMUNITY_Community 72|Community 72]]
-- [[_COMMUNITY_Community 73|Community 73]]
-- [[_COMMUNITY_Community 74|Community 74]]
-- [[_COMMUNITY_Community 75|Community 75]]
-- [[_COMMUNITY_Community 76|Community 76]]
-- [[_COMMUNITY_Community 77|Community 77]]
-- [[_COMMUNITY_Community 78|Community 78]]
-- [[_COMMUNITY_Community 79|Community 79]]
-- [[_COMMUNITY_Community 80|Community 80]]
-- [[_COMMUNITY_Community 81|Community 81]]
-- [[_COMMUNITY_Community 82|Community 82]]
-- [[_COMMUNITY_Community 83|Community 83]]
-- [[_COMMUNITY_Community 84|Community 84]]
-- [[_COMMUNITY_Community 85|Community 85]]
-- [[_COMMUNITY_Community 86|Community 86]]
-- [[_COMMUNITY_Community 87|Community 87]]
-- [[_COMMUNITY_Community 88|Community 88]]
-- [[_COMMUNITY_Community 89|Community 89]]
-- [[_COMMUNITY_Community 90|Community 90]]
-- [[_COMMUNITY_Community 91|Community 91]]
-- [[_COMMUNITY_Community 92|Community 92]]
-- [[_COMMUNITY_Community 93|Community 93]]
-- [[_COMMUNITY_Community 94|Community 94]]
-- [[_COMMUNITY_Community 95|Community 95]]
-- [[_COMMUNITY_Community 96|Community 96]]
-- [[_COMMUNITY_Community 97|Community 97]]
-- [[_COMMUNITY_Community 98|Community 98]]
-- [[_COMMUNITY_Community 99|Community 99]]
-- [[_COMMUNITY_Community 100|Community 100]]
-- [[_COMMUNITY_Community 101|Community 101]]
-- [[_COMMUNITY_Community 102|Community 102]]
-- [[_COMMUNITY_Community 103|Community 103]]
-- [[_COMMUNITY_Community 104|Community 104]]
-- [[_COMMUNITY_Community 105|Community 105]]
-- [[_COMMUNITY_Community 106|Community 106]]
-- [[_COMMUNITY_Community 107|Community 107]]
-- [[_COMMUNITY_Community 108|Community 108]]
-- [[_COMMUNITY_Community 109|Community 109]]
-- [[_COMMUNITY_Community 110|Community 110]]
-- [[_COMMUNITY_Community 111|Community 111]]
-- [[_COMMUNITY_Community 112|Community 112]]
-- [[_COMMUNITY_Community 113|Community 113]]
-- [[_COMMUNITY_Community 114|Community 114]]
-- [[_COMMUNITY_Community 115|Community 115]]
-- [[_COMMUNITY_Community 116|Community 116]]
-- [[_COMMUNITY_Community 117|Community 117]]
-- [[_COMMUNITY_Community 118|Community 118]]
-- [[_COMMUNITY_Community 119|Community 119]]
-- [[_COMMUNITY_Community 120|Community 120]]
-- [[_COMMUNITY_Community 121|Community 121]]
-- [[_COMMUNITY_Community 122|Community 122]]
-- [[_COMMUNITY_Community 123|Community 123]]
-- [[_COMMUNITY_Community 124|Community 124]]
-- [[_COMMUNITY_Community 125|Community 125]]
-- [[_COMMUNITY_Community 126|Community 126]]
-- [[_COMMUNITY_Community 127|Community 127]]
-- [[_COMMUNITY_Community 128|Community 128]]
-- [[_COMMUNITY_Community 129|Community 129]]
-- [[_COMMUNITY_Community 130|Community 130]]
-- [[_COMMUNITY_Community 131|Community 131]]
-- [[_COMMUNITY_Community 132|Community 132]]
-- [[_COMMUNITY_Community 133|Community 133]]
-- [[_COMMUNITY_Community 134|Community 134]]
-- [[_COMMUNITY_Community 135|Community 135]]
-- [[_COMMUNITY_Community 136|Community 136]]
-- [[_COMMUNITY_Community 137|Community 137]]
-- [[_COMMUNITY_Community 138|Community 138]]
-- [[_COMMUNITY_Community 139|Community 139]]
-- [[_COMMUNITY_Community 140|Community 140]]
-- [[_COMMUNITY_Community 141|Community 141]]
-- [[_COMMUNITY_Community 142|Community 142]]
-- [[_COMMUNITY_Community 143|Community 143]]
-- [[_COMMUNITY_Community 144|Community 144]]
-- [[_COMMUNITY_Community 145|Community 145]]
-- [[_COMMUNITY_Community 146|Community 146]]
-- [[_COMMUNITY_Community 147|Community 147]]
-- [[_COMMUNITY_Community 148|Community 148]]
-- [[_COMMUNITY_Community 149|Community 149]]
-- [[_COMMUNITY_Community 150|Community 150]]
-- [[_COMMUNITY_Community 151|Community 151]]
-- [[_COMMUNITY_Community 152|Community 152]]
-- [[_COMMUNITY_Community 153|Community 153]]
-- [[_COMMUNITY_Community 154|Community 154]]
+- [[_COMMUNITY_API Client & Auth Flow|API Client & Auth Flow]]
+- [[_COMMUNITY_Sidebar Navigation|Sidebar Navigation]]
+- [[_COMMUNITY_Select Component|Select Component]]
+- [[_COMMUNITY_Sheet Component|Sheet Component]]
+- [[_COMMUNITY_Pagination Component|Pagination Component]]
+- [[_COMMUNITY_Users Dashboard Page|Users Dashboard Page]]
+- [[_COMMUNITY_Admin Profile & Sidebar Wiring|Admin Profile & Sidebar Wiring]]
+- [[_COMMUNITY_Next.js Default Brand Assets|Next.js Default Brand Assets]]
+- [[_COMMUNITY_Breadcrumb Component|Breadcrumb Component]]
+- [[_COMMUNITY_App Bootstrap Concepts|App Bootstrap Concepts]]
+- [[_COMMUNITY_Table Component|Table Component]]
+- [[_COMMUNITY_Store Buttons|Store Buttons]]
+- [[_COMMUNITY_Users Query Hooks|Users Query Hooks]]
+- [[_COMMUNITY_Card Component|Card Component]]
+- [[_COMMUNITY_Avatar Component|Avatar Component]]
+- [[_COMMUNITY_Dropdown Menu|Dropdown Menu]]
+- [[_COMMUNITY_Main Nav|Main Nav]]
+- [[_COMMUNITY_Root Layout|Root Layout]]
+- [[_COMMUNITY_Refund Cancellation Page|Refund Cancellation Page]]
+- [[_COMMUNITY_Account Delete Page|Account Delete Page]]
+- [[_COMMUNITY_Contact Us Page|Contact Us Page]]
+- [[_COMMUNITY_Dashboard Layout|Dashboard Layout]]
+- [[_COMMUNITY_Settings Page|Settings Page]]
+- [[_COMMUNITY_Links Page|Links Page]]
+- [[_COMMUNITY_Auth Guard|Auth Guard]]
+- [[_COMMUNITY_Creative Attribution Notice|Creative Attribution Notice]]
+- [[_COMMUNITY_Nav Secondary|Nav Secondary]]
+- [[_COMMUNITY_Field Primitive|Field Primitive]]
+- [[_COMMUNITY_Label Primitive|Label Primitive]]
+- [[_COMMUNITY_Tooltip Primitive|Tooltip Primitive]]
+- [[_COMMUNITY_Separator Primitive|Separator Primitive]]
+- [[_COMMUNITY_Button Primitive|Button Primitive]]
+- [[_COMMUNITY_Collapsible Primitive|Collapsible Primitive]]
+- [[_COMMUNITY_Input Primitive|Input Primitive]]
+- [[_COMMUNITY_Skeleton Primitive|Skeleton Primitive]]
+- [[_COMMUNITY_Query Provider|Query Provider]]
+- [[_COMMUNITY_App Sidebar Layout|App Sidebar Layout]]
+- [[_COMMUNITY_App Content|App Content]]
+- [[_COMMUNITY_App Shell|App Shell]]
+- [[_COMMUNITY_Mobile Detection Hook|Mobile Detection Hook]]
+- [[_COMMUNITY_cn() Utility|cn() Utility]]
+- [[_COMMUNITY_PostCSS Config|PostCSS Config]]
+- [[_COMMUNITY_Next.js Env Types|Next.js Env Types]]
+- [[_COMMUNITY_ESLint Config|ESLint Config]]
+- [[_COMMUNITY_Next.js Config|Next.js Config]]
+- [[_COMMUNITY_Features Index|Features Index]]
+- [[_COMMUNITY_Privacy Policy Page|Privacy Policy Page]]
+- [[_COMMUNITY_Other Standalone Page (a)|Other Standalone Page (a)]]
+- [[_COMMUNITY_Other Standalone Page (b)|Other Standalone Page (b)]]
+- [[_COMMUNITY_Other Standalone Page (c)|Other Standalone Page (c)]]
+- [[_COMMUNITY_Other Standalone Page (d)|Other Standalone Page (d)]]
+- [[_COMMUNITY_Other Standalone Page (e)|Other Standalone Page (e)]]
+- [[_COMMUNITY_Other Standalone Page (f)|Other Standalone Page (f)]]
+- [[_COMMUNITY_App Sidebar Header|App Sidebar Header]]
+- [[_COMMUNITY_App Sidebar Layout File|App Sidebar Layout File]]
+- [[_COMMUNITY_Sonner Toast|Sonner Toast]]
+- [[_COMMUNITY_Switch Primitive|Switch Primitive]]
+- [[_COMMUNITY_Creative Resources|Creative Resources]]
+- [[_COMMUNITY_Constants|Constants]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `ProfileService` - 20 edges
-2. `AuthService` - 11 edges
-3. `SubscriptionsService` - 11 edges
-4. `ProfileController` - 10 edges
-5. `NestJS Framework` - 10 edges
-6. `AuthController` - 9 edges
-7. `apiFetch()` - 8 edges
-8. `PostsService` - 8 edges
-9. `ChatService` - 8 edges
-10. `UsersService` - 8 edges
+1. `apiFetch()` - 10 edges
+2. `parseApiError()` - 6 edges
+3. `Next.js Default Public Assets` - 6 edges
+4. `apiLogin()` - 5 edges
+5. `Next.js Admin App` - 5 edges
+6. `updateProfileSettings()` - 4 edges
+7. `useSidebar()` - 4 edges
+8. `getProfileDisplayModel()` - 3 edges
+9. `fetchProfile()` - 3 edges
+10. `fetchUsers()` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `NavUser()` --calls--> `useSidebar()`  [INFERRED]
-  /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/nav-user.tsx → apps/admin/src/components/ui/sidebar.tsx
-- `NestJS CLI Module/Controller/Service Generation` --part_of--> `NestJS Framework`  [INFERRED]
-  readme.md → apps/api/README.md
-- `Auth Module` --likely_uses--> `Firebase Admin service-account.json`  [INFERRED]
-  readme.md → apps/api/config/firebase/README.md
-- `Prisma Module` --part_of--> `NestJS Framework`  [INFERRED]
-  readme.md → apps/api/README.md
+- `fetchProfile()` --calls--> `apiFetch()`  [INFERRED]
+  /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/profile/api.ts → apps/admin/src/lib/api.ts
+- `fetchProfile()` --calls--> `parseApiError()`  [INFERRED]
+  /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/profile/api.ts → apps/admin/src/lib/api.ts
 - `onSubmit()` --calls--> `apiLogin()`  [INFERRED]
-  /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/login-form.tsx → /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/lib/api.ts
-
-## Hyperedges (group relationships)
-- **NestJS module scaffolding pattern** —  [EXTRACTED 1.00]
-- **Graphify maintenance workflow (read report, navigate wiki, update graph)** —  [EXTRACTED 1.00]
+  /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/login-form.tsx → apps/admin/src/lib/api.ts
+- `updateProfileSettings()` --calls--> `apiFetch()`  [INFERRED]
+  /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/profile/api.ts → apps/admin/src/lib/api.ts
+- `updateProfileSettings()` --calls--> `parseApiError()`  [INFERRED]
+  /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/profile/api.ts → apps/admin/src/lib/api.ts
 
 ## Communities
 
-### Community 0 - "Community 0"
-Cohesion: 0.07
-Nodes (6): ProfileController, ProfilePreferencesService, buildFeedVisibilityClause(), ProfileService, ReverseGeocodeService, onSubmit()
+### Community 0 - "API Client & Auth Flow"
+Cohesion: 0.17
+Nodes (13): apiFetch(), apiLogin(), apiLogout(), fetchUsers(), getPlatform(), isAuthRoute(), parseApiError(), redirectToLogin() (+5 more)
 
-### Community 1 - "Community 1"
-Cohesion: 0.08
-Nodes (28): app/page.tsx Entry, create-next-app bootstrap, Development Server (npm/yarn/pnpm/bun dev), Geist Font (next/font), Next.js Admin App, Vercel Deployment Platform, start / start:dev / start:prod scripts, MIT License (+20 more)
-
-### Community 2 - "Community 2"
-Cohesion: 0.1
-Nodes (5): ChatController, CreateMessageDto, ChatGateway, ChatService, FirebaseService
-
-### Community 3 - "Community 3"
-Cohesion: 0.12
-Nodes (3): LikesService, SubscriptionsController, SubscriptionsService
-
-### Community 4 - "Community 4"
-Cohesion: 0.12
-Nodes (4): AuthService, bootstrap(), ReportController, ReportService
-
-### Community 5 - "Community 5"
-Cohesion: 0.1
-Nodes (3): ImageKitService, PhotosController, PhotosService
-
-### Community 6 - "Community 6"
-Cohesion: 0.15
-Nodes (15): apiFetch(), apiLogin(), apiLogout(), fetchProfile(), formatRoleLabel(), getPlatform(), getProfileDisplayModel(), isAuthRoute() (+7 more)
-
-### Community 7 - "Community 7"
-Cohesion: 0.11
-Nodes (3): getBoundingBox(), UsersController, UsersService
-
-### Community 8 - "Community 8"
-Cohesion: 0.13
-Nodes (2): PostsController, PostsService
-
-### Community 9 - "Community 9"
+### Community 1 - "Sidebar Navigation"
 Cohesion: 0.2
 Nodes (4): NavProjects(), NavUser(), SidebarMenuButton(), useSidebar()
 
-### Community 10 - "Community 10"
+### Community 2 - "Select Component"
+Cohesion: 0.18
+Nodes (0): 
+
+### Community 3 - "Sheet Component"
 Cohesion: 0.2
 Nodes (0): 
 
-### Community 11 - "Community 11"
-Cohesion: 0.2
-Nodes (1): AuthController
+### Community 4 - "Pagination Component"
+Cohesion: 0.22
+Nodes (0): 
 
-### Community 12 - "Community 12"
+### Community 5 - "Users Dashboard Page"
+Cohesion: 0.25
+Nodes (0): 
+
+### Community 6 - "Admin Profile & Sidebar Wiring"
+Cohesion: 0.29
+Nodes (5): fetchProfile(), formatRoleLabel(), getProfileDisplayModel(), AppSidebar(), useAdminProfileQuery()
+
+### Community 7 - "Next.js Default Brand Assets"
 Cohesion: 0.29
 Nodes (8): File Document Icon, Globe World Icon, Next.js Wordmark Logo, Next.js Framework, Next.js Default Public Assets, Vercel Platform, Vercel Triangle Logo, Window Browser Icon
 
-### Community 13 - "Community 13"
+### Community 8 - "Breadcrumb Component"
 Cohesion: 0.29
 Nodes (0): 
 
-### Community 14 - "Community 14"
-Cohesion: 0.29
-Nodes (2): LikesController, UnlockLikesDto
+### Community 9 - "App Bootstrap Concepts"
+Cohesion: 0.33
+Nodes (6): app/page.tsx Entry, create-next-app bootstrap, Development Server (npm/yarn/pnpm/bun dev), Geist Font (next/font), Next.js Admin App, Vercel Deployment Platform
 
-### Community 15 - "Community 15"
+### Community 10 - "Table Component"
 Cohesion: 0.4
-Nodes (1): JwtStrategy
+Nodes (0): 
 
-### Community 16 - "Community 16"
-Cohesion: 0.4
-Nodes (1): PrismaService
-
-### Community 17 - "Community 17"
-Cohesion: 0.4
-Nodes (5): GRAPH_REPORT.md, Graphify Knowledge Graph, graphify update . command, Rationale: Keep graph current via AST-only updates (no API cost), Graphify Wiki Index
-
-### Community 18 - "Community 18"
+### Community 11 - "Store Buttons"
 Cohesion: 0.5
 Nodes (0): 
 
-### Community 19 - "Community 19"
+### Community 12 - "Users Query Hooks"
+Cohesion: 0.67
+Nodes (2): usersQueryKey(), useUsersQuery()
+
+### Community 13 - "Card Component"
 Cohesion: 0.5
 Nodes (0): 
 
-### Community 20 - "Community 20"
+### Community 14 - "Avatar Component"
 Cohesion: 0.5
 Nodes (0): 
 
-### Community 21 - "Community 21"
+### Community 15 - "Dropdown Menu"
 Cohesion: 0.5
 Nodes (0): 
 
-### Community 22 - "Community 22"
-Cohesion: 0.5
-Nodes (1): AppController
-
-### Community 23 - "Community 23"
-Cohesion: 0.5
-Nodes (1): WsJwtGuard
-
-### Community 24 - "Community 24"
-Cohesion: 0.5
-Nodes (1): MatchesService
-
-### Community 25 - "Community 25"
-Cohesion: 0.5
-Nodes (1): MatchesController
-
-### Community 26 - "Community 26"
+### Community 16 - "Main Nav"
 Cohesion: 0.67
 Nodes (0): 
 
-### Community 27 - "Community 27"
-Cohesion: 0.67
-Nodes (1): AppService
-
-### Community 28 - "Community 28"
-Cohesion: 0.67
-Nodes (0): 
-
-### Community 29 - "Community 29"
-Cohesion: 0.67
-Nodes (1): GetPostsDto
-
-### Community 30 - "Community 30"
-Cohesion: 0.67
-Nodes (1): ResponseInterceptor
-
-### Community 31 - "Community 31"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 32 - "Community 32"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 33 - "Community 33"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 34 - "Community 34"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 35 - "Community 35"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 36 - "Community 36"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 37 - "Community 37"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 38 - "Community 38"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 39 - "Community 39"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 40 - "Community 40"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 41 - "Community 41"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 42 - "Community 42"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 43 - "Community 43"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 44 - "Community 44"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 45 - "Community 45"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 46 - "Community 46"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 47 - "Community 47"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 48 - "Community 48"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 49 - "Community 49"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 50 - "Community 50"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 51 - "Community 51"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 52 - "Community 52"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 53 - "Community 53"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 54 - "Community 54"
-Cohesion: 1.0
-Nodes (1): AppModule
-
-### Community 55 - "Community 55"
-Cohesion: 1.0
-Nodes (1): PostsModule
-
-### Community 56 - "Community 56"
-Cohesion: 1.0
-Nodes (1): SwipePostDto
-
-### Community 57 - "Community 57"
-Cohesion: 1.0
-Nodes (1): CreatePostDto
-
-### Community 58 - "Community 58"
-Cohesion: 1.0
-Nodes (1): ChatModule
-
-### Community 59 - "Community 59"
-Cohesion: 1.0
-Nodes (1): LikesModule
-
-### Community 60 - "Community 60"
-Cohesion: 1.0
-Nodes (1): AuthModule
-
-### Community 61 - "Community 61"
-Cohesion: 1.0
-Nodes (1): LoginDto
-
-### Community 62 - "Community 62"
-Cohesion: 1.0
-Nodes (1): AuthEntryDto
-
-### Community 63 - "Community 63"
-Cohesion: 1.0
-Nodes (1): RegisterDto
-
-### Community 64 - "Community 64"
-Cohesion: 1.0
-Nodes (1): JwtAuthGuard
-
-### Community 65 - "Community 65"
-Cohesion: 1.0
-Nodes (1): PrismaModule
-
-### Community 66 - "Community 66"
-Cohesion: 1.0
-Nodes (1): MatchesModule
-
-### Community 67 - "Community 67"
-Cohesion: 1.0
-Nodes (1): SubscriptionsModule
-
-### Community 68 - "Community 68"
-Cohesion: 1.0
-Nodes (1): ActivateSubscriptionDto
-
-### Community 69 - "Community 69"
-Cohesion: 1.0
-Nodes (1): GeoModule
-
-### Community 70 - "Community 70"
-Cohesion: 1.0
-Nodes (1): FirebaseModule
-
-### Community 71 - "Community 71"
-Cohesion: 1.0
-Nodes (1): ProfileModule
-
-### Community 72 - "Community 72"
-Cohesion: 1.0
-Nodes (1): UpdateProfileSettingsDto
-
-### Community 73 - "Community 73"
-Cohesion: 1.0
-Nodes (1): RegisterDeviceDto
-
-### Community 74 - "Community 74"
-Cohesion: 1.0
-Nodes (1): CreateProfileDto
-
-### Community 75 - "Community 75"
-Cohesion: 1.0
-Nodes (1): UsersModule
-
-### Community 76 - "Community 76"
-Cohesion: 1.0
-Nodes (1): SwipeDto
-
-### Community 77 - "Community 77"
-Cohesion: 1.0
-Nodes (1): NearbyDto
-
-### Community 78 - "Community 78"
-Cohesion: 1.0
-Nodes (1): UpdateCurrentUserDto
-
-### Community 79 - "Community 79"
-Cohesion: 1.0
-Nodes (1): ReportModule
-
-### Community 80 - "Community 80"
-Cohesion: 1.0
-Nodes (1): CreateReportDto
-
-### Community 81 - "Community 81"
-Cohesion: 1.0
-Nodes (1): PhotosModule
-
-### Community 82 - "Community 82"
-Cohesion: 1.0
-Nodes (2): Admin App Brand Identity, App Brand Logo (Couple in Pink Heart)
-
-### Community 83 - "Community 83"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 84 - "Community 84"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 85 - "Community 85"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 86 - "Community 86"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 87 - "Community 87"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 88 - "Community 88"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 89 - "Community 89"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 90 - "Community 90"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 91 - "Community 91"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 92 - "Community 92"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 93 - "Community 93"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 94 - "Community 94"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 95 - "Community 95"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 96 - "Community 96"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 97 - "Community 97"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 98 - "Community 98"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 99 - "Community 99"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 100 - "Community 100"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 101 - "Community 101"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 102 - "Community 102"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 103 - "Community 103"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 104 - "Community 104"
+### Community 17 - "Root Layout"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 105 - "Community 105"
+### Community 18 - "Refund Cancellation Page"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 106 - "Community 106"
+### Community 19 - "Account Delete Page"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 107 - "Community 107"
+### Community 20 - "Contact Us Page"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 108 - "Community 108"
+### Community 21 - "Dashboard Layout"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 109 - "Community 109"
+### Community 22 - "Settings Page"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 110 - "Community 110"
+### Community 23 - "Links Page"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 111 - "Community 111"
+### Community 24 - "Auth Guard"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 112 - "Community 112"
+### Community 25 - "Creative Attribution Notice"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 113 - "Community 113"
+### Community 26 - "Nav Secondary"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 114 - "Community 114"
+### Community 27 - "Field Primitive"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 115 - "Community 115"
+### Community 28 - "Label Primitive"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 116 - "Community 116"
+### Community 29 - "Tooltip Primitive"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 117 - "Community 117"
+### Community 30 - "Separator Primitive"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 118 - "Community 118"
+### Community 31 - "Button Primitive"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 119 - "Community 119"
+### Community 32 - "Collapsible Primitive"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 120 - "Community 120"
+### Community 33 - "Input Primitive"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 121 - "Community 121"
+### Community 34 - "Skeleton Primitive"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 122 - "Community 122"
+### Community 35 - "Query Provider"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 123 - "Community 123"
+### Community 36 - "App Sidebar Layout"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 124 - "Community 124"
+### Community 37 - "App Content"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 125 - "Community 125"
+### Community 38 - "App Shell"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 126 - "Community 126"
+### Community 39 - "Mobile Detection Hook"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 127 - "Community 127"
+### Community 40 - "cn() Utility"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 128 - "Community 128"
+### Community 41 - "PostCSS Config"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 129 - "Community 129"
+### Community 42 - "Next.js Env Types"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 130 - "Community 130"
+### Community 43 - "ESLint Config"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 131 - "Community 131"
+### Community 44 - "Next.js Config"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 132 - "Community 132"
+### Community 45 - "Features Index"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 133 - "Community 133"
+### Community 46 - "Privacy Policy Page"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 134 - "Community 134"
+### Community 47 - "Other Standalone Page (a)"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 135 - "Community 135"
+### Community 48 - "Other Standalone Page (b)"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 136 - "Community 136"
+### Community 49 - "Other Standalone Page (c)"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 137 - "Community 137"
+### Community 50 - "Other Standalone Page (d)"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 138 - "Community 138"
+### Community 51 - "Other Standalone Page (e)"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 139 - "Community 139"
+### Community 52 - "Other Standalone Page (f)"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 140 - "Community 140"
+### Community 53 - "App Sidebar Header"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 141 - "Community 141"
+### Community 54 - "App Sidebar Layout File"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 142 - "Community 142"
+### Community 55 - "Sonner Toast"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 143 - "Community 143"
+### Community 56 - "Switch Primitive"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 144 - "Community 144"
+### Community 57 - "Creative Resources"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 145 - "Community 145"
+### Community 58 - "Constants"
 Cohesion: 1.0
 Nodes (0): 
-
-### Community 146 - "Community 146"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 147 - "Community 147"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 148 - "Community 148"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 149 - "Community 149"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 150 - "Community 150"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 151 - "Community 151"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 152 - "Community 152"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 153 - "Community 153"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 154 - "Community 154"
-Cohesion: 1.0
-Nodes (0): 
-
-## Ambiguous Edges - Review These
-- `Matches Module` → `Nominatim Reverse Geocoding API`  [AMBIGUOUS]
-  readme.md · relation: likely_uses
 
 ## Knowledge Gaps
-- **57 isolated node(s):** `AppModule`, `PostsModule`, `SwipePostDto`, `CreatePostDto`, `CreateMessageDto` (+52 more)
+- **9 isolated node(s):** `create-next-app bootstrap`, `Development Server (npm/yarn/pnpm/bun dev)`, `app/page.tsx Entry`, `Geist Font (next/font)`, `Vercel Deployment Platform` (+4 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 31`** (2 nodes): `RootLayout()`, `layout.tsx`
+- **Thin community `Root Layout`** (2 nodes): `RootLayout()`, `layout.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 32`** (2 nodes): `AccountDeletePage()`, `page.tsx`
+- **Thin community `Refund Cancellation Page`** (2 nodes): `page.tsx`, `RefundCancellationPage()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 33`** (2 nodes): `DashboardLayout()`, `layout.tsx`
+- **Thin community `Account Delete Page`** (2 nodes): `AccountDeletePage()`, `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 34`** (2 nodes): `SettingsPage()`, `page.tsx`
+- **Thin community `Contact Us Page`** (2 nodes): `page.tsx`, `ContactUsPage()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 35`** (2 nodes): `LinksPage()`, `page.tsx`
+- **Thin community `Dashboard Layout`** (2 nodes): `DashboardLayout()`, `layout.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 36`** (2 nodes): `UsersPage()`, `page.tsx`
+- **Thin community `Settings Page`** (2 nodes): `SettingsPage()`, `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 37`** (2 nodes): `AuthGuard()`, `auth-guard.tsx`
+- **Thin community `Links Page`** (2 nodes): `LinksPage()`, `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 38`** (2 nodes): `CreativeAttributionNotice()`, `creative-attribution-notice.tsx`
+- **Thin community `Auth Guard`** (2 nodes): `AuthGuard()`, `auth-guard.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 39`** (2 nodes): `nav-secondary.tsx`, `NavSecondary()`
+- **Thin community `Creative Attribution Notice`** (2 nodes): `CreativeAttributionNotice()`, `creative-attribution-notice.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 40`** (2 nodes): `cn()`, `field.tsx`
+- **Thin community `Nav Secondary`** (2 nodes): `nav-secondary.tsx`, `NavSecondary()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 41`** (2 nodes): `Label()`, `label.tsx`
+- **Thin community `Field Primitive`** (2 nodes): `cn()`, `field.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 42`** (2 nodes): `tooltip.tsx`, `TooltipContent()`
+- **Thin community `Label Primitive`** (2 nodes): `Label()`, `label.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 43`** (2 nodes): `Separator()`, `separator.tsx`
+- **Thin community `Tooltip Primitive`** (2 nodes): `tooltip.tsx`, `TooltipContent()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 44`** (2 nodes): `cn()`, `button.tsx`
+- **Thin community `Separator Primitive`** (2 nodes): `Separator()`, `separator.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 45`** (2 nodes): `collapsible.tsx`, `Collapsible()`
+- **Thin community `Button Primitive`** (2 nodes): `cn()`, `button.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 46`** (2 nodes): `Input()`, `input.tsx`
+- **Thin community `Collapsible Primitive`** (2 nodes): `collapsible.tsx`, `Collapsible()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 47`** (2 nodes): `skeleton.tsx`, `Skeleton()`
+- **Thin community `Input Primitive`** (2 nodes): `Input()`, `input.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 48`** (2 nodes): `AppQueryProvider()`, `query-provider.tsx`
+- **Thin community `Skeleton Primitive`** (2 nodes): `skeleton.tsx`, `Skeleton()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 49`** (2 nodes): `AppSidebarLayout.tsx`, `AppSidebarLayout()`
+- **Thin community `Query Provider`** (2 nodes): `AppQueryProvider()`, `query-provider.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 50`** (2 nodes): `AppContent()`, `AppContent.tsx`
+- **Thin community `App Sidebar Layout`** (2 nodes): `AppSidebarLayout.tsx`, `AppSidebarLayout()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 51`** (2 nodes): `AppShell.tsx`, `AppShell()`
+- **Thin community `App Content`** (2 nodes): `AppContent()`, `AppContent.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 52`** (2 nodes): `use-mobile.ts`, `useIsMobile()`
+- **Thin community `App Shell`** (2 nodes): `AppShell.tsx`, `AppShell()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 53`** (2 nodes): `utils.ts`, `cn()`
+- **Thin community `Mobile Detection Hook`** (2 nodes): `use-mobile.ts`, `useIsMobile()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 54`** (2 nodes): `AppModule`, `app.module.ts`
+- **Thin community `cn() Utility`** (2 nodes): `utils.ts`, `cn()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 55`** (2 nodes): `posts.module.ts`, `PostsModule`
+- **Thin community `PostCSS Config`** (1 nodes): `postcss.config.mjs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 56`** (2 nodes): `swipe-post.dto.ts`, `SwipePostDto`
+- **Thin community `Next.js Env Types`** (1 nodes): `next-env.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 57`** (2 nodes): `create-post.dto.ts`, `CreatePostDto`
+- **Thin community `ESLint Config`** (1 nodes): `eslint.config.mjs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 58`** (2 nodes): `chat.module.ts`, `ChatModule`
+- **Thin community `Next.js Config`** (1 nodes): `next.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 59`** (2 nodes): `likes.module.ts`, `LikesModule`
+- **Thin community `Features Index`** (1 nodes): `index.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 60`** (2 nodes): `auth.module.ts`, `AuthModule`
+- **Thin community `Privacy Policy Page`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 61`** (2 nodes): `LoginDto`, `login.dto.ts`
+- **Thin community `Other Standalone Page (a)`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 62`** (2 nodes): `entry.dto.ts`, `AuthEntryDto`
+- **Thin community `Other Standalone Page (b)`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 63`** (2 nodes): `register.dto.ts`, `RegisterDto`
+- **Thin community `Other Standalone Page (c)`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 64`** (2 nodes): `jwt-auth.guard.ts`, `JwtAuthGuard`
+- **Thin community `Other Standalone Page (d)`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 65`** (2 nodes): `prisma.module.ts`, `PrismaModule`
+- **Thin community `Other Standalone Page (e)`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 66`** (2 nodes): `matches.module.ts`, `MatchesModule`
+- **Thin community `Other Standalone Page (f)`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 67`** (2 nodes): `subscriptions.module.ts`, `SubscriptionsModule`
+- **Thin community `App Sidebar Header`** (1 nodes): `app-sidebar-header.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 68`** (2 nodes): `ActivateSubscriptionDto`, `activate-subscription.dto.ts`
+- **Thin community `App Sidebar Layout File`** (1 nodes): `app-sidebar-layout.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 69`** (2 nodes): `geo.module.ts`, `GeoModule`
+- **Thin community `Sonner Toast`** (1 nodes): `sonner.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 70`** (2 nodes): `firebase.module.ts`, `FirebaseModule`
+- **Thin community `Switch Primitive`** (1 nodes): `switch.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 71`** (2 nodes): `profile.module.ts`, `ProfileModule`
+- **Thin community `Creative Resources`** (1 nodes): `creative-resources.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 72`** (2 nodes): `UpdateProfileSettingsDto`, `update-profile-settings.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 73`** (2 nodes): `register-device.dto.ts`, `RegisterDeviceDto`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 74`** (2 nodes): `create-profile.dto.ts`, `CreateProfileDto`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 75`** (2 nodes): `users.module.ts`, `UsersModule`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 76`** (2 nodes): `swipe.dto.ts`, `SwipeDto`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 77`** (2 nodes): `nearby.dto.ts`, `NearbyDto`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 78`** (2 nodes): `UpdateCurrentUserDto`, `update-current-user.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 79`** (2 nodes): `report.module.ts`, `ReportModule`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 80`** (2 nodes): `create-report.dto.ts`, `CreateReportDto`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 81`** (2 nodes): `photos.module.ts`, `PhotosModule`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 82`** (2 nodes): `Admin App Brand Identity`, `App Brand Logo (Couple in Pink Heart)`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 83`** (1 nodes): `postcss.config.mjs`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 84`** (1 nodes): `next-env.d.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 85`** (1 nodes): `eslint.config.mjs`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 86`** (1 nodes): `next.config.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 87`** (1 nodes): `index.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 88`** (1 nodes): `page.tsx`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 89`** (1 nodes): `page.tsx`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 90`** (1 nodes): `page.tsx`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 91`** (1 nodes): `page.tsx`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 92`** (1 nodes): `page.tsx`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 93`** (1 nodes): `page.tsx`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 94`** (1 nodes): `page.tsx`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 95`** (1 nodes): `app-sidebar-header.tsx`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 96`** (1 nodes): `app-sidebar-layout.tsx`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 97`** (1 nodes): `sonner.tsx`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 98`** (1 nodes): `creative-resources.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 99`** (1 nodes): `constants.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 100`** (1 nodes): `prisma.config.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 101`** (1 nodes): `eslint.config.mjs`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 102`** (1 nodes): `app.e2e-spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 103`** (1 nodes): `app.controller.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 104`** (1 nodes): `browser.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 105`** (1 nodes): `client.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 106`** (1 nodes): `models.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 107`** (1 nodes): `commonInputTypes.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 108`** (1 nodes): `enums.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 109`** (1 nodes): `prismaNamespace.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 110`** (1 nodes): `prismaNamespaceBrowser.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 111`** (1 nodes): `Match.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 112`** (1 nodes): `Report.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 113`** (1 nodes): `LatestUserPost.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 114`** (1 nodes): `Block.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 115`** (1 nodes): `Photo.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 116`** (1 nodes): `SubscriptionPlan.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 117`** (1 nodes): `UserDevice.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 118`** (1 nodes): `Chat.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 119`** (1 nodes): `Message.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 120`** (1 nodes): `Like.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 121`** (1 nodes): `Profile.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 122`** (1 nodes): `UserSubscription.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 123`** (1 nodes): `PostSwipe.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 124`** (1 nodes): `User.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 125`** (1 nodes): `Swipe.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 126`** (1 nodes): `Post.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 127`** (1 nodes): `ProfileMatchPreference.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 128`** (1 nodes): `posts.service.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 129`** (1 nodes): `chat.controller.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 130`** (1 nodes): `chat.service.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 131`** (1 nodes): `chat.selects.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 132`** (1 nodes): `chat.gateway.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 133`** (1 nodes): `likes.service.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 134`** (1 nodes): `likes.controller.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 135`** (1 nodes): `auth.service.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 136`** (1 nodes): `auth.controller.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 137`** (1 nodes): `current-user.decorator.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 138`** (1 nodes): `ws-jwt.guard.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 139`** (1 nodes): `jwt-auth.guard.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 140`** (1 nodes): `prisma.service.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 141`** (1 nodes): `user.safe.select.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 142`** (1 nodes): `matches.service.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 143`** (1 nodes): `matches.controller.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 144`** (1 nodes): `subscriptions.service.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 145`** (1 nodes): `response.interceptor.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 146`** (1 nodes): `profile.controller.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 147`** (1 nodes): `profile.service.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 148`** (1 nodes): `users.service.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 149`** (1 nodes): `users.controller.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 150`** (1 nodes): `report.service.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 151`** (1 nodes): `report.controller.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 152`** (1 nodes): `photos.service.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 153`** (1 nodes): `photos.controller.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 154`** (1 nodes): `multer.config.ts`
+- **Thin community `Constants`** (1 nodes): `constants.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **What is the exact relationship between `Matches Module` and `Nominatim Reverse Geocoding API`?**
-  _Edge tagged AMBIGUOUS (relation: likely_uses) - confidence is low._
-- **Why does `ProfileService` connect `Community 0` to `Community 3`?**
-  _High betweenness centrality (0.039) - this node is a cross-community bridge._
-- **Why does `ProfileController` connect `Community 0` to `Community 4`?**
-  _High betweenness centrality (0.039) - this node is a cross-community bridge._
-- **Are the 4 inferred relationships involving `NestJS Framework` (e.g. with `NestJS CLI Module/Controller/Service Generation` and `Prisma Module`) actually correct?**
-  _`NestJS Framework` has 4 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `AppModule`, `PostsModule`, `SwipePostDto` to the rest of the system?**
-  _57 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.07 - nodes in this community are weakly interconnected._
-- **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
+- **Why does `apiFetch()` connect `API Client & Auth Flow` to `Admin Profile & Sidebar Wiring`?**
+  _High betweenness centrality (0.007) - this node is a cross-community bridge._
+- **Why does `updateProfileSettings()` connect `API Client & Auth Flow` to `Admin Profile & Sidebar Wiring`?**
+  _High betweenness centrality (0.007) - this node is a cross-community bridge._
+- **Are the 4 inferred relationships involving `apiFetch()` (e.g. with `fetchProfile()` and `updateProfileSettings()`) actually correct?**
+  _`apiFetch()` has 4 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 4 inferred relationships involving `parseApiError()` (e.g. with `fetchProfile()` and `updateProfileSettings()`) actually correct?**
+  _`parseApiError()` has 4 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 6 inferred relationships involving `Next.js Default Public Assets` (e.g. with `File Document Icon` and `Vercel Triangle Logo`) actually correct?**
+  _`Next.js Default Public Assets` has 6 INFERRED edges - model-reasoned connections that need verification._
+- **What connects `create-next-app bootstrap`, `Development Server (npm/yarn/pnpm/bun dev)`, `app/page.tsx Entry` to the rest of the system?**
+  _9 weakly-connected nodes found - possible documentation gaps or missing edges._
