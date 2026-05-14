@@ -45,6 +45,7 @@ import {
   useSetUserActiveMutation,
   useUsersQuery,
 } from "@/features/users/query"
+import { useIsEditAccess } from "@/features/read-only-admin/state"
 
 const PAGE_SIZE = 10
 
@@ -164,6 +165,7 @@ export default function UsersPage() {
   const { data, isLoading, isFetching, isError, error, refetch } =
     useUsersQuery(queryInput)
   const mutation = useSetUserActiveMutation()
+  const isEditAccess = useIsEditAccess()
 
   const rows = data?.data ?? []
   const totalPages = data?.meta.totalPages ?? 1
@@ -187,6 +189,10 @@ export default function UsersPage() {
   }
 
   const handleToggle = (user: AdminUserRow, next: boolean) => {
+    if (isEditAccess) {
+      toast.error("Editing is disabled for this account")
+      return
+    }
     mutation.mutate(
       { id: user.id, isActive: next },
       {

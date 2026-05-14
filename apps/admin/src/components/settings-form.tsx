@@ -13,6 +13,7 @@ import {
   adminProfileQueryKey,
   useAdminProfileQuery,
 } from "@/features/profile/query"
+import { useIsEditAccess } from "@/features/read-only-admin/state"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -49,6 +50,7 @@ const initialFormState: FormState = {
 export function SettingsForm() {
   const queryClient = useQueryClient()
   const { data: profileData, isLoading, error } = useAdminProfileQuery()
+  const isEditAccess = useIsEditAccess()
   const [form, setForm] = useState<FormState>(initialFormState)
   const [isSaving, setIsSaving] = useState(false)
   const [submitError, setSubmitError] = useState("")
@@ -77,6 +79,11 @@ export function SettingsForm() {
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setSubmitError("")
+
+    if (isEditAccess) {
+      toast.error("Editing is disabled for this account")
+      return
+    }
 
     const normalizedProfileName = form.profileName.trim()
     const wantsPasswordChange = Boolean(form.currentPassword || form.newPassword || form.confirmPassword)
