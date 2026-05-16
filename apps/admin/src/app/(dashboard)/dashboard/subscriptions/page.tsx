@@ -51,7 +51,7 @@ import {
   useSetPlanActiveMutation,
 } from "@/features/subscriptions/query"
 import { SubscriptionFormSheet } from "@/features/subscriptions/subscription-form-sheet"
-import { formatPrice, type SupportedCurrency } from "@/features/settings/api"
+import { formatPrice } from "@/features/settings/api"
 import { useAppSettingsQuery } from "@/features/settings/query"
 
 const PAGE_SIZE = 10
@@ -109,7 +109,7 @@ function PlanRowItem({
   onToggle: (next: boolean) => void
   onEdit: () => void
   isPending: boolean
-  currency: SupportedCurrency
+  currency: string
 }) {
   const activeFeatures = countActiveFeatures(plan)
   const isFree = plan.isDefault
@@ -215,7 +215,7 @@ export default function SubscriptionsPage() {
     usePlansQuery(queryInput)
   const activeMutation = useSetPlanActiveMutation()
   const { data: settingsData } = useAppSettingsQuery()
-  const currency: SupportedCurrency = settingsData?.currency ?? "USD"
+  const currency = settingsData?.currency ?? "USD"
   // Matches users page convention: the hook name is misleading — it returns
   // `true` when the account is in restricted/read-only mode. Click handlers
   // toast and short-circuit; we never visually disable based on this.

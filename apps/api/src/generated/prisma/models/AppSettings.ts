@@ -26,6 +26,7 @@ export type AggregateAppSettings = {
 
 export type AppSettingsMinAggregateOutputType = {
   id: string | null
+  appName: string | null
   currency: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -33,6 +34,7 @@ export type AppSettingsMinAggregateOutputType = {
 
 export type AppSettingsMaxAggregateOutputType = {
   id: string | null
+  appName: string | null
   currency: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -40,6 +42,7 @@ export type AppSettingsMaxAggregateOutputType = {
 
 export type AppSettingsCountAggregateOutputType = {
   id: number
+  appName: number
   currency: number
   createdAt: number
   updatedAt: number
@@ -49,6 +52,7 @@ export type AppSettingsCountAggregateOutputType = {
 
 export type AppSettingsMinAggregateInputType = {
   id?: true
+  appName?: true
   currency?: true
   createdAt?: true
   updatedAt?: true
@@ -56,6 +60,7 @@ export type AppSettingsMinAggregateInputType = {
 
 export type AppSettingsMaxAggregateInputType = {
   id?: true
+  appName?: true
   currency?: true
   createdAt?: true
   updatedAt?: true
@@ -63,6 +68,7 @@ export type AppSettingsMaxAggregateInputType = {
 
 export type AppSettingsCountAggregateInputType = {
   id?: true
+  appName?: true
   currency?: true
   createdAt?: true
   updatedAt?: true
@@ -143,6 +149,7 @@ export type AppSettingsGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 
 export type AppSettingsGroupByOutputType = {
   id: string
+  appName: string
   currency: string
   createdAt: Date
   updatedAt: Date
@@ -171,6 +178,7 @@ export type AppSettingsWhereInput = {
   OR?: Prisma.AppSettingsWhereInput[]
   NOT?: Prisma.AppSettingsWhereInput | Prisma.AppSettingsWhereInput[]
   id?: Prisma.StringFilter<"AppSettings"> | string
+  appName?: Prisma.StringFilter<"AppSettings"> | string
   currency?: Prisma.StringFilter<"AppSettings"> | string
   createdAt?: Prisma.DateTimeFilter<"AppSettings"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"AppSettings"> | Date | string
@@ -178,6 +186,7 @@ export type AppSettingsWhereInput = {
 
 export type AppSettingsOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  appName?: Prisma.SortOrder
   currency?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -188,6 +197,7 @@ export type AppSettingsWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.AppSettingsWhereInput | Prisma.AppSettingsWhereInput[]
   OR?: Prisma.AppSettingsWhereInput[]
   NOT?: Prisma.AppSettingsWhereInput | Prisma.AppSettingsWhereInput[]
+  appName?: Prisma.StringFilter<"AppSettings"> | string
   currency?: Prisma.StringFilter<"AppSettings"> | string
   createdAt?: Prisma.DateTimeFilter<"AppSettings"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"AppSettings"> | Date | string
@@ -195,6 +205,7 @@ export type AppSettingsWhereUniqueInput = Prisma.AtLeast<{
 
 export type AppSettingsOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  appName?: Prisma.SortOrder
   currency?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -208,6 +219,7 @@ export type AppSettingsScalarWhereWithAggregatesInput = {
   OR?: Prisma.AppSettingsScalarWhereWithAggregatesInput[]
   NOT?: Prisma.AppSettingsScalarWhereWithAggregatesInput | Prisma.AppSettingsScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"AppSettings"> | string
+  appName?: Prisma.StringWithAggregatesFilter<"AppSettings"> | string
   currency?: Prisma.StringWithAggregatesFilter<"AppSettings"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"AppSettings"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"AppSettings"> | Date | string
@@ -215,6 +227,7 @@ export type AppSettingsScalarWhereWithAggregatesInput = {
 
 export type AppSettingsCreateInput = {
   id?: string
+  appName?: string
   currency?: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -222,6 +235,7 @@ export type AppSettingsCreateInput = {
 
 export type AppSettingsUncheckedCreateInput = {
   id?: string
+  appName?: string
   currency?: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -229,6 +243,7 @@ export type AppSettingsUncheckedCreateInput = {
 
 export type AppSettingsUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  appName?: Prisma.StringFieldUpdateOperationsInput | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -236,6 +251,7 @@ export type AppSettingsUpdateInput = {
 
 export type AppSettingsUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  appName?: Prisma.StringFieldUpdateOperationsInput | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -243,6 +259,7 @@ export type AppSettingsUncheckedUpdateInput = {
 
 export type AppSettingsCreateManyInput = {
   id?: string
+  appName?: string
   currency?: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -250,6 +267,7 @@ export type AppSettingsCreateManyInput = {
 
 export type AppSettingsUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  appName?: Prisma.StringFieldUpdateOperationsInput | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -257,6 +275,7 @@ export type AppSettingsUpdateManyMutationInput = {
 
 export type AppSettingsUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  appName?: Prisma.StringFieldUpdateOperationsInput | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -264,6 +283,7 @@ export type AppSettingsUncheckedUpdateManyInput = {
 
 export type AppSettingsCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  appName?: Prisma.SortOrder
   currency?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -271,6 +291,7 @@ export type AppSettingsCountOrderByAggregateInput = {
 
 export type AppSettingsMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  appName?: Prisma.SortOrder
   currency?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -278,6 +299,7 @@ export type AppSettingsMaxOrderByAggregateInput = {
 
 export type AppSettingsMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  appName?: Prisma.SortOrder
   currency?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -287,6 +309,7 @@ export type AppSettingsMinOrderByAggregateInput = {
 
 export type AppSettingsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  appName?: boolean
   currency?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -294,6 +317,7 @@ export type AppSettingsSelect<ExtArgs extends runtime.Types.Extensions.InternalA
 
 export type AppSettingsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  appName?: boolean
   currency?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -301,6 +325,7 @@ export type AppSettingsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
 
 export type AppSettingsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  appName?: boolean
   currency?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -308,18 +333,20 @@ export type AppSettingsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 
 export type AppSettingsSelectScalar = {
   id?: boolean
+  appName?: boolean
   currency?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type AppSettingsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "currency" | "createdAt" | "updatedAt", ExtArgs["result"]["appSettings"]>
+export type AppSettingsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "appName" | "currency" | "createdAt" | "updatedAt", ExtArgs["result"]["appSettings"]>
 
 export type $AppSettingsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "AppSettings"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
+    appName: string
     currency: string
     createdAt: Date
     updatedAt: Date
@@ -747,6 +774,7 @@ export interface Prisma__AppSettingsClient<T, Null = never, ExtArgs extends runt
  */
 export interface AppSettingsFieldRefs {
   readonly id: Prisma.FieldRef<"AppSettings", 'String'>
+  readonly appName: Prisma.FieldRef<"AppSettings", 'String'>
   readonly currency: Prisma.FieldRef<"AppSettings", 'String'>
   readonly createdAt: Prisma.FieldRef<"AppSettings", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"AppSettings", 'DateTime'>

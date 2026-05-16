@@ -331,6 +331,7 @@ export type ReportScalarFieldEnum = (typeof ReportScalarFieldEnum)[keyof typeof 
 
 export const AppSettingsScalarFieldEnum = {
   id: 'id',
+  appName: 'appName',
   currency: 'currency',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

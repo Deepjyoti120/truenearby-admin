@@ -5,6 +5,7 @@ import { LayoutDashboard, Receipt, Settings, ShieldCheck, Users } from "lucide-r
 
 import { getProfileDisplayModel } from "@/features/profile/api"
 import { useAdminProfileQuery } from "@/features/profile/query"
+import { useAppSettingsQuery } from "@/features/settings/query"
 import { NavMain } from "@/components/nav-main"
 import { NavUser } from "@/components/nav-user"
 import {
@@ -41,10 +42,14 @@ const navItems = [
 ]
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { data: profileData } = useAdminProfileQuery()
+  const { data: settings } = useAppSettingsQuery()
   const profileDisplay = profileData ? getProfileDisplayModel(profileData) : null
   const accountName = profileDisplay?.name || "Admin Profile"
   const accountEmail = profileDisplay?.email || "admin@example.com"
   const roleLabel = profileDisplay?.roleLabel || "Admin"
+  // Brand label comes from app settings (admin-editable). Fall back to a
+  // neutral default until the GET resolves.
+  const appName = settings?.appName ?? "Dating Admin"
 
   return (
     <Sidebar variant="inset" {...props}>
@@ -52,16 +57,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="#">
+              <a href="/dashboard">
                 <div className="bg-[linear-gradient(135deg,#0f766e_0%,#10b981_100%)] text-sidebar-primary-foreground flex aspect-square size-10 items-center justify-center rounded-2xl shadow-sm">
                   <ShieldCheck className="size-5" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold text-slate-900">{accountName}</span>
-                  <span className="truncate text-xs text-slate-500">{roleLabel}</span>
-                </div>
-                <div className="hidden rounded-full border border-emerald-100 bg-emerald-50 px-2 py-1 text-[10px] font-semibold tracking-[0.16em] text-emerald-700 uppercase xl:inline-flex">
-                  Panel
+                  <span className="truncate font-semibold text-slate-900">{appName}</span>
+                  <span className="truncate text-xs text-slate-500">Admin panel</span>
                 </div>
               </a>
             </SidebarMenuButton>

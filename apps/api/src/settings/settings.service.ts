@@ -1,6 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import { SUPPORTED_CURRENCIES, type SupportedCurrency } from './dto/update-currency.dto';
+import { getSupportedCurrencies } from './currencies';
+import { UpdateSettingsDto } from './dto/update-settings.dto';
 
 const SINGLETON_ID = 'singleton';
 
@@ -17,21 +18,32 @@ export class SettingsService {
     });
 
     return {
-      currency: (settings?.currency ?? 'USD') as SupportedCurrency,
-      supportedCurrencies: [...SUPPORTED_CURRENCIES],
+      appName: settings?.appName ?? 'Dating Admin',
+      currency: settings?.currency ?? 'USD',
+      supportedCurrencies: getSupportedCurrencies(),
     };
   }
 
-  async updateCurrency(currency: SupportedCurrency) {
+  async updateSettings(dto: UpdateSettingsDto) {
+    if (dto.currency === undefined && dto.appName === undefined) {
+      throw new BadRequestException(
+        'At least one of `currency` or `appName` must be provided',
+      );
+    }
+
     await this.ensureSingleton();
     const updated = await this.prisma.appSettings.update({
       where: { id: SINGLETON_ID },
-      data: { currency },
+      data: {
+        ...(dto.currency !== undefined ? { currency: dto.currency } : {}),
+        ...(dto.appName !== undefined ? { appName: dto.appName } : {}),
+      },
     });
 
     return {
-      currency: updated.currency as SupportedCurrency,
-      supportedCurrencies: [...SUPPORTED_CURRENCIES],
+      appName: updated.appName,
+      currency: updated.currency,
+      supportedCurrencies: getSupportedCurrencies(),
     };
   }
 
@@ -40,7 +52,7 @@ export class SettingsService {
       this.ensurePromise = this.prisma.appSettings
         .upsert({
           where: { id: SINGLETON_ID },
-          create: { id: SINGLETON_ID, currency: 'USD' },
+          create: { id: SINGLETON_ID, currency: 'USD', appName: 'Dating Admin' },
           update: {},
         })
         .then(() => undefined)

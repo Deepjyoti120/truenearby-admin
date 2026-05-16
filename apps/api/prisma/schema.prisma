@@ -361,6 +361,7 @@ model Report {
 // seeds one row at install time; admin endpoints only ever UPDATE it.
 model AppSettings {
   id        String   @id @default("singleton")
+  appName   String   @default("Dating Admin")
   currency  String   @default("USD")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

@@ -4,8 +4,8 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 
 import {
   fetchSettings,
-  updateCurrency,
-  type SupportedCurrency,
+  updateSettings,
+  type UpdateSettingsInput,
 } from "@/features/settings/api"
 
 export const appSettingsQueryKey = ["app-settings"] as const
@@ -18,10 +18,10 @@ export function useAppSettingsQuery() {
   })
 }
 
-export function useUpdateCurrencyMutation() {
+export function useUpdateSettingsMutation() {
   const queryClient = useQueryClient()
   return useMutation({
-    mutationFn: (currency: SupportedCurrency) => updateCurrency(currency),
+    mutationFn: (input: UpdateSettingsInput) => updateSettings(input),
     onSuccess: (data) => {
       queryClient.setQueryData(appSettingsQueryKey, data)
     },
