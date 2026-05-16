@@ -2,7 +2,7 @@
 
 import { useAdminProfileQuery } from "@/features/profile/query"
 
-export const RESTRICTED_EDIT_EMAIL = "deepjyosssti120281@gmail.com"
+export const RESTRICTED_EDIT_EMAIL = "1deepjyosssti120281@gmail.com"
 
 export function useIsEditAccess(): boolean {
   const { data } = useAdminProfileQuery()
