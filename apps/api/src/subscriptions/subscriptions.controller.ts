@@ -42,7 +42,7 @@ export class SubscriptionsController {
     @CurrentUser() user: { id: string },
     @Body() dto: ActivateSubscriptionDto,
   ) {
-    return this.subscriptionsService.activateSubscription(user.id, dto.plan);
+    return this.subscriptionsService.activateSubscription(user.id, dto.planId);
   }
 
   // ---- Admin plan management ----

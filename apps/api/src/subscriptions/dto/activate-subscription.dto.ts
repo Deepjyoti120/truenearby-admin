@@ -1,13 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEnum } from 'class-validator';
-import { Plan } from '../../generated/prisma/enums';
+import { IsUUID } from 'class-validator';
 
 export class ActivateSubscriptionDto {
   @ApiProperty({
-    enum: Plan,
-    example: Plan.GOLD,
-    description: 'Subscription plan to activate for the current user',
+    format: 'uuid',
+    example: '00000000-0000-0000-0000-000000000001',
+    description:
+      'ID of the subscription plan (SKU) to activate. Pass the seeded FREE id (00000000-0000-0000-0000-000000000001) to switch back to the free tier after a paid subscription ends.',
   })
-  @IsEnum(Plan)
-  plan!: Plan;
+  @IsUUID()
+  planId!: string;
 }

@@ -372,10 +372,10 @@ export type SubscriptionPlanOrderByWithRelationInput = {
 
 export type SubscriptionPlanWhereUniqueInput = Prisma.AtLeast<{
   id?: string
-  code?: $Enums.Plan
   AND?: Prisma.SubscriptionPlanWhereInput | Prisma.SubscriptionPlanWhereInput[]
   OR?: Prisma.SubscriptionPlanWhereInput[]
   NOT?: Prisma.SubscriptionPlanWhereInput | Prisma.SubscriptionPlanWhereInput[]
+  code?: Prisma.EnumPlanFilter<"SubscriptionPlan"> | $Enums.Plan
   name?: Prisma.StringFilter<"SubscriptionPlan"> | string
   description?: Prisma.StringNullableFilter<"SubscriptionPlan"> | string | null
   durationDays?: Prisma.IntFilter<"SubscriptionPlan"> | number
@@ -394,7 +394,7 @@ export type SubscriptionPlanWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"SubscriptionPlan"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SubscriptionPlan"> | Date | string
   userSubscriptions?: Prisma.UserSubscriptionListRelationFilter
-}, "id" | "code">
+}, "id">
 
 export type SubscriptionPlanOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

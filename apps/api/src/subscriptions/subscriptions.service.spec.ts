@@ -3,6 +3,35 @@ import { Plan } from '../generated/prisma/enums';
 import { PrismaService } from '../prisma/prisma.service';
 import { SubscriptionsService } from './subscriptions.service';
 
+const PLUS_FEATURES = {
+  canReverseLastSwipe: true,
+  canChangeSwipeDecision: true,
+  canSeeWhoLikedYou: false,
+  showLikesInAdvancedHome: false,
+  dailySwipeLimit: 100,
+  dailySuperLikes: 5,
+  monthlyBoosts: 1,
+  canUnblurLikes: false,
+  canPassport: false,
+  hideAds: true,
+};
+
+function buildPlanRecord(overrides: Partial<Record<string, unknown>> = {}) {
+  return {
+    id: 'plan-plus',
+    code: Plan.PLUS,
+    name: 'Plus 30-Day',
+    description: 'Plus plan',
+    durationDays: 30,
+    isActive: true,
+    sortOrder: 1,
+    ...PLUS_FEATURES,
+    createdAt: new Date('2026-03-31T10:00:00.000Z'),
+    updatedAt: new Date('2026-03-31T10:00:00.000Z'),
+    ...overrides,
+  };
+}
+
 describe('SubscriptionsService', () => {
   let service: SubscriptionsService;
   const prisma = {
@@ -37,27 +66,12 @@ describe('SubscriptionsService', () => {
 
   it('lists seeded plans ordered by sort order', async () => {
     prisma.subscriptionPlan.upsert.mockResolvedValue(undefined);
-    prisma.subscriptionPlan.findMany.mockResolvedValue([
-      {
-        id: 'plan-plus',
-        code: Plan.PLUS,
-        name: 'Plus',
-        description: 'Plus plan',
-        durationDays: 30,
-        isActive: true,
-        sortOrder: 1,
-        canReverseLastSwipe: true,
-        canChangeSwipeDecision: true,
-        canSeeWhoLikedYou: false,
-        showLikesInAdvancedHome: false,
-        createdAt: new Date('2026-03-31T10:00:00.000Z'),
-        updatedAt: new Date('2026-03-31T10:00:00.000Z'),
-      },
-    ]);
+    prisma.subscriptionPlan.findMany.mockResolvedValue([buildPlanRecord()]);
 
     const result = await service.listPlans();
 
-    expect(prisma.subscriptionPlan.upsert).toHaveBeenCalledTimes(3);
+    // Only FREE is seeded by default; PLUS/GOLD are created by the admin.
+    expect(prisma.subscriptionPlan.upsert).toHaveBeenCalledTimes(1);
     expect(prisma.subscriptionPlan.findMany).toHaveBeenCalledWith({
       where: {
         isActive: true,
@@ -68,48 +82,32 @@ describe('SubscriptionsService', () => {
       {
         planId: 'plan-plus',
         plan: Plan.PLUS,
-        name: 'Plus',
+        name: 'Plus 30-Day',
         description: 'Plus plan',
         durationDays: 30,
         isActive: true,
         isDefault: false,
-        features: {
-          canReverseLastSwipe: true,
-          canChangeSwipeDecision: true,
-          canSeeWhoLikedYou: false,
-          showLikesInAdvancedHome: false,
-        },
+        sortOrder: 1,
+        features: PLUS_FEATURES,
       },
     ]);
   });
 
-  it('activates a subscription and stores it in user_subscriptions', async () => {
-    const plusPlan = {
-      id: 'plan-plus',
-      code: Plan.PLUS,
-      name: 'Plus',
-      description: 'Plus plan',
-      durationDays: 30,
-      isActive: true,
-      sortOrder: 1,
-      canReverseLastSwipe: true,
-      canChangeSwipeDecision: true,
-      canSeeWhoLikedYou: false,
-      showLikesInAdvancedHome: false,
-      createdAt: new Date('2026-03-31T10:00:00.000Z'),
-      updatedAt: new Date('2026-03-31T10:00:00.000Z'),
-    };
+  it('activates a subscription by planId and stores it in user_subscriptions', async () => {
+    const plusPlan = buildPlanRecord();
+    const startAt = new Date();
+    const endAt = new Date(startAt.getTime() + 30 * 24 * 60 * 60 * 1000);
     const createdSubscription = {
       id: 'sub-1',
       userId: 'user-1',
       subscriptionPlanId: 'plan-plus',
       plan: Plan.PLUS,
-      startAt: new Date('2026-03-31T12:00:00.000Z'),
-      endAt: new Date('2026-04-30T12:00:00.000Z'),
+      startAt,
+      endAt,
       isActive: true,
       cancelledAt: null,
-      createdAt: new Date('2026-03-31T12:00:00.000Z'),
-      updatedAt: new Date('2026-03-31T12:00:00.000Z'),
+      createdAt: startAt,
+      updatedAt: startAt,
       subscriptionPlan: plusPlan,
     };
     const tx = {
@@ -123,12 +121,10 @@ describe('SubscriptionsService', () => {
     prisma.subscriptionPlan.findUnique.mockResolvedValue(plusPlan);
     prisma.$transaction.mockImplementation(async (callback) => callback(tx));
 
-    const result = await service.activateSubscription('user-1', Plan.PLUS);
+    const result = await service.activateSubscription('user-1', 'plan-plus');
 
     expect(prisma.subscriptionPlan.findUnique).toHaveBeenCalledWith({
-      where: {
-        code: Plan.PLUS,
-      },
+      where: { id: 'plan-plus' },
     });
     expect(tx.userSubscription.updateMany).toHaveBeenCalledWith({
       where: {
@@ -157,20 +153,16 @@ describe('SubscriptionsService', () => {
       id: 'sub-1',
       planId: 'plan-plus',
       plan: Plan.PLUS,
-      name: 'Plus',
+      name: 'Plus 30-Day',
       description: 'Plus plan',
       durationDays: 30,
       isActive: true,
       isDefault: false,
+      sortOrder: 1,
       startAt: createdSubscription.startAt,
       endAt: createdSubscription.endAt,
       cancelledAt: null,
-      features: {
-        canReverseLastSwipe: true,
-        canChangeSwipeDecision: true,
-        canSeeWhoLikedYou: false,
-        showLikesInAdvancedHome: false,
-      },
+      features: PLUS_FEATURES,
     });
   });
 });

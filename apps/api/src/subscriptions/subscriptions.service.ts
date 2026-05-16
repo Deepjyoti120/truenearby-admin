@@ -1,6 +1,5 @@
 import {
   BadRequestException,
-  ConflictException,
   ForbiddenException,
   Injectable,
   NotFoundException,
@@ -178,14 +177,9 @@ export class SubscriptionsService {
       );
     }
 
-    const existing = await this.prisma.subscriptionPlan.findUnique({
-      where: { code: dto.code },
-    });
-    if (existing) {
-      throw new ConflictException(
-        `A subscription plan with code ${dto.code} already exists`,
-      );
-    }
+    // Multiple SKUs per tier are allowed (e.g. 7-day Gold + 30-day Gold), so
+    // we no longer reject duplicates by `code`. The DB-level partial unique
+    // index will still catch any attempt to insert a second FREE row.
 
     const plan = await this.prisma.subscriptionPlan.create({
       data: {
@@ -296,7 +290,7 @@ export class SubscriptionsService {
       this.findActiveUserSubscription(userId),
       this.prisma.subscriptionPlan.findUnique({
         where: {
-          code: Plan.FREE,
+          id: FREE_PLAN_ID,
         },
       }),
     ]);
@@ -343,12 +337,12 @@ export class SubscriptionsService {
     };
   }
 
-  async activateSubscription(userId: string, plan: Plan) {
+  async activateSubscription(userId: string, planId: string) {
     await this.ensureDefaultPlans();
 
     const planRecord = await this.prisma.subscriptionPlan.findUnique({
       where: {
-        code: plan,
+        id: planId,
       },
     });
 
@@ -403,7 +397,7 @@ export class SubscriptionsService {
         DEFAULT_SUBSCRIPTION_PLANS.map((plan) =>
           this.prisma.subscriptionPlan.upsert({
             where: {
-              code: plan.code,
+              id: plan.id,
             },
             create: plan,
             update: {
