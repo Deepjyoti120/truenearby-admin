@@ -280,6 +280,13 @@ model SubscriptionPlan {
   canSeeWhoLikedYou Boolean @default(false)
   showLikesInAdvancedHome Boolean @default(false)
 
+  dailySwipeLimit Int @default(20)
+  dailySuperLikes Int @default(0)
+  monthlyBoosts   Int @default(0)
+  canUnblurLikes  Boolean @default(false)
+  canPassport     Boolean @default(false)
+  hideAds         Boolean @default(false)
+
   userSubscriptions UserSubscription[]
 
   createdAt DateTime @default(now())

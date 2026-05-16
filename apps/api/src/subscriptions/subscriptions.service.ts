@@ -1,6 +1,15 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { Plan } from '../generated/prisma/enums';
+import {
+  BadRequestException,
+  ConflictException,
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+import { Plan, Prisma } from '../generated/prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
+import { CreateSubscriptionPlanDto } from './dto/create-subscription-plan.dto';
+import { ListSubscriptionPlansDto } from './dto/list-subscription-plans.dto';
+import { UpdateSubscriptionPlanDto } from './dto/update-subscription-plan.dto';
 
 const DAY_IN_MS = 24 * 60 * 60 * 1000;
 
@@ -16,6 +25,12 @@ type SubscriptionPlanSeed = {
   canChangeSwipeDecision: boolean;
   canSeeWhoLikedYou: boolean;
   showLikesInAdvancedHome: boolean;
+  dailySwipeLimit: number;
+  dailySuperLikes: number;
+  monthlyBoosts: number;
+  canUnblurLikes: boolean;
+  canPassport: boolean;
+  hideAds: boolean;
 };
 
 type SubscriptionPlanRecord = SubscriptionPlanSeed & {
@@ -42,6 +57,12 @@ export type SubscriptionFeatures = {
   canChangeSwipeDecision: boolean;
   canSeeWhoLikedYou: boolean;
   showLikesInAdvancedHome: boolean;
+  dailySwipeLimit: number;
+  dailySuperLikes: number;
+  monthlyBoosts: number;
+  canUnblurLikes: boolean;
+  canPassport: boolean;
+  hideAds: boolean;
 };
 
 export type CurrentSubscriptionSummary = {
@@ -59,9 +80,11 @@ export type CurrentSubscriptionSummary = {
   features: SubscriptionFeatures;
 };
 
+const FREE_PLAN_ID = '00000000-0000-0000-0000-000000000001';
+
 const DEFAULT_SUBSCRIPTION_PLANS: SubscriptionPlanSeed[] = [
   {
-    id: '00000000-0000-0000-0000-000000000001',
+    id: FREE_PLAN_ID,
     code: Plan.FREE,
     name: 'Free',
     description: 'Base plan with standard swiping.',
@@ -72,34 +95,13 @@ const DEFAULT_SUBSCRIPTION_PLANS: SubscriptionPlanSeed[] = [
     canChangeSwipeDecision: false,
     canSeeWhoLikedYou: false,
     showLikesInAdvancedHome: false,
+    dailySwipeLimit: 20,
+    dailySuperLikes: 0,
+    monthlyBoosts: 0,
+    canUnblurLikes: false,
+    canPassport: false,
+    hideAds: false,
   },
-  // {
-  //   id: '00000000-0000-0000-0000-000000000002',
-  //   code: Plan.PLUS,
-  //   name: 'Plus',
-  //   description: 'Includes reverse swipe and swipe decision changes.',
-  //   durationDays: 30,
-  //   isActive: true,
-  //   sortOrder: 1,
-  //   canReverseLastSwipe: true,
-  //   canChangeSwipeDecision: true,
-  //   canSeeWhoLikedYou: false,
-  //   showLikesInAdvancedHome: false,
-  // },
-  // {
-  //   id: '00000000-0000-0000-0000-000000000003',
-  //   code: Plan.GOLD,
-  //   name: 'Gold',
-  //   description:
-  //     'Includes Plus features and shows who liked you in the advanced home.',
-  //   durationDays: 30,
-  //   isActive: true,
-  //   sortOrder: 2,
-  //   canReverseLastSwipe: true,
-  //   canChangeSwipeDecision: true,
-  //   canSeeWhoLikedYou: true,
-  //   showLikesInAdvancedHome: true,
-  // },
 ];
 
 @Injectable()
@@ -119,6 +121,169 @@ export class SubscriptionsService {
 
     return {
       plans: plans.map((plan) => this.mapPlan(plan)),
+    };
+  }
+
+  async listPlansPaginated(dto: ListSubscriptionPlansDto) {
+    await this.ensureDefaultPlans();
+
+    const page = dto.page ?? 1;
+    const limit = dto.limit ?? 10;
+    const skip = (page - 1) * limit;
+    const search = dto.search?.trim();
+
+    const where: Prisma.SubscriptionPlanWhereInput = {
+      ...(dto.code ? { code: dto.code } : {}),
+      ...(typeof dto.isActive === 'boolean' ? { isActive: dto.isActive } : {}),
+      ...(search
+        ? {
+            OR: [
+              { name: { contains: search, mode: 'insensitive' } },
+              { description: { contains: search, mode: 'insensitive' } },
+            ],
+          }
+        : {}),
+    };
+
+    const [total, items] = await this.prisma.$transaction([
+      this.prisma.subscriptionPlan.count({ where }),
+      this.prisma.subscriptionPlan.findMany({
+        where,
+        orderBy: [{ sortOrder: 'asc' }, { createdAt: 'asc' }],
+        skip,
+        take: limit,
+      }),
+    ]);
+
+    return {
+      data: items.map((plan) => ({
+        ...this.mapPlan(plan),
+        isDefault: plan.code === Plan.FREE,
+      })),
+      meta: {
+        page,
+        limit,
+        total,
+        totalPages: Math.max(1, Math.ceil(total / limit)),
+      },
+    };
+  }
+
+  async createPlan(dto: CreateSubscriptionPlanDto) {
+    await this.ensureDefaultPlans();
+
+    if (dto.code === Plan.FREE) {
+      throw new BadRequestException(
+        'The FREE plan is managed by the system and cannot be created manually',
+      );
+    }
+
+    const existing = await this.prisma.subscriptionPlan.findUnique({
+      where: { code: dto.code },
+    });
+    if (existing) {
+      throw new ConflictException(
+        `A subscription plan with code ${dto.code} already exists`,
+      );
+    }
+
+    const plan = await this.prisma.subscriptionPlan.create({
+      data: {
+        code: dto.code,
+        name: dto.name,
+        description: dto.description ?? null,
+        durationDays: dto.durationDays,
+        isActive: dto.isActive ?? true,
+        sortOrder: dto.sortOrder ?? 0,
+        canReverseLastSwipe: dto.canReverseLastSwipe ?? false,
+        canChangeSwipeDecision: dto.canChangeSwipeDecision ?? false,
+        canSeeWhoLikedYou: dto.canSeeWhoLikedYou ?? false,
+        showLikesInAdvancedHome: dto.showLikesInAdvancedHome ?? false,
+        dailySwipeLimit: dto.dailySwipeLimit ?? 20,
+        dailySuperLikes: dto.dailySuperLikes ?? 0,
+        monthlyBoosts: dto.monthlyBoosts ?? 0,
+        canUnblurLikes: dto.canUnblurLikes ?? false,
+        canPassport: dto.canPassport ?? false,
+        hideAds: dto.hideAds ?? false,
+      },
+    });
+
+    return this.mapPlan(plan);
+  }
+
+  async updatePlan(id: string, dto: UpdateSubscriptionPlanDto) {
+    const plan = await this.prisma.subscriptionPlan.findUnique({
+      where: { id },
+    });
+    if (!plan) {
+      throw new NotFoundException('Subscription plan not found');
+    }
+
+    const data: Prisma.SubscriptionPlanUpdateInput = {};
+    if (dto.name !== undefined) data.name = dto.name;
+    if (dto.description !== undefined) data.description = dto.description;
+    if (dto.durationDays !== undefined) data.durationDays = dto.durationDays;
+    if (dto.sortOrder !== undefined) data.sortOrder = dto.sortOrder;
+    if (dto.dailySwipeLimit !== undefined)
+      data.dailySwipeLimit = dto.dailySwipeLimit;
+    if (dto.dailySuperLikes !== undefined)
+      data.dailySuperLikes = dto.dailySuperLikes;
+    if (dto.monthlyBoosts !== undefined) data.monthlyBoosts = dto.monthlyBoosts;
+    if (dto.canReverseLastSwipe !== undefined)
+      data.canReverseLastSwipe = dto.canReverseLastSwipe;
+    if (dto.canChangeSwipeDecision !== undefined)
+      data.canChangeSwipeDecision = dto.canChangeSwipeDecision;
+    if (dto.canSeeWhoLikedYou !== undefined)
+      data.canSeeWhoLikedYou = dto.canSeeWhoLikedYou;
+    if (dto.showLikesInAdvancedHome !== undefined)
+      data.showLikesInAdvancedHome = dto.showLikesInAdvancedHome;
+    if (dto.canUnblurLikes !== undefined)
+      data.canUnblurLikes = dto.canUnblurLikes;
+    if (dto.canPassport !== undefined) data.canPassport = dto.canPassport;
+    if (dto.hideAds !== undefined) data.hideAds = dto.hideAds;
+
+    if (dto.isActive !== undefined) {
+      if (plan.code === Plan.FREE && dto.isActive === false) {
+        throw new ForbiddenException(
+          'The FREE plan cannot be deactivated — it is the system default',
+        );
+      }
+      data.isActive = dto.isActive;
+    }
+
+    const updated = await this.prisma.subscriptionPlan.update({
+      where: { id },
+      data,
+    });
+
+    return {
+      ...this.mapPlan(updated),
+      isDefault: updated.code === Plan.FREE,
+    };
+  }
+
+  async setPlanActive(id: string, isActive: boolean) {
+    const plan = await this.prisma.subscriptionPlan.findUnique({
+      where: { id },
+    });
+    if (!plan) {
+      throw new NotFoundException('Subscription plan not found');
+    }
+
+    if (plan.code === Plan.FREE && !isActive) {
+      throw new ForbiddenException(
+        'The FREE plan cannot be deactivated — it is the system default',
+      );
+    }
+
+    const updated = await this.prisma.subscriptionPlan.update({
+      where: { id },
+      data: { isActive },
+    });
+
+    return {
+      ...this.mapPlan(updated),
+      isDefault: updated.code === Plan.FREE,
     };
   }
 
@@ -242,15 +407,10 @@ export class SubscriptionsService {
             },
             create: plan,
             update: {
-              name: plan.name,
-              description: plan.description,
-              durationDays: plan.durationDays,
-              isActive: plan.isActive,
-              sortOrder: plan.sortOrder,
-              canReverseLastSwipe: plan.canReverseLastSwipe,
-              canChangeSwipeDecision: plan.canChangeSwipeDecision,
-              canSeeWhoLikedYou: plan.canSeeWhoLikedYou,
-              showLikesInAdvancedHome: plan.showLikesInAdvancedHome,
+              // Only re-assert system-managed fields. Editable copy
+              // (name/description/limits) is preserved across restarts so
+              // admins can tune the FREE plan without it being overwritten.
+              isActive: true,
             },
           }),
         ),
@@ -290,11 +450,18 @@ export class SubscriptionsService {
       durationDays: plan.durationDays,
       isActive: plan.isActive,
       isDefault: false,
+      sortOrder: plan.sortOrder,
       features: {
         canReverseLastSwipe: plan.canReverseLastSwipe,
         canChangeSwipeDecision: plan.canChangeSwipeDecision,
         canSeeWhoLikedYou: plan.canSeeWhoLikedYou,
         showLikesInAdvancedHome: plan.showLikesInAdvancedHome,
+        dailySwipeLimit: plan.dailySwipeLimit,
+        dailySuperLikes: plan.dailySuperLikes,
+        monthlyBoosts: plan.monthlyBoosts,
+        canUnblurLikes: plan.canUnblurLikes,
+        canPassport: plan.canPassport,
+        hideAds: plan.hideAds,
       },
     };
   }

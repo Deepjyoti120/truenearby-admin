@@ -29,11 +29,17 @@ export type AggregateSubscriptionPlan = {
 export type SubscriptionPlanAvgAggregateOutputType = {
   durationDays: number | null
   sortOrder: number | null
+  dailySwipeLimit: number | null
+  dailySuperLikes: number | null
+  monthlyBoosts: number | null
 }
 
 export type SubscriptionPlanSumAggregateOutputType = {
   durationDays: number | null
   sortOrder: number | null
+  dailySwipeLimit: number | null
+  dailySuperLikes: number | null
+  monthlyBoosts: number | null
 }
 
 export type SubscriptionPlanMinAggregateOutputType = {
@@ -48,6 +54,12 @@ export type SubscriptionPlanMinAggregateOutputType = {
   canChangeSwipeDecision: boolean | null
   canSeeWhoLikedYou: boolean | null
   showLikesInAdvancedHome: boolean | null
+  dailySwipeLimit: number | null
+  dailySuperLikes: number | null
+  monthlyBoosts: number | null
+  canUnblurLikes: boolean | null
+  canPassport: boolean | null
+  hideAds: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -64,6 +76,12 @@ export type SubscriptionPlanMaxAggregateOutputType = {
   canChangeSwipeDecision: boolean | null
   canSeeWhoLikedYou: boolean | null
   showLikesInAdvancedHome: boolean | null
+  dailySwipeLimit: number | null
+  dailySuperLikes: number | null
+  monthlyBoosts: number | null
+  canUnblurLikes: boolean | null
+  canPassport: boolean | null
+  hideAds: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -80,6 +98,12 @@ export type SubscriptionPlanCountAggregateOutputType = {
   canChangeSwipeDecision: number
   canSeeWhoLikedYou: number
   showLikesInAdvancedHome: number
+  dailySwipeLimit: number
+  dailySuperLikes: number
+  monthlyBoosts: number
+  canUnblurLikes: number
+  canPassport: number
+  hideAds: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -89,11 +113,17 @@ export type SubscriptionPlanCountAggregateOutputType = {
 export type SubscriptionPlanAvgAggregateInputType = {
   durationDays?: true
   sortOrder?: true
+  dailySwipeLimit?: true
+  dailySuperLikes?: true
+  monthlyBoosts?: true
 }
 
 export type SubscriptionPlanSumAggregateInputType = {
   durationDays?: true
   sortOrder?: true
+  dailySwipeLimit?: true
+  dailySuperLikes?: true
+  monthlyBoosts?: true
 }
 
 export type SubscriptionPlanMinAggregateInputType = {
@@ -108,6 +138,12 @@ export type SubscriptionPlanMinAggregateInputType = {
   canChangeSwipeDecision?: true
   canSeeWhoLikedYou?: true
   showLikesInAdvancedHome?: true
+  dailySwipeLimit?: true
+  dailySuperLikes?: true
+  monthlyBoosts?: true
+  canUnblurLikes?: true
+  canPassport?: true
+  hideAds?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -124,6 +160,12 @@ export type SubscriptionPlanMaxAggregateInputType = {
   canChangeSwipeDecision?: true
   canSeeWhoLikedYou?: true
   showLikesInAdvancedHome?: true
+  dailySwipeLimit?: true
+  dailySuperLikes?: true
+  monthlyBoosts?: true
+  canUnblurLikes?: true
+  canPassport?: true
+  hideAds?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -140,6 +182,12 @@ export type SubscriptionPlanCountAggregateInputType = {
   canChangeSwipeDecision?: true
   canSeeWhoLikedYou?: true
   showLikesInAdvancedHome?: true
+  dailySwipeLimit?: true
+  dailySuperLikes?: true
+  monthlyBoosts?: true
+  canUnblurLikes?: true
+  canPassport?: true
+  hideAds?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -243,6 +291,12 @@ export type SubscriptionPlanGroupByOutputType = {
   canChangeSwipeDecision: boolean
   canSeeWhoLikedYou: boolean
   showLikesInAdvancedHome: boolean
+  dailySwipeLimit: number
+  dailySuperLikes: number
+  monthlyBoosts: number
+  canUnblurLikes: boolean
+  canPassport: boolean
+  hideAds: boolean
   createdAt: Date
   updatedAt: Date
   _count: SubscriptionPlanCountAggregateOutputType | null
@@ -282,6 +336,12 @@ export type SubscriptionPlanWhereInput = {
   canChangeSwipeDecision?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
   canSeeWhoLikedYou?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
   showLikesInAdvancedHome?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
+  dailySwipeLimit?: Prisma.IntFilter<"SubscriptionPlan"> | number
+  dailySuperLikes?: Prisma.IntFilter<"SubscriptionPlan"> | number
+  monthlyBoosts?: Prisma.IntFilter<"SubscriptionPlan"> | number
+  canUnblurLikes?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
+  canPassport?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
+  hideAds?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
   createdAt?: Prisma.DateTimeFilter<"SubscriptionPlan"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SubscriptionPlan"> | Date | string
   userSubscriptions?: Prisma.UserSubscriptionListRelationFilter
@@ -299,6 +359,12 @@ export type SubscriptionPlanOrderByWithRelationInput = {
   canChangeSwipeDecision?: Prisma.SortOrder
   canSeeWhoLikedYou?: Prisma.SortOrder
   showLikesInAdvancedHome?: Prisma.SortOrder
+  dailySwipeLimit?: Prisma.SortOrder
+  dailySuperLikes?: Prisma.SortOrder
+  monthlyBoosts?: Prisma.SortOrder
+  canUnblurLikes?: Prisma.SortOrder
+  canPassport?: Prisma.SortOrder
+  hideAds?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   userSubscriptions?: Prisma.UserSubscriptionOrderByRelationAggregateInput
@@ -319,6 +385,12 @@ export type SubscriptionPlanWhereUniqueInput = Prisma.AtLeast<{
   canChangeSwipeDecision?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
   canSeeWhoLikedYou?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
   showLikesInAdvancedHome?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
+  dailySwipeLimit?: Prisma.IntFilter<"SubscriptionPlan"> | number
+  dailySuperLikes?: Prisma.IntFilter<"SubscriptionPlan"> | number
+  monthlyBoosts?: Prisma.IntFilter<"SubscriptionPlan"> | number
+  canUnblurLikes?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
+  canPassport?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
+  hideAds?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
   createdAt?: Prisma.DateTimeFilter<"SubscriptionPlan"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SubscriptionPlan"> | Date | string
   userSubscriptions?: Prisma.UserSubscriptionListRelationFilter
@@ -336,6 +408,12 @@ export type SubscriptionPlanOrderByWithAggregationInput = {
   canChangeSwipeDecision?: Prisma.SortOrder
   canSeeWhoLikedYou?: Prisma.SortOrder
   showLikesInAdvancedHome?: Prisma.SortOrder
+  dailySwipeLimit?: Prisma.SortOrder
+  dailySuperLikes?: Prisma.SortOrder
+  monthlyBoosts?: Prisma.SortOrder
+  canUnblurLikes?: Prisma.SortOrder
+  canPassport?: Prisma.SortOrder
+  hideAds?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.SubscriptionPlanCountOrderByAggregateInput
@@ -360,6 +438,12 @@ export type SubscriptionPlanScalarWhereWithAggregatesInput = {
   canChangeSwipeDecision?: Prisma.BoolWithAggregatesFilter<"SubscriptionPlan"> | boolean
   canSeeWhoLikedYou?: Prisma.BoolWithAggregatesFilter<"SubscriptionPlan"> | boolean
   showLikesInAdvancedHome?: Prisma.BoolWithAggregatesFilter<"SubscriptionPlan"> | boolean
+  dailySwipeLimit?: Prisma.IntWithAggregatesFilter<"SubscriptionPlan"> | number
+  dailySuperLikes?: Prisma.IntWithAggregatesFilter<"SubscriptionPlan"> | number
+  monthlyBoosts?: Prisma.IntWithAggregatesFilter<"SubscriptionPlan"> | number
+  canUnblurLikes?: Prisma.BoolWithAggregatesFilter<"SubscriptionPlan"> | boolean
+  canPassport?: Prisma.BoolWithAggregatesFilter<"SubscriptionPlan"> | boolean
+  hideAds?: Prisma.BoolWithAggregatesFilter<"SubscriptionPlan"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"SubscriptionPlan"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"SubscriptionPlan"> | Date | string
 }
@@ -376,6 +460,12 @@ export type SubscriptionPlanCreateInput = {
   canChangeSwipeDecision?: boolean
   canSeeWhoLikedYou?: boolean
   showLikesInAdvancedHome?: boolean
+  dailySwipeLimit?: number
+  dailySuperLikes?: number
+  monthlyBoosts?: number
+  canUnblurLikes?: boolean
+  canPassport?: boolean
+  hideAds?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   userSubscriptions?: Prisma.UserSubscriptionCreateNestedManyWithoutSubscriptionPlanInput
@@ -393,6 +483,12 @@ export type SubscriptionPlanUncheckedCreateInput = {
   canChangeSwipeDecision?: boolean
   canSeeWhoLikedYou?: boolean
   showLikesInAdvancedHome?: boolean
+  dailySwipeLimit?: number
+  dailySuperLikes?: number
+  monthlyBoosts?: number
+  canUnblurLikes?: boolean
+  canPassport?: boolean
+  hideAds?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   userSubscriptions?: Prisma.UserSubscriptionUncheckedCreateNestedManyWithoutSubscriptionPlanInput
@@ -410,6 +506,12 @@ export type SubscriptionPlanUpdateInput = {
   canChangeSwipeDecision?: Prisma.BoolFieldUpdateOperationsInput | boolean
   canSeeWhoLikedYou?: Prisma.BoolFieldUpdateOperationsInput | boolean
   showLikesInAdvancedHome?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dailySwipeLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  dailySuperLikes?: Prisma.IntFieldUpdateOperationsInput | number
+  monthlyBoosts?: Prisma.IntFieldUpdateOperationsInput | number
+  canUnblurLikes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  canPassport?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  hideAds?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   userSubscriptions?: Prisma.UserSubscriptionUpdateManyWithoutSubscriptionPlanNestedInput
@@ -427,6 +529,12 @@ export type SubscriptionPlanUncheckedUpdateInput = {
   canChangeSwipeDecision?: Prisma.BoolFieldUpdateOperationsInput | boolean
   canSeeWhoLikedYou?: Prisma.BoolFieldUpdateOperationsInput | boolean
   showLikesInAdvancedHome?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dailySwipeLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  dailySuperLikes?: Prisma.IntFieldUpdateOperationsInput | number
+  monthlyBoosts?: Prisma.IntFieldUpdateOperationsInput | number
+  canUnblurLikes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  canPassport?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  hideAds?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   userSubscriptions?: Prisma.UserSubscriptionUncheckedUpdateManyWithoutSubscriptionPlanNestedInput
@@ -444,6 +552,12 @@ export type SubscriptionPlanCreateManyInput = {
   canChangeSwipeDecision?: boolean
   canSeeWhoLikedYou?: boolean
   showLikesInAdvancedHome?: boolean
+  dailySwipeLimit?: number
+  dailySuperLikes?: number
+  monthlyBoosts?: number
+  canUnblurLikes?: boolean
+  canPassport?: boolean
+  hideAds?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -460,6 +574,12 @@ export type SubscriptionPlanUpdateManyMutationInput = {
   canChangeSwipeDecision?: Prisma.BoolFieldUpdateOperationsInput | boolean
   canSeeWhoLikedYou?: Prisma.BoolFieldUpdateOperationsInput | boolean
   showLikesInAdvancedHome?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dailySwipeLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  dailySuperLikes?: Prisma.IntFieldUpdateOperationsInput | number
+  monthlyBoosts?: Prisma.IntFieldUpdateOperationsInput | number
+  canUnblurLikes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  canPassport?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  hideAds?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -476,6 +596,12 @@ export type SubscriptionPlanUncheckedUpdateManyInput = {
   canChangeSwipeDecision?: Prisma.BoolFieldUpdateOperationsInput | boolean
   canSeeWhoLikedYou?: Prisma.BoolFieldUpdateOperationsInput | boolean
   showLikesInAdvancedHome?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dailySwipeLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  dailySuperLikes?: Prisma.IntFieldUpdateOperationsInput | number
+  monthlyBoosts?: Prisma.IntFieldUpdateOperationsInput | number
+  canUnblurLikes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  canPassport?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  hideAds?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -492,6 +618,12 @@ export type SubscriptionPlanCountOrderByAggregateInput = {
   canChangeSwipeDecision?: Prisma.SortOrder
   canSeeWhoLikedYou?: Prisma.SortOrder
   showLikesInAdvancedHome?: Prisma.SortOrder
+  dailySwipeLimit?: Prisma.SortOrder
+  dailySuperLikes?: Prisma.SortOrder
+  monthlyBoosts?: Prisma.SortOrder
+  canUnblurLikes?: Prisma.SortOrder
+  canPassport?: Prisma.SortOrder
+  hideAds?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -499,6 +631,9 @@ export type SubscriptionPlanCountOrderByAggregateInput = {
 export type SubscriptionPlanAvgOrderByAggregateInput = {
   durationDays?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
+  dailySwipeLimit?: Prisma.SortOrder
+  dailySuperLikes?: Prisma.SortOrder
+  monthlyBoosts?: Prisma.SortOrder
 }
 
 export type SubscriptionPlanMaxOrderByAggregateInput = {
@@ -513,6 +648,12 @@ export type SubscriptionPlanMaxOrderByAggregateInput = {
   canChangeSwipeDecision?: Prisma.SortOrder
   canSeeWhoLikedYou?: Prisma.SortOrder
   showLikesInAdvancedHome?: Prisma.SortOrder
+  dailySwipeLimit?: Prisma.SortOrder
+  dailySuperLikes?: Prisma.SortOrder
+  monthlyBoosts?: Prisma.SortOrder
+  canUnblurLikes?: Prisma.SortOrder
+  canPassport?: Prisma.SortOrder
+  hideAds?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -529,6 +670,12 @@ export type SubscriptionPlanMinOrderByAggregateInput = {
   canChangeSwipeDecision?: Prisma.SortOrder
   canSeeWhoLikedYou?: Prisma.SortOrder
   showLikesInAdvancedHome?: Prisma.SortOrder
+  dailySwipeLimit?: Prisma.SortOrder
+  dailySuperLikes?: Prisma.SortOrder
+  monthlyBoosts?: Prisma.SortOrder
+  canUnblurLikes?: Prisma.SortOrder
+  canPassport?: Prisma.SortOrder
+  hideAds?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -536,6 +683,9 @@ export type SubscriptionPlanMinOrderByAggregateInput = {
 export type SubscriptionPlanSumOrderByAggregateInput = {
   durationDays?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
+  dailySwipeLimit?: Prisma.SortOrder
+  dailySuperLikes?: Prisma.SortOrder
+  monthlyBoosts?: Prisma.SortOrder
 }
 
 export type SubscriptionPlanScalarRelationFilter = {
@@ -573,6 +723,12 @@ export type SubscriptionPlanCreateWithoutUserSubscriptionsInput = {
   canChangeSwipeDecision?: boolean
   canSeeWhoLikedYou?: boolean
   showLikesInAdvancedHome?: boolean
+  dailySwipeLimit?: number
+  dailySuperLikes?: number
+  monthlyBoosts?: number
+  canUnblurLikes?: boolean
+  canPassport?: boolean
+  hideAds?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -589,6 +745,12 @@ export type SubscriptionPlanUncheckedCreateWithoutUserSubscriptionsInput = {
   canChangeSwipeDecision?: boolean
   canSeeWhoLikedYou?: boolean
   showLikesInAdvancedHome?: boolean
+  dailySwipeLimit?: number
+  dailySuperLikes?: number
+  monthlyBoosts?: number
+  canUnblurLikes?: boolean
+  canPassport?: boolean
+  hideAds?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -621,6 +783,12 @@ export type SubscriptionPlanUpdateWithoutUserSubscriptionsInput = {
   canChangeSwipeDecision?: Prisma.BoolFieldUpdateOperationsInput | boolean
   canSeeWhoLikedYou?: Prisma.BoolFieldUpdateOperationsInput | boolean
   showLikesInAdvancedHome?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dailySwipeLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  dailySuperLikes?: Prisma.IntFieldUpdateOperationsInput | number
+  monthlyBoosts?: Prisma.IntFieldUpdateOperationsInput | number
+  canUnblurLikes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  canPassport?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  hideAds?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -637,6 +805,12 @@ export type SubscriptionPlanUncheckedUpdateWithoutUserSubscriptionsInput = {
   canChangeSwipeDecision?: Prisma.BoolFieldUpdateOperationsInput | boolean
   canSeeWhoLikedYou?: Prisma.BoolFieldUpdateOperationsInput | boolean
   showLikesInAdvancedHome?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dailySwipeLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  dailySuperLikes?: Prisma.IntFieldUpdateOperationsInput | number
+  monthlyBoosts?: Prisma.IntFieldUpdateOperationsInput | number
+  canUnblurLikes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  canPassport?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  hideAds?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -684,6 +858,12 @@ export type SubscriptionPlanSelect<ExtArgs extends runtime.Types.Extensions.Inte
   canChangeSwipeDecision?: boolean
   canSeeWhoLikedYou?: boolean
   showLikesInAdvancedHome?: boolean
+  dailySwipeLimit?: boolean
+  dailySuperLikes?: boolean
+  monthlyBoosts?: boolean
+  canUnblurLikes?: boolean
+  canPassport?: boolean
+  hideAds?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   userSubscriptions?: boolean | Prisma.SubscriptionPlan$userSubscriptionsArgs<ExtArgs>
@@ -702,6 +882,12 @@ export type SubscriptionPlanSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   canChangeSwipeDecision?: boolean
   canSeeWhoLikedYou?: boolean
   showLikesInAdvancedHome?: boolean
+  dailySwipeLimit?: boolean
+  dailySuperLikes?: boolean
+  monthlyBoosts?: boolean
+  canUnblurLikes?: boolean
+  canPassport?: boolean
+  hideAds?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["subscriptionPlan"]>
@@ -718,6 +904,12 @@ export type SubscriptionPlanSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   canChangeSwipeDecision?: boolean
   canSeeWhoLikedYou?: boolean
   showLikesInAdvancedHome?: boolean
+  dailySwipeLimit?: boolean
+  dailySuperLikes?: boolean
+  monthlyBoosts?: boolean
+  canUnblurLikes?: boolean
+  canPassport?: boolean
+  hideAds?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["subscriptionPlan"]>
@@ -734,11 +926,17 @@ export type SubscriptionPlanSelectScalar = {
   canChangeSwipeDecision?: boolean
   canSeeWhoLikedYou?: boolean
   showLikesInAdvancedHome?: boolean
+  dailySwipeLimit?: boolean
+  dailySuperLikes?: boolean
+  monthlyBoosts?: boolean
+  canUnblurLikes?: boolean
+  canPassport?: boolean
+  hideAds?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type SubscriptionPlanOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code" | "name" | "description" | "durationDays" | "isActive" | "sortOrder" | "canReverseLastSwipe" | "canChangeSwipeDecision" | "canSeeWhoLikedYou" | "showLikesInAdvancedHome" | "createdAt" | "updatedAt", ExtArgs["result"]["subscriptionPlan"]>
+export type SubscriptionPlanOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code" | "name" | "description" | "durationDays" | "isActive" | "sortOrder" | "canReverseLastSwipe" | "canChangeSwipeDecision" | "canSeeWhoLikedYou" | "showLikesInAdvancedHome" | "dailySwipeLimit" | "dailySuperLikes" | "monthlyBoosts" | "canUnblurLikes" | "canPassport" | "hideAds" | "createdAt" | "updatedAt", ExtArgs["result"]["subscriptionPlan"]>
 export type SubscriptionPlanInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   userSubscriptions?: boolean | Prisma.SubscriptionPlan$userSubscriptionsArgs<ExtArgs>
   _count?: boolean | Prisma.SubscriptionPlanCountOutputTypeDefaultArgs<ExtArgs>
@@ -763,6 +961,12 @@ export type $SubscriptionPlanPayload<ExtArgs extends runtime.Types.Extensions.In
     canChangeSwipeDecision: boolean
     canSeeWhoLikedYou: boolean
     showLikesInAdvancedHome: boolean
+    dailySwipeLimit: number
+    dailySuperLikes: number
+    monthlyBoosts: number
+    canUnblurLikes: boolean
+    canPassport: boolean
+    hideAds: boolean
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["subscriptionPlan"]>
@@ -1200,6 +1404,12 @@ export interface SubscriptionPlanFieldRefs {
   readonly canChangeSwipeDecision: Prisma.FieldRef<"SubscriptionPlan", 'Boolean'>
   readonly canSeeWhoLikedYou: Prisma.FieldRef<"SubscriptionPlan", 'Boolean'>
   readonly showLikesInAdvancedHome: Prisma.FieldRef<"SubscriptionPlan", 'Boolean'>
+  readonly dailySwipeLimit: Prisma.FieldRef<"SubscriptionPlan", 'Int'>
+  readonly dailySuperLikes: Prisma.FieldRef<"SubscriptionPlan", 'Int'>
+  readonly monthlyBoosts: Prisma.FieldRef<"SubscriptionPlan", 'Int'>
+  readonly canUnblurLikes: Prisma.FieldRef<"SubscriptionPlan", 'Boolean'>
+  readonly canPassport: Prisma.FieldRef<"SubscriptionPlan", 'Boolean'>
+  readonly hideAds: Prisma.FieldRef<"SubscriptionPlan", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"SubscriptionPlan", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"SubscriptionPlan", 'DateTime'>
 }

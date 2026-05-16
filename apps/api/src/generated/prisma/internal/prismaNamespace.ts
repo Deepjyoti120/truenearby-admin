@@ -1980,6 +1980,12 @@ export const SubscriptionPlanScalarFieldEnum = {
   canChangeSwipeDecision: 'canChangeSwipeDecision',
   canSeeWhoLikedYou: 'canSeeWhoLikedYou',
   showLikesInAdvancedHome: 'showLikesInAdvancedHome',
+  dailySwipeLimit: 'dailySwipeLimit',
+  dailySuperLikes: 'dailySuperLikes',
+  monthlyBoosts: 'monthlyBoosts',
+  canUnblurLikes: 'canUnblurLikes',
+  canPassport: 'canPassport',
+  hideAds: 'hideAds',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
