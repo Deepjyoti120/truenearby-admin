@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { LayoutDashboard, Settings, ShieldCheck, Users } from "lucide-react"
+import { LayoutDashboard, Receipt, Settings, ShieldCheck, Users } from "lucide-react"
 
 import { getProfileDisplayModel } from "@/features/profile/api"
 import { useAdminProfileQuery } from "@/features/profile/query"
@@ -27,6 +27,11 @@ const navItems = [
     title: "Users",
     url: "/dashboard/users",
     icon: Users,
+  },
+  {
+    title: "Subscriptions",
+    url: "/dashboard/subscriptions",
+    icon: Receipt,
   },
   {
     title: "Settings",
