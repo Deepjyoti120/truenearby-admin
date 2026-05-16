@@ -32,6 +32,7 @@ export type SubscriptionPlanAvgAggregateOutputType = {
   dailySwipeLimit: number | null
   dailySuperLikes: number | null
   monthlyBoosts: number | null
+  price: runtime.Decimal | null
 }
 
 export type SubscriptionPlanSumAggregateOutputType = {
@@ -40,6 +41,7 @@ export type SubscriptionPlanSumAggregateOutputType = {
   dailySwipeLimit: number | null
   dailySuperLikes: number | null
   monthlyBoosts: number | null
+  price: runtime.Decimal | null
 }
 
 export type SubscriptionPlanMinAggregateOutputType = {
@@ -60,6 +62,7 @@ export type SubscriptionPlanMinAggregateOutputType = {
   canUnblurLikes: boolean | null
   canPassport: boolean | null
   hideAds: boolean | null
+  price: runtime.Decimal | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -82,6 +85,7 @@ export type SubscriptionPlanMaxAggregateOutputType = {
   canUnblurLikes: boolean | null
   canPassport: boolean | null
   hideAds: boolean | null
+  price: runtime.Decimal | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -104,6 +108,7 @@ export type SubscriptionPlanCountAggregateOutputType = {
   canUnblurLikes: number
   canPassport: number
   hideAds: number
+  price: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -116,6 +121,7 @@ export type SubscriptionPlanAvgAggregateInputType = {
   dailySwipeLimit?: true
   dailySuperLikes?: true
   monthlyBoosts?: true
+  price?: true
 }
 
 export type SubscriptionPlanSumAggregateInputType = {
@@ -124,6 +130,7 @@ export type SubscriptionPlanSumAggregateInputType = {
   dailySwipeLimit?: true
   dailySuperLikes?: true
   monthlyBoosts?: true
+  price?: true
 }
 
 export type SubscriptionPlanMinAggregateInputType = {
@@ -144,6 +151,7 @@ export type SubscriptionPlanMinAggregateInputType = {
   canUnblurLikes?: true
   canPassport?: true
   hideAds?: true
+  price?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -166,6 +174,7 @@ export type SubscriptionPlanMaxAggregateInputType = {
   canUnblurLikes?: true
   canPassport?: true
   hideAds?: true
+  price?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -188,6 +197,7 @@ export type SubscriptionPlanCountAggregateInputType = {
   canUnblurLikes?: true
   canPassport?: true
   hideAds?: true
+  price?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -297,6 +307,7 @@ export type SubscriptionPlanGroupByOutputType = {
   canUnblurLikes: boolean
   canPassport: boolean
   hideAds: boolean
+  price: runtime.Decimal
   createdAt: Date
   updatedAt: Date
   _count: SubscriptionPlanCountAggregateOutputType | null
@@ -342,6 +353,7 @@ export type SubscriptionPlanWhereInput = {
   canUnblurLikes?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
   canPassport?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
   hideAds?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
+  price?: Prisma.DecimalFilter<"SubscriptionPlan"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeFilter<"SubscriptionPlan"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SubscriptionPlan"> | Date | string
   userSubscriptions?: Prisma.UserSubscriptionListRelationFilter
@@ -365,6 +377,7 @@ export type SubscriptionPlanOrderByWithRelationInput = {
   canUnblurLikes?: Prisma.SortOrder
   canPassport?: Prisma.SortOrder
   hideAds?: Prisma.SortOrder
+  price?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   userSubscriptions?: Prisma.UserSubscriptionOrderByRelationAggregateInput
@@ -391,6 +404,7 @@ export type SubscriptionPlanWhereUniqueInput = Prisma.AtLeast<{
   canUnblurLikes?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
   canPassport?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
   hideAds?: Prisma.BoolFilter<"SubscriptionPlan"> | boolean
+  price?: Prisma.DecimalFilter<"SubscriptionPlan"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeFilter<"SubscriptionPlan"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SubscriptionPlan"> | Date | string
   userSubscriptions?: Prisma.UserSubscriptionListRelationFilter
@@ -414,6 +428,7 @@ export type SubscriptionPlanOrderByWithAggregationInput = {
   canUnblurLikes?: Prisma.SortOrder
   canPassport?: Prisma.SortOrder
   hideAds?: Prisma.SortOrder
+  price?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.SubscriptionPlanCountOrderByAggregateInput
@@ -444,6 +459,7 @@ export type SubscriptionPlanScalarWhereWithAggregatesInput = {
   canUnblurLikes?: Prisma.BoolWithAggregatesFilter<"SubscriptionPlan"> | boolean
   canPassport?: Prisma.BoolWithAggregatesFilter<"SubscriptionPlan"> | boolean
   hideAds?: Prisma.BoolWithAggregatesFilter<"SubscriptionPlan"> | boolean
+  price?: Prisma.DecimalWithAggregatesFilter<"SubscriptionPlan"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"SubscriptionPlan"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"SubscriptionPlan"> | Date | string
 }
@@ -466,6 +482,7 @@ export type SubscriptionPlanCreateInput = {
   canUnblurLikes?: boolean
   canPassport?: boolean
   hideAds?: boolean
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Date | string
   updatedAt?: Date | string
   userSubscriptions?: Prisma.UserSubscriptionCreateNestedManyWithoutSubscriptionPlanInput
@@ -489,6 +506,7 @@ export type SubscriptionPlanUncheckedCreateInput = {
   canUnblurLikes?: boolean
   canPassport?: boolean
   hideAds?: boolean
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Date | string
   updatedAt?: Date | string
   userSubscriptions?: Prisma.UserSubscriptionUncheckedCreateNestedManyWithoutSubscriptionPlanInput
@@ -512,6 +530,7 @@ export type SubscriptionPlanUpdateInput = {
   canUnblurLikes?: Prisma.BoolFieldUpdateOperationsInput | boolean
   canPassport?: Prisma.BoolFieldUpdateOperationsInput | boolean
   hideAds?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   userSubscriptions?: Prisma.UserSubscriptionUpdateManyWithoutSubscriptionPlanNestedInput
@@ -535,6 +554,7 @@ export type SubscriptionPlanUncheckedUpdateInput = {
   canUnblurLikes?: Prisma.BoolFieldUpdateOperationsInput | boolean
   canPassport?: Prisma.BoolFieldUpdateOperationsInput | boolean
   hideAds?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   userSubscriptions?: Prisma.UserSubscriptionUncheckedUpdateManyWithoutSubscriptionPlanNestedInput
@@ -558,6 +578,7 @@ export type SubscriptionPlanCreateManyInput = {
   canUnblurLikes?: boolean
   canPassport?: boolean
   hideAds?: boolean
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -580,6 +601,7 @@ export type SubscriptionPlanUpdateManyMutationInput = {
   canUnblurLikes?: Prisma.BoolFieldUpdateOperationsInput | boolean
   canPassport?: Prisma.BoolFieldUpdateOperationsInput | boolean
   hideAds?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -602,6 +624,7 @@ export type SubscriptionPlanUncheckedUpdateManyInput = {
   canUnblurLikes?: Prisma.BoolFieldUpdateOperationsInput | boolean
   canPassport?: Prisma.BoolFieldUpdateOperationsInput | boolean
   hideAds?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -624,6 +647,7 @@ export type SubscriptionPlanCountOrderByAggregateInput = {
   canUnblurLikes?: Prisma.SortOrder
   canPassport?: Prisma.SortOrder
   hideAds?: Prisma.SortOrder
+  price?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -634,6 +658,7 @@ export type SubscriptionPlanAvgOrderByAggregateInput = {
   dailySwipeLimit?: Prisma.SortOrder
   dailySuperLikes?: Prisma.SortOrder
   monthlyBoosts?: Prisma.SortOrder
+  price?: Prisma.SortOrder
 }
 
 export type SubscriptionPlanMaxOrderByAggregateInput = {
@@ -654,6 +679,7 @@ export type SubscriptionPlanMaxOrderByAggregateInput = {
   canUnblurLikes?: Prisma.SortOrder
   canPassport?: Prisma.SortOrder
   hideAds?: Prisma.SortOrder
+  price?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -676,6 +702,7 @@ export type SubscriptionPlanMinOrderByAggregateInput = {
   canUnblurLikes?: Prisma.SortOrder
   canPassport?: Prisma.SortOrder
   hideAds?: Prisma.SortOrder
+  price?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -686,6 +713,7 @@ export type SubscriptionPlanSumOrderByAggregateInput = {
   dailySwipeLimit?: Prisma.SortOrder
   dailySuperLikes?: Prisma.SortOrder
   monthlyBoosts?: Prisma.SortOrder
+  price?: Prisma.SortOrder
 }
 
 export type SubscriptionPlanScalarRelationFilter = {
@@ -695,6 +723,14 @@ export type SubscriptionPlanScalarRelationFilter = {
 
 export type EnumPlanFieldUpdateOperationsInput = {
   set?: $Enums.Plan
+}
+
+export type DecimalFieldUpdateOperationsInput = {
+  set?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  increment?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  decrement?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  multiply?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type SubscriptionPlanCreateNestedOneWithoutUserSubscriptionsInput = {
@@ -729,6 +765,7 @@ export type SubscriptionPlanCreateWithoutUserSubscriptionsInput = {
   canUnblurLikes?: boolean
   canPassport?: boolean
   hideAds?: boolean
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -751,6 +788,7 @@ export type SubscriptionPlanUncheckedCreateWithoutUserSubscriptionsInput = {
   canUnblurLikes?: boolean
   canPassport?: boolean
   hideAds?: boolean
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -789,6 +827,7 @@ export type SubscriptionPlanUpdateWithoutUserSubscriptionsInput = {
   canUnblurLikes?: Prisma.BoolFieldUpdateOperationsInput | boolean
   canPassport?: Prisma.BoolFieldUpdateOperationsInput | boolean
   hideAds?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -811,6 +850,7 @@ export type SubscriptionPlanUncheckedUpdateWithoutUserSubscriptionsInput = {
   canUnblurLikes?: Prisma.BoolFieldUpdateOperationsInput | boolean
   canPassport?: Prisma.BoolFieldUpdateOperationsInput | boolean
   hideAds?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -864,6 +904,7 @@ export type SubscriptionPlanSelect<ExtArgs extends runtime.Types.Extensions.Inte
   canUnblurLikes?: boolean
   canPassport?: boolean
   hideAds?: boolean
+  price?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   userSubscriptions?: boolean | Prisma.SubscriptionPlan$userSubscriptionsArgs<ExtArgs>
@@ -888,6 +929,7 @@ export type SubscriptionPlanSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   canUnblurLikes?: boolean
   canPassport?: boolean
   hideAds?: boolean
+  price?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["subscriptionPlan"]>
@@ -910,6 +952,7 @@ export type SubscriptionPlanSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   canUnblurLikes?: boolean
   canPassport?: boolean
   hideAds?: boolean
+  price?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["subscriptionPlan"]>
@@ -932,11 +975,12 @@ export type SubscriptionPlanSelectScalar = {
   canUnblurLikes?: boolean
   canPassport?: boolean
   hideAds?: boolean
+  price?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type SubscriptionPlanOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code" | "name" | "description" | "durationDays" | "isActive" | "sortOrder" | "canReverseLastSwipe" | "canChangeSwipeDecision" | "canSeeWhoLikedYou" | "showLikesInAdvancedHome" | "dailySwipeLimit" | "dailySuperLikes" | "monthlyBoosts" | "canUnblurLikes" | "canPassport" | "hideAds" | "createdAt" | "updatedAt", ExtArgs["result"]["subscriptionPlan"]>
+export type SubscriptionPlanOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code" | "name" | "description" | "durationDays" | "isActive" | "sortOrder" | "canReverseLastSwipe" | "canChangeSwipeDecision" | "canSeeWhoLikedYou" | "showLikesInAdvancedHome" | "dailySwipeLimit" | "dailySuperLikes" | "monthlyBoosts" | "canUnblurLikes" | "canPassport" | "hideAds" | "price" | "createdAt" | "updatedAt", ExtArgs["result"]["subscriptionPlan"]>
 export type SubscriptionPlanInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   userSubscriptions?: boolean | Prisma.SubscriptionPlan$userSubscriptionsArgs<ExtArgs>
   _count?: boolean | Prisma.SubscriptionPlanCountOutputTypeDefaultArgs<ExtArgs>
@@ -967,6 +1011,7 @@ export type $SubscriptionPlanPayload<ExtArgs extends runtime.Types.Extensions.In
     canUnblurLikes: boolean
     canPassport: boolean
     hideAds: boolean
+    price: runtime.Decimal
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["subscriptionPlan"]>
@@ -1410,6 +1455,7 @@ export interface SubscriptionPlanFieldRefs {
   readonly canUnblurLikes: Prisma.FieldRef<"SubscriptionPlan", 'Boolean'>
   readonly canPassport: Prisma.FieldRef<"SubscriptionPlan", 'Boolean'>
   readonly hideAds: Prisma.FieldRef<"SubscriptionPlan", 'Boolean'>
+  readonly price: Prisma.FieldRef<"SubscriptionPlan", 'Decimal'>
   readonly createdAt: Prisma.FieldRef<"SubscriptionPlan", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"SubscriptionPlan", 'DateTime'>
 }

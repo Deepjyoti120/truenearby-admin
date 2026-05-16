@@ -1,4 +1,5 @@
 import { AppSidebarLayout } from "@/components/app-sidebar-layout"
+import { CurrencySettingsCard } from "@/components/currency-settings-card"
 import { SettingsForm } from "@/components/settings-form"
 
 export default function SettingsPage() {
@@ -9,7 +10,10 @@ export default function SettingsPage() {
 
   return (
     <AppSidebarLayout breadcrumbs={breadcrumbs}>
-      <SettingsForm />
+      <div className="space-y-6">
+        <SettingsForm />
+        <CurrencySettingsCard />
+      </div>
     </AppSidebarLayout>
   )
 }

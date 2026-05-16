@@ -30,9 +30,14 @@ type SubscriptionPlanSeed = {
   canUnblurLikes: boolean;
   canPassport: boolean;
   hideAds: boolean;
+  price: number;
 };
 
-type SubscriptionPlanRecord = SubscriptionPlanSeed & {
+// `price` comes back from Prisma as a Decimal instance (or a Decimal-like
+// object). We accept either so the seed (plain number) and the live records
+// share the same record type.
+type SubscriptionPlanRecord = Omit<SubscriptionPlanSeed, 'price'> & {
+  price: Prisma.Decimal | number;
   createdAt: Date;
   updatedAt: Date;
 };
@@ -100,6 +105,7 @@ const DEFAULT_SUBSCRIPTION_PLANS: SubscriptionPlanSeed[] = [
     canUnblurLikes: false,
     canPassport: false,
     hideAds: false,
+    price: 0,
   },
 ];
 
@@ -187,6 +193,7 @@ export class SubscriptionsService {
         name: dto.name,
         description: dto.description ?? null,
         durationDays: dto.durationDays,
+        price: dto.price,
         isActive: dto.isActive ?? true,
         sortOrder: dto.sortOrder ?? 0,
         canReverseLastSwipe: dto.canReverseLastSwipe ?? false,
@@ -217,6 +224,7 @@ export class SubscriptionsService {
     if (dto.name !== undefined) data.name = dto.name;
     if (dto.description !== undefined) data.description = dto.description;
     if (dto.durationDays !== undefined) data.durationDays = dto.durationDays;
+    if (dto.price !== undefined) data.price = dto.price;
     if (dto.sortOrder !== undefined) data.sortOrder = dto.sortOrder;
     if (dto.dailySwipeLimit !== undefined)
       data.dailySwipeLimit = dto.dailySwipeLimit;
@@ -442,6 +450,7 @@ export class SubscriptionsService {
       name: plan.name,
       description: plan.description,
       durationDays: plan.durationDays,
+      price: this.priceToNumber(plan.price),
       isActive: plan.isActive,
       isDefault: false,
       sortOrder: plan.sortOrder,
@@ -458,6 +467,15 @@ export class SubscriptionsService {
         hideAds: plan.hideAds,
       },
     };
+  }
+
+  private priceToNumber(price: Prisma.Decimal | number): number {
+    if (typeof price === 'number') return price;
+    // Prisma.Decimal has a `.toNumber()` helper. Fall back to Number()
+    // when serializers strip prototype methods (e.g. in tests).
+    return typeof (price as Prisma.Decimal).toNumber === 'function'
+      ? (price as Prisma.Decimal).toNumber()
+      : Number(price);
   }
 
   private mapUserSubscription(subscription: UserSubscriptionRecord) {

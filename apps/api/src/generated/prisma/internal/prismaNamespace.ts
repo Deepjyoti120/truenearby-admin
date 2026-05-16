@@ -401,7 +401,8 @@ export const ModelName = {
   SubscriptionPlan: 'SubscriptionPlan',
   UserSubscription: 'UserSubscription',
   Swipe: 'Swipe',
-  Report: 'Report'
+  Report: 'Report',
+  AppSettings: 'AppSettings'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -417,7 +418,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "profile" | "profileMatchPreference" | "userDevice" | "refreshToken" | "photo" | "post" | "latestUserPost" | "postSwipe" | "like" | "match" | "chat" | "message" | "block" | "subscriptionPlan" | "userSubscription" | "swipe" | "report"
+    modelProps: "user" | "profile" | "profileMatchPreference" | "userDevice" | "refreshToken" | "photo" | "post" | "latestUserPost" | "postSwipe" | "like" | "match" | "chat" | "message" | "block" | "subscriptionPlan" | "userSubscription" | "swipe" | "report" | "appSettings"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1753,6 +1754,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AppSettings: {
+      payload: Prisma.$AppSettingsPayload<ExtArgs>
+      fields: Prisma.AppSettingsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AppSettingsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppSettingsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AppSettingsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppSettingsPayload>
+        }
+        findFirst: {
+          args: Prisma.AppSettingsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppSettingsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AppSettingsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppSettingsPayload>
+        }
+        findMany: {
+          args: Prisma.AppSettingsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppSettingsPayload>[]
+        }
+        create: {
+          args: Prisma.AppSettingsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppSettingsPayload>
+        }
+        createMany: {
+          args: Prisma.AppSettingsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AppSettingsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppSettingsPayload>[]
+        }
+        delete: {
+          args: Prisma.AppSettingsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppSettingsPayload>
+        }
+        update: {
+          args: Prisma.AppSettingsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppSettingsPayload>
+        }
+        deleteMany: {
+          args: Prisma.AppSettingsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AppSettingsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AppSettingsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppSettingsPayload>[]
+        }
+        upsert: {
+          args: Prisma.AppSettingsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppSettingsPayload>
+        }
+        aggregate: {
+          args: Prisma.AppSettingsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAppSettings>
+        }
+        groupBy: {
+          args: Prisma.AppSettingsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AppSettingsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AppSettingsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AppSettingsCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1986,6 +2061,7 @@ export const SubscriptionPlanScalarFieldEnum = {
   canUnblurLikes: 'canUnblurLikes',
   canPassport: 'canPassport',
   hideAds: 'hideAds',
+  price: 'price',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -2030,6 +2106,16 @@ export const ReportScalarFieldEnum = {
 } as const
 
 export type ReportScalarFieldEnum = (typeof ReportScalarFieldEnum)[keyof typeof ReportScalarFieldEnum]
+
+
+export const AppSettingsScalarFieldEnum = {
+  id: 'id',
+  currency: 'currency',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AppSettingsScalarFieldEnum = (typeof AppSettingsScalarFieldEnum)[keyof typeof AppSettingsScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -2194,6 +2280,20 @@ export type EnumPlanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
 export type ListEnumPlanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Plan[]'>
     
 
+
+/**
+ * Reference to a field of type 'Decimal'
+ */
+export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+/**
+ * Reference to a field of type 'Decimal[]'
+ */
+export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
 /**
  * Batch Payload for updateMany & deleteMany & createMany
  */
@@ -2307,6 +2407,7 @@ export type GlobalOmitConfig = {
   userSubscription?: Prisma.UserSubscriptionOmit
   swipe?: Prisma.SwipeOmit
   report?: Prisma.ReportOmit
+  appSettings?: Prisma.AppSettingsOmit
 }
 
 /* Types for Logging */

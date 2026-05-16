@@ -24,6 +24,7 @@ export type AdminSubscriptionPlanRow = {
   name: string
   description: string | null
   durationDays: number
+  price: number
   isActive: boolean
   isDefault: boolean
   sortOrder: number
@@ -59,6 +60,7 @@ export type CreatePlanInput = {
   name: string
   description?: string | null
   durationDays: number
+  price: number
   isActive?: boolean
   sortOrder?: number
 } & Partial<SubscriptionFeatures>

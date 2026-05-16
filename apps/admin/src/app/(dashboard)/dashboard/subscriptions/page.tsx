@@ -51,6 +51,8 @@ import {
   useSetPlanActiveMutation,
 } from "@/features/subscriptions/query"
 import { SubscriptionFormSheet } from "@/features/subscriptions/subscription-form-sheet"
+import { formatPrice, type SupportedCurrency } from "@/features/settings/api"
+import { useAppSettingsQuery } from "@/features/settings/query"
 
 const PAGE_SIZE = 10
 
@@ -101,11 +103,13 @@ function PlanRowItem({
   onToggle,
   onEdit,
   isPending,
+  currency,
 }: {
   plan: AdminSubscriptionPlanRow
   onToggle: (next: boolean) => void
   onEdit: () => void
   isPending: boolean
+  currency: SupportedCurrency
 }) {
   const activeFeatures = countActiveFeatures(plan)
   const isFree = plan.isDefault
@@ -131,6 +135,9 @@ function PlanRowItem({
         ) : null}
       </TableCell>
       <TableCell className="text-slate-700">{plan.durationDays} days</TableCell>
+      <TableCell className="font-medium text-slate-900">
+        {formatPrice(plan.price, currency)}
+      </TableCell>
       <TableCell className="text-slate-700">
         {plan.features.dailySwipeLimit}/day
       </TableCell>
@@ -207,6 +214,8 @@ export default function SubscriptionsPage() {
   const { data, isLoading, isFetching, isError, error, refetch } =
     usePlansQuery(queryInput)
   const activeMutation = useSetPlanActiveMutation()
+  const { data: settingsData } = useAppSettingsQuery()
+  const currency: SupportedCurrency = settingsData?.currency ?? "USD"
   // Matches users page convention: the hook name is misleading — it returns
   // `true` when the account is in restricted/read-only mode. Click handlers
   // toast and short-circuit; we never visually disable based on this.
@@ -391,6 +400,7 @@ export default function SubscriptionsPage() {
                   <TableHead className="pl-6">Plan</TableHead>
                   <TableHead>Tier</TableHead>
                   <TableHead>Duration</TableHead>
+                  <TableHead>Price</TableHead>
                   <TableHead>Daily swipes</TableHead>
                   <TableHead>Features on</TableHead>
                   <TableHead>Status</TableHead>
@@ -414,6 +424,9 @@ export default function SubscriptionsPage() {
                         <Skeleton className="h-4 w-16" />
                       </TableCell>
                       <TableCell>
+                        <Skeleton className="h-4 w-16" />
+                      </TableCell>
+                      <TableCell>
                         <Skeleton className="h-4 w-20" />
                       </TableCell>
                       <TableCell>
@@ -427,7 +440,7 @@ export default function SubscriptionsPage() {
                 ) : isError ? (
                   <TableRow>
                     <TableCell
-                      colSpan={7}
+                      colSpan={8}
                       className="py-10 text-center text-sm text-slate-600"
                     >
                       <div className="space-y-2">
@@ -449,7 +462,7 @@ export default function SubscriptionsPage() {
                 ) : rows.length === 0 ? (
                   <TableRow>
                     <TableCell
-                      colSpan={7}
+                      colSpan={8}
                       className="py-10 text-center text-sm text-slate-500"
                     >
                       {applied.search ||
@@ -464,6 +477,7 @@ export default function SubscriptionsPage() {
                     <PlanRowItem
                       key={plan.planId}
                       plan={plan}
+                      currency={currency}
                       isPending={
                         activeMutation.isPending &&
                         activeMutation.variables?.id === plan.planId

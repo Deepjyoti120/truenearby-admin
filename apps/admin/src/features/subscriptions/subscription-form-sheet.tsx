@@ -43,6 +43,7 @@ import {
   useCreatePlanMutation,
   useUpdatePlanMutation,
 } from "@/features/subscriptions/query"
+import { useAppSettingsQuery } from "@/features/settings/query"
 
 type Mode = "create" | "edit"
 
@@ -51,6 +52,7 @@ type FormState = {
   name: string
   description: string
   durationDays: string
+  price: string
   sortOrder: string
   dailySwipeLimit: string
   dailySuperLikes: string
@@ -70,6 +72,7 @@ const EMPTY: FormState = {
   name: "",
   description: "",
   durationDays: "30",
+  price: "0.00",
   sortOrder: "1",
   dailySwipeLimit: "20",
   dailySuperLikes: "0",
@@ -90,6 +93,7 @@ function planToForm(plan: AdminSubscriptionPlanRow): FormState {
     name: plan.name,
     description: plan.description ?? "",
     durationDays: String(plan.durationDays),
+    price: plan.price.toFixed(2),
     sortOrder: String(plan.sortOrder),
     dailySwipeLimit: String(plan.features.dailySwipeLimit),
     dailySuperLikes: String(plan.features.dailySuperLikes),
@@ -108,6 +112,13 @@ function planToForm(plan: AdminSubscriptionPlanRow): FormState {
 function toInt(value: string, fallback: number): number {
   const n = Number.parseInt(value, 10)
   return Number.isFinite(n) && n >= 0 ? n : fallback
+}
+
+function toPrice(value: string): number | null {
+  const n = Number.parseFloat(value)
+  if (!Number.isFinite(n) || n < 0) return null
+  // Round to 2dp to match the DB column precision.
+  return Math.round(n * 100) / 100
 }
 
 const BOOLEAN_FEATURES: Array<{
@@ -204,6 +215,8 @@ function FormBody({ mode, plan, onClose }: FormBodyProps) {
   )
   const createMutation = useCreatePlanMutation()
   const updateMutation = useUpdatePlanMutation()
+  const { data: settings } = useAppSettingsQuery()
+  const currencyCode = settings?.currency ?? "USD"
 
   const isFreeEdit = mode === "edit" && plan?.plan === "FREE"
   const isPending = createMutation.isPending || updateMutation.isPending
@@ -233,11 +246,17 @@ function FormBody({ mode, plan, onClose }: FormBodyProps) {
       toast.error("Duration must be at least 1 day")
       return
     }
+    const price = toPrice(form.price)
+    if (price === null) {
+      toast.error("Price must be a non-negative number")
+      return
+    }
 
     const payload = {
       name: trimmedName,
       description: form.description.trim() || null,
       durationDays,
+      price,
       isActive: form.isActive,
       sortOrder: toInt(form.sortOrder, 0),
       dailySwipeLimit: toInt(form.dailySwipeLimit, 0),
@@ -364,7 +383,7 @@ function FormBody({ mode, plan, onClose }: FormBodyProps) {
                   />
                 </Field>
 
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                   <Field>
                     <FieldLabel htmlFor="plan-duration">
                       Duration (days)
@@ -378,6 +397,24 @@ function FormBody({ mode, plan, onClose }: FormBodyProps) {
                       onChange={(e) => set("durationDays")(e.target.value)}
                       required
                     />
+                  </Field>
+                  <Field>
+                    <FieldLabel htmlFor="plan-price">
+                      Price ({currencyCode})
+                    </FieldLabel>
+                    <Input
+                      id="plan-price"
+                      type="number"
+                      inputMode="decimal"
+                      step="0.01"
+                      min={0}
+                      value={form.price}
+                      onChange={(e) => set("price")(e.target.value)}
+                      required
+                    />
+                    <FieldDescription>
+                      Currency comes from Settings → Store currency.
+                    </FieldDescription>
                   </Field>
                   <Field>
                     <FieldLabel htmlFor="plan-sort">Sort order</FieldLabel>

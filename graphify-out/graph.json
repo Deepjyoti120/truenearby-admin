@@ -9,7 +9,7 @@
       "source_file": "apps/admin/postcss.config.mjs",
       "source_location": "L1",
       "id": "apps_admin_postcss_config_mjs",
-      "community": 98,
+      "community": 106,
       "norm_label": "postcss.config.mjs"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "apps/admin/next-env.d.ts",
       "source_location": "L1",
       "id": "apps_admin_next_env_d_ts",
-      "community": 99,
+      "community": 107,
       "norm_label": "next-env.d.ts"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "apps/admin/eslint.config.mjs",
       "source_location": "L1",
       "id": "apps_admin_eslint_config_mjs",
-      "community": 100,
+      "community": 108,
       "norm_label": "eslint.config.mjs"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "apps/admin/next.config.ts",
       "source_location": "L1",
       "id": "apps_admin_next_config_ts",
-      "community": 101,
+      "community": 109,
       "norm_label": "next.config.ts"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "apps/admin/src/types/index.ts",
       "source_location": "L1",
       "id": "apps_admin_src_types_index_ts",
-      "community": 102,
+      "community": 110,
       "norm_label": "index.ts"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/layout.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_layout_tsx",
-      "community": 39,
+      "community": 43,
       "norm_label": "layout.tsx"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/layout.tsx",
       "source_location": "L22",
       "id": "layout_rootlayout",
-      "community": 39,
+      "community": 43,
       "norm_label": "rootlayout()"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/page.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_page_tsx",
-      "community": 24,
+      "community": 26,
       "norm_label": "page.tsx"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/page.tsx",
       "source_location": "L22",
       "id": "page_googleplayicon",
-      "community": 24,
+      "community": 26,
       "norm_label": "googleplayicon()"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/page.tsx",
       "source_location": "L44",
       "id": "page_storebutton",
-      "community": 24,
+      "community": 26,
       "norm_label": "storebutton()"
     },
     {
@@ -99,7 +99,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/page.tsx",
       "source_location": "L79",
       "id": "page_storebuttons",
-      "community": 24,
+      "community": 26,
       "norm_label": "storebuttons()"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "apps/admin/src/app/privacy-policy/page.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_app_privacy_policy_page_tsx",
-      "community": 103,
+      "community": 111,
       "norm_label": "page.tsx"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "apps/admin/src/app/creative-links/page.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_app_creative_links_page_tsx",
-      "community": 104,
+      "community": 112,
       "norm_label": "page.tsx"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/terms/page.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_terms_page_tsx",
-      "community": 105,
+      "community": 113,
       "norm_label": "page.tsx"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "apps/admin/src/app/refund-cancellation/page.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_app_refund_cancellation_page_tsx",
-      "community": 40,
+      "community": 44,
       "norm_label": "page.tsx"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "apps/admin/src/app/refund-cancellation/page.tsx",
       "source_location": "L12",
       "id": "page_refundcancellationpage",
-      "community": 40,
+      "community": 44,
       "norm_label": "refundcancellationpage()"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/account-delete/page.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_account_delete_page_tsx",
-      "community": 41,
+      "community": 45,
       "norm_label": "page.tsx"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/account-delete/page.tsx",
       "source_location": "L11",
       "id": "page_accountdeletepage",
-      "community": 41,
+      "community": 45,
       "norm_label": "accountdeletepage()"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "apps/admin/src/app/contact-us/page.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_app_contact_us_page_tsx",
-      "community": 42,
+      "community": 46,
       "norm_label": "page.tsx"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "apps/admin/src/app/contact-us/page.tsx",
       "source_location": "L12",
       "id": "page_contactuspage",
-      "community": 42,
+      "community": 46,
       "norm_label": "contactuspage()"
     },
     {
@@ -189,7 +189,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/child-safety/page.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_child_safety_page_tsx",
-      "community": 106,
+      "community": 114,
       "norm_label": "page.tsx"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(auth)/login/page.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_auth_login_page_tsx",
-      "community": 107,
+      "community": 115,
       "norm_label": "page.tsx"
     },
     {
@@ -207,7 +207,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/layout.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_layout_tsx",
-      "community": 43,
+      "community": 47,
       "norm_label": "layout.tsx"
     },
     {
@@ -216,7 +216,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/layout.tsx",
       "source_location": "L3",
       "id": "layout_dashboardlayout",
-      "community": 43,
+      "community": 47,
       "norm_label": "dashboardlayout()"
     },
     {
@@ -225,7 +225,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/page.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_page_tsx",
-      "community": 33,
+      "community": 36,
       "norm_label": "page.tsx"
     },
     {
@@ -234,7 +234,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/page.tsx",
       "source_location": "L78",
       "id": "page_formatnumber",
-      "community": 33,
+      "community": 36,
       "norm_label": "formatnumber()"
     },
     {
@@ -243,7 +243,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/page.tsx",
       "source_location": "L82",
       "id": "page_pct",
-      "community": 33,
+      "community": 36,
       "norm_label": "pct()"
     },
     {
@@ -252,16 +252,16 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/settings/page.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_settings_page_tsx",
-      "community": 44,
+      "community": 48,
       "norm_label": "page.tsx"
     },
     {
       "label": "SettingsPage()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/settings/page.tsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "id": "page_settingspage",
-      "community": 44,
+      "community": 48,
       "norm_label": "settingspage()"
     },
     {
@@ -286,7 +286,7 @@
       "label": "countActiveFeatures()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/subscriptions/page.tsx",
-      "source_location": "L86",
+      "source_location": "L88",
       "id": "page_countactivefeatures",
       "community": 8,
       "norm_label": "countactivefeatures()"
@@ -322,7 +322,7 @@
       "label": "openCreate()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/subscriptions/page.tsx",
-      "source_location": "L269",
+      "source_location": "L278",
       "id": "page_opencreate",
       "community": 8,
       "norm_label": "opencreate()"
@@ -331,7 +331,7 @@
       "label": "openEdit()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/subscriptions/page.tsx",
-      "source_location": "L279",
+      "source_location": "L288",
       "id": "page_openedit",
       "community": 8,
       "norm_label": "openedit()"
@@ -373,12 +373,75 @@
       "norm_label": "userrowitem()"
     },
     {
+      "label": "api.ts",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/api.ts",
+      "source_location": "L1",
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_settings_api_ts",
+      "community": 1,
+      "norm_label": "api.ts"
+    },
+    {
+      "label": "fetchSettings()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/api.ts",
+      "source_location": "L30",
+      "id": "api_fetchsettings",
+      "community": 1,
+      "norm_label": "fetchsettings()"
+    },
+    {
+      "label": "updateCurrency()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/api.ts",
+      "source_location": "L42",
+      "id": "api_updatecurrency",
+      "community": 1,
+      "norm_label": "updatecurrency()"
+    },
+    {
+      "label": "formatPrice()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/api.ts",
+      "source_location": "L73",
+      "id": "api_formatprice",
+      "community": 1,
+      "norm_label": "formatprice()"
+    },
+    {
+      "label": "query.ts",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/query.ts",
+      "source_location": "L1",
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_settings_query_ts",
+      "community": 37,
+      "norm_label": "query.ts"
+    },
+    {
+      "label": "useAppSettingsQuery()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/query.ts",
+      "source_location": "L13",
+      "id": "query_useappsettingsquery",
+      "community": 37,
+      "norm_label": "useappsettingsquery()"
+    },
+    {
+      "label": "useUpdateCurrencyMutation()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/query.ts",
+      "source_location": "L21",
+      "id": "query_useupdatecurrencymutation",
+      "community": 37,
+      "norm_label": "useupdatecurrencymutation()"
+    },
+    {
       "label": "state.ts",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/read-only-admin/state.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_read_only_admin_state_ts",
-      "community": 19,
+      "community": 18,
       "norm_label": "state.ts"
     },
     {
@@ -387,7 +450,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/read-only-admin/state.ts",
       "source_location": "L7",
       "id": "state_useiseditaccess",
-      "community": 19,
+      "community": 18,
       "norm_label": "useiseditaccess()"
     },
     {
@@ -396,43 +459,52 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_subscriptions_subscription_form_sheet_tsx",
-      "community": 0,
+      "community": 21,
       "norm_label": "subscription-form-sheet.tsx"
     },
     {
       "label": "planToForm()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx",
-      "source_location": "L87",
+      "source_location": "L90",
       "id": "subscription_form_sheet_plantoform",
-      "community": 0,
+      "community": 21,
       "norm_label": "plantoform()"
     },
     {
       "label": "toInt()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx",
-      "source_location": "L108",
+      "source_location": "L112",
       "id": "subscription_form_sheet_toint",
-      "community": 0,
+      "community": 21,
       "norm_label": "toint()"
+    },
+    {
+      "label": "toPrice()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx",
+      "source_location": "L117",
+      "id": "subscription_form_sheet_toprice",
+      "community": 21,
+      "norm_label": "toprice()"
     },
     {
       "label": "set()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx",
-      "source_location": "L218",
+      "source_location": "L231",
       "id": "subscription_form_sheet_set",
-      "community": 0,
+      "community": 1,
       "norm_label": "set()"
     },
     {
       "label": "handleSubmit()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx",
-      "source_location": "L224",
+      "source_location": "L237",
       "id": "subscription_form_sheet_handlesubmit",
-      "community": 0,
+      "community": 21,
       "norm_label": "handlesubmit()"
     },
     {
@@ -441,43 +513,43 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/api.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_subscriptions_api_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "api.ts"
     },
     {
       "label": "fetchPlans()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/api.ts",
-      "source_location": "L68",
+      "source_location": "L70",
       "id": "api_fetchplans",
-      "community": 0,
+      "community": 1,
       "norm_label": "fetchplans()"
     },
     {
       "label": "createPlan()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/api.ts",
-      "source_location": "L95",
+      "source_location": "L97",
       "id": "api_createplan",
-      "community": 0,
+      "community": 1,
       "norm_label": "createplan()"
     },
     {
       "label": "updatePlan()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/api.ts",
-      "source_location": "L113",
+      "source_location": "L115",
       "id": "api_updateplan",
-      "community": 0,
+      "community": 1,
       "norm_label": "updateplan()"
     },
     {
       "label": "setPlanActive()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/api.ts",
-      "source_location": "L131",
+      "source_location": "L133",
       "id": "api_setplanactive",
-      "community": 0,
+      "community": 1,
       "norm_label": "setplanactive()"
     },
     {
@@ -486,7 +558,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/query.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_subscriptions_query_ts",
-      "community": 18,
+      "community": 17,
       "norm_label": "query.ts"
     },
     {
@@ -495,7 +567,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/query.ts",
       "source_location": "L16",
       "id": "query_plansquerykey",
-      "community": 18,
+      "community": 17,
       "norm_label": "plansquerykey()"
     },
     {
@@ -504,7 +576,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/query.ts",
       "source_location": "L26",
       "id": "query_useplansquery",
-      "community": 18,
+      "community": 17,
       "norm_label": "useplansquery()"
     },
     {
@@ -513,7 +585,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/query.ts",
       "source_location": "L35",
       "id": "query_usecreateplanmutation",
-      "community": 18,
+      "community": 17,
       "norm_label": "usecreateplanmutation()"
     },
     {
@@ -522,7 +594,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/query.ts",
       "source_location": "L45",
       "id": "query_useupdateplanmutation",
-      "community": 18,
+      "community": 17,
       "norm_label": "useupdateplanmutation()"
     },
     {
@@ -531,7 +603,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/query.ts",
       "source_location": "L56",
       "id": "query_usesetplanactivemutation",
-      "community": 18,
+      "community": 17,
       "norm_label": "usesetplanactivemutation()"
     },
     {
@@ -540,7 +612,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/profile/api.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_profile_api_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "api.ts"
     },
     {
@@ -549,7 +621,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/profile/api.ts",
       "source_location": "L74",
       "id": "api_formatrolelabel",
-      "community": 0,
+      "community": 1,
       "norm_label": "formatrolelabel()"
     },
     {
@@ -558,7 +630,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/profile/api.ts",
       "source_location": "L82",
       "id": "api_getprofiledisplaymodel",
-      "community": 0,
+      "community": 1,
       "norm_label": "getprofiledisplaymodel()"
     },
     {
@@ -567,7 +639,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/profile/api.ts",
       "source_location": "L95",
       "id": "api_fetchprofile",
-      "community": 0,
+      "community": 1,
       "norm_label": "fetchprofile()"
     },
     {
@@ -576,7 +648,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/profile/api.ts",
       "source_location": "L111",
       "id": "api_updateprofilesettings",
-      "community": 0,
+      "community": 1,
       "norm_label": "updateprofilesettings()"
     },
     {
@@ -585,7 +657,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/profile/query.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_profile_query_ts",
-      "community": 19,
+      "community": 18,
       "norm_label": "query.ts"
     },
     {
@@ -594,7 +666,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/profile/query.ts",
       "source_location": "L9",
       "id": "query_useadminprofilequery",
-      "community": 19,
+      "community": 18,
       "norm_label": "useadminprofilequery()"
     },
     {
@@ -603,7 +675,7 @@
       "source_file": "apps/admin/src/features/users/api.ts",
       "source_location": "L1",
       "id": "apps_admin_src_features_users_api_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "api.ts"
     },
     {
@@ -612,7 +684,7 @@
       "source_file": "apps/admin/src/features/users/api.ts",
       "source_location": "L39",
       "id": "api_fetchusers",
-      "community": 0,
+      "community": 1,
       "norm_label": "fetchusers()"
     },
     {
@@ -621,7 +693,7 @@
       "source_file": "apps/admin/src/features/users/api.ts",
       "source_location": "L60",
       "id": "api_setuseractive",
-      "community": 0,
+      "community": 1,
       "norm_label": "setuseractive()"
     },
     {
@@ -630,7 +702,7 @@
       "source_file": "apps/admin/src/features/users/query.ts",
       "source_location": "L1",
       "id": "apps_admin_src_features_users_query_ts",
-      "community": 25,
+      "community": 27,
       "norm_label": "query.ts"
     },
     {
@@ -639,7 +711,7 @@
       "source_file": "apps/admin/src/features/users/query.ts",
       "source_location": "L12",
       "id": "query_usersquerykey",
-      "community": 25,
+      "community": 27,
       "norm_label": "usersquerykey()"
     },
     {
@@ -648,7 +720,7 @@
       "source_file": "apps/admin/src/features/users/query.ts",
       "source_location": "L21",
       "id": "query_useusersquery",
-      "community": 25,
+      "community": 27,
       "norm_label": "useusersquery()"
     },
     {
@@ -657,7 +729,7 @@
       "source_file": "apps/admin/src/features/users/query.ts",
       "source_location": "L30",
       "id": "query_usesetuseractivemutation",
-      "community": 25,
+      "community": 27,
       "norm_label": "usesetuseractivemutation()"
     },
     {
@@ -666,7 +738,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/stats/api.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_stats_api_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "api.ts"
     },
     {
@@ -675,7 +747,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/stats/api.ts",
       "source_location": "L26",
       "id": "api_fetchuserstats",
-      "community": 0,
+      "community": 1,
       "norm_label": "fetchuserstats()"
     },
     {
@@ -684,7 +756,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/stats/query.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_stats_query_ts",
-      "community": 45,
+      "community": 49,
       "norm_label": "query.ts"
     },
     {
@@ -693,7 +765,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/stats/query.ts",
       "source_location": "L9",
       "id": "query_useuserstatsquery",
-      "community": 45,
+      "community": 49,
       "norm_label": "useuserstatsquery()"
     },
     {
@@ -702,7 +774,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/auth-guard.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_auth_guard_tsx",
-      "community": 46,
+      "community": 50,
       "norm_label": "auth-guard.tsx"
     },
     {
@@ -711,7 +783,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/auth-guard.tsx",
       "source_location": "L13",
       "id": "auth_guard_authguard",
-      "community": 46,
+      "community": 50,
       "norm_label": "authguard()"
     },
     {
@@ -720,7 +792,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/settings-form.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_settings_form_tsx",
-      "community": 0,
+      "community": 1,
       "norm_label": "settings-form.tsx"
     },
     {
@@ -729,7 +801,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/settings-form.tsx",
       "source_location": "L75",
       "id": "settings_form_updatefield",
-      "community": 0,
+      "community": 1,
       "norm_label": "updatefield()"
     },
     {
@@ -738,7 +810,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/settings-form.tsx",
       "source_location": "L79",
       "id": "settings_form_onsubmit",
-      "community": 0,
+      "community": 1,
       "norm_label": "onsubmit()"
     },
     {
@@ -747,7 +819,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/nav-main.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_nav_main_tsx",
-      "community": 34,
+      "community": 38,
       "norm_label": "nav-main.tsx"
     },
     {
@@ -756,7 +828,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/nav-main.tsx",
       "source_location": "L24",
       "id": "nav_main_isurlactive",
-      "community": 34,
+      "community": 38,
       "norm_label": "isurlactive()"
     },
     {
@@ -765,7 +837,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/nav-main.tsx",
       "source_location": "L31",
       "id": "nav_main_navmain",
-      "community": 34,
+      "community": 38,
       "norm_label": "navmain()"
     },
     {
@@ -774,7 +846,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/app-sidebar-header.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_app_sidebar_header_tsx",
-      "community": 108,
+      "community": 116,
       "norm_label": "app-sidebar-header.tsx"
     },
     {
@@ -783,7 +855,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/app-sidebar-layout.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_app_sidebar_layout_tsx",
-      "community": 109,
+      "community": 117,
       "norm_label": "app-sidebar-layout.tsx"
     },
     {
@@ -810,7 +882,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/app-sidebar.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_app_sidebar_tsx",
-      "community": 19,
+      "community": 18,
       "norm_label": "app-sidebar.tsx"
     },
     {
@@ -819,7 +891,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/app-sidebar.tsx",
       "source_location": "L42",
       "id": "app_sidebar_appsidebar",
-      "community": 19,
+      "community": 18,
       "norm_label": "appsidebar()"
     },
     {
@@ -828,7 +900,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/login-form.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_login_form_tsx",
-      "community": 0,
+      "community": 1,
       "norm_label": "login-form.tsx"
     },
     {
@@ -837,7 +909,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/login-form.tsx",
       "source_location": "L25",
       "id": "login_form_onsubmit",
-      "community": 0,
+      "community": 1,
       "norm_label": "onsubmit()"
     },
     {
@@ -846,7 +918,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/creative-attribution-notice.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_creative_attribution_notice_tsx",
-      "community": 47,
+      "community": 51,
       "norm_label": "creative-attribution-notice.tsx"
     },
     {
@@ -855,8 +927,26 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/creative-attribution-notice.tsx",
       "source_location": "L25",
       "id": "creative_attribution_notice_creativeattributionnotice",
-      "community": 47,
+      "community": 51,
       "norm_label": "creativeattributionnotice()"
+    },
+    {
+      "label": "currency-settings-card.tsx",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/currency-settings-card.tsx",
+      "source_location": "L1",
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_currency_settings_card_tsx",
+      "community": 52,
+      "norm_label": "currency-settings-card.tsx"
+    },
+    {
+      "label": "handleSave()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/currency-settings-card.tsx",
+      "source_location": "L54",
+      "id": "currency_settings_card_handlesave",
+      "community": 52,
+      "norm_label": "handlesave()"
     },
     {
       "label": "nav-secondary.tsx",
@@ -864,7 +954,7 @@
       "source_file": "apps/admin/src/components/nav-secondary.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_nav_secondary_tsx",
-      "community": 48,
+      "community": 53,
       "norm_label": "nav-secondary.tsx"
     },
     {
@@ -873,7 +963,7 @@
       "source_file": "apps/admin/src/components/nav-secondary.tsx",
       "source_location": "L12",
       "id": "nav_secondary_navsecondary",
-      "community": 48,
+      "community": 53,
       "norm_label": "navsecondary()"
     },
     {
@@ -900,7 +990,7 @@
       "source_file": "apps/admin/src/components/ui/pagination.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_pagination_tsx",
-      "community": 14,
+      "community": 13,
       "norm_label": "pagination.tsx"
     },
     {
@@ -909,7 +999,7 @@
       "source_file": "apps/admin/src/components/ui/pagination.tsx",
       "source_location": "L13",
       "id": "pagination_pagination",
-      "community": 14,
+      "community": 13,
       "norm_label": "pagination()"
     },
     {
@@ -918,7 +1008,7 @@
       "source_file": "apps/admin/src/components/ui/pagination.tsx",
       "source_location": "L28",
       "id": "pagination_paginationcontent",
-      "community": 14,
+      "community": 13,
       "norm_label": "paginationcontent()"
     },
     {
@@ -927,7 +1017,7 @@
       "source_file": "apps/admin/src/components/ui/pagination.tsx",
       "source_location": "L41",
       "id": "pagination_paginationitem",
-      "community": 14,
+      "community": 13,
       "norm_label": "paginationitem()"
     },
     {
@@ -936,7 +1026,7 @@
       "source_file": "apps/admin/src/components/ui/pagination.tsx",
       "source_location": "L50",
       "id": "pagination_paginationlink",
-      "community": 14,
+      "community": 13,
       "norm_label": "paginationlink()"
     },
     {
@@ -945,7 +1035,7 @@
       "source_file": "apps/admin/src/components/ui/pagination.tsx",
       "source_location": "L63",
       "id": "pagination_cn",
-      "community": 14,
+      "community": 13,
       "norm_label": "cn()"
     },
     {
@@ -954,7 +1044,7 @@
       "source_file": "apps/admin/src/components/ui/pagination.tsx",
       "source_location": "L76",
       "id": "pagination_paginationprevious",
-      "community": 14,
+      "community": 13,
       "norm_label": "paginationprevious()"
     },
     {
@@ -963,7 +1053,7 @@
       "source_file": "apps/admin/src/components/ui/pagination.tsx",
       "source_location": "L93",
       "id": "pagination_paginationnext",
-      "community": 14,
+      "community": 13,
       "norm_label": "paginationnext()"
     },
     {
@@ -972,7 +1062,7 @@
       "source_file": "apps/admin/src/components/ui/pagination.tsx",
       "source_location": "L110",
       "id": "pagination_paginationellipsis",
-      "community": 14,
+      "community": 13,
       "norm_label": "paginationellipsis()"
     },
     {
@@ -981,7 +1071,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/card.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_ui_card_tsx",
-      "community": 26,
+      "community": 28,
       "norm_label": "card.tsx"
     },
     {
@@ -990,7 +1080,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/card.tsx",
       "source_location": "L9",
       "id": "card_cn",
-      "community": 26,
+      "community": 28,
       "norm_label": "cn()"
     },
     {
@@ -999,7 +1089,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/card.tsx",
       "source_location": "L41",
       "id": "card_carddescription",
-      "community": 26,
+      "community": 28,
       "norm_label": "carddescription()"
     },
     {
@@ -1008,7 +1098,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/card.tsx",
       "source_location": "L74",
       "id": "card_cardfooter",
-      "community": 26,
+      "community": 28,
       "norm_label": "cardfooter()"
     },
     {
@@ -1107,7 +1197,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/field.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_ui_field_tsx",
-      "community": 49,
+      "community": 54,
       "norm_label": "field.tsx"
     },
     {
@@ -1116,7 +1206,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/field.tsx",
       "source_location": "L14",
       "id": "field_cn",
-      "community": 49,
+      "community": 54,
       "norm_label": "cn()"
     },
     {
@@ -1125,7 +1215,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/label.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_ui_label_tsx",
-      "community": 50,
+      "community": 55,
       "norm_label": "label.tsx"
     },
     {
@@ -1134,7 +1224,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/label.tsx",
       "source_location": "L8",
       "id": "label_label",
-      "community": 50,
+      "community": 55,
       "norm_label": "label()"
     },
     {
@@ -1143,7 +1233,7 @@
       "source_file": "apps/admin/src/components/ui/sonner.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_sonner_tsx",
-      "community": 110,
+      "community": 118,
       "norm_label": "sonner.tsx"
     },
     {
@@ -1152,7 +1242,7 @@
       "source_file": "apps/admin/src/components/ui/tooltip.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_tooltip_tsx",
-      "community": 51,
+      "community": 56,
       "norm_label": "tooltip.tsx"
     },
     {
@@ -1161,7 +1251,7 @@
       "source_file": "apps/admin/src/components/ui/tooltip.tsx",
       "source_location": "L37",
       "id": "tooltip_tooltipcontent",
-      "community": 51,
+      "community": 56,
       "norm_label": "tooltipcontent()"
     },
     {
@@ -1170,7 +1260,7 @@
       "source_file": "apps/admin/src/components/ui/switch.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_switch_tsx",
-      "community": 111,
+      "community": 119,
       "norm_label": "switch.tsx"
     },
     {
@@ -1179,7 +1269,7 @@
       "source_file": "apps/admin/src/components/ui/breadcrumb.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_breadcrumb_tsx",
-      "community": 16,
+      "community": 15,
       "norm_label": "breadcrumb.tsx"
     },
     {
@@ -1188,7 +1278,7 @@
       "source_file": "apps/admin/src/components/ui/breadcrumb.tsx",
       "source_location": "L7",
       "id": "breadcrumb_breadcrumb",
-      "community": 16,
+      "community": 15,
       "norm_label": "breadcrumb()"
     },
     {
@@ -1197,7 +1287,7 @@
       "source_file": "apps/admin/src/components/ui/breadcrumb.tsx",
       "source_location": "L15",
       "id": "breadcrumb_cn",
-      "community": 16,
+      "community": 15,
       "norm_label": "cn()"
     },
     {
@@ -1206,7 +1296,7 @@
       "source_file": "apps/admin/src/components/ui/breadcrumb.tsx",
       "source_location": "L34",
       "id": "breadcrumb_breadcrumblink",
-      "community": 16,
+      "community": 15,
       "norm_label": "breadcrumblink()"
     },
     {
@@ -1215,7 +1305,7 @@
       "source_file": "apps/admin/src/components/ui/breadcrumb.tsx",
       "source_location": "L52",
       "id": "breadcrumb_breadcrumbpage",
-      "community": 16,
+      "community": 15,
       "norm_label": "breadcrumbpage()"
     },
     {
@@ -1224,7 +1314,7 @@
       "source_file": "apps/admin/src/components/ui/breadcrumb.tsx",
       "source_location": "L65",
       "id": "breadcrumb_breadcrumbseparator",
-      "community": 16,
+      "community": 15,
       "norm_label": "breadcrumbseparator()"
     },
     {
@@ -1233,7 +1323,7 @@
       "source_file": "apps/admin/src/components/ui/breadcrumb.tsx",
       "source_location": "L83",
       "id": "breadcrumb_breadcrumbellipsis",
-      "community": 16,
+      "community": 15,
       "norm_label": "breadcrumbellipsis()"
     },
     {
@@ -1242,7 +1332,7 @@
       "source_file": "apps/admin/src/components/ui/avatar.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_avatar_tsx",
-      "community": 27,
+      "community": 29,
       "norm_label": "avatar.tsx"
     },
     {
@@ -1251,7 +1341,7 @@
       "source_file": "apps/admin/src/components/ui/avatar.tsx",
       "source_location": "L8",
       "id": "avatar_avatar",
-      "community": 27,
+      "community": 29,
       "norm_label": "avatar()"
     },
     {
@@ -1260,7 +1350,7 @@
       "source_file": "apps/admin/src/components/ui/avatar.tsx",
       "source_location": "L24",
       "id": "avatar_avatarimage",
-      "community": 27,
+      "community": 29,
       "norm_label": "avatarimage()"
     },
     {
@@ -1269,7 +1359,7 @@
       "source_file": "apps/admin/src/components/ui/avatar.tsx",
       "source_location": "L37",
       "id": "avatar_avatarfallback",
-      "community": 27,
+      "community": 29,
       "norm_label": "avatarfallback()"
     },
     {
@@ -1341,7 +1431,7 @@
       "source_file": "apps/admin/src/components/ui/table.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_table_tsx",
-      "community": 21,
+      "community": 22,
       "norm_label": "table.tsx"
     },
     {
@@ -1350,7 +1440,7 @@
       "source_file": "apps/admin/src/components/ui/table.tsx",
       "source_location": "L7",
       "id": "table_table",
-      "community": 21,
+      "community": 22,
       "norm_label": "table()"
     },
     {
@@ -1359,7 +1449,7 @@
       "source_file": "apps/admin/src/components/ui/table.tsx",
       "source_location": "L22",
       "id": "table_tableheader",
-      "community": 21,
+      "community": 22,
       "norm_label": "tableheader()"
     },
     {
@@ -1368,7 +1458,7 @@
       "source_file": "apps/admin/src/components/ui/table.tsx",
       "source_location": "L32",
       "id": "table_tablebody",
-      "community": 21,
+      "community": 22,
       "norm_label": "tablebody()"
     },
     {
@@ -1377,7 +1467,7 @@
       "source_file": "apps/admin/src/components/ui/table.tsx",
       "source_location": "L46",
       "id": "table_cn",
-      "community": 21,
+      "community": 22,
       "norm_label": "cn()"
     },
     {
@@ -1386,7 +1476,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/separator.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_ui_separator_tsx",
-      "community": 52,
+      "community": 57,
       "norm_label": "separator.tsx"
     },
     {
@@ -1395,7 +1485,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/separator.tsx",
       "source_location": "L8",
       "id": "separator_separator",
-      "community": 52,
+      "community": 57,
       "norm_label": "separator()"
     },
     {
@@ -1404,7 +1494,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/button.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_ui_button_tsx",
-      "community": 53,
+      "community": 58,
       "norm_label": "button.tsx"
     },
     {
@@ -1413,7 +1503,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/button.tsx",
       "source_location": "L59",
       "id": "button_cn",
-      "community": 53,
+      "community": 58,
       "norm_label": "cn()"
     },
     {
@@ -1422,7 +1512,7 @@
       "source_file": "apps/admin/src/components/ui/collapsible.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_collapsible_tsx",
-      "community": 54,
+      "community": 59,
       "norm_label": "collapsible.tsx"
     },
     {
@@ -1431,7 +1521,7 @@
       "source_file": "apps/admin/src/components/ui/collapsible.tsx",
       "source_location": "L5",
       "id": "collapsible_collapsible",
-      "community": 54,
+      "community": 59,
       "norm_label": "collapsible()"
     },
     {
@@ -1440,7 +1530,7 @@
       "source_file": "apps/admin/src/components/ui/dropdown-menu.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_dropdown_menu_tsx",
-      "community": 28,
+      "community": 30,
       "norm_label": "dropdown-menu.tsx"
     },
     {
@@ -1449,7 +1539,7 @@
       "source_file": "apps/admin/src/components/ui/dropdown-menu.tsx",
       "source_location": "L9",
       "id": "dropdown_menu_dropdownmenu",
-      "community": 28,
+      "community": 30,
       "norm_label": "dropdownmenu()"
     },
     {
@@ -1458,7 +1548,7 @@
       "source_file": "apps/admin/src/components/ui/dropdown-menu.tsx",
       "source_location": "L94",
       "id": "dropdown_menu_cn",
-      "community": 28,
+      "community": 30,
       "norm_label": "cn()"
     },
     {
@@ -1467,7 +1557,7 @@
       "source_file": "apps/admin/src/components/ui/dropdown-menu.tsx",
       "source_location": "L225",
       "id": "dropdown_menu_dropdownmenusubcontent",
-      "community": 28,
+      "community": 30,
       "norm_label": "dropdownmenusubcontent()"
     },
     {
@@ -1575,7 +1665,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/input.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_ui_input_tsx",
-      "community": 55,
+      "community": 60,
       "norm_label": "input.tsx"
     },
     {
@@ -1584,7 +1674,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/ui/input.tsx",
       "source_location": "L5",
       "id": "input_input",
-      "community": 55,
+      "community": 60,
       "norm_label": "input()"
     },
     {
@@ -1593,7 +1683,7 @@
       "source_file": "apps/admin/src/components/ui/skeleton.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_components_ui_skeleton_tsx",
-      "community": 56,
+      "community": 61,
       "norm_label": "skeleton.tsx"
     },
     {
@@ -1602,7 +1692,7 @@
       "source_file": "apps/admin/src/components/ui/skeleton.tsx",
       "source_location": "L3",
       "id": "skeleton_skeleton",
-      "community": 56,
+      "community": 61,
       "norm_label": "skeleton()"
     },
     {
@@ -1611,7 +1701,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/providers/query-provider.tsx",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_providers_query_provider_tsx",
-      "community": 57,
+      "community": 62,
       "norm_label": "query-provider.tsx"
     },
     {
@@ -1620,7 +1710,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/providers/query-provider.tsx",
       "source_location": "L6",
       "id": "query_provider_appqueryprovider",
-      "community": 57,
+      "community": 62,
       "norm_label": "appqueryprovider()"
     },
     {
@@ -1629,7 +1719,7 @@
       "source_file": "apps/admin/src/layouts/AppSidebarLayout.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_layouts_appsidebarlayout_tsx",
-      "community": 58,
+      "community": 63,
       "norm_label": "appsidebarlayout.tsx"
     },
     {
@@ -1638,7 +1728,7 @@
       "source_file": "apps/admin/src/layouts/AppSidebarLayout.tsx",
       "source_location": "L13",
       "id": "appsidebarlayout_appsidebarlayout",
-      "community": 58,
+      "community": 63,
       "norm_label": "appsidebarlayout()"
     },
     {
@@ -1647,7 +1737,7 @@
       "source_file": "apps/admin/src/layouts/AppContent.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_layouts_appcontent_tsx",
-      "community": 59,
+      "community": 64,
       "norm_label": "appcontent.tsx"
     },
     {
@@ -1656,7 +1746,7 @@
       "source_file": "apps/admin/src/layouts/AppContent.tsx",
       "source_location": "L3",
       "id": "appcontent_appcontent",
-      "community": 59,
+      "community": 64,
       "norm_label": "appcontent()"
     },
     {
@@ -1665,7 +1755,7 @@
       "source_file": "apps/admin/src/layouts/AppShell.tsx",
       "source_location": "L1",
       "id": "apps_admin_src_layouts_appshell_tsx",
-      "community": 60,
+      "community": 65,
       "norm_label": "appshell.tsx"
     },
     {
@@ -1674,7 +1764,7 @@
       "source_file": "apps/admin/src/layouts/AppShell.tsx",
       "source_location": "L3",
       "id": "appshell_appshell",
-      "community": 60,
+      "community": 65,
       "norm_label": "appshell()"
     },
     {
@@ -1683,7 +1773,7 @@
       "source_file": "apps/admin/src/hooks/use-mobile.ts",
       "source_location": "L1",
       "id": "apps_admin_src_hooks_use_mobile_ts",
-      "community": 61,
+      "community": 66,
       "norm_label": "use-mobile.ts"
     },
     {
@@ -1692,7 +1782,7 @@
       "source_file": "apps/admin/src/hooks/use-mobile.ts",
       "source_location": "L5",
       "id": "use_mobile_useismobile",
-      "community": 61,
+      "community": 66,
       "norm_label": "useismobile()"
     },
     {
@@ -1701,7 +1791,7 @@
       "source_file": "apps/admin/src/lib/utils.ts",
       "source_location": "L1",
       "id": "apps_admin_src_lib_utils_ts",
-      "community": 62,
+      "community": 67,
       "norm_label": "utils.ts"
     },
     {
@@ -1710,7 +1800,7 @@
       "source_file": "apps/admin/src/lib/utils.ts",
       "source_location": "L4",
       "id": "utils_cn",
-      "community": 62,
+      "community": 67,
       "norm_label": "cn()"
     },
     {
@@ -1719,7 +1809,7 @@
       "source_file": "apps/admin/src/lib/api.ts",
       "source_location": "L1",
       "id": "apps_admin_src_lib_api_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "api.ts"
     },
     {
@@ -1728,7 +1818,7 @@
       "source_file": "apps/admin/src/lib/api.ts",
       "source_location": "L31",
       "id": "api_parseapierror",
-      "community": 0,
+      "community": 1,
       "norm_label": "parseapierror()"
     },
     {
@@ -1737,7 +1827,7 @@
       "source_file": "apps/admin/src/lib/api.ts",
       "source_location": "L56",
       "id": "api_performrefresh",
-      "community": 0,
+      "community": 1,
       "norm_label": "performrefresh()"
     },
     {
@@ -1746,7 +1836,7 @@
       "source_file": "apps/admin/src/lib/api.ts",
       "source_location": "L82",
       "id": "api_refreshaccesstoken",
-      "community": 0,
+      "community": 1,
       "norm_label": "refreshaccesstoken()"
     },
     {
@@ -1755,7 +1845,7 @@
       "source_file": "apps/admin/src/lib/api.ts",
       "source_location": "L96",
       "id": "api_redirecttologin",
-      "community": 0,
+      "community": 1,
       "norm_label": "redirecttologin()"
     },
     {
@@ -1764,7 +1854,7 @@
       "source_file": "apps/admin/src/lib/api.ts",
       "source_location": "L102",
       "id": "api_isauthroute",
-      "community": 0,
+      "community": 1,
       "norm_label": "isauthroute()"
     },
     {
@@ -1773,7 +1863,7 @@
       "source_file": "apps/admin/src/lib/api.ts",
       "source_location": "L112",
       "id": "api_apifetch",
-      "community": 0,
+      "community": 1,
       "norm_label": "apifetch()"
     },
     {
@@ -1782,7 +1872,7 @@
       "source_file": "apps/admin/src/lib/api.ts",
       "source_location": "L147",
       "id": "api_getplatform",
-      "community": 0,
+      "community": 1,
       "norm_label": "getplatform()"
     },
     {
@@ -1791,7 +1881,7 @@
       "source_file": "apps/admin/src/lib/api.ts",
       "source_location": "L151",
       "id": "api_apilogin",
-      "community": 0,
+      "community": 1,
       "norm_label": "apilogin()"
     },
     {
@@ -1800,7 +1890,7 @@
       "source_file": "apps/admin/src/lib/api.ts",
       "source_location": "L179",
       "id": "api_apilogout",
-      "community": 0,
+      "community": 1,
       "norm_label": "apilogout()"
     },
     {
@@ -1809,7 +1899,7 @@
       "source_file": "apps/admin/src/lib/creative-resources.ts",
       "source_location": "L1",
       "id": "apps_admin_src_lib_creative_resources_ts",
-      "community": 112,
+      "community": 120,
       "norm_label": "creative-resources.ts"
     },
     {
@@ -1818,7 +1908,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/lib/constants.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_lib_constants_ts",
-      "community": 113,
+      "community": 121,
       "norm_label": "constants.ts"
     },
     {
@@ -1827,7 +1917,7 @@
       "source_file": "apps/api/prisma.config.ts",
       "source_location": "L1",
       "id": "apps_api_prisma_config_ts",
-      "community": 114,
+      "community": 122,
       "norm_label": "prisma.config.ts"
     },
     {
@@ -1836,7 +1926,7 @@
       "source_file": "apps/api/eslint.config.mjs",
       "source_location": "L1",
       "id": "apps_api_eslint_config_mjs",
-      "community": 115,
+      "community": 123,
       "norm_label": "eslint.config.mjs"
     },
     {
@@ -1845,7 +1935,7 @@
       "source_file": "apps/api/test/app.e2e-spec.ts",
       "source_location": "L1",
       "id": "apps_api_test_app_e2e_spec_ts",
-      "community": 116,
+      "community": 124,
       "norm_label": "app.e2e-spec.ts"
     },
     {
@@ -1872,7 +1962,7 @@
       "source_file": "apps/api/src/app.service.ts",
       "source_location": "L1",
       "id": "apps_api_src_app_service_ts",
-      "community": 35,
+      "community": 39,
       "norm_label": "app.service.ts"
     },
     {
@@ -1881,7 +1971,7 @@
       "source_file": "apps/api/src/app.service.ts",
       "source_location": "L4",
       "id": "app_service_appservice",
-      "community": 35,
+      "community": 39,
       "norm_label": "appservice"
     },
     {
@@ -1890,25 +1980,25 @@
       "source_file": "apps/api/src/app.service.ts",
       "source_location": "L5",
       "id": "app_service_appservice_gethello",
-      "community": 35,
+      "community": 39,
       "norm_label": ".gethello()"
     },
     {
       "label": "app.module.ts",
       "file_type": "code",
-      "source_file": "apps/api/src/app.module.ts",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/app.module.ts",
       "source_location": "L1",
-      "id": "apps_api_src_app_module_ts",
-      "community": 63,
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_app_module_ts",
+      "community": 68,
       "norm_label": "app.module.ts"
     },
     {
       "label": "AppModule",
       "file_type": "code",
-      "source_file": "apps/api/src/app.module.ts",
-      "source_location": "L45",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/app.module.ts",
+      "source_location": "L47",
       "id": "app_module_appmodule",
-      "community": 63,
+      "community": 68,
       "norm_label": "appmodule"
     },
     {
@@ -1917,7 +2007,7 @@
       "source_file": "apps/api/src/app.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_app_controller_spec_ts",
-      "community": 117,
+      "community": 125,
       "norm_label": "app.controller.spec.ts"
     },
     {
@@ -1926,7 +2016,7 @@
       "source_file": "apps/api/src/app.controller.ts",
       "source_location": "L1",
       "id": "apps_api_src_app_controller_ts",
-      "community": 29,
+      "community": 31,
       "norm_label": "app.controller.ts"
     },
     {
@@ -1935,7 +2025,7 @@
       "source_file": "apps/api/src/app.controller.ts",
       "source_location": "L5",
       "id": "app_controller_appcontroller",
-      "community": 29,
+      "community": 31,
       "norm_label": "appcontroller"
     },
     {
@@ -1944,7 +2034,7 @@
       "source_file": "apps/api/src/app.controller.ts",
       "source_location": "L6",
       "id": "app_controller_appcontroller_constructor",
-      "community": 29,
+      "community": 31,
       "norm_label": ".constructor()"
     },
     {
@@ -1953,34 +2043,34 @@
       "source_file": "apps/api/src/app.controller.ts",
       "source_location": "L9",
       "id": "app_controller_appcontroller_gethello",
-      "community": 29,
+      "community": 31,
       "norm_label": ".gethello()"
     },
     {
       "label": "browser.ts",
       "file_type": "code",
-      "source_file": "apps/api/src/generated/prisma/browser.ts",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/browser.ts",
       "source_location": "L1",
-      "id": "apps_api_src_generated_prisma_browser_ts",
-      "community": 118,
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_browser_ts",
+      "community": 126,
       "norm_label": "browser.ts"
     },
     {
       "label": "client.ts",
       "file_type": "code",
-      "source_file": "apps/api/src/generated/prisma/client.ts",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/client.ts",
       "source_location": "L1",
-      "id": "apps_api_src_generated_prisma_client_ts",
-      "community": 119,
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_client_ts",
+      "community": 127,
       "norm_label": "client.ts"
     },
     {
       "label": "models.ts",
       "file_type": "code",
-      "source_file": "apps/api/src/generated/prisma/models.ts",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/models.ts",
       "source_location": "L1",
-      "id": "apps_api_src_generated_prisma_models_ts",
-      "community": 120,
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_models_ts",
+      "community": 128,
       "norm_label": "models.ts"
     },
     {
@@ -1989,7 +2079,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/commonInputTypes.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_commoninputtypes_ts",
-      "community": 121,
+      "community": 129,
       "norm_label": "commoninputtypes.ts"
     },
     {
@@ -1998,7 +2088,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/enums.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_enums_ts",
-      "community": 122,
+      "community": 130,
       "norm_label": "enums.ts"
     },
     {
@@ -2007,7 +2097,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/internal/class.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_internal_class_ts",
-      "community": 36,
+      "community": 40,
       "norm_label": "class.ts"
     },
     {
@@ -2016,16 +2106,16 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/internal/class.ts",
       "source_location": "L33",
       "id": "class_decodebase64aswasm",
-      "community": 36,
+      "community": 40,
       "norm_label": "decodebase64aswasm()"
     },
     {
       "label": "getPrismaClientClass()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/internal/class.ts",
-      "source_location": "L360",
+      "source_location": "L370",
       "id": "class_getprismaclientclass",
-      "community": 36,
+      "community": 40,
       "norm_label": "getprismaclientclass()"
     },
     {
@@ -2034,7 +2124,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/internal/prismaNamespace.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_internal_prismanamespace_ts",
-      "community": 123,
+      "community": 131,
       "norm_label": "prismanamespace.ts"
     },
     {
@@ -2043,7 +2133,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/internal/prismaNamespaceBrowser.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_internal_prismanamespacebrowser_ts",
-      "community": 124,
+      "community": 132,
       "norm_label": "prismanamespacebrowser.ts"
     },
     {
@@ -2052,7 +2142,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Match.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_match_ts",
-      "community": 125,
+      "community": 133,
       "norm_label": "match.ts"
     },
     {
@@ -2061,8 +2151,17 @@
       "source_file": "apps/api/src/generated/prisma/models/Report.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_report_ts",
-      "community": 126,
+      "community": 134,
       "norm_label": "report.ts"
+    },
+    {
+      "label": "AppSettings.ts",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/models/AppSettings.ts",
+      "source_location": "L1",
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_models_appsettings_ts",
+      "community": 135,
+      "norm_label": "appsettings.ts"
     },
     {
       "label": "LatestUserPost.ts",
@@ -2070,7 +2169,7 @@
       "source_file": "apps/api/src/generated/prisma/models/LatestUserPost.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_latestuserpost_ts",
-      "community": 127,
+      "community": 136,
       "norm_label": "latestuserpost.ts"
     },
     {
@@ -2079,7 +2178,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Block.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_block_ts",
-      "community": 128,
+      "community": 137,
       "norm_label": "block.ts"
     },
     {
@@ -2088,7 +2187,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Photo.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_photo_ts",
-      "community": 129,
+      "community": 138,
       "norm_label": "photo.ts"
     },
     {
@@ -2097,7 +2196,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/models/SubscriptionPlan.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_models_subscriptionplan_ts",
-      "community": 130,
+      "community": 139,
       "norm_label": "subscriptionplan.ts"
     },
     {
@@ -2106,7 +2205,7 @@
       "source_file": "apps/api/src/generated/prisma/models/UserDevice.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_userdevice_ts",
-      "community": 131,
+      "community": 140,
       "norm_label": "userdevice.ts"
     },
     {
@@ -2115,7 +2214,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Chat.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_chat_ts",
-      "community": 132,
+      "community": 141,
       "norm_label": "chat.ts"
     },
     {
@@ -2124,7 +2223,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Message.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_message_ts",
-      "community": 133,
+      "community": 142,
       "norm_label": "message.ts"
     },
     {
@@ -2133,7 +2232,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Like.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_like_ts",
-      "community": 134,
+      "community": 143,
       "norm_label": "like.ts"
     },
     {
@@ -2142,7 +2241,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Profile.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_profile_ts",
-      "community": 135,
+      "community": 144,
       "norm_label": "profile.ts"
     },
     {
@@ -2151,7 +2250,7 @@
       "source_file": "apps/api/src/generated/prisma/models/UserSubscription.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_usersubscription_ts",
-      "community": 136,
+      "community": 145,
       "norm_label": "usersubscription.ts"
     },
     {
@@ -2160,7 +2259,7 @@
       "source_file": "apps/api/src/generated/prisma/models/PostSwipe.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_postswipe_ts",
-      "community": 137,
+      "community": 146,
       "norm_label": "postswipe.ts"
     },
     {
@@ -2169,7 +2268,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/models/User.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_models_user_ts",
-      "community": 138,
+      "community": 147,
       "norm_label": "user.ts"
     },
     {
@@ -2178,7 +2277,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Swipe.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_swipe_ts",
-      "community": 139,
+      "community": 148,
       "norm_label": "swipe.ts"
     },
     {
@@ -2187,7 +2286,7 @@
       "source_file": "apps/api/src/generated/prisma/models/Post.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_post_ts",
-      "community": 140,
+      "community": 149,
       "norm_label": "post.ts"
     },
     {
@@ -2196,8 +2295,143 @@
       "source_file": "apps/api/src/generated/prisma/models/ProfileMatchPreference.ts",
       "source_location": "L1",
       "id": "apps_api_src_generated_prisma_models_profilematchpreference_ts",
-      "community": 141,
+      "community": 150,
       "norm_label": "profilematchpreference.ts"
+    },
+    {
+      "label": "settings.module.ts",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.module.ts",
+      "source_location": "L1",
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_settings_settings_module_ts",
+      "community": 69,
+      "norm_label": "settings.module.ts"
+    },
+    {
+      "label": "SettingsModule",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.module.ts",
+      "source_location": "L13",
+      "id": "settings_module_settingsmodule",
+      "community": 69,
+      "norm_label": "settingsmodule"
+    },
+    {
+      "label": "settings.service.ts",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.service.ts",
+      "source_location": "L1",
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_settings_settings_service_ts",
+      "community": 19,
+      "norm_label": "settings.service.ts"
+    },
+    {
+      "label": "SettingsService",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.service.ts",
+      "source_location": "L8",
+      "id": "settings_service_settingsservice",
+      "community": 19,
+      "norm_label": "settingsservice"
+    },
+    {
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.service.ts",
+      "source_location": "L11",
+      "id": "settings_service_settingsservice_constructor",
+      "community": 19,
+      "norm_label": ".constructor()"
+    },
+    {
+      "label": ".getSettings()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.service.ts",
+      "source_location": "L13",
+      "id": "settings_service_settingsservice_getsettings",
+      "community": 19,
+      "norm_label": ".getsettings()"
+    },
+    {
+      "label": ".updateCurrency()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.service.ts",
+      "source_location": "L25",
+      "id": "settings_service_settingsservice_updatecurrency",
+      "community": 19,
+      "norm_label": ".updatecurrency()"
+    },
+    {
+      "label": ".ensureSingleton()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.service.ts",
+      "source_location": "L38",
+      "id": "settings_service_settingsservice_ensuresingleton",
+      "community": 19,
+      "norm_label": ".ensuresingleton()"
+    },
+    {
+      "label": "settings.controller.ts",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.controller.ts",
+      "source_location": "L1",
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_settings_settings_controller_ts",
+      "community": 23,
+      "norm_label": "settings.controller.ts"
+    },
+    {
+      "label": "SettingsController",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.controller.ts",
+      "source_location": "L13",
+      "id": "settings_controller_settingscontroller",
+      "community": 23,
+      "norm_label": "settingscontroller"
+    },
+    {
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.controller.ts",
+      "source_location": "L14",
+      "id": "settings_controller_settingscontroller_constructor",
+      "community": 23,
+      "norm_label": ".constructor()"
+    },
+    {
+      "label": ".getSettings()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.controller.ts",
+      "source_location": "L20",
+      "id": "settings_controller_settingscontroller_getsettings",
+      "community": 23,
+      "norm_label": ".getsettings()"
+    },
+    {
+      "label": ".updateCurrency()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.controller.ts",
+      "source_location": "L29",
+      "id": "settings_controller_settingscontroller_updatecurrency",
+      "community": 23,
+      "norm_label": ".updatecurrency()"
+    },
+    {
+      "label": "update-currency.dto.ts",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/dto/update-currency.dto.ts",
+      "source_location": "L1",
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_settings_dto_update_currency_dto_ts",
+      "community": 70,
+      "norm_label": "update-currency.dto.ts"
+    },
+    {
+      "label": "UpdateCurrencyDto",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/dto/update-currency.dto.ts",
+      "source_location": "L20",
+      "id": "update_currency_dto_updatecurrencydto",
+      "community": 70,
+      "norm_label": "updatecurrencydto"
     },
     {
       "label": "posts.controller.ts",
@@ -2268,7 +2502,7 @@
       "source_file": "apps/api/src/posts/posts.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_posts_posts_service_spec_ts",
-      "community": 142,
+      "community": 151,
       "norm_label": "posts.service.spec.ts"
     },
     {
@@ -2277,7 +2511,7 @@
       "source_file": "apps/api/src/posts/posts.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_posts_posts_module_ts",
-      "community": 64,
+      "community": 71,
       "norm_label": "posts.module.ts"
     },
     {
@@ -2286,7 +2520,7 @@
       "source_file": "apps/api/src/posts/posts.module.ts",
       "source_location": "L12",
       "id": "posts_module_postsmodule",
-      "community": 64,
+      "community": 71,
       "norm_label": "postsmodule"
     },
     {
@@ -2376,7 +2610,7 @@
       "source_file": "apps/api/src/posts/dto/swipe-post.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_posts_dto_swipe_post_dto_ts",
-      "community": 65,
+      "community": 72,
       "norm_label": "swipe-post.dto.ts"
     },
     {
@@ -2385,7 +2619,7 @@
       "source_file": "apps/api/src/posts/dto/swipe-post.dto.ts",
       "source_location": "L5",
       "id": "swipe_post_dto_swipepostdto",
-      "community": 65,
+      "community": 72,
       "norm_label": "swipepostdto"
     },
     {
@@ -2394,7 +2628,7 @@
       "source_file": "apps/api/src/posts/dto/create-post.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_posts_dto_create_post_dto_ts",
-      "community": 66,
+      "community": 73,
       "norm_label": "create-post.dto.ts"
     },
     {
@@ -2403,7 +2637,7 @@
       "source_file": "apps/api/src/posts/dto/create-post.dto.ts",
       "source_location": "L5",
       "id": "create_post_dto_createpostdto",
-      "community": 66,
+      "community": 73,
       "norm_label": "createpostdto"
     },
     {
@@ -2412,7 +2646,7 @@
       "source_file": "apps/api/src/posts/dto/get-posts.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_posts_dto_get_posts_dto_ts",
-      "community": 37,
+      "community": 41,
       "norm_label": "get-posts.dto.ts"
     },
     {
@@ -2421,7 +2655,7 @@
       "source_file": "apps/api/src/profile/dto/get-posts.dto.ts",
       "source_location": "L12",
       "id": "get_posts_dto_getpostsdto",
-      "community": 37,
+      "community": 41,
       "norm_label": "getpostsdto"
     },
     {
@@ -2430,7 +2664,7 @@
       "source_file": "apps/api/src/chat/chat.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_chat_chat_controller_spec_ts",
-      "community": 143,
+      "community": 152,
       "norm_label": "chat.controller.spec.ts"
     },
     {
@@ -2520,7 +2754,7 @@
       "source_file": "apps/api/src/chat/chat.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_chat_chat_service_spec_ts",
-      "community": 144,
+      "community": 153,
       "norm_label": "chat.service.spec.ts"
     },
     {
@@ -2646,7 +2880,7 @@
       "source_file": "apps/api/src/chat/chat.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_chat_chat_module_ts",
-      "community": 67,
+      "community": 74,
       "norm_label": "chat.module.ts"
     },
     {
@@ -2655,7 +2889,7 @@
       "source_file": "apps/api/src/chat/chat.module.ts",
       "source_location": "L14",
       "id": "chat_module_chatmodule",
-      "community": 67,
+      "community": 74,
       "norm_label": "chatmodule"
     },
     {
@@ -2664,7 +2898,7 @@
       "source_file": "apps/api/src/chat/chat.selects.ts",
       "source_location": "L1",
       "id": "apps_api_src_chat_chat_selects_ts",
-      "community": 145,
+      "community": 154,
       "norm_label": "chat.selects.ts"
     },
     {
@@ -2673,7 +2907,7 @@
       "source_file": "apps/api/src/chat/chat.gateway.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_chat_chat_gateway_spec_ts",
-      "community": 146,
+      "community": 155,
       "norm_label": "chat.gateway.spec.ts"
     },
     {
@@ -2682,7 +2916,7 @@
       "source_file": "apps/api/src/likes/likes.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_likes_likes_service_spec_ts",
-      "community": 147,
+      "community": 156,
       "norm_label": "likes.service.spec.ts"
     },
     {
@@ -2691,7 +2925,7 @@
       "source_file": "apps/api/src/likes/likes.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_likes_likes_module_ts",
-      "community": 68,
+      "community": 75,
       "norm_label": "likes.module.ts"
     },
     {
@@ -2700,7 +2934,7 @@
       "source_file": "apps/api/src/likes/likes.module.ts",
       "source_location": "L12",
       "id": "likes_module_likesmodule",
-      "community": 68,
+      "community": 75,
       "norm_label": "likesmodule"
     },
     {
@@ -2709,7 +2943,7 @@
       "source_file": "apps/api/src/likes/likes.service.ts",
       "source_location": "L1",
       "id": "apps_api_src_likes_likes_service_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "likes.service.ts"
     },
     {
@@ -2718,7 +2952,7 @@
       "source_file": "apps/api/src/likes/likes.service.ts",
       "source_location": "L12",
       "id": "likes_service_likesservice",
-      "community": 1,
+      "community": 2,
       "norm_label": "likesservice"
     },
     {
@@ -2727,7 +2961,7 @@
       "source_file": "apps/api/src/likes/likes.service.ts",
       "source_location": "L13",
       "id": "likes_service_likesservice_constructor",
-      "community": 1,
+      "community": 2,
       "norm_label": ".constructor()"
     },
     {
@@ -2736,7 +2970,7 @@
       "source_file": "apps/api/src/likes/likes.service.ts",
       "source_location": "L18",
       "id": "likes_service_likesservice_getlikes",
-      "community": 1,
+      "community": 2,
       "norm_label": ".getlikes()"
     },
     {
@@ -2745,7 +2979,7 @@
       "source_file": "apps/api/src/likes/likes.service.ts",
       "source_location": "L83",
       "id": "likes_service_likesservice_acceptlike",
-      "community": 1,
+      "community": 2,
       "norm_label": ".acceptlike()"
     },
     {
@@ -2754,7 +2988,7 @@
       "source_file": "apps/api/src/likes/likes.service.ts",
       "source_location": "L153",
       "id": "likes_service_likesservice_unlocklikes",
-      "community": 1,
+      "community": 2,
       "norm_label": ".unlocklikes()"
     },
     {
@@ -2763,7 +2997,7 @@
       "source_file": "apps/api/src/likes/likes.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_likes_likes_controller_spec_ts",
-      "community": 148,
+      "community": 157,
       "norm_label": "likes.controller.spec.ts"
     },
     {
@@ -2772,7 +3006,7 @@
       "source_file": "apps/api/src/likes/likes.controller.ts",
       "source_location": "L1",
       "id": "apps_api_src_likes_likes_controller_ts",
-      "community": 17,
+      "community": 16,
       "norm_label": "likes.controller.ts"
     },
     {
@@ -2781,7 +3015,7 @@
       "source_file": "apps/api/src/likes/likes.controller.ts",
       "source_location": "L17",
       "id": "likes_controller_unlocklikesdto",
-      "community": 17,
+      "community": 16,
       "norm_label": "unlocklikesdto"
     },
     {
@@ -2790,7 +3024,7 @@
       "source_file": "apps/api/src/likes/likes.controller.ts",
       "source_location": "L26",
       "id": "likes_controller_likescontroller",
-      "community": 17,
+      "community": 16,
       "norm_label": "likescontroller"
     },
     {
@@ -2799,7 +3033,7 @@
       "source_file": "apps/api/src/likes/likes.controller.ts",
       "source_location": "L27",
       "id": "likes_controller_likescontroller_constructor",
-      "community": 17,
+      "community": 16,
       "norm_label": ".constructor()"
     },
     {
@@ -2808,7 +3042,7 @@
       "source_file": "apps/api/src/likes/likes.controller.ts",
       "source_location": "L30",
       "id": "likes_controller_likescontroller_getlikes",
-      "community": 17,
+      "community": 16,
       "norm_label": ".getlikes()"
     },
     {
@@ -2817,7 +3051,7 @@
       "source_file": "apps/api/src/likes/likes.controller.ts",
       "source_location": "L35",
       "id": "likes_controller_likescontroller_acceptlike",
-      "community": 17,
+      "community": 16,
       "norm_label": ".acceptlike()"
     },
     {
@@ -2826,7 +3060,7 @@
       "source_file": "apps/api/src/likes/likes.controller.ts",
       "source_location": "L43",
       "id": "likes_controller_likescontroller_unlocklikes",
-      "community": 17,
+      "community": 16,
       "norm_label": ".unlocklikes()"
     },
     {
@@ -3033,7 +3267,7 @@
       "source_file": "apps/api/src/auth/auth.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_auth_service_spec_ts",
-      "community": 149,
+      "community": 158,
       "norm_label": "auth.service.spec.ts"
     },
     {
@@ -3042,7 +3276,7 @@
       "source_file": "apps/api/src/auth/auth.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_auth_controller_spec_ts",
-      "community": 150,
+      "community": 159,
       "norm_label": "auth.controller.spec.ts"
     },
     {
@@ -3051,7 +3285,7 @@
       "source_file": "apps/api/src/auth/auth.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_auth_module_ts",
-      "community": 69,
+      "community": 76,
       "norm_label": "auth.module.ts"
     },
     {
@@ -3060,7 +3294,7 @@
       "source_file": "apps/api/src/auth/auth.module.ts",
       "source_location": "L20",
       "id": "auth_module_authmodule",
-      "community": 69,
+      "community": 76,
       "norm_label": "authmodule"
     },
     {
@@ -3069,7 +3303,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/dto/login.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_auth_dto_login_dto_ts",
-      "community": 70,
+      "community": 77,
       "norm_label": "login.dto.ts"
     },
     {
@@ -3078,7 +3312,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/dto/login.dto.ts",
       "source_location": "L4",
       "id": "login_dto_logindto",
-      "community": 70,
+      "community": 77,
       "norm_label": "logindto"
     },
     {
@@ -3087,7 +3321,7 @@
       "source_file": "apps/api/src/auth/dto/entry.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_dto_entry_dto_ts",
-      "community": 71,
+      "community": 78,
       "norm_label": "entry.dto.ts"
     },
     {
@@ -3096,7 +3330,7 @@
       "source_file": "apps/api/src/auth/dto/entry.dto.ts",
       "source_location": "L4",
       "id": "entry_dto_authentrydto",
-      "community": 71,
+      "community": 78,
       "norm_label": "authentrydto"
     },
     {
@@ -3105,7 +3339,7 @@
       "source_file": "apps/api/src/auth/dto/register.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_dto_register_dto_ts",
-      "community": 72,
+      "community": 79,
       "norm_label": "register.dto.ts"
     },
     {
@@ -3114,7 +3348,7 @@
       "source_file": "apps/api/src/auth/dto/register.dto.ts",
       "source_location": "L3",
       "id": "register_dto_registerdto",
-      "community": 72,
+      "community": 79,
       "norm_label": "registerdto"
     },
     {
@@ -3123,8 +3357,26 @@
       "source_file": "apps/api/src/auth/decorators/current-user.decorator.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_decorators_current_user_decorator_ts",
-      "community": 151,
+      "community": 160,
       "norm_label": "current-user.decorator.ts"
+    },
+    {
+      "label": "roles.decorator.ts",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/decorators/roles.decorator.ts",
+      "source_location": "L1",
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_auth_decorators_roles_decorator_ts",
+      "community": 80,
+      "norm_label": "roles.decorator.ts"
+    },
+    {
+      "label": "Roles()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/decorators/roles.decorator.ts",
+      "source_location": "L10",
+      "id": "roles_decorator_roles",
+      "community": 80,
+      "norm_label": "roles()"
     },
     {
       "label": "jwt.strategy.ts",
@@ -3132,7 +3384,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/strategies/jwt.strategy.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_auth_strategies_jwt_strategy_ts",
-      "community": 22,
+      "community": 24,
       "norm_label": "jwt.strategy.ts"
     },
     {
@@ -3141,7 +3393,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/strategies/jwt.strategy.ts",
       "source_location": "L11",
       "id": "jwt_strategy_extractjwtfromcookie",
-      "community": 22,
+      "community": 24,
       "norm_label": "extractjwtfromcookie()"
     },
     {
@@ -3150,7 +3402,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/strategies/jwt.strategy.ts",
       "source_location": "L16",
       "id": "jwt_strategy_jwtstrategy",
-      "community": 22,
+      "community": 24,
       "norm_label": "jwtstrategy"
     },
     {
@@ -3159,7 +3411,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/strategies/jwt.strategy.ts",
       "source_location": "L17",
       "id": "jwt_strategy_jwtstrategy_constructor",
-      "community": 22,
+      "community": 24,
       "norm_label": ".constructor()"
     },
     {
@@ -3168,8 +3420,44 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/strategies/jwt.strategy.ts",
       "source_location": "L32",
       "id": "jwt_strategy_jwtstrategy_validate",
-      "community": 22,
+      "community": 24,
       "norm_label": ".validate()"
+    },
+    {
+      "label": "roles.guard.ts",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/guards/roles/roles.guard.ts",
+      "source_location": "L1",
+      "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_auth_guards_roles_roles_guard_ts",
+      "community": 32,
+      "norm_label": "roles.guard.ts"
+    },
+    {
+      "label": "RolesGuard",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/guards/roles/roles.guard.ts",
+      "source_location": "L18",
+      "id": "roles_guard_rolesguard",
+      "community": 32,
+      "norm_label": "rolesguard"
+    },
+    {
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/guards/roles/roles.guard.ts",
+      "source_location": "L19",
+      "id": "roles_guard_rolesguard_constructor",
+      "community": 32,
+      "norm_label": ".constructor()"
+    },
+    {
+      "label": ".canActivate()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/guards/roles/roles.guard.ts",
+      "source_location": "L24",
+      "id": "roles_guard_rolesguard_canactivate",
+      "community": 32,
+      "norm_label": ".canactivate()"
     },
     {
       "label": "ws-jwt.guard.spec.ts",
@@ -3177,7 +3465,7 @@
       "source_file": "apps/api/src/auth/guards/ws-jwt/ws-jwt.guard.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_guards_ws_jwt_ws_jwt_guard_spec_ts",
-      "community": 152,
+      "community": 161,
       "norm_label": "ws-jwt.guard.spec.ts"
     },
     {
@@ -3186,7 +3474,7 @@
       "source_file": "apps/api/src/auth/guards/ws-jwt/ws-jwt.guard.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_guards_ws_jwt_ws_jwt_guard_ts",
-      "community": 30,
+      "community": 33,
       "norm_label": "ws-jwt.guard.ts"
     },
     {
@@ -3195,7 +3483,7 @@
       "source_file": "apps/api/src/auth/guards/ws-jwt/ws-jwt.guard.ts",
       "source_location": "L13",
       "id": "ws_jwt_guard_wsjwtguard",
-      "community": 30,
+      "community": 33,
       "norm_label": "wsjwtguard"
     },
     {
@@ -3204,7 +3492,7 @@
       "source_file": "apps/api/src/auth/guards/ws-jwt/ws-jwt.guard.ts",
       "source_location": "L14",
       "id": "ws_jwt_guard_wsjwtguard_constructor",
-      "community": 30,
+      "community": 33,
       "norm_label": ".constructor()"
     },
     {
@@ -3213,7 +3501,7 @@
       "source_file": "apps/api/src/auth/guards/ws-jwt/ws-jwt.guard.ts",
       "source_location": "L16",
       "id": "ws_jwt_guard_wsjwtguard_canactivate",
-      "community": 30,
+      "community": 33,
       "norm_label": ".canactivate()"
     },
     {
@@ -3222,7 +3510,7 @@
       "source_file": "apps/api/src/auth/guards/jwt-auth/jwt-auth.guard.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_guards_jwt_auth_jwt_auth_guard_ts",
-      "community": 73,
+      "community": 81,
       "norm_label": "jwt-auth.guard.ts"
     },
     {
@@ -3231,7 +3519,7 @@
       "source_file": "apps/api/src/auth/guards/jwt-auth/jwt-auth.guard.ts",
       "source_location": "L16",
       "id": "jwt_auth_guard_jwtauthguard",
-      "community": 73,
+      "community": 81,
       "norm_label": "jwtauthguard"
     },
     {
@@ -3240,7 +3528,7 @@
       "source_file": "apps/api/src/auth/guards/jwt-auth/jwt-auth.guard.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_auth_guards_jwt_auth_jwt_auth_guard_spec_ts",
-      "community": 153,
+      "community": 162,
       "norm_label": "jwt-auth.guard.spec.ts"
     },
     {
@@ -3249,7 +3537,7 @@
       "source_file": "apps/api/src/prisma/prisma.service.ts",
       "source_location": "L1",
       "id": "apps_api_src_prisma_prisma_service_ts",
-      "community": 23,
+      "community": 25,
       "norm_label": "prisma.service.ts"
     },
     {
@@ -3258,7 +3546,7 @@
       "source_file": "apps/api/src/prisma/prisma.service.ts",
       "source_location": "L12",
       "id": "prisma_service_prismaservice",
-      "community": 23,
+      "community": 25,
       "norm_label": "prismaservice"
     },
     {
@@ -3267,7 +3555,7 @@
       "source_file": "apps/api/src/prisma/prisma.service.ts",
       "source_location": "L19",
       "id": "prisma_service_prismaservice_constructor",
-      "community": 23,
+      "community": 25,
       "norm_label": ".constructor()"
     },
     {
@@ -3276,7 +3564,7 @@
       "source_file": "apps/api/src/prisma/prisma.service.ts",
       "source_location": "L43",
       "id": "prisma_service_prismaservice_onmoduleinit",
-      "community": 23,
+      "community": 25,
       "norm_label": ".onmoduleinit()"
     },
     {
@@ -3285,7 +3573,7 @@
       "source_file": "apps/api/src/prisma/prisma.service.ts",
       "source_location": "L47",
       "id": "prisma_service_prismaservice_onmoduledestroy",
-      "community": 23,
+      "community": 25,
       "norm_label": ".onmoduledestroy()"
     },
     {
@@ -3294,7 +3582,7 @@
       "source_file": "apps/api/src/prisma/prisma.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_prisma_prisma_module_ts",
-      "community": 74,
+      "community": 82,
       "norm_label": "prisma.module.ts"
     },
     {
@@ -3303,7 +3591,7 @@
       "source_file": "apps/api/src/prisma/prisma.module.ts",
       "source_location": "L9",
       "id": "prisma_module_prismamodule",
-      "community": 74,
+      "community": 82,
       "norm_label": "prismamodule"
     },
     {
@@ -3312,7 +3600,7 @@
       "source_file": "apps/api/src/prisma/prisma.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_prisma_prisma_service_spec_ts",
-      "community": 154,
+      "community": 163,
       "norm_label": "prisma.service.spec.ts"
     },
     {
@@ -3321,7 +3609,7 @@
       "source_file": "apps/api/src/prisma/selects/user.safe.select.ts",
       "source_location": "L1",
       "id": "apps_api_src_prisma_selects_user_safe_select_ts",
-      "community": 155,
+      "community": 164,
       "norm_label": "user.safe.select.ts"
     },
     {
@@ -3330,7 +3618,7 @@
       "source_file": "apps/api/src/matches/matches.service.ts",
       "source_location": "L1",
       "id": "apps_api_src_matches_matches_service_ts",
-      "community": 31,
+      "community": 34,
       "norm_label": "matches.service.ts"
     },
     {
@@ -3339,7 +3627,7 @@
       "source_file": "apps/api/src/matches/matches.service.ts",
       "source_location": "L9",
       "id": "matches_service_matchesservice",
-      "community": 31,
+      "community": 34,
       "norm_label": "matchesservice"
     },
     {
@@ -3348,7 +3636,7 @@
       "source_file": "apps/api/src/matches/matches.service.ts",
       "source_location": "L10",
       "id": "matches_service_matchesservice_constructor",
-      "community": 31,
+      "community": 34,
       "norm_label": ".constructor()"
     },
     {
@@ -3357,7 +3645,7 @@
       "source_file": "apps/api/src/matches/matches.service.ts",
       "source_location": "L12",
       "id": "matches_service_matchesservice_getmatches",
-      "community": 31,
+      "community": 34,
       "norm_label": ".getmatches()"
     },
     {
@@ -3366,7 +3654,7 @@
       "source_file": "apps/api/src/matches/matches.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_matches_matches_service_spec_ts",
-      "community": 156,
+      "community": 165,
       "norm_label": "matches.service.spec.ts"
     },
     {
@@ -3375,7 +3663,7 @@
       "source_file": "apps/api/src/matches/matches.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_matches_matches_controller_spec_ts",
-      "community": 157,
+      "community": 166,
       "norm_label": "matches.controller.spec.ts"
     },
     {
@@ -3384,7 +3672,7 @@
       "source_file": "apps/api/src/matches/matches.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_matches_matches_module_ts",
-      "community": 75,
+      "community": 83,
       "norm_label": "matches.module.ts"
     },
     {
@@ -3393,7 +3681,7 @@
       "source_file": "apps/api/src/matches/matches.module.ts",
       "source_location": "L9",
       "id": "matches_module_matchesmodule",
-      "community": 75,
+      "community": 83,
       "norm_label": "matchesmodule"
     },
     {
@@ -3402,7 +3690,7 @@
       "source_file": "apps/api/src/matches/matches.controller.ts",
       "source_location": "L1",
       "id": "apps_api_src_matches_matches_controller_ts",
-      "community": 32,
+      "community": 35,
       "norm_label": "matches.controller.ts"
     },
     {
@@ -3411,7 +3699,7 @@
       "source_file": "apps/api/src/matches/matches.controller.ts",
       "source_location": "L12",
       "id": "matches_controller_matchescontroller",
-      "community": 32,
+      "community": 35,
       "norm_label": "matchescontroller"
     },
     {
@@ -3420,7 +3708,7 @@
       "source_file": "apps/api/src/matches/matches.controller.ts",
       "source_location": "L13",
       "id": "matches_controller_matchescontroller_constructor",
-      "community": 32,
+      "community": 35,
       "norm_label": ".constructor()"
     },
     {
@@ -3429,7 +3717,7 @@
       "source_file": "apps/api/src/matches/matches.controller.ts",
       "source_location": "L17",
       "id": "matches_controller_matchescontroller_getmatches",
-      "community": 32,
+      "community": 35,
       "norm_label": ".getmatches()"
     },
     {
@@ -3438,7 +3726,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.spec.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_subscriptions_subscriptions_service_spec_ts",
-      "community": 76,
+      "community": 84,
       "norm_label": "subscriptions.service.spec.ts"
     },
     {
@@ -3447,7 +3735,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.spec.ts",
       "source_location": "L19",
       "id": "subscriptions_service_spec_buildplanrecord",
-      "community": 76,
+      "community": 84,
       "norm_label": "buildplanrecord()"
     },
     {
@@ -3456,7 +3744,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.controller.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_subscriptions_subscriptions_controller_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "subscriptions.controller.ts"
     },
     {
@@ -3465,7 +3753,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.controller.ts",
       "source_location": "L25",
       "id": "subscriptions_controller_subscriptionscontroller",
-      "community": 1,
+      "community": 2,
       "norm_label": "subscriptionscontroller"
     },
     {
@@ -3474,7 +3762,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.controller.ts",
       "source_location": "L26",
       "id": "subscriptions_controller_subscriptionscontroller_constructor",
-      "community": 1,
+      "community": 2,
       "norm_label": ".constructor()"
     },
     {
@@ -3483,7 +3771,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.controller.ts",
       "source_location": "L29",
       "id": "subscriptions_controller_subscriptionscontroller_listplans",
-      "community": 1,
+      "community": 2,
       "norm_label": ".listplans()"
     },
     {
@@ -3492,7 +3780,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.controller.ts",
       "source_location": "L35",
       "id": "subscriptions_controller_subscriptionscontroller_getmysubscriptions",
-      "community": 1,
+      "community": 2,
       "norm_label": ".getmysubscriptions()"
     },
     {
@@ -3501,7 +3789,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.controller.ts",
       "source_location": "L41",
       "id": "subscriptions_controller_subscriptionscontroller_activatesubscription",
-      "community": 1,
+      "community": 2,
       "norm_label": ".activatesubscription()"
     },
     {
@@ -3510,7 +3798,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.controller.ts",
       "source_location": "L52",
       "id": "subscriptions_controller_subscriptionscontroller_listadminplans",
-      "community": 1,
+      "community": 2,
       "norm_label": ".listadminplans()"
     },
     {
@@ -3519,7 +3807,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.controller.ts",
       "source_location": "L58",
       "id": "subscriptions_controller_subscriptionscontroller_createplan",
-      "community": 1,
+      "community": 2,
       "norm_label": ".createplan()"
     },
     {
@@ -3528,7 +3816,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.controller.ts",
       "source_location": "L64",
       "id": "subscriptions_controller_subscriptionscontroller_updateplan",
-      "community": 1,
+      "community": 2,
       "norm_label": ".updateplan()"
     },
     {
@@ -3537,7 +3825,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.controller.ts",
       "source_location": "L73",
       "id": "subscriptions_controller_subscriptionscontroller_setplanactive",
-      "community": 1,
+      "community": 2,
       "norm_label": ".setplanactive()"
     },
     {
@@ -3546,142 +3834,151 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_subscriptions_subscriptions_service_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "subscriptions.service.ts"
     },
     {
       "label": "SubscriptionsService",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L107",
+      "source_location": "L113",
       "id": "subscriptions_service_subscriptionsservice",
-      "community": 1,
+      "community": 2,
       "norm_label": "subscriptionsservice"
     },
     {
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L110",
+      "source_location": "L116",
       "id": "subscriptions_service_subscriptionsservice_constructor",
-      "community": 1,
+      "community": 2,
       "norm_label": ".constructor()"
     },
     {
       "label": ".listPlans()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L112",
+      "source_location": "L118",
       "id": "subscriptions_service_subscriptionsservice_listplans",
-      "community": 1,
+      "community": 2,
       "norm_label": ".listplans()"
     },
     {
       "label": ".listPlansPaginated()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L126",
+      "source_location": "L132",
       "id": "subscriptions_service_subscriptionsservice_listplanspaginated",
-      "community": 1,
+      "community": 2,
       "norm_label": ".listplanspaginated()"
     },
     {
       "label": ".createPlan()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L171",
+      "source_location": "L177",
       "id": "subscriptions_service_subscriptionsservice_createplan",
-      "community": 1,
+      "community": 2,
       "norm_label": ".createplan()"
     },
     {
       "label": ".updatePlan()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L208",
+      "source_location": "L215",
       "id": "subscriptions_service_subscriptionsservice_updateplan",
-      "community": 1,
+      "community": 2,
       "norm_label": ".updateplan()"
     },
     {
       "label": ".setPlanActive()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L259",
+      "source_location": "L267",
       "id": "subscriptions_service_subscriptionsservice_setplanactive",
-      "community": 1,
+      "community": 2,
       "norm_label": ".setplanactive()"
     },
     {
       "label": ".getCurrentSubscriptionForUser()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L284",
+      "source_location": "L292",
       "id": "subscriptions_service_subscriptionsservice_getcurrentsubscriptionforuser",
-      "community": 1,
+      "community": 2,
       "norm_label": ".getcurrentsubscriptionforuser()"
     },
     {
       "label": ".getUserSubscriptions()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L316",
+      "source_location": "L324",
       "id": "subscriptions_service_subscriptionsservice_getusersubscriptions",
-      "community": 1,
+      "community": 2,
       "norm_label": ".getusersubscriptions()"
     },
     {
       "label": ".activateSubscription()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L340",
+      "source_location": "L348",
       "id": "subscriptions_service_subscriptionsservice_activatesubscription",
-      "community": 1,
+      "community": 2,
       "norm_label": ".activatesubscription()"
     },
     {
       "label": ".hasFeature()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L388",
+      "source_location": "L396",
       "id": "subscriptions_service_subscriptionsservice_hasfeature",
-      "community": 1,
+      "community": 2,
       "norm_label": ".hasfeature()"
     },
     {
       "label": ".ensureDefaultPlans()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L394",
+      "source_location": "L402",
       "id": "subscriptions_service_subscriptionsservice_ensuredefaultplans",
-      "community": 1,
+      "community": 2,
       "norm_label": ".ensuredefaultplans()"
     },
     {
       "label": ".findActiveUserSubscription()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L422",
+      "source_location": "L430",
       "id": "subscriptions_service_subscriptionsservice_findactiveusersubscription",
-      "community": 1,
+      "community": 2,
       "norm_label": ".findactiveusersubscription()"
     },
     {
       "label": ".mapPlan()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L438",
+      "source_location": "L446",
       "id": "subscriptions_service_subscriptionsservice_mapplan",
-      "community": 1,
+      "community": 2,
       "norm_label": ".mapplan()"
+    },
+    {
+      "label": ".priceToNumber()",
+      "file_type": "code",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
+      "source_location": "L472",
+      "id": "subscriptions_service_subscriptionsservice_pricetonumber",
+      "community": 2,
+      "norm_label": ".pricetonumber()"
     },
     {
       "label": ".mapUserSubscription()",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L463",
+      "source_location": "L481",
       "id": "subscriptions_service_subscriptionsservice_mapusersubscription",
-      "community": 1,
+      "community": 2,
       "norm_label": ".mapusersubscription()"
     },
     {
@@ -3690,7 +3987,7 @@
       "source_file": "apps/api/src/subscriptions/subscriptions.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_subscriptions_subscriptions_module_ts",
-      "community": 77,
+      "community": 85,
       "norm_label": "subscriptions.module.ts"
     },
     {
@@ -3699,7 +3996,7 @@
       "source_file": "apps/api/src/subscriptions/subscriptions.module.ts",
       "source_location": "L12",
       "id": "subscriptions_module_subscriptionsmodule",
-      "community": 77,
+      "community": 85,
       "norm_label": "subscriptionsmodule"
     },
     {
@@ -3708,7 +4005,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/dto/activate-subscription.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_subscriptions_dto_activate_subscription_dto_ts",
-      "community": 78,
+      "community": 86,
       "norm_label": "activate-subscription.dto.ts"
     },
     {
@@ -3717,7 +4014,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/dto/activate-subscription.dto.ts",
       "source_location": "L4",
       "id": "activate_subscription_dto_activatesubscriptiondto",
-      "community": 78,
+      "community": 86,
       "norm_label": "activatesubscriptiondto"
     },
     {
@@ -3726,16 +4023,16 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/dto/create-subscription-plan.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_subscriptions_dto_create_subscription_plan_dto_ts",
-      "community": 79,
+      "community": 87,
       "norm_label": "create-subscription-plan.dto.ts"
     },
     {
       "label": "CreateSubscriptionPlanDto",
       "file_type": "code",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/dto/create-subscription-plan.dto.ts",
-      "source_location": "L13",
+      "source_location": "L15",
       "id": "create_subscription_plan_dto_createsubscriptionplandto",
-      "community": 79,
+      "community": 87,
       "norm_label": "createsubscriptionplandto"
     },
     {
@@ -3744,7 +4041,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/dto/list-subscription-plans.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_subscriptions_dto_list_subscription_plans_dto_ts",
-      "community": 80,
+      "community": 88,
       "norm_label": "list-subscription-plans.dto.ts"
     },
     {
@@ -3753,7 +4050,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/dto/list-subscription-plans.dto.ts",
       "source_location": "L14",
       "id": "list_subscription_plans_dto_listsubscriptionplansdto",
-      "community": 80,
+      "community": 88,
       "norm_label": "listsubscriptionplansdto"
     },
     {
@@ -3762,7 +4059,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/dto/update-subscription-plan.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_subscriptions_dto_update_subscription_plan_dto_ts",
-      "community": 81,
+      "community": 89,
       "norm_label": "update-subscription-plan.dto.ts"
     },
     {
@@ -3771,7 +4068,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/dto/update-subscription-plan.dto.ts",
       "source_location": "L4",
       "id": "update_subscription_plan_dto_updatesubscriptionplandto",
-      "community": 81,
+      "community": 89,
       "norm_label": "updatesubscriptionplandto"
     },
     {
@@ -3780,7 +4077,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/dto/set-plan-active.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_subscriptions_dto_set_plan_active_dto_ts",
-      "community": 82,
+      "community": 90,
       "norm_label": "set-plan-active.dto.ts"
     },
     {
@@ -3789,7 +4086,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/dto/set-plan-active.dto.ts",
       "source_location": "L4",
       "id": "set_plan_active_dto_setplanactivedto",
-      "community": 82,
+      "community": 90,
       "norm_label": "setplanactivedto"
     },
     {
@@ -3798,7 +4095,7 @@
       "source_file": "apps/api/src/common/response/response.interceptor.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_common_response_response_interceptor_spec_ts",
-      "community": 158,
+      "community": 167,
       "norm_label": "response.interceptor.spec.ts"
     },
     {
@@ -3807,7 +4104,7 @@
       "source_file": "apps/api/src/common/response/response.interceptor.ts",
       "source_location": "L1",
       "id": "apps_api_src_common_response_response_interceptor_ts",
-      "community": 38,
+      "community": 42,
       "norm_label": "response.interceptor.ts"
     },
     {
@@ -3816,7 +4113,7 @@
       "source_file": "apps/api/src/common/response/response.interceptor.ts",
       "source_location": "L16",
       "id": "response_interceptor_responseinterceptor",
-      "community": 38,
+      "community": 42,
       "norm_label": "responseinterceptor"
     },
     {
@@ -3825,7 +4122,7 @@
       "source_file": "apps/api/src/common/response/response.interceptor.ts",
       "source_location": "L20",
       "id": "response_interceptor_responseinterceptor_intercept",
-      "community": 38,
+      "community": 42,
       "norm_label": ".intercept()"
     },
     {
@@ -3852,7 +4149,7 @@
       "source_file": "apps/api/src/common/geo/geo.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_common_geo_geo_module_ts",
-      "community": 83,
+      "community": 91,
       "norm_label": "geo.module.ts"
     },
     {
@@ -3861,7 +4158,7 @@
       "source_file": "apps/api/src/common/geo/geo.module.ts",
       "source_location": "L8",
       "id": "geo_module_geomodule",
-      "community": 83,
+      "community": 91,
       "norm_label": "geomodule"
     },
     {
@@ -3870,7 +4167,7 @@
       "source_file": "apps/api/src/common/geo/reverse-geocode.service.ts",
       "source_location": "L1",
       "id": "apps_api_src_common_geo_reverse_geocode_service_ts",
-      "community": 13,
+      "community": 0,
       "norm_label": "reverse-geocode.service.ts"
     },
     {
@@ -3879,7 +4176,7 @@
       "source_file": "apps/api/src/common/geo/reverse-geocode.service.ts",
       "source_location": "L21",
       "id": "reverse_geocode_service_reversegeocodeservice",
-      "community": 13,
+      "community": 0,
       "norm_label": "reversegeocodeservice"
     },
     {
@@ -3888,7 +4185,7 @@
       "source_file": "apps/api/src/common/geo/reverse-geocode.service.ts",
       "source_location": "L27",
       "id": "reverse_geocode_service_reversegeocodeservice_constructor",
-      "community": 13,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
@@ -3897,7 +4194,7 @@
       "source_file": "apps/api/src/common/geo/reverse-geocode.service.ts",
       "source_location": "L39",
       "id": "reverse_geocode_service_reversegeocodeservice_getcityandcountry",
-      "community": 13,
+      "community": 0,
       "norm_label": ".getcityandcountry()"
     },
     {
@@ -3951,7 +4248,7 @@
       "source_file": "apps/api/src/firebase/firebase.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_firebase_firebase_module_ts",
-      "community": 84,
+      "community": 92,
       "norm_label": "firebase.module.ts"
     },
     {
@@ -3960,7 +4257,7 @@
       "source_file": "apps/api/src/firebase/firebase.module.ts",
       "source_location": "L11",
       "id": "firebase_module_firebasemodule",
-      "community": 84,
+      "community": 92,
       "norm_label": "firebasemodule"
     },
     {
@@ -3969,7 +4266,7 @@
       "source_file": "apps/api/src/profile/profile.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_profile_profile_controller_spec_ts",
-      "community": 159,
+      "community": 168,
       "norm_label": "profile.controller.spec.ts"
     },
     {
@@ -3978,7 +4275,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.controller.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_profile_profile_controller_ts",
-      "community": 2,
+      "community": 0,
       "norm_label": "profile.controller.ts"
     },
     {
@@ -3987,7 +4284,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.controller.ts",
       "source_location": "L28",
       "id": "profile_controller_profilecontroller",
-      "community": 2,
+      "community": 0,
       "norm_label": "profilecontroller"
     },
     {
@@ -3996,7 +4293,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.controller.ts",
       "source_location": "L29",
       "id": "profile_controller_profilecontroller_constructor",
-      "community": 2,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
@@ -4014,7 +4311,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.controller.ts",
       "source_location": "L41",
       "id": "profile_controller_profilecontroller_registerdevice",
-      "community": 2,
+      "community": 0,
       "norm_label": ".registerdevice()"
     },
     {
@@ -4023,7 +4320,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.controller.ts",
       "source_location": "L69",
       "id": "profile_controller_profilecontroller_uploadprofilephotos",
-      "community": 2,
+      "community": 0,
       "norm_label": ".uploadprofilephotos()"
     },
     {
@@ -4032,7 +4329,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.controller.ts",
       "source_location": "L78",
       "id": "profile_controller_profilecontroller_deletephoto",
-      "community": 2,
+      "community": 0,
       "norm_label": ".deletephoto()"
     },
     {
@@ -4041,7 +4338,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.controller.ts",
       "source_location": "L87",
       "id": "profile_controller_profilecontroller_getprofile",
-      "community": 2,
+      "community": 0,
       "norm_label": ".getprofile()"
     },
     {
@@ -4050,7 +4347,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.controller.ts",
       "source_location": "L93",
       "id": "profile_controller_profilecontroller_updateprofilesettings",
-      "community": 2,
+      "community": 0,
       "norm_label": ".updateprofilesettings()"
     },
     {
@@ -4059,7 +4356,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.controller.ts",
       "source_location": "L102",
       "id": "profile_controller_profilecontroller_getposts",
-      "community": 2,
+      "community": 0,
       "norm_label": ".getposts()"
     },
     {
@@ -4068,7 +4365,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.controller.ts",
       "source_location": "L108",
       "id": "profile_controller_profilecontroller_blockuser",
-      "community": 2,
+      "community": 0,
       "norm_label": ".blockuser()"
     },
     {
@@ -4077,7 +4374,7 @@
       "source_file": "apps/api/src/profile/profile-preferences.service.ts",
       "source_location": "L1",
       "id": "apps_api_src_profile_profile_preferences_service_ts",
-      "community": 13,
+      "community": 0,
       "norm_label": "profile-preferences.service.ts"
     },
     {
@@ -4086,7 +4383,7 @@
       "source_file": "apps/api/src/profile/profile-preferences.service.ts",
       "source_location": "L9",
       "id": "profile_preferences_service_profilepreferencesservice",
-      "community": 13,
+      "community": 0,
       "norm_label": "profilepreferencesservice"
     },
     {
@@ -4095,7 +4392,7 @@
       "source_file": "apps/api/src/profile/profile-preferences.service.ts",
       "source_location": "L13",
       "id": "profile_preferences_service_profilepreferencesservice_normalizeinterests",
-      "community": 13,
+      "community": 0,
       "norm_label": ".normalizeinterests()"
     },
     {
@@ -4104,7 +4401,7 @@
       "source_file": "apps/api/src/profile/profile-preferences.service.ts",
       "source_location": "L23",
       "id": "profile_preferences_service_profilepreferencesservice_resolvepreferredagerange",
-      "community": 13,
+      "community": 0,
       "norm_label": ".resolvepreferredagerange()"
     },
     {
@@ -4113,7 +4410,7 @@
       "source_file": "apps/api/src/profile/profile.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_profile_profile_module_ts",
-      "community": 85,
+      "community": 93,
       "norm_label": "profile.module.ts"
     },
     {
@@ -4122,7 +4419,7 @@
       "source_file": "apps/api/src/profile/profile.module.ts",
       "source_location": "L14",
       "id": "profile_module_profilemodule",
-      "community": 85,
+      "community": 93,
       "norm_label": "profilemodule"
     },
     {
@@ -4131,7 +4428,7 @@
       "source_file": "apps/api/src/profile/profile.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_profile_profile_service_spec_ts",
-      "community": 160,
+      "community": 169,
       "norm_label": "profile.service.spec.ts"
     },
     {
@@ -4140,7 +4437,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_profile_profile_service_ts",
-      "community": 2,
+      "community": 0,
       "norm_label": "profile.service.ts"
     },
     {
@@ -4149,7 +4446,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L50",
       "id": "profile_service_buildfeedvisibilityclause",
-      "community": 2,
+      "community": 0,
       "norm_label": "buildfeedvisibilityclause()"
     },
     {
@@ -4158,7 +4455,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L72",
       "id": "profile_service_profileservice",
-      "community": 2,
+      "community": 0,
       "norm_label": "profileservice"
     },
     {
@@ -4167,7 +4464,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L73",
       "id": "profile_service_profileservice_constructor",
-      "community": 2,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
@@ -4176,7 +4473,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L81",
       "id": "profile_service_profileservice_buildadminprofiledefaults",
-      "community": 2,
+      "community": 0,
       "norm_label": ".buildadminprofiledefaults()"
     },
     {
@@ -4185,7 +4482,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L96",
       "id": "profile_service_profileservice_create",
-      "community": 13,
+      "community": 0,
       "norm_label": ".create()"
     },
     {
@@ -4194,7 +4491,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L167",
       "id": "profile_service_profileservice_registerdevice",
-      "community": 13,
+      "community": 0,
       "norm_label": ".registerdevice()"
     },
     {
@@ -4203,7 +4500,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L194",
       "id": "profile_service_profileservice_addphotosfromfiles",
-      "community": 2,
+      "community": 0,
       "norm_label": ".addphotosfromfiles()"
     },
     {
@@ -4212,7 +4509,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L226",
       "id": "profile_service_profileservice_softdeletephoto",
-      "community": 2,
+      "community": 0,
       "norm_label": ".softdeletephoto()"
     },
     {
@@ -4221,7 +4518,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L265",
       "id": "profile_service_profileservice_getprofile",
-      "community": 2,
+      "community": 0,
       "norm_label": ".getprofile()"
     },
     {
@@ -4230,7 +4527,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L317",
       "id": "profile_service_profileservice_updatesettings",
-      "community": 2,
+      "community": 0,
       "norm_label": ".updatesettings()"
     },
     {
@@ -4239,7 +4536,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L405",
       "id": "profile_service_profileservice_getposts",
-      "community": 2,
+      "community": 0,
       "norm_label": ".getposts()"
     },
     {
@@ -4248,7 +4545,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L459",
       "id": "profile_service_profileservice_resolvepostsreferencelocation",
-      "community": 2,
+      "community": 0,
       "norm_label": ".resolvepostsreferencelocation()"
     },
     {
@@ -4257,7 +4554,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L499",
       "id": "profile_service_profileservice_buildpostfeedresponse",
-      "community": 2,
+      "community": 0,
       "norm_label": ".buildpostfeedresponse()"
     },
     {
@@ -4266,7 +4563,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L539",
       "id": "profile_service_profileservice_fetchlatestpostsbyrecency",
-      "community": 2,
+      "community": 0,
       "norm_label": ".fetchlatestpostsbyrecency()"
     },
     {
@@ -4275,7 +4572,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L579",
       "id": "profile_service_profileservice_fetchnearestposts",
-      "community": 2,
+      "community": 0,
       "norm_label": ".fetchnearestposts()"
     },
     {
@@ -4284,7 +4581,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L627",
       "id": "profile_service_profileservice_fetchlatestpostsbydistance",
-      "community": 2,
+      "community": 0,
       "norm_label": ".fetchlatestpostsbydistance()"
     },
     {
@@ -4293,7 +4590,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L725",
       "id": "profile_service_profileservice_parsefeedcursor",
-      "community": 2,
+      "community": 0,
       "norm_label": ".parsefeedcursor()"
     },
     {
@@ -4302,7 +4599,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L764",
       "id": "profile_service_profileservice_serializefeedcursor",
-      "community": 2,
+      "community": 0,
       "norm_label": ".serializefeedcursor()"
     },
     {
@@ -4311,7 +4608,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L777",
       "id": "profile_service_profileservice_getlatestpostcount",
-      "community": 2,
+      "community": 0,
       "norm_label": ".getlatestpostcount()"
     },
     {
@@ -4320,7 +4617,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L796",
       "id": "profile_service_profileservice_findpostsbyorderedids",
-      "community": 2,
+      "community": 0,
       "norm_label": ".findpostsbyorderedids()"
     },
     {
@@ -4329,7 +4626,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/profile.service.ts",
       "source_location": "L899",
       "id": "profile_service_profileservice_userblock",
-      "community": 2,
+      "community": 0,
       "norm_label": ".userblock()"
     },
     {
@@ -4338,7 +4635,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/dto/update-profile-settings.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_profile_dto_update_profile_settings_dto_ts",
-      "community": 86,
+      "community": 94,
       "norm_label": "update-profile-settings.dto.ts"
     },
     {
@@ -4347,7 +4644,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/profile/dto/update-profile-settings.dto.ts",
       "source_location": "L3",
       "id": "update_profile_settings_dto_updateprofilesettingsdto",
-      "community": 86,
+      "community": 94,
       "norm_label": "updateprofilesettingsdto"
     },
     {
@@ -4356,7 +4653,7 @@
       "source_file": "apps/api/src/profile/dto/register-device.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_profile_dto_register_device_dto_ts",
-      "community": 87,
+      "community": 95,
       "norm_label": "register-device.dto.ts"
     },
     {
@@ -4365,7 +4662,7 @@
       "source_file": "apps/api/src/profile/dto/register-device.dto.ts",
       "source_location": "L4",
       "id": "register_device_dto_registerdevicedto",
-      "community": 87,
+      "community": 95,
       "norm_label": "registerdevicedto"
     },
     {
@@ -4374,7 +4671,7 @@
       "source_file": "apps/api/src/profile/dto/create-profile.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_profile_dto_create_profile_dto_ts",
-      "community": 88,
+      "community": 96,
       "norm_label": "create-profile.dto.ts"
     },
     {
@@ -4383,7 +4680,7 @@
       "source_file": "apps/api/src/profile/dto/create-profile.dto.ts",
       "source_location": "L20",
       "id": "create_profile_dto_createprofiledto",
-      "community": 88,
+      "community": 96,
       "norm_label": "createprofiledto"
     },
     {
@@ -4392,7 +4689,7 @@
       "source_file": "apps/api/src/profile/dto/get-posts.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_profile_dto_get_posts_dto_ts",
-      "community": 37,
+      "community": 41,
       "norm_label": "get-posts.dto.ts"
     },
     {
@@ -4599,7 +4896,7 @@
       "source_file": "apps/api/src/users/users.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_users_users_module_ts",
-      "community": 89,
+      "community": 97,
       "norm_label": "users.module.ts"
     },
     {
@@ -4608,7 +4905,7 @@
       "source_file": "apps/api/src/users/users.module.ts",
       "source_location": "L9",
       "id": "users_module_usersmodule",
-      "community": 89,
+      "community": 97,
       "norm_label": "usersmodule"
     },
     {
@@ -4617,7 +4914,7 @@
       "source_file": "apps/api/src/users/users.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_users_users_service_spec_ts",
-      "community": 161,
+      "community": 170,
       "norm_label": "users.service.spec.ts"
     },
     {
@@ -4626,7 +4923,7 @@
       "source_file": "apps/api/src/users/users.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_users_users_controller_spec_ts",
-      "community": 162,
+      "community": 171,
       "norm_label": "users.controller.spec.ts"
     },
     {
@@ -4635,7 +4932,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/dto/set-user-active.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_users_dto_set_user_active_dto_ts",
-      "community": 90,
+      "community": 98,
       "norm_label": "set-user-active.dto.ts"
     },
     {
@@ -4644,7 +4941,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/dto/set-user-active.dto.ts",
       "source_location": "L4",
       "id": "set_user_active_dto_setuseractivedto",
-      "community": 90,
+      "community": 98,
       "norm_label": "setuseractivedto"
     },
     {
@@ -4653,7 +4950,7 @@
       "source_file": "apps/api/src/users/dto/swipe.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_users_dto_swipe_dto_ts",
-      "community": 91,
+      "community": 99,
       "norm_label": "swipe.dto.ts"
     },
     {
@@ -4662,7 +4959,7 @@
       "source_file": "apps/api/src/users/dto/swipe.dto.ts",
       "source_location": "L5",
       "id": "swipe_dto_swipedto",
-      "community": 91,
+      "community": 99,
       "norm_label": "swipedto"
     },
     {
@@ -4671,7 +4968,7 @@
       "source_file": "apps/api/src/users/dto/nearby.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_users_dto_nearby_dto_ts",
-      "community": 92,
+      "community": 100,
       "norm_label": "nearby.dto.ts"
     },
     {
@@ -4680,7 +4977,7 @@
       "source_file": "apps/api/src/users/dto/nearby.dto.ts",
       "source_location": "L5",
       "id": "nearby_dto_nearbydto",
-      "community": 92,
+      "community": 100,
       "norm_label": "nearbydto"
     },
     {
@@ -4689,7 +4986,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/dto/update-current-user.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_users_dto_update_current_user_dto_ts",
-      "community": 93,
+      "community": 101,
       "norm_label": "update-current-user.dto.ts"
     },
     {
@@ -4698,7 +4995,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/dto/update-current-user.dto.ts",
       "source_location": "L3",
       "id": "update_current_user_dto_updatecurrentuserdto",
-      "community": 93,
+      "community": 101,
       "norm_label": "updatecurrentuserdto"
     },
     {
@@ -4707,7 +5004,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/dto/list-users.dto.ts",
       "source_location": "L1",
       "id": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_users_dto_list_users_dto_ts",
-      "community": 94,
+      "community": 102,
       "norm_label": "list-users.dto.ts"
     },
     {
@@ -4716,7 +5013,7 @@
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/users/dto/list-users.dto.ts",
       "source_location": "L6",
       "id": "list_users_dto_listusersdto",
-      "community": 94,
+      "community": 102,
       "norm_label": "listusersdto"
     },
     {
@@ -4761,7 +5058,7 @@
       "source_file": "apps/api/src/report/report.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_report_report_service_spec_ts",
-      "community": 163,
+      "community": 172,
       "norm_label": "report.service.spec.ts"
     },
     {
@@ -4806,7 +5103,7 @@
       "source_file": "apps/api/src/report/report.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_report_report_module_ts",
-      "community": 95,
+      "community": 103,
       "norm_label": "report.module.ts"
     },
     {
@@ -4815,7 +5112,7 @@
       "source_file": "apps/api/src/report/report.module.ts",
       "source_location": "L9",
       "id": "report_module_reportmodule",
-      "community": 95,
+      "community": 103,
       "norm_label": "reportmodule"
     },
     {
@@ -4824,7 +5121,7 @@
       "source_file": "apps/api/src/report/report.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_report_report_controller_spec_ts",
-      "community": 164,
+      "community": 173,
       "norm_label": "report.controller.spec.ts"
     },
     {
@@ -4833,7 +5130,7 @@
       "source_file": "apps/api/src/report/dto/create-report.dto.ts",
       "source_location": "L1",
       "id": "apps_api_src_report_dto_create_report_dto_ts",
-      "community": 96,
+      "community": 104,
       "norm_label": "create-report.dto.ts"
     },
     {
@@ -4842,7 +5139,7 @@
       "source_file": "apps/api/src/report/dto/create-report.dto.ts",
       "source_location": "L4",
       "id": "create_report_dto_createreportdto",
-      "community": 96,
+      "community": 104,
       "norm_label": "createreportdto"
     },
     {
@@ -4914,7 +5211,7 @@
       "source_file": "apps/api/src/photos/photos.service.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_photos_photos_service_spec_ts",
-      "community": 165,
+      "community": 174,
       "norm_label": "photos.service.spec.ts"
     },
     {
@@ -4995,7 +5292,7 @@
       "source_file": "apps/api/src/photos/photos.controller.spec.ts",
       "source_location": "L1",
       "id": "apps_api_src_photos_photos_controller_spec_ts",
-      "community": 166,
+      "community": 175,
       "norm_label": "photos.controller.spec.ts"
     },
     {
@@ -5004,7 +5301,7 @@
       "source_file": "apps/api/src/photos/multer.config.ts",
       "source_location": "L1",
       "id": "apps_api_src_photos_multer_config_ts",
-      "community": 167,
+      "community": 176,
       "norm_label": "multer.config.ts"
     },
     {
@@ -5085,7 +5382,7 @@
       "source_file": "apps/api/src/photos/photos.module.ts",
       "source_location": "L1",
       "id": "apps_api_src_photos_photos_module_ts",
-      "community": 97,
+      "community": 105,
       "norm_label": "photos.module.ts"
     },
     {
@@ -5094,7 +5391,7 @@
       "source_file": "apps/api/src/photos/photos.module.ts",
       "source_location": "L12",
       "id": "photos_module_photosmodule",
-      "community": 97,
+      "community": 105,
       "norm_label": "photosmodule"
     },
     {
@@ -5184,7 +5481,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "file document icon",
       "id": "file_svg_icon"
     },
@@ -5197,7 +5494,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "next.js default public assets",
       "id": "public_assets_default"
     },
@@ -5210,7 +5507,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "vercel triangle logo",
       "id": "vercel_svg_logo"
     },
@@ -5223,7 +5520,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "vercel platform",
       "id": "vercel_platform"
     },
@@ -5236,7 +5533,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "next.js wordmark logo",
       "id": "next_svg_logo"
     },
@@ -5249,7 +5546,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "next.js framework",
       "id": "nextjs_framework"
     },
@@ -5262,7 +5559,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "globe world icon",
       "id": "globe_svg_icon"
     },
@@ -5275,7 +5572,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "window browser icon",
       "id": "window_svg_icon"
     }
@@ -5405,7 +5702,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/settings/page.tsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_settings_page_tsx",
       "_tgt": "page_settingspage",
@@ -5417,7 +5714,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/subscriptions/page.tsx",
-      "source_location": "L70",
+      "source_location": "L72",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_subscriptions_page_tsx",
       "_tgt": "page_buildpagelist",
@@ -5429,7 +5726,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/subscriptions/page.tsx",
-      "source_location": "L86",
+      "source_location": "L88",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_subscriptions_page_tsx",
       "_tgt": "page_countactivefeatures",
@@ -5441,7 +5738,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/subscriptions/page.tsx",
-      "source_location": "L225",
+      "source_location": "L234",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_subscriptions_page_tsx",
       "_tgt": "page_handlesubmit",
@@ -5453,7 +5750,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/subscriptions/page.tsx",
-      "source_location": "L235",
+      "source_location": "L244",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_subscriptions_page_tsx",
       "_tgt": "page_handlereset",
@@ -5465,7 +5762,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/subscriptions/page.tsx",
-      "source_location": "L243",
+      "source_location": "L252",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_subscriptions_page_tsx",
       "_tgt": "page_handletoggle",
@@ -5477,7 +5774,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/subscriptions/page.tsx",
-      "source_location": "L269",
+      "source_location": "L278",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_subscriptions_page_tsx",
       "_tgt": "page_opencreate",
@@ -5489,7 +5786,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/app/(dashboard)/dashboard/subscriptions/page.tsx",
-      "source_location": "L279",
+      "source_location": "L288",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_app_dashboard_dashboard_subscriptions_page_tsx",
       "_tgt": "page_openedit",
@@ -5584,6 +5881,114 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/api.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_settings_api_ts",
+      "_tgt": "api_fetchsettings",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_settings_api_ts",
+      "target": "api_fetchsettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/api.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_settings_api_ts",
+      "_tgt": "api_updatecurrency",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_settings_api_ts",
+      "target": "api_updatecurrency",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/api.ts",
+      "source_location": "L73",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_settings_api_ts",
+      "_tgt": "api_formatprice",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_settings_api_ts",
+      "target": "api_formatprice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/api.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_src": "api_fetchsettings",
+      "_tgt": "api_apifetch",
+      "source": "api_fetchsettings",
+      "target": "api_apifetch"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/api.ts",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_src": "api_fetchsettings",
+      "_tgt": "api_parseapierror",
+      "source": "api_fetchsettings",
+      "target": "api_parseapierror"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/api.ts",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_src": "api_updatecurrency",
+      "_tgt": "api_apifetch",
+      "source": "api_updatecurrency",
+      "target": "api_apifetch"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/api.ts",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_src": "api_updatecurrency",
+      "_tgt": "api_parseapierror",
+      "source": "api_updatecurrency",
+      "target": "api_parseapierror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/query.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_settings_query_ts",
+      "_tgt": "query_useappsettingsquery",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_settings_query_ts",
+      "target": "query_useappsettingsquery",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/settings/query.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_settings_query_ts",
+      "_tgt": "query_useupdatecurrencymutation",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_settings_query_ts",
+      "target": "query_useupdatecurrencymutation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/read-only-admin/state.ts",
       "source_location": "L7",
       "weight": 1.0,
@@ -5609,7 +6014,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx",
-      "source_location": "L87",
+      "source_location": "L90",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_subscriptions_subscription_form_sheet_tsx",
       "_tgt": "subscription_form_sheet_plantoform",
@@ -5621,7 +6026,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx",
-      "source_location": "L108",
+      "source_location": "L112",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_subscriptions_subscription_form_sheet_tsx",
       "_tgt": "subscription_form_sheet_toint",
@@ -5633,7 +6038,19 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx",
-      "source_location": "L479",
+      "source_location": "L117",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_subscriptions_subscription_form_sheet_tsx",
+      "_tgt": "subscription_form_sheet_toprice",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_subscriptions_subscription_form_sheet_tsx",
+      "target": "subscription_form_sheet_toprice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx",
+      "source_location": "L516",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_subscriptions_subscription_form_sheet_tsx",
       "_tgt": "subscription_form_sheet_set",
@@ -5645,7 +6062,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx",
-      "source_location": "L224",
+      "source_location": "L237",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_subscriptions_subscription_form_sheet_tsx",
       "_tgt": "subscription_form_sheet_handlesubmit",
@@ -5657,11 +6074,23 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx",
-      "source_location": "L231",
+      "source_location": "L244",
       "weight": 1.0,
       "_src": "subscription_form_sheet_handlesubmit",
       "_tgt": "subscription_form_sheet_toint",
       "source": "subscription_form_sheet_toint",
+      "target": "subscription_form_sheet_handlesubmit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx",
+      "source_location": "L249",
+      "weight": 1.0,
+      "_src": "subscription_form_sheet_handlesubmit",
+      "_tgt": "subscription_form_sheet_toprice",
+      "source": "subscription_form_sheet_toprice",
       "target": "subscription_form_sheet_handlesubmit",
       "confidence_score": 1.0
     },
@@ -5729,7 +6158,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/api.ts",
-      "source_location": "L68",
+      "source_location": "L70",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_subscriptions_api_ts",
       "_tgt": "api_fetchplans",
@@ -5741,7 +6170,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/api.ts",
-      "source_location": "L95",
+      "source_location": "L97",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_subscriptions_api_ts",
       "_tgt": "api_createplan",
@@ -5753,7 +6182,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/api.ts",
-      "source_location": "L113",
+      "source_location": "L115",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_subscriptions_api_ts",
       "_tgt": "api_updateplan",
@@ -5765,7 +6194,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/api.ts",
-      "source_location": "L131",
+      "source_location": "L133",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_features_subscriptions_api_ts",
       "_tgt": "api_setplanactive",
@@ -6407,6 +6836,18 @@
       "_tgt": "creative_attribution_notice_creativeattributionnotice",
       "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_creative_attribution_notice_tsx",
       "target": "creative_attribution_notice_creativeattributionnotice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/currency-settings-card.tsx",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_currency_settings_card_tsx",
+      "_tgt": "currency_settings_card_handlesave",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_admin_src_components_currency_settings_card_tsx",
+      "target": "currency_settings_card_handlesave",
       "confidence_score": 1.0
     },
     {
@@ -7492,12 +7933,12 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/app.module.ts",
-      "source_location": "L45",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/app.module.ts",
+      "source_location": "L47",
       "weight": 1.0,
-      "_src": "apps_api_src_app_module_ts",
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_app_module_ts",
       "_tgt": "app_module_appmodule",
-      "source": "apps_api_src_app_module_ts",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_app_module_ts",
       "target": "app_module_appmodule",
       "confidence_score": 1.0
     },
@@ -7553,12 +7994,168 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/generated/prisma/internal/class.ts",
-      "source_location": "L360",
+      "source_location": "L370",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_internal_class_ts",
       "_tgt": "class_getprismaclientclass",
       "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_generated_prisma_internal_class_ts",
       "target": "class_getprismaclientclass",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.module.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_settings_settings_module_ts",
+      "_tgt": "settings_module_settingsmodule",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_settings_settings_module_ts",
+      "target": "settings_module_settingsmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.service.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_settings_settings_service_ts",
+      "_tgt": "settings_service_settingsservice",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_settings_settings_service_ts",
+      "target": "settings_service_settingsservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.service.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_src": "settings_service_settingsservice",
+      "_tgt": "settings_service_settingsservice_constructor",
+      "source": "settings_service_settingsservice",
+      "target": "settings_service_settingsservice_constructor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.service.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_src": "settings_service_settingsservice",
+      "_tgt": "settings_service_settingsservice_getsettings",
+      "source": "settings_service_settingsservice",
+      "target": "settings_service_settingsservice_getsettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.service.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_src": "settings_service_settingsservice",
+      "_tgt": "settings_service_settingsservice_updatecurrency",
+      "source": "settings_service_settingsservice",
+      "target": "settings_service_settingsservice_updatecurrency",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.service.ts",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_src": "settings_service_settingsservice",
+      "_tgt": "settings_service_settingsservice_ensuresingleton",
+      "source": "settings_service_settingsservice",
+      "target": "settings_service_settingsservice_ensuresingleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.service.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_src": "settings_service_settingsservice_getsettings",
+      "_tgt": "settings_service_settingsservice_ensuresingleton",
+      "source": "settings_service_settingsservice_getsettings",
+      "target": "settings_service_settingsservice_ensuresingleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.service.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_src": "settings_service_settingsservice_updatecurrency",
+      "_tgt": "settings_service_settingsservice_ensuresingleton",
+      "source": "settings_service_settingsservice_updatecurrency",
+      "target": "settings_service_settingsservice_ensuresingleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.controller.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_settings_settings_controller_ts",
+      "_tgt": "settings_controller_settingscontroller",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_settings_settings_controller_ts",
+      "target": "settings_controller_settingscontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.controller.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_src": "settings_controller_settingscontroller",
+      "_tgt": "settings_controller_settingscontroller_constructor",
+      "source": "settings_controller_settingscontroller",
+      "target": "settings_controller_settingscontroller_constructor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.controller.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_src": "settings_controller_settingscontroller",
+      "_tgt": "settings_controller_settingscontroller_getsettings",
+      "source": "settings_controller_settingscontroller",
+      "target": "settings_controller_settingscontroller_getsettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/settings.controller.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_src": "settings_controller_settingscontroller",
+      "_tgt": "settings_controller_settingscontroller_updatecurrency",
+      "source": "settings_controller_settingscontroller",
+      "target": "settings_controller_settingscontroller_updatecurrency",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/settings/dto/update-currency.dto.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_settings_dto_update_currency_dto_ts",
+      "_tgt": "update_currency_dto_updatecurrencydto",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_settings_dto_update_currency_dto_ts",
+      "target": "update_currency_dto_updatecurrencydto",
       "confidence_score": 1.0
     },
     {
@@ -8764,6 +9361,18 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/decorators/roles.decorator.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_auth_decorators_roles_decorator_ts",
+      "_tgt": "roles_decorator_roles",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_auth_decorators_roles_decorator_ts",
+      "target": "roles_decorator_roles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/strategies/jwt.strategy.ts",
       "source_location": "L11",
       "weight": 1.0,
@@ -8807,6 +9416,42 @@
       "_tgt": "jwt_strategy_jwtstrategy_validate",
       "source": "jwt_strategy_jwtstrategy",
       "target": "jwt_strategy_jwtstrategy_validate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/guards/roles/roles.guard.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_auth_guards_roles_roles_guard_ts",
+      "_tgt": "roles_guard_rolesguard",
+      "source": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_auth_guards_roles_roles_guard_ts",
+      "target": "roles_guard_rolesguard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/guards/roles/roles.guard.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_src": "roles_guard_rolesguard",
+      "_tgt": "roles_guard_rolesguard_constructor",
+      "source": "roles_guard_rolesguard",
+      "target": "roles_guard_rolesguard_constructor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/auth/guards/roles/roles.guard.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_src": "roles_guard_rolesguard",
+      "_tgt": "roles_guard_rolesguard_canactivate",
+      "source": "roles_guard_rolesguard",
+      "target": "roles_guard_rolesguard_canactivate",
       "confidence_score": 1.0
     },
     {
@@ -9149,7 +9794,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L107",
+      "source_location": "L113",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_subscriptions_subscriptions_service_ts",
       "_tgt": "subscriptions_service_subscriptionsservice",
@@ -9161,7 +9806,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L110",
+      "source_location": "L116",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice",
       "_tgt": "subscriptions_service_subscriptionsservice_constructor",
@@ -9173,7 +9818,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L112",
+      "source_location": "L118",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice",
       "_tgt": "subscriptions_service_subscriptionsservice_listplans",
@@ -9185,7 +9830,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L126",
+      "source_location": "L132",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice",
       "_tgt": "subscriptions_service_subscriptionsservice_listplanspaginated",
@@ -9197,7 +9842,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L171",
+      "source_location": "L177",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice",
       "_tgt": "subscriptions_service_subscriptionsservice_createplan",
@@ -9209,7 +9854,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L208",
+      "source_location": "L215",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice",
       "_tgt": "subscriptions_service_subscriptionsservice_updateplan",
@@ -9221,7 +9866,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L259",
+      "source_location": "L267",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice",
       "_tgt": "subscriptions_service_subscriptionsservice_setplanactive",
@@ -9233,7 +9878,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L284",
+      "source_location": "L292",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice",
       "_tgt": "subscriptions_service_subscriptionsservice_getcurrentsubscriptionforuser",
@@ -9245,7 +9890,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L316",
+      "source_location": "L324",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice",
       "_tgt": "subscriptions_service_subscriptionsservice_getusersubscriptions",
@@ -9257,7 +9902,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L340",
+      "source_location": "L348",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice",
       "_tgt": "subscriptions_service_subscriptionsservice_activatesubscription",
@@ -9269,7 +9914,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L388",
+      "source_location": "L396",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice",
       "_tgt": "subscriptions_service_subscriptionsservice_hasfeature",
@@ -9281,7 +9926,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L394",
+      "source_location": "L402",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice",
       "_tgt": "subscriptions_service_subscriptionsservice_ensuredefaultplans",
@@ -9293,7 +9938,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L422",
+      "source_location": "L430",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice",
       "_tgt": "subscriptions_service_subscriptionsservice_findactiveusersubscription",
@@ -9305,7 +9950,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L438",
+      "source_location": "L446",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice",
       "_tgt": "subscriptions_service_subscriptionsservice_mapplan",
@@ -9317,7 +9962,19 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L463",
+      "source_location": "L472",
+      "weight": 1.0,
+      "_src": "subscriptions_service_subscriptionsservice",
+      "_tgt": "subscriptions_service_subscriptionsservice_pricetonumber",
+      "source": "subscriptions_service_subscriptionsservice",
+      "target": "subscriptions_service_subscriptionsservice_pricetonumber",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
+      "source_location": "L481",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice",
       "_tgt": "subscriptions_service_subscriptionsservice_mapusersubscription",
@@ -9329,7 +9986,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L113",
+      "source_location": "L119",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_listplans",
       "_tgt": "subscriptions_service_subscriptionsservice_ensuredefaultplans",
@@ -9341,7 +9998,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L127",
+      "source_location": "L133",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_listplanspaginated",
       "_tgt": "subscriptions_service_subscriptionsservice_ensuredefaultplans",
@@ -9353,7 +10010,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L172",
+      "source_location": "L178",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_createplan",
       "_tgt": "subscriptions_service_subscriptionsservice_ensuredefaultplans",
@@ -9365,7 +10022,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L205",
+      "source_location": "L212",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_createplan",
       "_tgt": "subscriptions_service_subscriptionsservice_mapplan",
@@ -9389,7 +10046,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L254",
+      "source_location": "L262",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_updateplan",
       "_tgt": "subscriptions_service_subscriptionsservice_mapplan",
@@ -9401,7 +10058,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L279",
+      "source_location": "L287",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_setplanactive",
       "_tgt": "subscriptions_service_subscriptionsservice_mapplan",
@@ -9413,7 +10070,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L287",
+      "source_location": "L295",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_getcurrentsubscriptionforuser",
       "_tgt": "subscriptions_service_subscriptionsservice_ensuredefaultplans",
@@ -9425,7 +10082,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L290",
+      "source_location": "L298",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_getcurrentsubscriptionforuser",
       "_tgt": "subscriptions_service_subscriptionsservice_findactiveusersubscription",
@@ -9437,7 +10094,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L299",
+      "source_location": "L307",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_getcurrentsubscriptionforuser",
       "_tgt": "subscriptions_service_subscriptionsservice_mapusersubscription",
@@ -9449,7 +10106,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L307",
+      "source_location": "L315",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_getcurrentsubscriptionforuser",
       "_tgt": "subscriptions_service_subscriptionsservice_mapplan",
@@ -9461,7 +10118,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L320",
+      "source_location": "L328",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_getusersubscriptions",
       "_tgt": "subscriptions_service_subscriptionsservice_getcurrentsubscriptionforuser",
@@ -9473,7 +10130,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L389",
+      "source_location": "L397",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_hasfeature",
       "_tgt": "subscriptions_service_subscriptionsservice_getcurrentsubscriptionforuser",
@@ -9509,7 +10166,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L317",
+      "source_location": "L325",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_getusersubscriptions",
       "_tgt": "subscriptions_service_subscriptionsservice_ensuredefaultplans",
@@ -9521,7 +10178,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L341",
+      "source_location": "L349",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_activatesubscription",
       "_tgt": "subscriptions_service_subscriptionsservice_ensuredefaultplans",
@@ -9533,7 +10190,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L384",
+      "source_location": "L392",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_activatesubscription",
       "_tgt": "subscriptions_service_subscriptionsservice_mapusersubscription",
@@ -9545,7 +10202,19 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
-      "source_location": "L465",
+      "source_location": "L453",
+      "weight": 1.0,
+      "_src": "subscriptions_service_subscriptionsservice_mapplan",
+      "_tgt": "subscriptions_service_subscriptionsservice_pricetonumber",
+      "source": "subscriptions_service_subscriptionsservice_mapplan",
+      "target": "subscriptions_service_subscriptionsservice_pricetonumber",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/subscriptions.service.ts",
+      "source_location": "L483",
       "weight": 1.0,
       "_src": "subscriptions_service_subscriptionsservice_mapusersubscription",
       "_tgt": "subscriptions_service_subscriptionsservice_mapplan",
@@ -9581,7 +10250,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/api/src/subscriptions/dto/create-subscription-plan.dto.ts",
-      "source_location": "L13",
+      "source_location": "L15",
       "weight": 1.0,
       "_src": "users_deepjyotibaishya_projects_next_deepjyoti_next_admin_apps_api_src_subscriptions_dto_create_subscription_plan_dto_ts",
       "_tgt": "create_subscription_plan_dto_createsubscriptionplandto",

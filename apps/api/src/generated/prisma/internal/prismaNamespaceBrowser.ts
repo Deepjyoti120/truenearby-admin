@@ -68,7 +68,8 @@ export const ModelName = {
   SubscriptionPlan: 'SubscriptionPlan',
   UserSubscription: 'UserSubscription',
   Swipe: 'Swipe',
-  Report: 'Report'
+  Report: 'Report',
+  AppSettings: 'AppSettings'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -281,6 +282,7 @@ export const SubscriptionPlanScalarFieldEnum = {
   canUnblurLikes: 'canUnblurLikes',
   canPassport: 'canPassport',
   hideAds: 'hideAds',
+  price: 'price',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -325,6 +327,16 @@ export const ReportScalarFieldEnum = {
 } as const
 
 export type ReportScalarFieldEnum = (typeof ReportScalarFieldEnum)[keyof typeof ReportScalarFieldEnum]
+
+
+export const AppSettingsScalarFieldEnum = {
+  id: 'id',
+  currency: 'currency',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AppSettingsScalarFieldEnum = (typeof AppSettingsScalarFieldEnum)[keyof typeof AppSettingsScalarFieldEnum]
 
 
 export const SortOrder = {

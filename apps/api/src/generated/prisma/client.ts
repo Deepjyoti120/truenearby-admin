@@ -127,3 +127,8 @@ export type Swipe = Prisma.SwipeModel
  * 
  */
 export type Report = Prisma.ReportModel
+/**
+ * Model AppSettings
+ * 
+ */
+export type AppSettings = Prisma.AppSettingsModel

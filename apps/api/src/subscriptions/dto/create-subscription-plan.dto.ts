@@ -1,8 +1,10 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
 import {
   IsBoolean,
   IsEnum,
   IsInt,
+  IsNumber,
   IsOptional,
   IsString,
   MaxLength,
@@ -30,6 +32,17 @@ export class CreateSubscriptionPlanDto {
   @IsInt()
   @Min(1)
   durationDays!: number;
+
+  @ApiProperty({
+    example: 9.99,
+    minimum: 0,
+    description:
+      'Price in the currency configured in app settings (see GET /settings).',
+  })
+  @Type(() => Number)
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0)
+  price!: number;
 
   @ApiPropertyOptional({ default: true })
   @IsOptional()
