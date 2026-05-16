@@ -101,13 +101,11 @@ function PlanRowItem({
   onToggle,
   onEdit,
   isPending,
-  canEdit,
 }: {
   plan: AdminSubscriptionPlanRow
   onToggle: (next: boolean) => void
   onEdit: () => void
   isPending: boolean
-  canEdit: boolean
 }) {
   const activeFeatures = countActiveFeatures(plan)
   const isFree = plan.isDefault
@@ -144,7 +142,7 @@ function PlanRowItem({
           <Switch
             checked={plan.isActive}
             onCheckedChange={onToggle}
-            disabled={isPending || isFree || !canEdit}
+            disabled={isPending || isFree}
             aria-label={plan.isActive ? "Deactivate plan" : "Activate plan"}
           />
           <span
@@ -157,12 +155,7 @@ function PlanRowItem({
         </div>
       </TableCell>
       <TableCell className="pr-6 text-right">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={onEdit}
-          disabled={!canEdit}
-        >
+        <Button variant="outline" size="sm" onClick={onEdit}>
           <Pencil className="size-4" />
           Edit
         </Button>
@@ -214,8 +207,10 @@ export default function SubscriptionsPage() {
   const { data, isLoading, isFetching, isError, error, refetch } =
     usePlansQuery(queryInput)
   const activeMutation = useSetPlanActiveMutation()
+  // Matches users page convention: the hook name is misleading — it returns
+  // `true` when the account is in restricted/read-only mode. Click handlers
+  // toast and short-circuit; we never visually disable based on this.
   const isReadOnly = useIsEditAccess()
-  const canEdit = !isReadOnly
 
   const rows = data?.data ?? []
   const totalPages = data?.meta.totalPages ?? 1
@@ -246,7 +241,7 @@ export default function SubscriptionsPage() {
   }
 
   const handleToggle = (plan: AdminSubscriptionPlanRow, next: boolean) => {
-    if (!canEdit) {
+    if (isReadOnly) {
       toast.error("Editing is disabled for this account")
       return
     }
@@ -272,7 +267,7 @@ export default function SubscriptionsPage() {
   }
 
   const openCreate = () => {
-    if (!canEdit) {
+    if (isReadOnly) {
       toast.error("Editing is disabled for this account")
       return
     }
@@ -282,7 +277,7 @@ export default function SubscriptionsPage() {
   }
 
   const openEdit = (plan: AdminSubscriptionPlanRow) => {
-    if (!canEdit) {
+    if (isReadOnly) {
       toast.error("Editing is disabled for this account")
       return
     }
@@ -319,7 +314,7 @@ export default function SubscriptionsPage() {
                     : `${total} plan${total === 1 ? "" : "s"} found`}
                 </CardDescription>
               </div>
-              <Button onClick={openCreate} disabled={!canEdit}>
+              <Button onClick={openCreate}>
                 <Plus className="size-4" />
                 New plan
               </Button>
@@ -469,7 +464,6 @@ export default function SubscriptionsPage() {
                     <PlanRowItem
                       key={plan.planId}
                       plan={plan}
-                      canEdit={canEdit}
                       isPending={
                         activeMutation.isPending &&
                         activeMutation.variables?.id === plan.planId

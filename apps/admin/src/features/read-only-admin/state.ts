@@ -7,6 +7,8 @@ export const RESTRICTED_EDIT_EMAIL = "1deepjyosssti120281@gmail.com"
 export function useIsEditAccess(): boolean {
   const { data } = useAdminProfileQuery()
   const email = data?.account.email
-  if (!email) return false
+  // Default to "restricted" while the profile is still loading so a quick
+  // click on Create/Edit during initial mount cannot bypass the check.
+  if (!email) return true
   return email.toLowerCase() === RESTRICTED_EDIT_EMAIL.toLowerCase()
 }

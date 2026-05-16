@@ -1,7 +1,7 @@
 # Graph Report - /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin  (2026-05-16)
 
 ## Corpus Check
-- 194 files · ~309,134 words
+- 194 files · ~310,549 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -192,14 +192,14 @@
 10. `UsersController` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `performRefresh()` --calls--> `set()`  [INFERRED]
-  apps/admin/src/lib/api.ts → /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx
+- `set()` --calls--> `performRefresh()`  [INFERRED]
+  /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx → apps/admin/src/lib/api.ts
 - `onSubmit()` --calls--> `apiLogin()`  [INFERRED]
   /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/components/login-form.tsx → apps/admin/src/lib/api.ts
-- `fetchUsers()` --calls--> `set()`  [INFERRED]
-  apps/admin/src/features/users/api.ts → /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx
-- `apiLogin()` --calls--> `set()`  [INFERRED]
-  apps/admin/src/lib/api.ts → /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx
+- `set()` --calls--> `fetchUsers()`  [INFERRED]
+  /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx → apps/admin/src/features/users/api.ts
+- `set()` --calls--> `apiLogin()`  [INFERRED]
+  /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/subscription-form-sheet.tsx → apps/admin/src/lib/api.ts
 - `fetchPlans()` --calls--> `apiFetch()`  [INFERRED]
   /Users/deepjyotibaishya/Projects/next/deepjyoti-next-admin/apps/admin/src/features/subscriptions/api.ts → apps/admin/src/lib/api.ts
 
