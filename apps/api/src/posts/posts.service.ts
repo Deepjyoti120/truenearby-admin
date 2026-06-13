@@ -27,7 +27,7 @@ export class PostsService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly imageKitService: ImageKitService,
-  ) {}
+  ) { }
 
   async listForAdmin(dto: ListPostsDto) {
     const page = dto.page ?? 1;
@@ -154,7 +154,7 @@ export class PostsService {
 
     const [posts, total] = await this.prisma.$transaction([
       this.prisma.post.findMany({
-        where: { userId },
+        where: { userId, isActive: true, isVerified: true },
         skip,
         take: limit,
         orderBy: {
