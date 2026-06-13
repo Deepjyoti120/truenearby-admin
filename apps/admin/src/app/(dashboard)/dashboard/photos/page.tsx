@@ -1,7 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Search, X } from "lucide-react"
+import { BadgeCheck, Ban, Check, Search, X } from "lucide-react"
+import { toast } from "sonner"
 
 import { AppSidebarLayout } from "@/components/app-sidebar-layout"
 import { Button } from "@/components/ui/button"
@@ -22,11 +23,29 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { Skeleton } from "@/components/ui/skeleton"
-import type { AdminPhotoRow } from "@/features/photos/api"
-import { usePhotosQuery } from "@/features/photos/query"
+import type { AdminPhotoRow, PhotoVerifiedFilter } from "@/features/photos/api"
+import {
+  usePhotosQuery,
+  useSetPhotoActiveMutation,
+  useSetPhotoVerifiedMutation,
+  useVerifyPhotosMutation,
+} from "@/features/photos/query"
 
 const PAGE_SIZE = 20
+
+const VERIFIED_OPTIONS: { value: PhotoVerifiedFilter; label: string }[] = [
+  { value: "unverified", label: "Not verified" },
+  { value: "verified", label: "Verified" },
+  { value: "all", label: "All" },
+]
 
 type PageToken = number | "ellipsis-start" | "ellipsis-end"
 
@@ -49,34 +68,141 @@ function buildPageList(current: number, total: number): PageToken[] {
 function PhotoTile({
   photo,
   onZoom,
+  onVerify,
+  onDeactivate,
+  busy,
 }: {
   photo: AdminPhotoRow
   onZoom: () => void
+  onVerify: () => void
+  onDeactivate: () => void
+  busy: boolean
 }) {
   const label = photo.ownerName || photo.ownerEmail || "Unknown user"
   return (
-    <button
-      type="button"
-      onClick={onZoom}
-      className="group relative aspect-square overflow-hidden rounded-xl border border-slate-200 bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-      aria-label={`Zoom photo from ${label}`}
-    >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={photo.url}
-        alt={`Photo from ${label}`}
-        loading="lazy"
-        className="size-full object-cover transition-transform duration-200 group-hover:scale-105"
-      />
-      {photo.isPrimary ? (
-        <span className="absolute left-2 top-2 rounded-full bg-emerald-600/90 px-2 py-0.5 text-[10px] font-medium text-white shadow-sm">
-          Primary
-        </span>
-      ) : null}
-      <span className="absolute inset-x-0 bottom-0 truncate bg-gradient-to-t from-black/70 to-transparent px-2 py-2 text-left text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
+    <div className="group relative aspect-square overflow-hidden rounded-xl border border-slate-200 bg-slate-100 focus-within:ring-2 focus-within:ring-emerald-500">
+      <button
+        type="button"
+        onClick={onZoom}
+        className="absolute inset-0 focus:outline-none"
+        aria-label={`Zoom photo from ${label}`}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={photo.url}
+          alt={`Photo from ${label}`}
+          loading="lazy"
+          className={`size-full object-cover transition-transform duration-200 group-hover:scale-105 ${
+            photo.isActive ? "" : "opacity-40 grayscale"
+          }`}
+        />
+      </button>
+
+      <div className="pointer-events-none absolute left-2 top-2 flex flex-wrap gap-1">
+        {photo.isPrimary ? (
+          <span className="rounded-full bg-emerald-600/90 px-2 py-0.5 text-[10px] font-medium text-white shadow-sm">
+            Primary
+          </span>
+        ) : null}
+        {photo.isVerified ? (
+          <span className="flex items-center gap-1 rounded-full bg-sky-600/90 px-2 py-0.5 text-[10px] font-medium text-white shadow-sm">
+            <BadgeCheck className="size-3" /> Verified
+          </span>
+        ) : null}
+        {!photo.isActive ? (
+          <span className="rounded-full bg-rose-600/90 px-2 py-0.5 text-[10px] font-medium text-white shadow-sm">
+            Inactive
+          </span>
+        ) : null}
+      </div>
+
+      <div className="absolute right-2 top-2 flex gap-1 opacity-0 transition-opacity focus-within:opacity-100 group-hover:opacity-100">
+        {!photo.isVerified ? (
+          <button
+            type="button"
+            onClick={onVerify}
+            disabled={busy}
+            title="Verify photo"
+            aria-label="Verify photo"
+            className="rounded-full bg-white/90 p-1.5 text-emerald-700 shadow-sm transition-colors hover:bg-white disabled:opacity-50"
+          >
+            <Check className="size-4" />
+          </button>
+        ) : null}
+        {photo.isActive ? (
+          <button
+            type="button"
+            onClick={onDeactivate}
+            disabled={busy}
+            title="Deactivate photo"
+            aria-label="Deactivate photo"
+            className="rounded-full bg-white/90 p-1.5 text-rose-700 shadow-sm transition-colors hover:bg-white disabled:opacity-50"
+          >
+            <Ban className="size-4" />
+          </button>
+        ) : null}
+      </div>
+
+      <span className="pointer-events-none absolute inset-x-0 bottom-0 truncate bg-gradient-to-t from-black/70 to-transparent px-2 py-2 text-left text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
         {label}
       </span>
-    </button>
+    </div>
+  )
+}
+
+function ConfirmDialog({
+  title,
+  description,
+  confirmLabel,
+  busy,
+  onConfirm,
+  onCancel,
+}: {
+  title: string
+  description: string
+  confirmLabel: string
+  busy: boolean
+  onConfirm: () => void
+  onCancel: () => void
+}) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onCancel()
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [onCancel])
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm"
+      onClick={onCancel}
+      role="dialog"
+      aria-modal="true"
+      aria-label={title}
+    >
+      <div
+        className="w-full max-w-sm space-y-4 rounded-xl bg-white p-6 shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="space-y-1">
+          <h2 className="text-base font-semibold text-slate-900">{title}</h2>
+          <p className="text-sm leading-6 text-slate-600">{description}</p>
+        </div>
+        <div className="flex justify-end gap-2">
+          <Button variant="outline" onClick={onCancel} disabled={busy}>
+            Cancel
+          </Button>
+          <Button
+            variant="destructive"
+            onClick={onConfirm}
+            disabled={busy}
+          >
+            {busy ? "Working…" : confirmLabel}
+          </Button>
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -148,20 +274,30 @@ export default function PhotosPage() {
 
   const [searchInput, setSearchInput] = useState("")
   const [applied, setApplied] = useState("")
+  const [verified, setVerified] = useState<PhotoVerifiedFilter>("unverified")
   const [page, setPage] = useState(1)
   const [active, setActive] = useState<AdminPhotoRow | null>(null)
+  const [pendingDeactivate, setPendingDeactivate] =
+    useState<AdminPhotoRow | null>(null)
 
   const { data, isLoading, isFetching, isError, error, refetch } =
     usePhotosQuery({
       page,
       limit: PAGE_SIZE,
       search: applied || undefined,
+      verified,
     })
+
+  const verifyOne = useSetPhotoVerifiedMutation()
+  const verifyAll = useVerifyPhotosMutation()
+  const setPhotoActive = useSetPhotoActiveMutation()
 
   const photos = data?.data ?? []
   const totalPages = data?.meta.totalPages ?? 1
   const total = data?.meta.total ?? 0
   const pageTokens = buildPageList(page, totalPages)
+
+  const unverifiedOnPage = photos.filter((p) => !p.isVerified)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -172,7 +308,57 @@ export default function PhotosPage() {
   const handleReset = () => {
     setSearchInput("")
     setApplied("")
+    setVerified("unverified")
     setPage(1)
+  }
+
+  const handleVerifyOne = (photo: AdminPhotoRow) => {
+    verifyOne.mutate(
+      { id: photo.id, isVerified: true },
+      {
+        onSuccess: () => toast.success("Photo verified"),
+        onError: (err) =>
+          toast.error("Could not verify photo", {
+            description: err instanceof Error ? err.message : "Unknown error",
+          }),
+      },
+    )
+  }
+
+  const handleVerifyAll = () => {
+    const ids = unverifiedOnPage.map((p) => p.id)
+    if (ids.length === 0) return
+    verifyAll.mutate(
+      { ids, isVerified: true },
+      {
+        onSuccess: () =>
+          toast.success(`Verified ${ids.length} photo${ids.length === 1 ? "" : "s"}`),
+        onError: (err) =>
+          toast.error("Could not verify photos", {
+            description: err instanceof Error ? err.message : "Unknown error",
+          }),
+      },
+    )
+  }
+
+  const handleConfirmDeactivate = () => {
+    if (!pendingDeactivate) return
+    const photo = pendingDeactivate
+    setPhotoActive.mutate(
+      { id: photo.id, isActive: false },
+      {
+        onSuccess: () => {
+          toast.success("Photo deactivated")
+          setPendingDeactivate(null)
+        },
+        onError: (err) => {
+          toast.error("Could not deactivate photo", {
+            description: err instanceof Error ? err.message : "Unknown error",
+          })
+          setPendingDeactivate(null)
+        },
+      },
+    )
   }
 
   return (
@@ -216,6 +402,28 @@ export default function PhotosPage() {
                 />
               </div>
 
+              <Select
+                value={verified}
+                onValueChange={(v) => {
+                  setVerified(v as PhotoVerifiedFilter)
+                  setPage(1)
+                }}
+              >
+                <SelectTrigger
+                  className="sm:w-44"
+                  aria-label="Filter by verification"
+                >
+                  <SelectValue placeholder="Verification" />
+                </SelectTrigger>
+                <SelectContent>
+                  {VERIFIED_OPTIONS.map((opt) => (
+                    <SelectItem key={opt.value} value={opt.value}>
+                      {opt.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
               <div className="flex gap-2 sm:ml-auto">
                 <Button
                   type="submit"
@@ -223,13 +431,31 @@ export default function PhotosPage() {
                 >
                   Search
                 </Button>
-                {applied ? (
+                {applied || verified !== "unverified" ? (
                   <Button type="button" variant="outline" onClick={handleReset}>
                     Reset
                   </Button>
                 ) : null}
               </div>
             </form>
+
+            {unverifiedOnPage.length > 0 ? (
+              <div className="flex items-center justify-between gap-3 rounded-lg border border-slate-100 bg-slate-50 px-4 py-3">
+                <p className="text-sm text-slate-600">
+                  {unverifiedOnPage.length} unverified photo
+                  {unverifiedOnPage.length === 1 ? "" : "s"} on this page
+                </p>
+                <Button
+                  type="button"
+                  size="sm"
+                  onClick={handleVerifyAll}
+                  disabled={verifyAll.isPending}
+                >
+                  <BadgeCheck className="size-4" />
+                  {verifyAll.isPending ? "Verifying…" : "Verify all on page"}
+                </Button>
+              </div>
+            ) : null}
           </CardHeader>
 
           <CardContent className="pt-6">
@@ -259,8 +485,8 @@ export default function PhotosPage() {
               </div>
             ) : photos.length === 0 ? (
               <div className="py-10 text-center text-sm text-slate-500">
-                {applied
-                  ? "No photos match the current search."
+                {applied || verified !== "all"
+                  ? "No photos match the current filters."
                   : "No photos found yet."}
               </div>
             ) : (
@@ -270,6 +496,14 @@ export default function PhotosPage() {
                     key={photo.id}
                     photo={photo}
                     onZoom={() => setActive(photo)}
+                    onVerify={() => handleVerifyOne(photo)}
+                    onDeactivate={() => setPendingDeactivate(photo)}
+                    busy={
+                      (verifyOne.isPending &&
+                        verifyOne.variables?.id === photo.id) ||
+                      (setPhotoActive.isPending &&
+                        setPhotoActive.variables?.id === photo.id)
+                    }
                   />
                 ))}
               </div>
@@ -321,6 +555,21 @@ export default function PhotosPage() {
       </div>
 
       {active ? <Lightbox photo={active} onClose={() => setActive(null)} /> : null}
+
+      {pendingDeactivate ? (
+        <ConfirmDialog
+          title="Deactivate photo?"
+          description={`This photo from ${
+            pendingDeactivate.ownerName ||
+            pendingDeactivate.ownerEmail ||
+            "this user"
+          } will be deactivated and hidden from the user.`}
+          confirmLabel="Deactivate"
+          busy={setPhotoActive.isPending}
+          onConfirm={handleConfirmDeactivate}
+          onCancel={() => setPendingDeactivate(null)}
+        />
+      ) : null}
     </AppSidebarLayout>
   )
 }

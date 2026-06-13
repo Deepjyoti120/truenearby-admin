@@ -18,23 +18,30 @@ export class PhotosService {
     const limit = dto.limit ?? 20;
     const skip = (page - 1) * limit;
     const search = dto.search?.trim();
+    const verified = dto.verified ?? 'unverified';
 
-    const where: Prisma.PhotoWhereInput = search
-      ? {
-          user: {
-            is: {
-              OR: [
-                { email: { contains: search, mode: 'insensitive' } },
-                {
-                  profile: {
-                    is: { name: { contains: search, mode: 'insensitive' } },
-                  },
-                },
-              ],
+    const where: Prisma.PhotoWhereInput = {};
+
+    if (search) {
+      where.user = {
+        is: {
+          OR: [
+            { email: { contains: search, mode: 'insensitive' } },
+            {
+              profile: {
+                is: { name: { contains: search, mode: 'insensitive' } },
+              },
             },
-          },
-        }
-      : {};
+          ],
+        },
+      };
+    }
+
+    if (verified === 'verified') {
+      where.isVerified = true;
+    } else if (verified === 'unverified') {
+      where.isVerified = false;
+    }
 
     const [total, items] = await this.prisma.$transaction([
       this.prisma.photo.count({ where }),
@@ -47,6 +54,8 @@ export class PhotosService {
           id: true,
           url: true,
           isPrimary: true,
+          isVerified: true,
+          isActive: true,
           createdAt: true,
           userId: true,
           user: {
@@ -64,6 +73,8 @@ export class PhotosService {
         id: p.id,
         url: p.url,
         isPrimary: p.isPrimary,
+        isVerified: p.isVerified,
+        isActive: p.isActive,
         createdAt: p.createdAt,
         userId: p.userId,
         ownerEmail: p.user?.email ?? null,
@@ -160,6 +171,47 @@ export class PhotosService {
 
     return { success: true };
   }
+  async setVerified(photoId: string, isVerified: boolean) {
+    const photo = await this.prisma.photo.findUnique({
+      where: { id: photoId },
+      select: { id: true },
+    });
+    if (!photo) {
+      throw new BadRequestException('Photo not found');
+    }
+    await this.prisma.photo.update({
+      where: { id: photoId },
+      data: { isVerified },
+    });
+    return { id: photoId, isVerified };
+  }
+
+  async verifyMany(ids: string[], isVerified: boolean) {
+    if (!ids?.length) {
+      throw new BadRequestException('No photos selected');
+    }
+    const result = await this.prisma.photo.updateMany({
+      where: { id: { in: ids } },
+      data: { isVerified },
+    });
+    return { count: result.count, isVerified };
+  }
+
+  async setActive(photoId: string, isActive: boolean) {
+    const photo = await this.prisma.photo.findUnique({
+      where: { id: photoId },
+      select: { id: true },
+    });
+    if (!photo) {
+      throw new BadRequestException('Photo not found');
+    }
+    await this.prisma.photo.update({
+      where: { id: photoId },
+      data: { isActive },
+    });
+    return { id: photoId, isActive };
+  }
+
   async uploadToImageKit(userId: string, file: Express.Multer.File) {
     if (!file) throw new BadRequestException('No file uploaded');
 

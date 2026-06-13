@@ -1,6 +1,16 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsInt, IsOptional, IsString, Max, Min } from 'class-validator';
+import {
+  IsBoolean,
+  IsIn,
+  IsInt,
+  IsOptional,
+  IsString,
+  Max,
+  Min,
+} from 'class-validator';
+
+export type PhotoVerifiedFilter = 'verified' | 'unverified' | 'all';
 
 export class ListPhotosDto {
   @ApiPropertyOptional({ default: 1, minimum: 1 })
@@ -22,4 +32,24 @@ export class ListPhotosDto {
   @IsOptional()
   @IsString()
   search?: string;
+
+  @ApiPropertyOptional({
+    enum: ['verified', 'unverified', 'all'],
+    default: 'unverified',
+    description: 'Filter by verification status',
+  })
+  @IsOptional()
+  @IsIn(['verified', 'unverified', 'all'])
+  verified?: PhotoVerifiedFilter = 'unverified';
+}
+
+export class VerifyPhotosDto {
+  @ApiPropertyOptional({ type: [String], description: 'Photo ids to update' })
+  @IsString({ each: true })
+  ids!: string[];
+
+  @ApiPropertyOptional({ default: true })
+  @IsOptional()
+  @IsBoolean()
+  isVerified?: boolean;
 }

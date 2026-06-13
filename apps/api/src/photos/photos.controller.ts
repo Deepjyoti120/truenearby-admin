@@ -14,7 +14,7 @@ import {
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from '@nestjs/swagger';
 import { ImageKitService } from './imagekit.service';
 import { PhotosService } from './photos.service';
-import { ListPhotosDto } from './dto/list-photos.dto';
+import { ListPhotosDto, VerifyPhotosDto } from './dto/list-photos.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth/jwt-auth.guard';
 import {
   CurrentUser,
@@ -42,6 +42,30 @@ export class PhotosController {
   @Get('admin')
   listPhotos(@Query() query: ListPhotosDto) {
     return this.photosService.listPhotos(query);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch('admin/:photoId/verify')
+  verifyPhoto(
+    @Param('photoId') photoId: string,
+    @Body() body: { isVerified: boolean },
+  ) {
+    return this.photosService.setVerified(photoId, body.isVerified);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('admin/verify')
+  verifyManyPhotos(@Body() body: VerifyPhotosDto) {
+    return this.photosService.verifyMany(body.ids, body.isVerified ?? true);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch('admin/:photoId/active')
+  setPhotoActive(
+    @Param('photoId') photoId: string,
+    @Body() body: { isActive: boolean },
+  ) {
+    return this.photosService.setActive(photoId, body.isActive);
   }
 
   @UseGuards(JwtAuthGuard)

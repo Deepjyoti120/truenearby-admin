@@ -30,6 +30,8 @@ export type PhotoMinAggregateOutputType = {
   url: string | null
   fileId: string | null
   isPrimary: boolean | null
+  isVerified: boolean | null
+  isActive: boolean | null
   createdAt: Date | null
 }
 
@@ -39,6 +41,8 @@ export type PhotoMaxAggregateOutputType = {
   url: string | null
   fileId: string | null
   isPrimary: boolean | null
+  isVerified: boolean | null
+  isActive: boolean | null
   createdAt: Date | null
 }
 
@@ -48,6 +52,8 @@ export type PhotoCountAggregateOutputType = {
   url: number
   fileId: number
   isPrimary: number
+  isVerified: number
+  isActive: number
   createdAt: number
   _all: number
 }
@@ -59,6 +65,8 @@ export type PhotoMinAggregateInputType = {
   url?: true
   fileId?: true
   isPrimary?: true
+  isVerified?: true
+  isActive?: true
   createdAt?: true
 }
 
@@ -68,6 +76,8 @@ export type PhotoMaxAggregateInputType = {
   url?: true
   fileId?: true
   isPrimary?: true
+  isVerified?: true
+  isActive?: true
   createdAt?: true
 }
 
@@ -77,6 +87,8 @@ export type PhotoCountAggregateInputType = {
   url?: true
   fileId?: true
   isPrimary?: true
+  isVerified?: true
+  isActive?: true
   createdAt?: true
   _all?: true
 }
@@ -159,6 +171,8 @@ export type PhotoGroupByOutputType = {
   url: string
   fileId: string
   isPrimary: boolean
+  isVerified: boolean
+  isActive: boolean
   createdAt: Date
   _count: PhotoCountAggregateOutputType | null
   _min: PhotoMinAggregateOutputType | null
@@ -189,6 +203,8 @@ export type PhotoWhereInput = {
   url?: Prisma.StringFilter<"Photo"> | string
   fileId?: Prisma.StringFilter<"Photo"> | string
   isPrimary?: Prisma.BoolFilter<"Photo"> | boolean
+  isVerified?: Prisma.BoolFilter<"Photo"> | boolean
+  isActive?: Prisma.BoolFilter<"Photo"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Photo"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
@@ -199,6 +215,8 @@ export type PhotoOrderByWithRelationInput = {
   url?: Prisma.SortOrder
   fileId?: Prisma.SortOrder
   isPrimary?: Prisma.SortOrder
+  isVerified?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
 }
@@ -212,6 +230,8 @@ export type PhotoWhereUniqueInput = Prisma.AtLeast<{
   url?: Prisma.StringFilter<"Photo"> | string
   fileId?: Prisma.StringFilter<"Photo"> | string
   isPrimary?: Prisma.BoolFilter<"Photo"> | boolean
+  isVerified?: Prisma.BoolFilter<"Photo"> | boolean
+  isActive?: Prisma.BoolFilter<"Photo"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Photo"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
@@ -222,6 +242,8 @@ export type PhotoOrderByWithAggregationInput = {
   url?: Prisma.SortOrder
   fileId?: Prisma.SortOrder
   isPrimary?: Prisma.SortOrder
+  isVerified?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.PhotoCountOrderByAggregateInput
   _max?: Prisma.PhotoMaxOrderByAggregateInput
@@ -237,6 +259,8 @@ export type PhotoScalarWhereWithAggregatesInput = {
   url?: Prisma.StringWithAggregatesFilter<"Photo"> | string
   fileId?: Prisma.StringWithAggregatesFilter<"Photo"> | string
   isPrimary?: Prisma.BoolWithAggregatesFilter<"Photo"> | boolean
+  isVerified?: Prisma.BoolWithAggregatesFilter<"Photo"> | boolean
+  isActive?: Prisma.BoolWithAggregatesFilter<"Photo"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Photo"> | Date | string
 }
 
@@ -245,6 +269,8 @@ export type PhotoCreateInput = {
   url: string
   fileId: string
   isPrimary?: boolean
+  isVerified?: boolean
+  isActive?: boolean
   createdAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutPhotosInput
 }
@@ -255,6 +281,8 @@ export type PhotoUncheckedCreateInput = {
   url: string
   fileId: string
   isPrimary?: boolean
+  isVerified?: boolean
+  isActive?: boolean
   createdAt?: Date | string
 }
 
@@ -263,6 +291,8 @@ export type PhotoUpdateInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   fileId?: Prisma.StringFieldUpdateOperationsInput | string
   isPrimary?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutPhotosNestedInput
 }
@@ -273,6 +303,8 @@ export type PhotoUncheckedUpdateInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   fileId?: Prisma.StringFieldUpdateOperationsInput | string
   isPrimary?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -282,6 +314,8 @@ export type PhotoCreateManyInput = {
   url: string
   fileId: string
   isPrimary?: boolean
+  isVerified?: boolean
+  isActive?: boolean
   createdAt?: Date | string
 }
 
@@ -290,6 +324,8 @@ export type PhotoUpdateManyMutationInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   fileId?: Prisma.StringFieldUpdateOperationsInput | string
   isPrimary?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -299,6 +335,8 @@ export type PhotoUncheckedUpdateManyInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   fileId?: Prisma.StringFieldUpdateOperationsInput | string
   isPrimary?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -318,6 +356,8 @@ export type PhotoCountOrderByAggregateInput = {
   url?: Prisma.SortOrder
   fileId?: Prisma.SortOrder
   isPrimary?: Prisma.SortOrder
+  isVerified?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -327,6 +367,8 @@ export type PhotoMaxOrderByAggregateInput = {
   url?: Prisma.SortOrder
   fileId?: Prisma.SortOrder
   isPrimary?: Prisma.SortOrder
+  isVerified?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -336,6 +378,8 @@ export type PhotoMinOrderByAggregateInput = {
   url?: Prisma.SortOrder
   fileId?: Prisma.SortOrder
   isPrimary?: Prisma.SortOrder
+  isVerified?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -386,6 +430,8 @@ export type PhotoCreateWithoutUserInput = {
   url: string
   fileId: string
   isPrimary?: boolean
+  isVerified?: boolean
+  isActive?: boolean
   createdAt?: Date | string
 }
 
@@ -394,6 +440,8 @@ export type PhotoUncheckedCreateWithoutUserInput = {
   url: string
   fileId: string
   isPrimary?: boolean
+  isVerified?: boolean
+  isActive?: boolean
   createdAt?: Date | string
 }
 
@@ -432,6 +480,8 @@ export type PhotoScalarWhereInput = {
   url?: Prisma.StringFilter<"Photo"> | string
   fileId?: Prisma.StringFilter<"Photo"> | string
   isPrimary?: Prisma.BoolFilter<"Photo"> | boolean
+  isVerified?: Prisma.BoolFilter<"Photo"> | boolean
+  isActive?: Prisma.BoolFilter<"Photo"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Photo"> | Date | string
 }
 
@@ -440,6 +490,8 @@ export type PhotoCreateManyUserInput = {
   url: string
   fileId: string
   isPrimary?: boolean
+  isVerified?: boolean
+  isActive?: boolean
   createdAt?: Date | string
 }
 
@@ -448,6 +500,8 @@ export type PhotoUpdateWithoutUserInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   fileId?: Prisma.StringFieldUpdateOperationsInput | string
   isPrimary?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -456,6 +510,8 @@ export type PhotoUncheckedUpdateWithoutUserInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   fileId?: Prisma.StringFieldUpdateOperationsInput | string
   isPrimary?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -464,6 +520,8 @@ export type PhotoUncheckedUpdateManyWithoutUserInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   fileId?: Prisma.StringFieldUpdateOperationsInput | string
   isPrimary?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -475,6 +533,8 @@ export type PhotoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   url?: boolean
   fileId?: boolean
   isPrimary?: boolean
+  isVerified?: boolean
+  isActive?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["photo"]>
@@ -485,6 +545,8 @@ export type PhotoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   url?: boolean
   fileId?: boolean
   isPrimary?: boolean
+  isVerified?: boolean
+  isActive?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["photo"]>
@@ -495,6 +557,8 @@ export type PhotoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   url?: boolean
   fileId?: boolean
   isPrimary?: boolean
+  isVerified?: boolean
+  isActive?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["photo"]>
@@ -505,10 +569,12 @@ export type PhotoSelectScalar = {
   url?: boolean
   fileId?: boolean
   isPrimary?: boolean
+  isVerified?: boolean
+  isActive?: boolean
   createdAt?: boolean
 }
 
-export type PhotoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "url" | "fileId" | "isPrimary" | "createdAt", ExtArgs["result"]["photo"]>
+export type PhotoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "url" | "fileId" | "isPrimary" | "isVerified" | "isActive" | "createdAt", ExtArgs["result"]["photo"]>
 export type PhotoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -530,6 +596,8 @@ export type $PhotoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     url: string
     fileId: string
     isPrimary: boolean
+    isVerified: boolean
+    isActive: boolean
     createdAt: Date
   }, ExtArgs["result"]["photo"]>
   composites: {}
@@ -960,6 +1028,8 @@ export interface PhotoFieldRefs {
   readonly url: Prisma.FieldRef<"Photo", 'String'>
   readonly fileId: Prisma.FieldRef<"Photo", 'String'>
   readonly isPrimary: Prisma.FieldRef<"Photo", 'Boolean'>
+  readonly isVerified: Prisma.FieldRef<"Photo", 'Boolean'>
+  readonly isActive: Prisma.FieldRef<"Photo", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"Photo", 'DateTime'>
 }
     

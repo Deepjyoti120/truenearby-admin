@@ -127,9 +127,11 @@ model Photo {
   userId String @db.Uuid
   user   User   @relation(fields: [userId], references: [id])
 
-  url       String
-  fileId    String
-  isPrimary Boolean @default(false)
+  url        String
+  fileId     String
+  isPrimary  Boolean @default(false)
+  isVerified Boolean @default(false)
+  isActive   Boolean @default(true)
 
   createdAt DateTime @default(now())
 
