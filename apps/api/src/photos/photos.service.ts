@@ -1,6 +1,8 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { ImageKitService } from './imagekit.service';
+import { ListPhotosDto } from './dto/list-photos.dto';
+import { Prisma } from '../generated/prisma/client';
 
 @Injectable()
 export class PhotosService {
@@ -10,6 +12,71 @@ export class PhotosService {
     private readonly prisma: PrismaService,
     private readonly imageKitService: ImageKitService,
   ) {}
+
+  async listPhotos(dto: ListPhotosDto) {
+    const page = dto.page ?? 1;
+    const limit = dto.limit ?? 20;
+    const skip = (page - 1) * limit;
+    const search = dto.search?.trim();
+
+    const where: Prisma.PhotoWhereInput = search
+      ? {
+          user: {
+            is: {
+              OR: [
+                { email: { contains: search, mode: 'insensitive' } },
+                {
+                  profile: {
+                    is: { name: { contains: search, mode: 'insensitive' } },
+                  },
+                },
+              ],
+            },
+          },
+        }
+      : {};
+
+    const [total, items] = await this.prisma.$transaction([
+      this.prisma.photo.count({ where }),
+      this.prisma.photo.findMany({
+        where,
+        orderBy: { createdAt: 'desc' },
+        skip,
+        take: limit,
+        select: {
+          id: true,
+          url: true,
+          isPrimary: true,
+          createdAt: true,
+          userId: true,
+          user: {
+            select: {
+              email: true,
+              profile: { select: { name: true } },
+            },
+          },
+        },
+      }),
+    ]);
+
+    return {
+      data: items.map((p) => ({
+        id: p.id,
+        url: p.url,
+        isPrimary: p.isPrimary,
+        createdAt: p.createdAt,
+        userId: p.userId,
+        ownerEmail: p.user?.email ?? null,
+        ownerName: p.user?.profile?.name ?? null,
+      })),
+      meta: {
+        page,
+        limit,
+        total,
+        totalPages: Math.max(1, Math.ceil(total / limit)),
+      },
+    };
+  }
 
   async save(userId: string, url: string, fileId: string) {
     const count = await this.prisma.photo.count({

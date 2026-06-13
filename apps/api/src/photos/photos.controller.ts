@@ -9,10 +9,12 @@ import {
   Delete,
   UseInterceptors,
   UploadedFile,
+  Query,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from '@nestjs/swagger';
 import { ImageKitService } from './imagekit.service';
 import { PhotosService } from './photos.service';
+import { ListPhotosDto } from './dto/list-photos.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth/jwt-auth.guard';
 import {
   CurrentUser,
@@ -34,6 +36,12 @@ export class PhotosController {
   @Get('upload-auth')
   getUploadAuth() {
     return this.imageKitService.getUploadAuth();
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('admin')
+  listPhotos(@Query() query: ListPhotosDto) {
+    return this.photosService.listPhotos(query);
   }
 
   @UseGuards(JwtAuthGuard)
