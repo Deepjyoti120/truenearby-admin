@@ -154,7 +154,7 @@ export class PostsService {
 
     const [posts, total] = await this.prisma.$transaction([
       this.prisma.post.findMany({
-        where: { userId, isActive: true, isVerified: true },
+        where: { userId, isActive: true }, //, isVerified: true
         skip,
         take: limit,
         orderBy: {
@@ -162,7 +162,7 @@ export class PostsService {
         },
       }),
       this.prisma.post.count({
-        where: { userId, isActive: true, isVerified: true },
+        where: { userId, isActive: true }, //, isVerified: true
       }),
     ]);
 
