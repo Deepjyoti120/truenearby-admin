@@ -162,7 +162,7 @@ export class PostsService {
         },
       }),
       this.prisma.post.count({
-        where: { userId },
+        where: { userId, isActive: true, isVerified: true },
       }),
     ]);
 
