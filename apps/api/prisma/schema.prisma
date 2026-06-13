@@ -150,6 +150,9 @@ model Post {
   imageUrls    String[]
   imageFileIds String[]
 
+  isVerified Boolean @default(false)
+  isActive   Boolean @default(true)
+
   latitude  Float
   longitude Float
 

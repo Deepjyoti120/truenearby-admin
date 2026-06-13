@@ -61,6 +61,7 @@ export class PhotosService {
           user: {
             select: {
               email: true,
+              isActive: true,
               profile: { select: { name: true } },
             },
           },
@@ -79,6 +80,7 @@ export class PhotosService {
         userId: p.userId,
         ownerEmail: p.user?.email ?? null,
         ownerName: p.user?.profile?.name ?? null,
+        ownerIsActive: p.user?.isActive ?? true,
       })),
       meta: {
         page,

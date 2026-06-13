@@ -3,72 +3,72 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 
 import {
-  fetchPhotos,
-  setPhotoActive,
-  setPhotoVerified,
-  verifyPhotos,
-  type ListPhotosInput,
-} from "@/features/photos/api"
+  fetchPosts,
+  setPostActive,
+  setPostVerified,
+  verifyPosts,
+  type ListPostsInput,
+} from "@/features/posts/api"
 import { setUserActive } from "@/features/users/api"
 
-export const photosQueryKey = (input: ListPhotosInput) =>
+export const postsQueryKey = (input: ListPostsInput) =>
   [
-    "admin-photos",
+    "admin-posts",
     input.page ?? 1,
     input.limit ?? 20,
     input.search ?? "",
     input.verified ?? "unverified",
   ] as const
 
-export function usePhotosQuery(input: ListPhotosInput) {
+export function usePostsQuery(input: ListPostsInput) {
   return useQuery({
-    queryKey: photosQueryKey(input),
-    queryFn: () => fetchPhotos(input),
+    queryKey: postsQueryKey(input),
+    queryFn: () => fetchPosts(input),
     placeholderData: (prev) => prev,
     staleTime: 30_000,
   })
 }
 
-export function useSetPhotoVerifiedMutation() {
+export function useSetPostVerifiedMutation() {
   const queryClient = useQueryClient()
   return useMutation({
     mutationFn: ({ id, isVerified }: { id: string; isVerified: boolean }) =>
-      setPhotoVerified(id, isVerified),
+      setPostVerified(id, isVerified),
     onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ["admin-photos"] })
+      queryClient.invalidateQueries({ queryKey: ["admin-posts"] })
     },
   })
 }
 
-export function useVerifyPhotosMutation() {
+export function useVerifyPostsMutation() {
   const queryClient = useQueryClient()
   return useMutation({
     mutationFn: ({ ids, isVerified = true }: { ids: string[]; isVerified?: boolean }) =>
-      verifyPhotos(ids, isVerified),
+      verifyPosts(ids, isVerified),
     onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ["admin-photos"] })
+      queryClient.invalidateQueries({ queryKey: ["admin-posts"] })
     },
   })
 }
 
-export function useSetPhotoActiveMutation() {
+export function useSetPostActiveMutation() {
   const queryClient = useQueryClient()
   return useMutation({
     mutationFn: ({ id, isActive }: { id: string; isActive: boolean }) =>
-      setPhotoActive(id, isActive),
+      setPostActive(id, isActive),
     onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ["admin-photos"] })
+      queryClient.invalidateQueries({ queryKey: ["admin-posts"] })
     },
   })
 }
 
-export function useSetPhotoOwnerActiveMutation() {
+export function useSetPostOwnerActiveMutation() {
   const queryClient = useQueryClient()
   return useMutation({
     mutationFn: ({ id, isActive }: { id: string; isActive: boolean }) =>
       setUserActive(id, isActive),
     onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ["admin-photos"] })
+      queryClient.invalidateQueries({ queryKey: ["admin-posts"] })
       queryClient.invalidateQueries({ queryKey: ["admin-users"] })
     },
   })

@@ -5,6 +5,7 @@ import {
   Get,
   Param,
   ParseUUIDPipe,
+  Patch,
   Post,
   Query,
   UploadedFiles,
@@ -22,6 +23,7 @@ import { memoryFileStorage } from '../photos/multer.config';
 import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { GetPostsDto } from './dto/get-posts.dto';
+import { ListPostsDto, VerifyPostsDto } from './dto/list-posts.dto';
 import { SwipePostDto } from './dto/swipe-post.dto';
 
 @ApiTags('Posts')
@@ -29,6 +31,36 @@ import { SwipePostDto } from './dto/swipe-post.dto';
 @Controller('posts')
 export class PostsController {
   constructor(private readonly postsService: PostsService) {}
+
+  @UseGuards(JwtAuthGuard)
+  @Get('admin')
+  listForAdmin(@Query() query: ListPostsDto) {
+    return this.postsService.listForAdmin(query);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch('admin/:postId/verify')
+  verifyPost(
+    @Param('postId', new ParseUUIDPipe()) postId: string,
+    @Body() body: { isVerified: boolean },
+  ) {
+    return this.postsService.setVerified(postId, body.isVerified);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('admin/verify')
+  verifyManyPosts(@Body() body: VerifyPostsDto) {
+    return this.postsService.verifyMany(body.ids, body.isVerified ?? true);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch('admin/:postId/active')
+  setPostActive(
+    @Param('postId', new ParseUUIDPipe()) postId: string,
+    @Body() body: { isActive: boolean },
+  ) {
+    return this.postsService.setActive(postId, body.isActive);
+  }
 
   @UseGuards(JwtAuthGuard)
   @Get()

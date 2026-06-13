@@ -7,6 +7,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { ImageKitService } from '../photos/imagekit.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { GetPostsDto } from './dto/get-posts.dto';
+import { ListPostsDto } from './dto/list-posts.dto';
 import { SwipePostDto } from './dto/swipe-post.dto';
 import { Prisma } from '../generated/prisma/client';
 import { SwipeType } from '../generated/prisma/enums';
@@ -27,6 +28,124 @@ export class PostsService {
     private readonly prisma: PrismaService,
     private readonly imageKitService: ImageKitService,
   ) {}
+
+  async listForAdmin(dto: ListPostsDto) {
+    const page = dto.page ?? 1;
+    const limit = dto.limit ?? 20;
+    const skip = (page - 1) * limit;
+    const search = dto.search?.trim();
+    const verified = dto.verified ?? 'unverified';
+
+    const where: Prisma.PostWhereInput = {};
+    if (search) {
+      where.user = {
+        is: {
+          OR: [
+            { email: { contains: search, mode: 'insensitive' } },
+            {
+              profile: {
+                is: { name: { contains: search, mode: 'insensitive' } },
+              },
+            },
+          ],
+        },
+      };
+    }
+
+    if (verified === 'verified') {
+      where.isVerified = true;
+    } else if (verified === 'unverified') {
+      where.isVerified = false;
+    }
+
+    const [total, items] = await this.prisma.$transaction([
+      this.prisma.post.count({ where }),
+      this.prisma.post.findMany({
+        where,
+        orderBy: { createdAt: 'desc' },
+        skip,
+        take: limit,
+        select: {
+          id: true,
+          prompt: true,
+          imageUrls: true,
+          isVerified: true,
+          isActive: true,
+          createdAt: true,
+          userId: true,
+          user: {
+            select: {
+              email: true,
+              isActive: true,
+              profile: { select: { name: true } },
+            },
+          },
+        },
+      }),
+    ]);
+
+    return {
+      data: items.map((p) => ({
+        id: p.id,
+        prompt: p.prompt,
+        imageUrls: p.imageUrls,
+        isVerified: p.isVerified,
+        isActive: p.isActive,
+        createdAt: p.createdAt,
+        userId: p.userId,
+        ownerEmail: p.user?.email ?? null,
+        ownerName: p.user?.profile?.name ?? null,
+        ownerIsActive: p.user?.isActive ?? true,
+      })),
+      meta: {
+        page,
+        limit,
+        total,
+        totalPages: Math.max(1, Math.ceil(total / limit)),
+      },
+    };
+  }
+
+  async setVerified(postId: string, isVerified: boolean) {
+    const post = await this.prisma.post.findUnique({
+      where: { id: postId },
+      select: { id: true },
+    });
+    if (!post) {
+      throw new NotFoundException('Post not found');
+    }
+    await this.prisma.post.update({
+      where: { id: postId },
+      data: { isVerified },
+    });
+    return { id: postId, isVerified };
+  }
+
+  async verifyMany(ids: string[], isVerified: boolean) {
+    if (!ids?.length) {
+      throw new BadRequestException('No posts selected');
+    }
+    const result = await this.prisma.post.updateMany({
+      where: { id: { in: ids } },
+      data: { isVerified },
+    });
+    return { count: result.count, isVerified };
+  }
+
+  async setActive(postId: string, isActive: boolean) {
+    const post = await this.prisma.post.findUnique({
+      where: { id: postId },
+      select: { id: true },
+    });
+    if (!post) {
+      throw new NotFoundException('Post not found');
+    }
+    await this.prisma.post.update({
+      where: { id: postId },
+      data: { isActive },
+    });
+    return { id: postId, isActive };
+  }
 
   async findAllByUser(userId: string, query: GetPostsDto) {
     const page = query.page ?? 1;

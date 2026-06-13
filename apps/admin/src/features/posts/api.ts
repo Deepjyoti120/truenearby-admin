@@ -1,11 +1,11 @@
 import { apiFetch, parseApiError } from "@/lib/api"
 
-export type PhotoVerifiedFilter = "verified" | "unverified" | "all"
+export type PostVerifiedFilter = "verified" | "unverified" | "all"
 
-export type AdminPhotoRow = {
+export type AdminPostRow = {
   id: string
-  url: string
-  isPrimary: boolean
+  prompt: string | null
+  imageUrls: string[]
   isVerified: boolean
   isActive: boolean
   createdAt: string
@@ -15,8 +15,8 @@ export type AdminPhotoRow = {
   ownerIsActive: boolean
 }
 
-export type ListPhotosResponse = {
-  data: AdminPhotoRow[]
+export type ListPostsResponse = {
+  data: AdminPostRow[]
   meta: {
     page: number
     limit: number
@@ -31,16 +31,16 @@ type Envelope<T> = {
   data?: T
 }
 
-export type ListPhotosInput = {
+export type ListPostsInput = {
   page?: number
   limit?: number
   search?: string
-  verified?: PhotoVerifiedFilter
+  verified?: PostVerifiedFilter
 }
 
-export async function fetchPhotos(
-  input: ListPhotosInput,
-): Promise<ListPhotosResponse> {
+export async function fetchPosts(
+  input: ListPostsInput,
+): Promise<ListPostsResponse> {
   const params = new URLSearchParams()
   if (input.page) params.set("page", String(input.page))
   if (input.limit) params.set("limit", String(input.limit))
@@ -48,54 +48,54 @@ export async function fetchPhotos(
   if (input.verified) params.set("verified", input.verified)
 
   const qs = params.toString()
-  const res = await apiFetch(`/api/v1/photos/admin${qs ? `?${qs}` : ""}`)
+  const res = await apiFetch(`/api/v1/posts/admin${qs ? `?${qs}` : ""}`)
 
   if (!res.ok) {
-    throw new Error(await parseApiError(res, "Failed to load photos"))
+    throw new Error(await parseApiError(res, "Failed to load posts"))
   }
 
-  const body = (await res.json()) as Envelope<ListPhotosResponse>
+  const body = (await res.json()) as Envelope<ListPostsResponse>
   if (!body?.data) {
-    throw new Error("Invalid photos response returned from API")
+    throw new Error("Invalid posts response returned from API")
   }
   return body.data
 }
 
-export async function setPhotoVerified(photoId: string, isVerified: boolean) {
-  const res = await apiFetch(`/api/v1/photos/admin/${photoId}/verify`, {
+export async function setPostVerified(postId: string, isVerified: boolean) {
+  const res = await apiFetch(`/api/v1/posts/admin/${postId}/verify`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ isVerified }),
   })
 
   if (!res.ok) {
-    throw new Error(await parseApiError(res, "Failed to update photo"))
+    throw new Error(await parseApiError(res, "Failed to update post"))
   }
   return (await res.json()) as Envelope<{ id: string; isVerified: boolean }>
 }
 
-export async function verifyPhotos(ids: string[], isVerified = true) {
-  const res = await apiFetch(`/api/v1/photos/admin/verify`, {
+export async function verifyPosts(ids: string[], isVerified = true) {
+  const res = await apiFetch(`/api/v1/posts/admin/verify`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ ids, isVerified }),
   })
 
   if (!res.ok) {
-    throw new Error(await parseApiError(res, "Failed to verify photos"))
+    throw new Error(await parseApiError(res, "Failed to verify posts"))
   }
   return (await res.json()) as Envelope<{ count: number; isVerified: boolean }>
 }
 
-export async function setPhotoActive(photoId: string, isActive: boolean) {
-  const res = await apiFetch(`/api/v1/photos/admin/${photoId}/active`, {
+export async function setPostActive(postId: string, isActive: boolean) {
+  const res = await apiFetch(`/api/v1/posts/admin/${postId}/active`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ isActive }),
   })
 
   if (!res.ok) {
-    throw new Error(await parseApiError(res, "Failed to update photo"))
+    throw new Error(await parseApiError(res, "Failed to update post"))
   }
   return (await res.json()) as Envelope<{ id: string; isActive: boolean }>
 }

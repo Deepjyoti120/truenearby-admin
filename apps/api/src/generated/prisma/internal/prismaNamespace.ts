@@ -1963,6 +1963,8 @@ export const PostScalarFieldEnum = {
   prompt: 'prompt',
   imageUrls: 'imageUrls',
   imageFileIds: 'imageFileIds',
+  isVerified: 'isVerified',
+  isActive: 'isActive',
   latitude: 'latitude',
   longitude: 'longitude',
   createdAt: 'createdAt',
