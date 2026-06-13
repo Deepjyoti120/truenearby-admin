@@ -1,5 +1,5 @@
-// export const API_URL = "https://deepjyoti-next-admin-api.vercel.app"
-export const API_URL = "http://localhost:3001"
+export const API_URL = "https://deepjyoti-next-admin-api.vercel.app"
+// export const API_URL = "http://localhost:3001"
 
 const ACCESS_TOKEN_KEY = "accessToken"
 const REFRESH_TOKEN_KEY = "refreshToken"
