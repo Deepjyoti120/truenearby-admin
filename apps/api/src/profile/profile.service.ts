@@ -803,6 +803,8 @@ export class ProfileService {
         id: {
           in: postIds,
         },
+        isActive: true,
+        isVerified: true,
       },
       select: FEED_POST_SELECT,
     });
