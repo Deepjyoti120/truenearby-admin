@@ -77,7 +77,7 @@ export function AppSidebarLayout({
               </div>
             </div>
 
-            <div className="hidden items-center gap-3 lg:flex">
+            {/* <div className="hidden items-center gap-3 lg:flex">
               <div className="flex h-11 w-72 items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50/80 px-4 text-slate-500">
                 <Search className="size-4" />
                 <span className="text-sm">Search navigation, pages, or settings</span>
@@ -85,7 +85,7 @@ export function AppSidebarLayout({
               <Button variant="outline" size="icon" className="rounded-2xl bg-white">
                 <Bell className="size-4" />
               </Button>
-            </div>
+            </div> */}
           </div>
         </header>
 
