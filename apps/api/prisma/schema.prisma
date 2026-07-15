@@ -27,6 +27,7 @@ model User {
   matchesB       Match[]         @relation("MatchB")
   messages       Message[]
   userSubscriptions UserSubscription[]
+  paymentOrders  PaymentOrder[]
   blocksSent     Block[]         @relation("BlocksSent")
   blocksReceived Block[]         @relation("BlocksReceived")
   swipesSent     Swipe[]         @relation("SwipesSent")
@@ -302,6 +303,7 @@ model SubscriptionPlan {
   price           Decimal @default(0) @db.Decimal(10, 2)
 
   userSubscriptions UserSubscription[]
+  paymentOrders     PaymentOrder[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -330,6 +332,41 @@ model UserSubscription {
   @@index([userId, isActive, endAt])
   @@index([subscriptionPlanId])
   @@map("user_subscriptions")
+}
+
+// One row per Razorpay order. Created before checkout opens; flipped to PAID
+// by signature-verified /payments/razorpay/verify or the Razorpay webhook
+// (whichever lands first — both paths are idempotent). `appId` tags which app
+// the order belongs to so one Razorpay account can serve multiple apps and
+// each app's webhook only processes its own orders.
+model PaymentOrder {
+  id                 String @id @default(uuid()) @db.Uuid
+  userId             String @db.Uuid
+  subscriptionPlanId String @db.Uuid
+
+  provider          String  @default("razorpay")
+  razorpayOrderId   String  @unique
+  razorpayPaymentId String?
+  razorpaySignature String?
+
+  // Amount in major currency units (mirrors SubscriptionPlan.price at order
+  // time). Razorpay itself is charged in subunits (amount * 100).
+  amount   Decimal            @db.Decimal(10, 2)
+  currency String
+  status   PaymentOrderStatus @default(CREATED)
+  appId    String
+
+  paidAt             DateTime?
+  userSubscriptionId String?   @db.Uuid
+
+  user             User             @relation(fields: [userId], references: [id])
+  subscriptionPlan SubscriptionPlan @relation(fields: [subscriptionPlanId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, status])
+  @@map("payment_orders")
 }
 
 model Swipe {
@@ -372,6 +409,12 @@ model AppSettings {
   updatedAt DateTime @updatedAt
 
   @@map("app_settings")
+}
+
+enum PaymentOrderStatus {
+  CREATED
+  PAID
+  FAILED
 }
 
 enum SwipeType {

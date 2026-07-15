@@ -16,6 +16,7 @@ import { SubscriptionsModule } from './subscriptions/subscriptions.module';
 import { FirebaseModule } from './firebase/firebase.module';
 import { ReportModule } from './report/report.module';
 import { SettingsModule } from './settings/settings.module';
+import { PaymentsModule } from './payments/payments.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { SettingsModule } from './settings/settings.module';
     FirebaseModule,
     ReportModule,
     SettingsModule,
+    PaymentsModule,
   ],
   providers: [
     {

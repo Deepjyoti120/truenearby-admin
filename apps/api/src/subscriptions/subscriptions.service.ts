@@ -345,7 +345,11 @@ export class SubscriptionsService {
     };
   }
 
-  async activateSubscription(userId: string, planId: string) {
+  async activateSubscription(
+    userId: string,
+    planId: string,
+    options?: { allowPaid?: boolean },
+  ) {
     await this.ensureDefaultPlans();
 
     const planRecord = await this.prisma.subscriptionPlan.findUnique({
@@ -356,6 +360,15 @@ export class SubscriptionsService {
 
     if (!planRecord || !planRecord.isActive) {
       throw new NotFoundException('Subscription plan not found');
+    }
+
+    // Paid plans can only be activated through the payments flow (Razorpay
+    // order + verified payment/webhook). The public activate endpoint stays
+    // open for free-tier switches only.
+    if (!options?.allowPaid && this.priceToNumber(planRecord.price) > 0) {
+      throw new ForbiddenException(
+        'This plan requires payment. Complete checkout to activate it.',
+      );
     }
 
     const now = new Date();

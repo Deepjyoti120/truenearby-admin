@@ -14,6 +14,9 @@ async function bootstrap() {
   const app = await NestFactory.create(
     AppModule,
     new ExpressAdapter(expressApp),
+    // rawBody keeps the unparsed request body available for webhook HMAC
+    // verification (Razorpay signs the exact bytes it sends).
+    { rawBody: true },
   );
   app.use(cookieParser());
   app.enableCors({ origin: true, credentials: true });

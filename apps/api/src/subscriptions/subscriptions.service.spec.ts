@@ -123,7 +123,9 @@ describe('SubscriptionsService', () => {
     prisma.subscriptionPlan.findUnique.mockResolvedValue(plusPlan);
     prisma.$transaction.mockImplementation(async (callback) => callback(tx));
 
-    const result = await service.activateSubscription('user-1', 'plan-plus');
+    const result = await service.activateSubscription('user-1', 'plan-plus', {
+      allowPaid: true,
+    });
 
     expect(prisma.subscriptionPlan.findUnique).toHaveBeenCalledWith({
       where: { id: 'plan-plus' },
@@ -167,5 +169,15 @@ describe('SubscriptionsService', () => {
       cancelledAt: null,
       features: PLUS_FEATURES,
     });
+  });
+
+  it('rejects direct activation of a paid plan without payment', async () => {
+    prisma.subscriptionPlan.upsert.mockResolvedValue(undefined);
+    prisma.subscriptionPlan.findUnique.mockResolvedValue(buildPlanRecord());
+
+    await expect(
+      service.activateSubscription('user-1', 'plan-plus'),
+    ).rejects.toThrow('This plan requires payment');
+    expect(prisma.$transaction).not.toHaveBeenCalled();
   });
 });

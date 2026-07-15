@@ -67,6 +67,7 @@ export const ModelName = {
   Block: 'Block',
   SubscriptionPlan: 'SubscriptionPlan',
   UserSubscription: 'UserSubscription',
+  PaymentOrder: 'PaymentOrder',
   Swipe: 'Swipe',
   Report: 'Report',
   AppSettings: 'AppSettings'
@@ -308,6 +309,27 @@ export const UserSubscriptionScalarFieldEnum = {
 } as const
 
 export type UserSubscriptionScalarFieldEnum = (typeof UserSubscriptionScalarFieldEnum)[keyof typeof UserSubscriptionScalarFieldEnum]
+
+
+export const PaymentOrderScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  subscriptionPlanId: 'subscriptionPlanId',
+  provider: 'provider',
+  razorpayOrderId: 'razorpayOrderId',
+  razorpayPaymentId: 'razorpayPaymentId',
+  razorpaySignature: 'razorpaySignature',
+  amount: 'amount',
+  currency: 'currency',
+  status: 'status',
+  appId: 'appId',
+  paidAt: 'paidAt',
+  userSubscriptionId: 'userSubscriptionId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PaymentOrderScalarFieldEnum = (typeof PaymentOrderScalarFieldEnum)[keyof typeof PaymentOrderScalarFieldEnum]
 
 
 export const SwipeScalarFieldEnum = {

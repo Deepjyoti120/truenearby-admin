@@ -118,6 +118,11 @@ export type SubscriptionPlan = Prisma.SubscriptionPlanModel
  */
 export type UserSubscription = Prisma.UserSubscriptionModel
 /**
+ * Model PaymentOrder
+ * 
+ */
+export type PaymentOrder = Prisma.PaymentOrderModel
+/**
  * Model Swipe
  * 
  */

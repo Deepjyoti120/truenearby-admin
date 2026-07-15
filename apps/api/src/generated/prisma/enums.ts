@@ -9,6 +9,15 @@
 * 🟢 You can import this file directly.
 */
 
+export const PaymentOrderStatus = {
+  CREATED: 'CREATED',
+  PAID: 'PAID',
+  FAILED: 'FAILED'
+} as const
+
+export type PaymentOrderStatus = (typeof PaymentOrderStatus)[keyof typeof PaymentOrderStatus]
+
+
 export const SwipeType = {
   LIKE: 'LIKE',
   PASS: 'PASS'
