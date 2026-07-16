@@ -1,4 +1,7 @@
 -- CreateEnum
+CREATE TYPE "PaymentOrderStatus" AS ENUM ('CREATED', 'PAID', 'FAILED');
+
+-- CreateEnum
 CREATE TYPE "SwipeType" AS ENUM ('LIKE', 'PASS');
 
 -- CreateEnum
@@ -10,15 +13,17 @@ CREATE TYPE "LookingFor" AS ENUM ('LONG_TERM_RELATIONSHIP', 'SERIOUS_DATING', 'M
 -- CreateEnum
 CREATE TYPE "Plan" AS ENUM ('FREE', 'PLUS', 'GOLD');
 
+-- CreateEnum
+CREATE TYPE "Role" AS ENUM ('admin', 'user');
+
 -- CreateTable
 CREATE TABLE "users" (
     "id" UUID NOT NULL,
     "email" TEXT NOT NULL,
     "phone" TEXT,
     "passwordHash" TEXT NOT NULL,
+    "role" "Role",
     "isActive" BOOLEAN NOT NULL DEFAULT true,
-    "isVerified" BOOLEAN NOT NULL DEFAULT false,
-    "isRegistered" BOOLEAN NOT NULL DEFAULT false,
     "lastActiveAt" TIMESTAMP(3),
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
@@ -44,6 +49,7 @@ CREATE TABLE "profiles" (
     "country" TEXT,
     "isHidden" BOOLEAN NOT NULL DEFAULT false,
     "isRegistered" BOOLEAN NOT NULL DEFAULT false,
+    "isVerified" BOOLEAN NOT NULL DEFAULT false,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -93,6 +99,8 @@ CREATE TABLE "photos" (
     "url" TEXT NOT NULL,
     "fileId" TEXT NOT NULL,
     "isPrimary" BOOLEAN NOT NULL DEFAULT false,
+    "isVerified" BOOLEAN NOT NULL DEFAULT false,
+    "isActive" BOOLEAN NOT NULL DEFAULT true,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "photos_pkey" PRIMARY KEY ("id")
@@ -105,12 +113,25 @@ CREATE TABLE "posts" (
     "prompt" TEXT,
     "imageUrls" TEXT[],
     "imageFileIds" TEXT[],
+    "isVerified" BOOLEAN NOT NULL DEFAULT false,
+    "isActive" BOOLEAN NOT NULL DEFAULT true,
     "latitude" DOUBLE PRECISION NOT NULL,
     "longitude" DOUBLE PRECISION NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "posts_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "latest_user_posts" (
+    "userId" UUID NOT NULL,
+    "postId" UUID NOT NULL,
+    "postCreatedAt" TIMESTAMP(3) NOT NULL,
+    "latitude" DOUBLE PRECISION NOT NULL,
+    "longitude" DOUBLE PRECISION NOT NULL,
+
+    CONSTRAINT "latest_user_posts_pkey" PRIMARY KEY ("userId")
 );
 
 -- CreateTable
@@ -176,16 +197,67 @@ CREATE TABLE "blocks" (
 );
 
 -- CreateTable
-CREATE TABLE "subscriptions" (
+CREATE TABLE "subscription_plans" (
+    "id" UUID NOT NULL,
+    "code" "Plan" NOT NULL,
+    "name" TEXT NOT NULL,
+    "description" TEXT,
+    "durationDays" INTEGER NOT NULL DEFAULT 30,
+    "isActive" BOOLEAN NOT NULL DEFAULT true,
+    "sortOrder" INTEGER NOT NULL DEFAULT 0,
+    "canReverseLastSwipe" BOOLEAN NOT NULL DEFAULT false,
+    "canChangeSwipeDecision" BOOLEAN NOT NULL DEFAULT false,
+    "canSeeWhoLikedYou" BOOLEAN NOT NULL DEFAULT false,
+    "showLikesInAdvancedHome" BOOLEAN NOT NULL DEFAULT false,
+    "dailySwipeLimit" INTEGER NOT NULL DEFAULT 20,
+    "dailySuperLikes" INTEGER NOT NULL DEFAULT 0,
+    "monthlyBoosts" INTEGER NOT NULL DEFAULT 0,
+    "canUnblurLikes" BOOLEAN NOT NULL DEFAULT false,
+    "canPassport" BOOLEAN NOT NULL DEFAULT false,
+    "hideAds" BOOLEAN NOT NULL DEFAULT false,
+    "price" DECIMAL(10,2) NOT NULL DEFAULT 0,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "subscription_plans_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "user_subscriptions" (
     "id" UUID NOT NULL,
     "userId" UUID NOT NULL,
+    "subscriptionPlanId" UUID NOT NULL,
     "plan" "Plan" NOT NULL,
     "startAt" TIMESTAMP(3) NOT NULL,
     "endAt" TIMESTAMP(3) NOT NULL,
     "isActive" BOOLEAN NOT NULL DEFAULT true,
+    "cancelledAt" TIMESTAMP(3),
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "subscriptions_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "user_subscriptions_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "payment_orders" (
+    "id" UUID NOT NULL,
+    "userId" UUID NOT NULL,
+    "subscriptionPlanId" UUID NOT NULL,
+    "provider" TEXT NOT NULL DEFAULT 'razorpay',
+    "razorpayOrderId" TEXT NOT NULL,
+    "razorpayPaymentId" TEXT,
+    "razorpaySignature" TEXT,
+    "amount" DECIMAL(10,2) NOT NULL,
+    "currency" TEXT NOT NULL,
+    "status" "PaymentOrderStatus" NOT NULL DEFAULT 'CREATED',
+    "appId" TEXT NOT NULL,
+    "isWebhook" BOOLEAN NOT NULL DEFAULT false,
+    "paidAt" TIMESTAMP(3),
+    "userSubscriptionId" UUID,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "payment_orders_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -197,6 +269,29 @@ CREATE TABLE "swipes" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "swipes_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "reports" (
+    "id" UUID NOT NULL,
+    "isSolved" BOOLEAN NOT NULL DEFAULT false,
+    "description" TEXT,
+    "userId" UUID NOT NULL,
+    "reportedUserId" UUID NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "reports_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "app_settings" (
+    "id" TEXT NOT NULL DEFAULT 'singleton',
+    "appName" TEXT NOT NULL DEFAULT 'Dating Admin',
+    "currency" TEXT NOT NULL DEFAULT 'USD',
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "app_settings_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -236,6 +331,18 @@ CREATE INDEX "photos_userId_idx" ON "photos"("userId");
 CREATE INDEX "posts_userId_createdAt_idx" ON "posts"("userId", "createdAt");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "latest_user_posts_postId_key" ON "latest_user_posts"("postId");
+
+-- CreateIndex
+CREATE INDEX "latest_user_posts_postCreatedAt_idx" ON "latest_user_posts"("postCreatedAt" DESC);
+
+-- CreateIndex
+CREATE INDEX "latest_user_posts_latitude_longitude_idx" ON "latest_user_posts"("latitude", "longitude");
+
+-- CreateIndex
+CREATE INDEX "latest_user_posts_latitude_longitude_postCreatedAt_idx" ON "latest_user_posts"("latitude", "longitude", "postCreatedAt" DESC);
+
+-- CreateIndex
 CREATE INDEX "post_swipes_postId_idx" ON "post_swipes"("postId");
 
 -- CreateIndex
@@ -257,6 +364,21 @@ CREATE UNIQUE INDEX "chats_matchId_key" ON "chats"("matchId");
 CREATE UNIQUE INDEX "blocks_blockerId_blockedId_key" ON "blocks"("blockerId", "blockedId");
 
 -- CreateIndex
+CREATE INDEX "subscription_plans_code_idx" ON "subscription_plans"("code");
+
+-- CreateIndex
+CREATE INDEX "user_subscriptions_userId_isActive_endAt_idx" ON "user_subscriptions"("userId", "isActive", "endAt");
+
+-- CreateIndex
+CREATE INDEX "user_subscriptions_subscriptionPlanId_idx" ON "user_subscriptions"("subscriptionPlanId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "payment_orders_razorpayOrderId_key" ON "payment_orders"("razorpayOrderId");
+
+-- CreateIndex
+CREATE INDEX "payment_orders_userId_status_idx" ON "payment_orders"("userId", "status");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "swipes_fromUserId_toUserId_key" ON "swipes"("fromUserId", "toUserId");
 
 -- AddForeignKey
@@ -276,6 +398,12 @@ ALTER TABLE "photos" ADD CONSTRAINT "photos_userId_fkey" FOREIGN KEY ("userId") 
 
 -- AddForeignKey
 ALTER TABLE "posts" ADD CONSTRAINT "posts_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "latest_user_posts" ADD CONSTRAINT "latest_user_posts_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "latest_user_posts" ADD CONSTRAINT "latest_user_posts_postId_fkey" FOREIGN KEY ("postId") REFERENCES "posts"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "post_swipes" ADD CONSTRAINT "post_swipes_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
@@ -311,10 +439,25 @@ ALTER TABLE "blocks" ADD CONSTRAINT "blocks_blockerId_fkey" FOREIGN KEY ("blocke
 ALTER TABLE "blocks" ADD CONSTRAINT "blocks_blockedId_fkey" FOREIGN KEY ("blockedId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "subscriptions" ADD CONSTRAINT "subscriptions_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "user_subscriptions" ADD CONSTRAINT "user_subscriptions_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "user_subscriptions" ADD CONSTRAINT "user_subscriptions_subscriptionPlanId_fkey" FOREIGN KEY ("subscriptionPlanId") REFERENCES "subscription_plans"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "payment_orders" ADD CONSTRAINT "payment_orders_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "payment_orders" ADD CONSTRAINT "payment_orders_subscriptionPlanId_fkey" FOREIGN KEY ("subscriptionPlanId") REFERENCES "subscription_plans"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "swipes" ADD CONSTRAINT "swipes_fromUserId_fkey" FOREIGN KEY ("fromUserId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "swipes" ADD CONSTRAINT "swipes_toUserId_fkey" FOREIGN KEY ("toUserId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "reports" ADD CONSTRAINT "reports_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "reports" ADD CONSTRAINT "reports_reportedUserId_fkey" FOREIGN KEY ("reportedUserId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
