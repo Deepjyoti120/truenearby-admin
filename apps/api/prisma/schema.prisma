@@ -355,6 +355,7 @@ model PaymentOrder {
   currency String
   status   PaymentOrderStatus @default(CREATED)
   appId    String
+  isWebhook Boolean  @default(false)
 
   paidAt             DateTime?
   userSubscriptionId String?   @db.Uuid

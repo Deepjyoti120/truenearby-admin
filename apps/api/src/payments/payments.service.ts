@@ -145,12 +145,12 @@ export class PaymentsService {
     if (!this.safeEqual(expected, dto.razorpaySignature)) {
       throw new BadRequestException('Invalid payment signature');
     }
-
-    return this.markPaidAndActivate(
-      dto.razorpayOrderId,
-      dto.razorpayPaymentId,
-      dto.razorpaySignature,
-    );
+    return this.markPaidAndActivate({
+      razorpayOrderId: dto.razorpayOrderId,
+      razorpayPaymentId: dto.razorpayPaymentId,
+      razorpaySignature: dto.razorpaySignature,
+      isWebhook: false,
+    });
   }
 
   async handleWebhook(rawBody: Buffer | undefined, signature?: string) {
@@ -196,7 +196,11 @@ export class PaymentsService {
     switch (event.event) {
       case 'payment.captured':
       case 'order.paid': {
-        await this.markPaidAndActivate(razorpayOrderId, paymentEntity?.id);
+        await this.markPaidAndActivate({
+          razorpayOrderId,
+          razorpayPaymentId: paymentEntity?.id,
+          isWebhook: true,
+        });
         this.logger.log(
           `Webhook ${event.event}: order ${razorpayOrderId} paid, subscription activated for user ${order.userId}`,
         );
@@ -222,17 +226,24 @@ export class PaymentsService {
 
   // Shared by verify + webhook; whichever lands first activates, the other
   // becomes a no-op thanks to the atomic status claim.
-  private async markPaidAndActivate(
-    razorpayOrderId: string,
-    razorpayPaymentId?: string,
-    razorpaySignature?: string,
-  ) {
+  private async markPaidAndActivate({
+    razorpayOrderId,
+    razorpayPaymentId,
+    razorpaySignature,
+    isWebhook,
+  }: {
+    razorpayOrderId: string;
+    razorpayPaymentId?: string;
+    razorpaySignature?: string;
+    isWebhook: boolean;
+  }) {
     const claimed = await this.prisma.paymentOrder.updateMany({
       where: {
         razorpayOrderId,
         status: { not: PaymentOrderStatus.PAID },
       },
       data: {
+        isWebhook: isWebhook,
         status: PaymentOrderStatus.PAID,
         paidAt: new Date(),
         ...(razorpayPaymentId ? { razorpayPaymentId } : {}),
