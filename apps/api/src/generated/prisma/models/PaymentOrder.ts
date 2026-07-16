@@ -46,6 +46,7 @@ export type PaymentOrderMinAggregateOutputType = {
   currency: string | null
   status: $Enums.PaymentOrderStatus | null
   appId: string | null
+  isWebhook: boolean | null
   paidAt: Date | null
   userSubscriptionId: string | null
   createdAt: Date | null
@@ -64,6 +65,7 @@ export type PaymentOrderMaxAggregateOutputType = {
   currency: string | null
   status: $Enums.PaymentOrderStatus | null
   appId: string | null
+  isWebhook: boolean | null
   paidAt: Date | null
   userSubscriptionId: string | null
   createdAt: Date | null
@@ -82,6 +84,7 @@ export type PaymentOrderCountAggregateOutputType = {
   currency: number
   status: number
   appId: number
+  isWebhook: number
   paidAt: number
   userSubscriptionId: number
   createdAt: number
@@ -110,6 +113,7 @@ export type PaymentOrderMinAggregateInputType = {
   currency?: true
   status?: true
   appId?: true
+  isWebhook?: true
   paidAt?: true
   userSubscriptionId?: true
   createdAt?: true
@@ -128,6 +132,7 @@ export type PaymentOrderMaxAggregateInputType = {
   currency?: true
   status?: true
   appId?: true
+  isWebhook?: true
   paidAt?: true
   userSubscriptionId?: true
   createdAt?: true
@@ -146,6 +151,7 @@ export type PaymentOrderCountAggregateInputType = {
   currency?: true
   status?: true
   appId?: true
+  isWebhook?: true
   paidAt?: true
   userSubscriptionId?: true
   createdAt?: true
@@ -251,6 +257,7 @@ export type PaymentOrderGroupByOutputType = {
   currency: string
   status: $Enums.PaymentOrderStatus
   appId: string
+  isWebhook: boolean
   paidAt: Date | null
   userSubscriptionId: string | null
   createdAt: Date
@@ -292,6 +299,7 @@ export type PaymentOrderWhereInput = {
   currency?: Prisma.StringFilter<"PaymentOrder"> | string
   status?: Prisma.EnumPaymentOrderStatusFilter<"PaymentOrder"> | $Enums.PaymentOrderStatus
   appId?: Prisma.StringFilter<"PaymentOrder"> | string
+  isWebhook?: Prisma.BoolFilter<"PaymentOrder"> | boolean
   paidAt?: Prisma.DateTimeNullableFilter<"PaymentOrder"> | Date | string | null
   userSubscriptionId?: Prisma.UuidNullableFilter<"PaymentOrder"> | string | null
   createdAt?: Prisma.DateTimeFilter<"PaymentOrder"> | Date | string
@@ -312,6 +320,7 @@ export type PaymentOrderOrderByWithRelationInput = {
   currency?: Prisma.SortOrder
   status?: Prisma.SortOrder
   appId?: Prisma.SortOrder
+  isWebhook?: Prisma.SortOrder
   paidAt?: Prisma.SortOrderInput | Prisma.SortOrder
   userSubscriptionId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -335,6 +344,7 @@ export type PaymentOrderWhereUniqueInput = Prisma.AtLeast<{
   currency?: Prisma.StringFilter<"PaymentOrder"> | string
   status?: Prisma.EnumPaymentOrderStatusFilter<"PaymentOrder"> | $Enums.PaymentOrderStatus
   appId?: Prisma.StringFilter<"PaymentOrder"> | string
+  isWebhook?: Prisma.BoolFilter<"PaymentOrder"> | boolean
   paidAt?: Prisma.DateTimeNullableFilter<"PaymentOrder"> | Date | string | null
   userSubscriptionId?: Prisma.UuidNullableFilter<"PaymentOrder"> | string | null
   createdAt?: Prisma.DateTimeFilter<"PaymentOrder"> | Date | string
@@ -355,6 +365,7 @@ export type PaymentOrderOrderByWithAggregationInput = {
   currency?: Prisma.SortOrder
   status?: Prisma.SortOrder
   appId?: Prisma.SortOrder
+  isWebhook?: Prisma.SortOrder
   paidAt?: Prisma.SortOrderInput | Prisma.SortOrder
   userSubscriptionId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -381,6 +392,7 @@ export type PaymentOrderScalarWhereWithAggregatesInput = {
   currency?: Prisma.StringWithAggregatesFilter<"PaymentOrder"> | string
   status?: Prisma.EnumPaymentOrderStatusWithAggregatesFilter<"PaymentOrder"> | $Enums.PaymentOrderStatus
   appId?: Prisma.StringWithAggregatesFilter<"PaymentOrder"> | string
+  isWebhook?: Prisma.BoolWithAggregatesFilter<"PaymentOrder"> | boolean
   paidAt?: Prisma.DateTimeNullableWithAggregatesFilter<"PaymentOrder"> | Date | string | null
   userSubscriptionId?: Prisma.UuidNullableWithAggregatesFilter<"PaymentOrder"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"PaymentOrder"> | Date | string
@@ -397,6 +409,7 @@ export type PaymentOrderCreateInput = {
   currency: string
   status?: $Enums.PaymentOrderStatus
   appId: string
+  isWebhook?: boolean
   paidAt?: Date | string | null
   userSubscriptionId?: string | null
   createdAt?: Date | string
@@ -417,6 +430,7 @@ export type PaymentOrderUncheckedCreateInput = {
   currency: string
   status?: $Enums.PaymentOrderStatus
   appId: string
+  isWebhook?: boolean
   paidAt?: Date | string | null
   userSubscriptionId?: string | null
   createdAt?: Date | string
@@ -433,6 +447,7 @@ export type PaymentOrderUpdateInput = {
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumPaymentOrderStatusFieldUpdateOperationsInput | $Enums.PaymentOrderStatus
   appId?: Prisma.StringFieldUpdateOperationsInput | string
+  isWebhook?: Prisma.BoolFieldUpdateOperationsInput | boolean
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -453,6 +468,7 @@ export type PaymentOrderUncheckedUpdateInput = {
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumPaymentOrderStatusFieldUpdateOperationsInput | $Enums.PaymentOrderStatus
   appId?: Prisma.StringFieldUpdateOperationsInput | string
+  isWebhook?: Prisma.BoolFieldUpdateOperationsInput | boolean
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -471,6 +487,7 @@ export type PaymentOrderCreateManyInput = {
   currency: string
   status?: $Enums.PaymentOrderStatus
   appId: string
+  isWebhook?: boolean
   paidAt?: Date | string | null
   userSubscriptionId?: string | null
   createdAt?: Date | string
@@ -487,6 +504,7 @@ export type PaymentOrderUpdateManyMutationInput = {
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumPaymentOrderStatusFieldUpdateOperationsInput | $Enums.PaymentOrderStatus
   appId?: Prisma.StringFieldUpdateOperationsInput | string
+  isWebhook?: Prisma.BoolFieldUpdateOperationsInput | boolean
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -505,6 +523,7 @@ export type PaymentOrderUncheckedUpdateManyInput = {
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumPaymentOrderStatusFieldUpdateOperationsInput | $Enums.PaymentOrderStatus
   appId?: Prisma.StringFieldUpdateOperationsInput | string
+  isWebhook?: Prisma.BoolFieldUpdateOperationsInput | boolean
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -533,6 +552,7 @@ export type PaymentOrderCountOrderByAggregateInput = {
   currency?: Prisma.SortOrder
   status?: Prisma.SortOrder
   appId?: Prisma.SortOrder
+  isWebhook?: Prisma.SortOrder
   paidAt?: Prisma.SortOrder
   userSubscriptionId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -555,6 +575,7 @@ export type PaymentOrderMaxOrderByAggregateInput = {
   currency?: Prisma.SortOrder
   status?: Prisma.SortOrder
   appId?: Prisma.SortOrder
+  isWebhook?: Prisma.SortOrder
   paidAt?: Prisma.SortOrder
   userSubscriptionId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -573,6 +594,7 @@ export type PaymentOrderMinOrderByAggregateInput = {
   currency?: Prisma.SortOrder
   status?: Prisma.SortOrder
   appId?: Prisma.SortOrder
+  isWebhook?: Prisma.SortOrder
   paidAt?: Prisma.SortOrder
   userSubscriptionId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -681,6 +703,7 @@ export type PaymentOrderCreateWithoutUserInput = {
   currency: string
   status?: $Enums.PaymentOrderStatus
   appId: string
+  isWebhook?: boolean
   paidAt?: Date | string | null
   userSubscriptionId?: string | null
   createdAt?: Date | string
@@ -699,6 +722,7 @@ export type PaymentOrderUncheckedCreateWithoutUserInput = {
   currency: string
   status?: $Enums.PaymentOrderStatus
   appId: string
+  isWebhook?: boolean
   paidAt?: Date | string | null
   userSubscriptionId?: string | null
   createdAt?: Date | string
@@ -746,6 +770,7 @@ export type PaymentOrderScalarWhereInput = {
   currency?: Prisma.StringFilter<"PaymentOrder"> | string
   status?: Prisma.EnumPaymentOrderStatusFilter<"PaymentOrder"> | $Enums.PaymentOrderStatus
   appId?: Prisma.StringFilter<"PaymentOrder"> | string
+  isWebhook?: Prisma.BoolFilter<"PaymentOrder"> | boolean
   paidAt?: Prisma.DateTimeNullableFilter<"PaymentOrder"> | Date | string | null
   userSubscriptionId?: Prisma.UuidNullableFilter<"PaymentOrder"> | string | null
   createdAt?: Prisma.DateTimeFilter<"PaymentOrder"> | Date | string
@@ -762,6 +787,7 @@ export type PaymentOrderCreateWithoutSubscriptionPlanInput = {
   currency: string
   status?: $Enums.PaymentOrderStatus
   appId: string
+  isWebhook?: boolean
   paidAt?: Date | string | null
   userSubscriptionId?: string | null
   createdAt?: Date | string
@@ -780,6 +806,7 @@ export type PaymentOrderUncheckedCreateWithoutSubscriptionPlanInput = {
   currency: string
   status?: $Enums.PaymentOrderStatus
   appId: string
+  isWebhook?: boolean
   paidAt?: Date | string | null
   userSubscriptionId?: string | null
   createdAt?: Date | string
@@ -823,6 +850,7 @@ export type PaymentOrderCreateManyUserInput = {
   currency: string
   status?: $Enums.PaymentOrderStatus
   appId: string
+  isWebhook?: boolean
   paidAt?: Date | string | null
   userSubscriptionId?: string | null
   createdAt?: Date | string
@@ -839,6 +867,7 @@ export type PaymentOrderUpdateWithoutUserInput = {
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumPaymentOrderStatusFieldUpdateOperationsInput | $Enums.PaymentOrderStatus
   appId?: Prisma.StringFieldUpdateOperationsInput | string
+  isWebhook?: Prisma.BoolFieldUpdateOperationsInput | boolean
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -857,6 +886,7 @@ export type PaymentOrderUncheckedUpdateWithoutUserInput = {
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumPaymentOrderStatusFieldUpdateOperationsInput | $Enums.PaymentOrderStatus
   appId?: Prisma.StringFieldUpdateOperationsInput | string
+  isWebhook?: Prisma.BoolFieldUpdateOperationsInput | boolean
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -874,6 +904,7 @@ export type PaymentOrderUncheckedUpdateManyWithoutUserInput = {
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumPaymentOrderStatusFieldUpdateOperationsInput | $Enums.PaymentOrderStatus
   appId?: Prisma.StringFieldUpdateOperationsInput | string
+  isWebhook?: Prisma.BoolFieldUpdateOperationsInput | boolean
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -891,6 +922,7 @@ export type PaymentOrderCreateManySubscriptionPlanInput = {
   currency: string
   status?: $Enums.PaymentOrderStatus
   appId: string
+  isWebhook?: boolean
   paidAt?: Date | string | null
   userSubscriptionId?: string | null
   createdAt?: Date | string
@@ -907,6 +939,7 @@ export type PaymentOrderUpdateWithoutSubscriptionPlanInput = {
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumPaymentOrderStatusFieldUpdateOperationsInput | $Enums.PaymentOrderStatus
   appId?: Prisma.StringFieldUpdateOperationsInput | string
+  isWebhook?: Prisma.BoolFieldUpdateOperationsInput | boolean
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -925,6 +958,7 @@ export type PaymentOrderUncheckedUpdateWithoutSubscriptionPlanInput = {
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumPaymentOrderStatusFieldUpdateOperationsInput | $Enums.PaymentOrderStatus
   appId?: Prisma.StringFieldUpdateOperationsInput | string
+  isWebhook?: Prisma.BoolFieldUpdateOperationsInput | boolean
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -942,6 +976,7 @@ export type PaymentOrderUncheckedUpdateManyWithoutSubscriptionPlanInput = {
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumPaymentOrderStatusFieldUpdateOperationsInput | $Enums.PaymentOrderStatus
   appId?: Prisma.StringFieldUpdateOperationsInput | string
+  isWebhook?: Prisma.BoolFieldUpdateOperationsInput | boolean
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -962,6 +997,7 @@ export type PaymentOrderSelect<ExtArgs extends runtime.Types.Extensions.Internal
   currency?: boolean
   status?: boolean
   appId?: boolean
+  isWebhook?: boolean
   paidAt?: boolean
   userSubscriptionId?: boolean
   createdAt?: boolean
@@ -982,6 +1018,7 @@ export type PaymentOrderSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   currency?: boolean
   status?: boolean
   appId?: boolean
+  isWebhook?: boolean
   paidAt?: boolean
   userSubscriptionId?: boolean
   createdAt?: boolean
@@ -1002,6 +1039,7 @@ export type PaymentOrderSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   currency?: boolean
   status?: boolean
   appId?: boolean
+  isWebhook?: boolean
   paidAt?: boolean
   userSubscriptionId?: boolean
   createdAt?: boolean
@@ -1022,13 +1060,14 @@ export type PaymentOrderSelectScalar = {
   currency?: boolean
   status?: boolean
   appId?: boolean
+  isWebhook?: boolean
   paidAt?: boolean
   userSubscriptionId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type PaymentOrderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "subscriptionPlanId" | "provider" | "razorpayOrderId" | "razorpayPaymentId" | "razorpaySignature" | "amount" | "currency" | "status" | "appId" | "paidAt" | "userSubscriptionId" | "createdAt" | "updatedAt", ExtArgs["result"]["paymentOrder"]>
+export type PaymentOrderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "subscriptionPlanId" | "provider" | "razorpayOrderId" | "razorpayPaymentId" | "razorpaySignature" | "amount" | "currency" | "status" | "appId" | "isWebhook" | "paidAt" | "userSubscriptionId" | "createdAt" | "updatedAt", ExtArgs["result"]["paymentOrder"]>
 export type PaymentOrderInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   subscriptionPlan?: boolean | Prisma.SubscriptionPlanDefaultArgs<ExtArgs>
@@ -1060,6 +1099,7 @@ export type $PaymentOrderPayload<ExtArgs extends runtime.Types.Extensions.Intern
     currency: string
     status: $Enums.PaymentOrderStatus
     appId: string
+    isWebhook: boolean
     paidAt: Date | null
     userSubscriptionId: string | null
     createdAt: Date
@@ -1500,6 +1540,7 @@ export interface PaymentOrderFieldRefs {
   readonly currency: Prisma.FieldRef<"PaymentOrder", 'String'>
   readonly status: Prisma.FieldRef<"PaymentOrder", 'PaymentOrderStatus'>
   readonly appId: Prisma.FieldRef<"PaymentOrder", 'String'>
+  readonly isWebhook: Prisma.FieldRef<"PaymentOrder", 'Boolean'>
   readonly paidAt: Prisma.FieldRef<"PaymentOrder", 'DateTime'>
   readonly userSubscriptionId: Prisma.FieldRef<"PaymentOrder", 'String'>
   readonly createdAt: Prisma.FieldRef<"PaymentOrder", 'DateTime'>

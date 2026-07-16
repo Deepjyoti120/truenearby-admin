@@ -323,6 +323,7 @@ export const PaymentOrderScalarFieldEnum = {
   currency: 'currency',
   status: 'status',
   appId: 'appId',
+  isWebhook: 'isWebhook',
   paidAt: 'paidAt',
   userSubscriptionId: 'userSubscriptionId',
   createdAt: 'createdAt',
